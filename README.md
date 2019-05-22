@@ -23,8 +23,7 @@ Features:
 ## Try it out
 
 ### Prerequisites
- 
-Prereq CentOS 7.x with the following packages: 
+CentOS 7.x with the following packages: 
 - [ ] open-vm-tools 
 - [ ] wget 
 - [ ] java-1.8.0-openjdk 
@@ -32,6 +31,8 @@ Prereq CentOS 7.x with the following packages:
 - [ ] gcc 
 - [ ] zip 
 - [ ] gcc-c++ 
+
+Note: Other distributions should work fine 
 
 ### Build 
 
