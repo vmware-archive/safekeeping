@@ -23,8 +23,7 @@ Features:
 ## Try it out
 
 ### Prerequisites
- 
-Prereq CentOS 7.x with the following packages: 
+CentOS 7.x with the following packages: 
 - [ ] open-vm-tools 
 - [ ] wget 
 - [ ] java-1.8.0-openjdk 
@@ -32,6 +31,8 @@ Prereq CentOS 7.x with the following packages:
 - [ ] gcc 
 - [ ] zip 
 - [ ] gcc-c++ 
+
+Note: Other distributions should work fine 
 
 ### Build 
 
@@ -66,6 +67,40 @@ safekeeping --help
 
 ## Documentation
 
+
+## Directory Contents
+### Directories
+- **vmbk**
+  - Virtual machine backup tool library written with Java using VMware vSphere SDK 6.7.0 U2
+- **vmbk-cmd**
+  - CLI to manage Safekeeping
+- **jdisklib**
+  - Native interface for VDDK written with C++ using VDDK library.
+- **jvix**
+  - Java wrapper for *jdisklib* native library
+- **nfs-client**
+  - Modified [EMC NFS Java Client](https://github.com/EMCECS/nfs-client-java) library
+- **jopt-simple**
+  - Modified [jopt-simple parsing command line](http://jopt-simple.github.io/jopt-simple/) library
+- **support**
+  - Support files 
+- **jar**
+  - Java jar files required by Safekeeping  
+- **doc**
+  - Documentation.
+- **sample_scripts**
+  - Sample scripts to be used with Safekeeping
+
+### Files
+- **LICENSE.txt**
+  - BSD-2 License file.
+- **open_source_licenses.txt**
+  - Open source License file.
+- **README.md**
+  - This file.
+- **VERSION**
+  - Safekeeping version number
+
 ## Contributing
 
 The safekeeping project team welcomes contributions from the community. Before you start working with safekeeping, please
@@ -74,3 +109,5 @@ signed as described on that page. Your signature certifies that you wrote the pa
 as an open-source patch. For more detailed information, refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
+[BSD-2 License](https://github.com/vmware/safekeeping/blob/master/LICENSE.txt)
+
