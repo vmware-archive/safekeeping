@@ -24,14 +24,25 @@ Features:
 
 ### Prerequisites
  
-* Prereq CentOS 7.x with the following packages: open-vm-tools wget java-1.8.0-openjdk ant gcc zip gcc-c++ 
+Prereq CentOS 7.x with the following packages: 
+- [ ] open-vm-tools 
+- [ ] wget 
+- [ ] java-1.8.0-openjdk 
+- [ ] ant 
+- [ ] gcc 
+- [ ] zip 
+- [ ] gcc-c++ 
 
 ### Build & Run
 
-1. Extract the tar file  
-2. copy the VDDK tar.gz inside the folder packages
-3. run ant configure
-4. 
+- Extract the Safekeeping source tar file  
+- Download the [Virtual Disk Development Kit](https://code.vmware.com/web/sdk/6.7/vddk) 
+- copy or link the _VMware-vix-disklib-6.x.y-zzzzz.x86_64.tar.gz_ to the folder **_safekeeping-1.x.y/packages_**
+- The following steps will work on most recent Linux distributions:
+```
+ant configure
+ant install
+```
 
 ## Documentation
 
