@@ -33,7 +33,7 @@ Prereq CentOS 7.x with the following packages:
 - [ ] zip 
 - [ ] gcc-c++ 
 
-### Build & Run
+### Build 
 
 - Extract the Safekeeping source tar file  
 - Download the [Virtual Disk Development Kit](https://code.vmware.com/web/sdk/6.7/vddk) 
@@ -42,6 +42,26 @@ Prereq CentOS 7.x with the following packages:
 ```
 ant configure
 ant install
+```
+### Run
+#### To run in interactive mode 
+```
+safekeeping
+or 
+/opt/vmware/safekeeping/safekeeping
+```
+#### To execute a command  
+```
+safekeeping <command> <options>
+```
+#### For example to run a backup  
+```
+safekeeping backup vm:myTestVM
+```
+### Help
+If you are looking for help, the following configure command will display a list of help options:
+```
+safekeeping --help
 ```
 
 ## Documentation
