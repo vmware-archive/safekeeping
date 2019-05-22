@@ -97,9 +97,8 @@ safekeeping --help
   - Open source License file.
 - **README.md**
   - This file.
-
-VERSION:
-  VMBK Version
+- **VERSION**
+  - Safekeeping version number
 
 ## Contributing
 
