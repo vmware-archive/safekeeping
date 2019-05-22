@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build" name="Create Runnable Jar for Project vmbk with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property environment="env"/>
+    <property name="product.name" value="safekeeping"/>
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="${dir.buildfile}"/>
+	<property name="dir.support" value="${dir.buildfile}/support"/>
+    <property name="dir.jdisklib" value="${dir.buildfile}/jdisklib"/>
+    <property name="dir.jdisklib.src" value="${dir.jdisklib}/src"/>
+    <property name="dir.vmbk" value="${dir.buildfile}/vmbk"/>
+    <property name="dir.vmbkcmd" value="${dir.buildfile}/vmbk-cmd"/>
+    <property name="dir.javalib" value="${dir.buildfile}/jar"/>
+    <property name="dir.nfs-client" value="${dir.buildfile}/nfs-client"/>
+    <property name="dir.jvix" value="${dir.buildfile}/jvix"/>
+    <property name="dir.jopt-simple" value="${dir.buildfile}/jopt-simple"/>
+    <condition property="isWindows">
+        <os family="windows"/>
+    </condition>
+    <condition property="isUnix">
+        <os family="unix"/>
+    </condition>
+    <target name="build" depends="build-unix, build-win"/>
+    <target name="build-unix" description="Compile the code for Linux" if="isUnix">
+        <ant antfile="build.xml" target="jar" dir="${dir.jvix}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.nfs-client}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.jopt-simple}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.vmbk}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.vmbkcmd}" inheritall="false"/> 
+        <exec executable="make" dir="${dir.jdisklib.src}">
+        </exec>
+    </target>
+    <target name="build-win" description="Compile the code for Windows" if="isWindows">
+        <ant antfile="build.xml" target="jar" dir="${dir.jvix}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.nfs-client}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.jopt-simple}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.vmbk}" inheritall="false"/>
+        <ant antfile="build.xml" target="jar" dir="${dir.vmbkcmd}" inheritall="false"/>
+        <!--   <exec executable="nmake" dir="${dir.jdisklib.src}" >         
+        </exec>  -->
+    </target>
+    <target name="update" description="Install Safekeeping" depends="build">
+        <condition property="dest.install" else="/opt/vmware/safekeeping">
+            <isset property="dest.install"/>
+        </condition>
+        <property name="dest.confdir" value="${dest.install}/conf"/>
+        <copy todir="${java.io.tmpdir}/conf" overwrite="true">
+            <fileset dir="${dest.confdir}"/>
+        </copy>
+        <move todir="$(dest.install)/.." failonerror="false">
+            <fileset dir="$(dest.install)/archive"/>
+        </move>
+        <delete dir="${dest.install}"/>
+        <ant antfile="build.xml" target="install" inheritall="false">
+            <!--    <property name="env" value="${env}"/> -->
+        </ant>
+        <copy todir="${dest.confdir}" overwrite="true">
+            <fileset dir="${java.io.tmpdir}/conf"/>
+        </copy>
+        <delete dir="${java.io.tmpdir}/conf"/>
+    </target>
+    <!--  TARGET fresh-install -->
+    <target name="fresh-install" description="Install new Safekeeping version" depends="build">
+        <condition property="dest.install" else="/opt/vmware/safekeeping">
+            <isset property="dest.install"/>
+        </condition>
+        <delete dir="${dest.install}" failonerror="false"/>
+        <ant antfile="build.xml" target="install" dir="${dir.buildfile}" inheritall="true">
+        </ant>
+    </target>
+    <!--  TARGET install-win -->
+    <target name="install-win" description="Install vmbk" depends="build" if="isWindows">
+        <property name="dest.install" value="${env.ProgramFiles}/VMware/Safekeeping"/>
+    </target>
+    <!--  TARGET install-unix -->
+    <target name="install-unix" description="Install vmbk" depends="build" if="isUnix"> 
+        <condition property="dest.install" else="/opt/vmware/safekeeping">
+            <isset property="dest.install"/>
+        </condition>
+    </target>
+    <!--  TARGET install -->
+    <target name="install" description="Install Safekeeping" depends="build, install-unix, install-win, agnostic-install, finalize-install-unix, finalize-install-win">  
+    </target>
+    <!--  TARGET agnostic-install -->
+    <target name="agnostic-install" description="Install Safekeeping">
+        <property name="dest.confdir" value="${dest.install}/conf"/>
+        <property name="dest.logdir" value="${dest.install}/log"/>
+        <property name="dest.jarfile" value="${dest.install}/jar"/>
+        <property name="dest.libdir" value="${dest.install}/lib"/>
+        <property name="dest.jredir" value="${dest.install}/jre"/>
+        <property name="dest.certdir" value="${dest.confdir}/cert"/>
+        <mkdir dir="${dest.install}"/>
+        <mkdir dir="${dest.confdir}"/>
+        <mkdir dir="${dest.logdir}"/>
+        <mkdir dir="${dest.jarfile}"/>
+        <mkdir dir="${dest.jredir}"/>
+        <mkdir dir="${dest.certdir}"/>
+        <mkdir dir="${dest.libdir}"/>
+        <copy todir="${dest.jarfile}" overwrite="true">
+            <fileset dir="${dir.javalib}" includes="**"/>
+        </copy>
+        <copy file="${dir.vmbk}/conf/log.properties" todir="${dest.confdir}"/>
+        <copy file="${dir.vmbk}/conf/vddk.conf" todir="${dest.confdir}"/>
+        <copy file="${dir.vmbk}/conf/cert/sdk.crt" todir="${dest.certdir}"/>
+        <copy file="${dir.vmbk}/conf/cert/sdk.key" todir="${dest.certdir}"/>
+    </target>
+    <target name="finalize-install-win" description="Post Install vmbk" if="isWindows">
+        <copy todir="${dest.install}/jre" overwrite="true">
+            <fileset dir="${dir.buildfile}/jdk/jre" includes="**"/>
+        </copy>
+        <copy todir="${dest.install}/bin" overwrite="true">
+            <fileset dir="${dir.buildfile}/vmware-vix-disklib-distrib/bin" includes="**"/>
+            <fileset dir="${dir.jdisklib}/bin"/>
+        </copy>
+        <copy file="${dir.vmbk}/vmbk.cmd" todir="${dest.install}"/>
+    </target>
+    <target name="finalize-install-unix" description="Post  Install Safekeeping" if="isUnix">
+        <exec executable="/bin/bash" dir="${dir.buildfile}">
+            <arg value="-c"/>
+            <arg value="cp -a ./jdk/jre* ${dest.install}"/>
+        </exec>
+        <exec executable="/bin/bash" dir="${dir.buildfile}">
+            <arg value="-c"/>
+            <arg value="cp -a  ./jdisklib/lib/* ${dest.libdir}"/>
+        </exec>
+        <copy file="${dir.support}/${product.name}" todir="${dest.install}"/>
+        <copy file="${dir.support}/_bash_profile" tofile="${dest.install}/.profile"/>
+        <replaceregexp file="${dest.install}/${product.name}" match="VMBK_DIR" replace="${dest.install}" byline="true"/>
+        <chmod file="${dest.install}/${product.name}" perm="+x"/>
+        <symlink link="/bin/${product.name}" resource="${dest.install}/${product.name}" overwrite="true"/> 
+    </target>
+    <target name="configure" depends="configure-unix, configure-win"/>
+    <target name="configure-unix" if="isUnix">
+        <exec executable="/bin/bash" dir="${dir.buildfile}">
+            <arg value="support/configure.sh"/>
+        </exec>
+    </target>
+    <target name="configure-win" if="isWindows">
+        <exec dir="." executable="powershell" timeout="5000" failonerror="true" outputproperty="configure.out" errorproperty="myscript.error">
+            <arg line="-File configure.ps1"/>
+        </exec>
+    </target>
+    <target name="clean" depends="clean-unix, clean-win"/>
+    <target name="clean-unix" if="isUnix">
+        <ant antfile="build.xml" target="clean" dir="${dir.jvix}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.nfs-client}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.jopt-simple}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.vmbk}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.vmbkcmd}" inheritall="false"/>
+        <exec executable="make" dir="${dir.jdisklib.src}">
+            <arg value="clean"/>
+        </exec>
+    </target>
+    <target name="clean-win" if="isWindows">
+        <ant antfile="build.xml" target="clean" dir="${dir.jvix}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.nfs-client}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.jopt-simple}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.vmbk}" inheritall="false"/>
+        <ant antfile="build.xml" target="clean" dir="${dir.vmbkcmd}" inheritall="false"/>   
+        <!--    <exec executable="nmake" dir="${dir.jdisklib.src}"> 
+            <arg value="clean"/>  
+        </exec>  -->
+    </target>
+    <target name="default" depends="clean">
+        <echo>=== RESET TO DEFAULT ===</echo>
+        <delete dir="${dir.jdisklib}/lib" failonerror="false"/>
+        <delete failonerror="false">
+            <fileset dir="${dir.jdisklib.src}/include">
+                <include name="vix*.h"/>
+            </fileset>
+        </delete>
+        <delete file="${dir.jdisklib.src}/include/vm_basic_types.h" failonerror="false"/>
+        <delete file="${dir.jdisklib.src}/include/jDiskLibImpl.h" failonerror="false"/>
+        <delete file="${dir.jdisklib.src}/jDiskLib.c" failonerror="false"/>
+        <delete dir="${dir.jdisklib}/bin" failonerror="false"/>
+        <!--<delete file="${dir.buildfile}/jre*.zip" failonerror="false"/> -->
+        <delete file="${dir.buildfile}/VDDK_VERSION" failonerror="false"/>
+        <delete file="${dir.vmbk}/src/com/vmware/vmbk/control/VmbkVersion.java" failonerror="false"/>
+        <delete dir="${dir.buildfile}/vmware-vix-disklib-distrib" failonerror="false"/>
+        <delete file="${dir.jdisklib}/Makefile" failonerror="false"/>
+        <delete file="${dir.jdisklib.src}/Makefile" failonerror="false"/>
+        <delete dir="${dir.buildfile}/jdk" failonerror="false"/>
+        <delete file="${dir.buildfile}/SetEnv.cmd" failonerror="false"/>
+        <!-- <delete file="${dir.vmbk}/conf/vddk.conf" failonerror="false"/>  
+        <delete file="${dir.vmbk}/conf/vddk_vmc.conf" failonerror="false"/> -->
+    </target>
+    <target name="tar" depends="default">
+        <echo>=== CREATE TAR ===</echo>
+        <loadfile property="version" srcFile="VERSION">
+            <filterchain>
+                <striplinebreaks/>
+            </filterchain>
+        </loadfile>
+        <property name="dir.new.vmbk" value="safekeeping-${version}"/>
+        <property name="tarfile" value="VMware-safekeeping-${version}_src.tgz"/>
+        <echo message="Safekeeping VERSION:           ${version}"/>
+        <echo message="NEW Safekeeping DIRECTORY:     ${dir.new.vmbk}"/>
+        <echo message="TAR FILE:               ${tarfile}"/>
+        <input>Press Return key to continue...</input>
+        <exec executable="tar" dir="${dir.workspace}/..">
+            <arg value="czf"/>
+            <arg value="${tarfile}"/>
+            <arg value="--exclude=${dir.new.vmbk}/packages/*"/>
+            <arg value="${dir.new.vmbk}"/>
+        </exec>
+    </target>
+</project>

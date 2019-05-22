@@ -1,0 +1,29 @@
+/******************************************************************************
+ * Copyright 2007-2018 VMware, Inc.  All rights reserved.
+ *
+ * VixDiskLibVersion.h  --
+ *
+ *      Contains VDDK Version number
+ *
+ *******************************************************************************/
+
+#ifndef _VIXDISKLIBVERSION_H_
+#define _VIXDISKLIBVERSION_H_
+
+
+//  Caution, this is the only vddk header that is guarenteed
+//  to change with every vddk release, including this header
+//  will cause a recompile every time a new vddk version is
+//  released.
+//
+//  VDDK_VERSION % 100 is the patch level
+//  VDDK_VERSION / 100 % 1000 is the minor version
+//  VDDK_VERSION / 100000 is the major version
+
+#define VDDK_VERSION XXXXXXXX
+
+
+
+#define VDDK_LIB_VERSION "YYYYYYYY"
+
+#endif // !defined _VIXDISKLIBVERSION_H_

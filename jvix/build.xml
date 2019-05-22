@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="jar" name="Create Jar for Project jvix">
+  <!--ANT 1.7 is required                                        -->
+  <!--define folder properties-->
+  <property name="dir.buildfile" value="."/>
+  <property name="dir.workspace" value="${dir.buildfile}/.."/>
+  <property name="dir.jarfile" value="../jar"/>
+  <property name="dir.lib" value="${dir.jarfile}"/>
+  <target name="build" description="Compile the Java code.">
+    <echo>=== BUILD JVIX ===</echo>
+    <mkdir dir="${dir.buildfile}/bin/"/>
+    <javac srcdir="src" destdir="bin" debug="true" includeantruntime="false" includes="**/*.java" target="1.8">
+		 
+		</javac>
+  </target>
+  <target name="jar" depends="build" description="Build the java JAR.">
+    <echo>=== CREATE jvix.jar ===</echo>
+    <jar destfile="${dir.jarfile}/jvix.jar">
+      <manifest>
+                   </manifest>
+      <fileset dir="${dir.buildfile}/bin"/>
+    </jar>
+  </target>
+  <target name="clean">
+    <echo>=== CLEAN JVIX ===</echo>
+    <delete dir="${dir.buildfile}/bin/" failonerror="false"/>
+    <delete file="${dir.jarfile}/jvix.jar" failonerror="false"/>
+  </target>
+</project>

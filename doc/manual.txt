@@ -1,0 +1,320 @@
+-------------------------------------------------------------------------------
+Manual of Safekeeping.
+Version 4
+
+-------------------------------------------------------------------------------
+Contents
+-------------------------------------------------------------------------------
+* What is safekeeping?
+* Required environment
+* Required tool and library
+* How to build
+* Easy installation
+* Command-line interface
+* Easy usage
+* Log
+* Parallel execution
+* Configuration files
+* Archive management
+* Backup behavior
+* Other reminders
+
+-------------------------------------------------------------------------------
+What is safekeeping?
+-------------------------------------------------------------------------------
+
+safekeeping is an online backup tool for VMware vSphere.
+
+* Online backup
+* Multi-generation management
+* Fast archive access
+* Command-line Interface
+
+-------------------------------------------------------------------------------
+vSphere Object supported
+-------------------------------------------------------------------------------
+
+* Virtual Machine
+* Template
+* vApp
+* First Class Disk
+
+* Encrypted VM
+* Windows VBS
+* Storage Profile
+* VM vApp metadata
+
+-------------------------------------------------------------------------------
+Target Repository
+-------------------------------------------------------------------------------
+
+* AWS S3
+* Local/remote filesystem
+* Azure Blob
+* FTP server
+
+
+
+-------------------------------------------------------------------------------
+Required environment
+-------------------------------------------------------------------------------
+
+* Linux kernel 2.6.18 or greater on 64bit platform . 
+  Windows 7 or greater on on 64bit platform.
+  Virtual machine may work well but the backup host must not be managed by
+  target vCenter  in order to use SAN transfer.
+
+* VMware VMC  
+  I confirmed it worked well with VMware Cloud on AWS 
+
+* SAN environment (for SAN transfer).
+  Shared VMFS storage managed by vSphere via iscsi protocol are supported.
+  It works well where VMFS storages are available as /dev/sdX devices.
+  I confirmed it with open iscsi initiator.
+  Read priviledge to the devices are required to backup via SAN.
+  It's enough to add your backup user to disk group.
+
+-------------------------------------------------------------------------------
+Required tool and library
+-------------------------------------------------------------------------------
+
+* For Java code, see safekeeping/README file. 
+
+-------------------------------------------------------------------------------
+How to build
+-------------------------------------------------------------------------------
+
+* For Java code, see safekeeping/README file. 
+
+-------------------------------------------------------------------------------
+Easy installation
+-------------------------------------------------------------------------------
+
+To install Java and C++ executables,
+
+> tar xzfv safekeeping-VERSION.tgz
+> cd safekeeping-VERSION
+> ./configure.sh /tmp/VMware-vix-disklib-VERSION.x86_64.tar.gz /tmp/jdk-VERSION-linux-x64.tar.gz
+> ant build
+> ant install
+>  
+
+After installation, just do the following steps:
+
+> cd /opt/safekeeping
+> ./safekeeping configure
+
+
+To configure vSphere authentication information after installation,
+edit vsphere section of 'vmbk.conf' in the backup /opt/safekeeping/conf directory.
+
+
+-------------------------------------------------------------------------------
+ANT Target
+-------------------------------------------------------------------------------
+
+ant clean
+	Clean any Java class, C++ obj  and any executable and shared libraries 
+ 
+	
+ant reset_to_default
+	Like "make clean_all" plus remove JDK and VDDK. 
+	To recompile you need to re-run ./configure.sh 
+	An easy shortcut to test different JDK and VDDK versions
+	
+ant build: 
+	Build code  
+
+ant install:
+	install the package
+
+ant create_tar:
+	build a clean src tar package
+	
+ant update:
+	install the package maintaining the configuration
+
+-------------------------------------------------------------------------------
+Command-line interface
+-------------------------------------------------------------------------------
+
+./safekeeping [COMMAND] [OPTION(s)] [TARGET(s)]
+
+COMMAND is one of
+update, backup, restore, status, check, destroy, clean, and list.
+See message of --help command.
+
+TARGET string should be [a-zA-Z0-9-_]+ (regexp).
+If space characters are included in the vm name,
+you should enclose the string in double quates.
+Special target 'all' means all virtual machines in the vSphere.
+
+You can specify one of the followings as a target:
+* Virtual machine moref (unique in vSphere).
+* Virtual machine name.
+* Virtual machine uuid.
+* Group name. (See 'vmbk_group.conf').
+
+-------------------------------------------------------------------------------
+Easy usage
+-------------------------------------------------------------------------------
+Backup all virtual machines:
+  >  ./safekeeping backup_vm -all
+
+Backup the virtual machine that name is VM_NAME:
+  > . ./safekeeping backup_vm VM_NAME
+
+Restore all virtual machines:
+  >  ./safekeeping restore_vm -all
+
+Restore the latest generation of ARCHIVED_VM as NEW_VM_NAME:
+  > ./safekeeping restore -name NEW_VM_NAME ARCHIVED_VM 
+
+Show status of archives:
+  > ./safekeeping status  -detail -all
+
+Clean garbages such as files generated by failed backup execution:
+  > ./safekeeping clean
+
+Delete archive of the specified virtual machine.
+  > ./safekeeping clean -all ARCHIVED_VM
+
+Check the latest generation of the archive is valid.
+  > ./safekeeping check ARCHIVED_VM
+
+
+-------------------------------------------------------------------------------
+Log
+-------------------------------------------------------------------------------
+
+* Log by Java executables will be appended to 'vmbk.log'
+  of log directory.
+ 
+
+-------------------------------------------------------------------------------
+Parallel execution
+-------------------------------------------------------------------------------
+
+Parallel execution are supported with several exceptions.
+
+* Any other commands wait during update command execution.
+
+* Parallel backup of the different virtual machines may work but
+  SCSI reservation conflicts may occur.
+  
+ 
+* Concurrent backup(s), restore(s), check(s) of the same virtual machine
+  are serialized.
+
+-------------------------------------------------------------------------------
+Configuration files
+-------------------------------------------------------------------------------
+
+* Global configuration file.
+
+  You can specify it with --conf option.
+  Default is configure.properties 
+
+ 
+-------------------------------------------------------------------------------
+Archive management
+-------------------------------------------------------------------------------
+
+Using install.sh scripts,
+archives will be stored in 'archives' directory in the backup directory.
+
+* archives/global.jason
+
+  * The name, moref, and other information of all virtual machines
+    in the vSphere environment are stored.
+  * This is used to select TARGET(s). 
+
+* archives/<vm-uuid>/
+
+  * Archives of each virtual machine identified by <vm-moref> are stored.
+  * Moref is used due to its uniqueness.
+  * vm.profile contains management information of each generations.
+    Do not edit it by yourself if you know what you are doing.
+
+* archives/<vm-uuid>/<generation-id>/
+
+  * Each archive generation of each virtual machine is stored.
+  * vmbk_generation.profile contains information of each generation.
+  * 0.vmx and 0.nvram contain information VM information  without disks.
+  * Archive file for each vmdk.
+    <disk-id> is only unique in the generation, not unique
+	<md5sum.txt> md5 for each file
+    in the several generations.
+    * <disk-id>-<splitpart>.dump :    	image of vmdk.
+    * <disk-id>.btr): 		 			Checksum of each blocks. 
+    * <disk-id>.btr:        			Changed block bitmap.  
+    * <disk-id>.report:      			Disk dump report
+
+
+Caution.
+
+* archive directory can manage different vCenter environment.
+
+* Native ESXi backup is not possible
+  
+-------------------------------------------------------------------------------
+Backup behavior
+-------------------------------------------------------------------------------
+
+* There are three mode:
+  * full full backup.
+  * incr: incremental backup.
+
+Backup mode is automatically determined.
+
+'incr' is selected when
+  * Full image of previous succeeded backup is available.
+  * Virtual machine supports incremental backup
+    by setting 'ctkEnabled' parameter true.
+
+
+
+'full' is selected when
+  * Full image of previous succeeded backup is not available.
+
+
+'incr' executes
+  * Get changed block information from vSphere using VI-Java
+    and save it as <disk-id>.btr file.
+  * Get only changed blocks of the target vmdk using VDDK and
+    read the corresponding dump file of the previous generation,
+    then save <disk-id>-<split>.dump, <disk-id>.btr files.
+ 
+
+'full' executes
+  * Get all blocks of the target vmdk using VDDK then
+    save <disk-id>-<split>.dump and <disk-id>.btr files.
+
+-------------------------------------------------------------------------------
+Other reminders
+-------------------------------------------------------------------------------
+
+* Character encoding.
+  * You should use ASCII code only.
+  * Configuration and profile file management code
+    does not take care non-ASCII code intendedly.
+  * UTF-8 code may work with the correct locale setting.
+    such as ja_JP.UTF-8 for Japanese.
+
+* Template.
+  * Currently virtual machine template is supported.
+ 
+
+* SAN transfer for restore is not supported well.
+  * Explicit allocation method is not supported by VDDK.
+  * For thin vmdk, write to non-allocated blocks failed.
+  * For thick vmdk, write to non-allocated blocks implicitly
+    allocate them but its speed is too slow cause it talks with vSphere
+    by soap protocol to allocate blocks one by one.
+
+* Independent disk.
+  * Currently independent vmdk disk is not supported.
+    because VDDK access to the indepenent vmdk through snapshot failed.
+  * Independent vmdk disks are just skipped in backup.
+
+-------------------------------------------------------------------------------

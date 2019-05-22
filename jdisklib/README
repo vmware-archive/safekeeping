@@ -1,0 +1,109 @@
+*******************************************************************************
+Description of directories.
+*******************************************************************************
+
+src:
+  Source code of the software.
+
+test:
+  Source code of unit tests.
+
+*******************************************************************************
+How to build.
+*******************************************************************************
+
+Required platform:
+    Currently Linux OS for x86_64 host is supported.
+   
+
+Required compiler:
+    g++ 4.4.7 or above version.
+    Previous versions may work well but I have not tested them.
+
+Required libraries:
+    VDDK (VMware Disk Development Kit) 6.5 provided by VMware, Inc.
+    FUSE (install fuse-libs packages for CentOS) required by VDDK.
+    OpenSSL 1.1.0 or above version.
+    Boost 1.48 or above version.
+      (shared_ptr, scoped_array, thread, and iostreams).
+
+Required tools to build documents:
+    doxygen 1.4.7 or avobe version.
+
+Build steps:
+1. Install VDDK (VMware-vix-disklib) library in your system.
+  You can get library tarball
+    like VMware-vix-disklib-5.1.0-774844.x86_64.tar.gz
+    from VMware, Inc (http://www.vmware.com/support/developer/vddk/).
+  If you specify /usr/local as install directory,
+    almost files are installed under /usr/local/lib/vmware-vix-disklib.
+  Set environmental variables as follows:
+    PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+    LD_LIBRARY_PATH=/usr/local/lib/vmware-vix-disklib/lib64
+
+2. Make symlinks to link openssl 0.9.8 provided by VDDK.
+   Do not link with system-provided openssl library.
+   > cd /usr/local/lib/vmware-vix-disklib/lib64/
+   > ln -s libcrypto.so.1.0.2 libcrypto.so
+   
+
+3. Afterall, cd 'src' directory and type just 'make'.
+   then libraries and executables will be created.
+   See Makefile for more details.
+   For documents, 'make doc' will generate API documents
+   in api_doc directory.
+
+4. Install executables to your favolite directry.
+   cd 'src' and type make install PREFIX=XXXXX
+   Executables will be installed in XXXXX/bin directory.
+
+*******************************************************************************
+Executables and libraries
+*******************************************************************************
+
+vmdkbkp:
+    Vmdk file backup tool for VMware vSphere.
+    Supported commands:
+        dump, restore, print, check, merge, digest, (rdiff).
+
+check_dump_and_dump: 
+    Check two dump files have the same contents.
+    
+check_digest_and_digest:
+    Check two digest files have the same digest data. 
+
+print_bmp:
+    Print changed block bitmap file in human-readable format.
+
+rdiff2bmp:
+    Generate changed block bitmap from rdiff file.
+    This is just for test. Originally changed block bitmap file 
+    is created with the information from the vSphere soap server.
+
+lib/lib64/libvmdkbkp.so:
+    Utility components. Lay it out in the same directory as executables.
+
+lib/lib64/libjnivmdkbkp.so
+	vmdkbkp functions exported for JAVA consumptions
+	
+*******************************************************************************
+Usage
+*******************************************************************************
+
+vmdkbkp:
+    See help message with --help option.
+
+check_dump_and_dump:
+    check_dump_and_dump dump1 dump2
+
+check_digest_and_digest:
+    check_digest_and_digest digest1 digest2
+
+print_bmp:
+    print_bmp < bitmap
+
+rdiff2bmp:
+    rdiff2bmp < rdiff > bitmap
+	
+
+*******************************************************************************

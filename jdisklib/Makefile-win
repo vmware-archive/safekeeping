@@ -1,0 +1,25 @@
+.PHONY:  build  
+
+default: build
+
+ 
+
+build: 
+	pushd src & nmake all & popd 
+	
+clean:
+	pushd src & nmake clean & popd 
+ 
+ 
+clean_all: clean
+	del /s /f apidoc
+
+doc:
+	doxygen doxygen.config
+
+rebuild: clean build  
+
+reset_to_default:clean_all 
+	del /s /f /q lib
+	del /q /f src\include\vix*.h
+	del src\include\vm_basic_types.h

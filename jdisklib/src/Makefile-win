@@ -1,0 +1,36 @@
+#makefile for nmake 
+#C:\Users\mdaneri\Documents\Eclipse\vmbk\jdisk>cl /Iinclude  jDiskLib.c jUtils.c  vixDiskLib.lib vixMntApi.lib /link /LIBPATH:..\lib /DLL /out:jDiskLib.dll
+
+CC = cl
+LINK = link
+LDFLAGS= /DLL  
+
+PREFIX = .
+INCS=$(PREFIX)\include
+LIBS=..\lib
+	
+all: $(TARGET)
+
+OBJ_FILES= \
+jDiskLib.obj jUtils.obj
+
+LIB_FILES= vixDiskLib.lib vixMntApi.lib
+
+#INC_FILES= $(INCS)\jDiskLib.h $(INCS)\jMntApi.h
+
+		
+jUtils.obj: jUtils.c 
+	$(CC) /c jUtils.c    -I $(INCS)
+jDiskLib.obj: jDiskLib.c
+	$(CC) /c jDiskLib.c   -I $(INCS)
+	
+jDiskLib.dll:  $(INC_FILES) $(OBJ_FILES)
+	$(LINK)  $(LDFLAGS) $(OBJ_FILES)  /LIBPATH:$(LIBS)  $(LIB_FILES)  /out:jDiskLib.dll
+	
+all:jDiskLib.dll
+
+clean:
+   del *.dll *.obj *.lib *.exp
+   
+   
+    

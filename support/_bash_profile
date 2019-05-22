@@ -1,0 +1,3 @@
+/opt/vmware/safekeeping/safekeping 
+read -n1 -r -p "Press space to continue..."
+exit
