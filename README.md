@@ -66,7 +66,7 @@ safekeeping --help
 ```
 
 ## Documentation
-
+Check the [wiki](https://github.com/vmware/safekeeping/wiki)
 
 ## Directory Contents
 ### Directories
