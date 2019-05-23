@@ -1,8 +1,0 @@
-vmbkp.jar
-*.class
-com/cybozu/vmbkp/control/VmbkpVersion.java
-apidoc/
-javadoc/
-jarsrc
-ovf/
-ovf2/
