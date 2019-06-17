@@ -1,4 +1,3 @@
-
 ![logo](../assets/228456-vmw-os-lgo-safekeeper-final-sml.png )
 # safekeeping  
 
