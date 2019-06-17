@@ -1,6 +1,6 @@
 
-
-# safekeeping
+![logo](../assets/228456-vmw-os-lgo-safekeeper-final-sml.png )
+# safekeeping  
 
 ## Overview
 Safekeeping is an online backup tool for VMware vSphere.
