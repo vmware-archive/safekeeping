@@ -633,7 +633,7 @@ public final class GlobalConfiguration {
     public static String getVddk_config() {
 	logger.entering(GlobalConfiguration.class.getName(), "getVddk_config");
 	final String result = getConfigPath() + File.separatorChar
-		+ iniConfiguration.getStringProperty(globalGroup, VDDK_CONFIG);
+		+ iniConfiguration.getStringProperty(globalGroup, VDDK_CONFIG, DEFAULT_VDDK_CONFIG);
 	logger.exiting(GlobalConfiguration.class.getName(), "getVddk_config", result);
 	return result;
     }
