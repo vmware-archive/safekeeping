@@ -8,9 +8,6 @@ com:
 conf:
   config file samples
 
-vmbkp:
-  script for easy execute java code.
-
 lib:
   jar libraries
   
@@ -19,7 +16,7 @@ How to build.
 *******************************************************************************
 
 Required tools and libraries.
-  * Oracle Java8 or above.
+  * Oracle Java8 or above or Open JDK 8
     java, javac, and jar commands are requited.
     See build.xml for detail.
     
