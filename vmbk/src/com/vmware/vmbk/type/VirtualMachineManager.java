@@ -1372,6 +1372,8 @@ public class VirtualMachineManager implements FirstClassObject {
 					opaqueBack.setOpaqueNetworkId(opaqueNetworkSummary.getOpaqueNetworkId());
 					opaqueBack.setOpaqueNetworkType(opaqueNetworkSummary.getOpaqueNetworkType());
 					virtualDevice.setBacking(opaqueBack);
+					((VirtualEthernetCard) virtualDevice)
+						.setExternalId(UUID.randomUUID().toString());
 					break;
 				    case "DistributedVirtualPortgroup":
 					final DVPortgroupConfigInfo dvPortgroupConfigInfo = (DVPortgroupConfigInfo) this.vimConnection.morefHelper
