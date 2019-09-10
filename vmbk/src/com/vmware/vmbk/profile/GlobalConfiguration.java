@@ -557,7 +557,7 @@ public final class GlobalConfiguration {
 
     public static String getTargetRepository() {
 	logger.entering(GlobalConfiguration.class.getName(), "getTargetRepository");
-	final String result = iniConfiguration.getStringProperty(globalGroup, globalGroup);
+	final String result = iniConfiguration.getStringProperty(globalGroup, REPOSITORY);
 	logger.exiting(GlobalConfiguration.class.getName(), "getTargetRepository", result);
 	return result;
     }
