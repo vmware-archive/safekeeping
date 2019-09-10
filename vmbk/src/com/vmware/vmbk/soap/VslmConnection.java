@@ -393,26 +393,22 @@ public class VslmConnection extends HttpConf {
 
 	try {
 
-	    List<VslmVsoVStorageObjectQuerySpec> query = new LinkedList<>();
-	    VslmVsoVStorageObjectQuerySpec q = null;
-	    if ((datastoreMap != null) && (datastoreMap.size() > 0)) {
-		q = new VslmVsoVStorageObjectQuerySpec();
-		q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.DATASTORE_MO_ID.value());
-		q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.EQUALS.value());
-		for (final String key : datastoreMap.keySet()) {
-		    final ManagedObjectReference dsMor = datastoreMap.get(key);
-		    q.getQueryValue().add(dsMor.getValue());
-		}
-		query.add(q);
-	    } else {
-//		q = new VslmVsoVStorageObjectQuerySpec();
-//		q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.NAME.value());
-//		q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.CONTAINS.value());
-//
-//		q.getQueryValue().add("p");
-//
-//		query.add(q);
+		List<VslmVsoVStorageObjectQuerySpec> query = new LinkedList<>();
+		final VslmVsoVStorageObjectQuerySpec q = new VslmVsoVStorageObjectQuerySpec();
+		if ((datastoreMap != null) && (datastoreMap.size() > 0)) {
+			q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.DATASTORE_MO_ID.value());
+			q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.EQUALS.value());
+			for (final String key : datastoreMap.keySet()) {
+				final ManagedObjectReference dsMor = datastoreMap.get(key);
+				q.getQueryValue().add(dsMor.getValue());
+			}
+	    }else {
+			/* workaround for vSPhere 6.7U3 bug*/
+		 	q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.CREATE_TIME.value());
+			q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.GREATER_THAN.value());
+			q.getQueryValue().add("0");
 	    }
+		query.add(q);
 	    VslmVsoVStorageObjectQueryResult res = getvslmPort().vslmListVStorageObjectForSpec(this.getVsoManager(),
 		    query, 100);
 
