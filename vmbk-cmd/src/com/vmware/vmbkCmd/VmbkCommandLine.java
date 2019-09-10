@@ -58,7 +58,7 @@ public class VmbkCommandLine {
     public static final String IVD = "ivd";
     public static final String QUIT = "quit";
     public static final String RESTORE = "restore";
-    public static final String SNAP = "snaphost";
+    public static final String SNAP = "snapshot";
     public static final String TAG = "tags";
     public static final String VERSION = "version";
     public static final String VM = "vm";
