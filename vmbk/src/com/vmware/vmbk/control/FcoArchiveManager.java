@@ -271,61 +271,59 @@ public class FcoArchiveManager {
 	return isSucceeded;
     }
 
-    public List<VirtualControllerManager> generateVirtualControllerManagerList(final String datastoreName) {
-	assert datastoreName != null;
-	assert this.currGen != null;
+     /**
+     * Create a list of disk with associated controller to be re-create
+     * 
+     * @param profile
+     * @param datastoreName
+     * @return
+     */
+    public List<VirtualControllerManager> generateVirtualControllerManagerList(final GenerationProfile profile,
+	    final String datastoreName) {
+	logger.entering(getClass().getName(), "generateVirtualControllerManagerList",
+		new Object[] { profile, datastoreName });
 
-	final GenerationProfile profGen = this.currGen;
+	final LinkedHashMap<Integer, VirtualControllerManager> vcmMap = new LinkedHashMap<>();
 
-	final TreeSet<VirtualControllerManager> vcmSet = new TreeSet<>();
-
-	final List<Integer> diskIdList = profGen.getDiskIdList();
+	final List<Integer> diskIdList = profile.getDiskIdList();
 	for (final Integer diskIdI : diskIdList) {
 
 	    final int diskId = diskIdI.intValue();
-	    assert diskId >= 0;
-	    final AdapterType type = profGen.getAdapterType(diskId);
+	    final AdapterType type = profile.getAdapterType(diskId);
 	    assert type != AdapterType.UNKNOWN;
-	    final int ckey = profGen.getControllerDeviceKey(diskId);
-	    final int busNumber = profGen.getBusNumber(ckey);
-	    final int unitNumber = profGen.getUnitNumber(diskId);
+	    final Integer ckey = profile.getControllerDeviceKey(diskId);
+	    final int busNumber = profile.getBusNumber(ckey);
+	    final int unitNumber = profile.getUnitNumber(diskId);
 
-	    if (profGen.isIndipendentPersistentVirtualDisk(diskId)) {
-		logger.info(String.format("Controller:%d Disk [%d:%d] is an Indipendant or Persistent disk ", ckey,
-			busNumber, unitNumber));
+	    if (profile.isIndipendentPersistentVirtualDisk(diskId)) {
+		LoggerUtils.logInfo(logger, "Controller:%d Disk [%d:%d] is an Indipendant or Persistent disk ", ckey,
+			busNumber, unitNumber);
 		continue;
 	    }
-	    if (profGen.isImprovedVirtualDisk(diskId)) {
-		IoFunction.showInfo(logger, "Controller:%d Disk [%d:%d] is an Improved Virtual Disk uuid:%s ", ckey,
-			busNumber, unitNumber, profGen.getImprovedVirtualDiskId(diskId));
-		IoFunction.showInfo(logger,
+	    if (profile.isImprovedVirtualDisk(diskId)) {
+		LoggerUtils.logInfo(logger, "Controller:%d Disk [%d:%d] is an Improved Virtual Disk uuid:%s ", ckey,
+			busNumber, unitNumber, profile.getImprovedVirtualDiskId(diskId));
+		LoggerUtils.logInfo(logger,
 			"To restore this IVD use:\n restore ivd:%s (take note of the uuid) and execute ivd -attach -device %d:%d ivd:<newid>",
-			profGen.getImprovedVirtualDiskId(diskId), ckey, unitNumber);
+			profile.getImprovedVirtualDiskId(diskId), ckey, unitNumber);
 		continue;
 	    }
 
-	    final VirtualDiskManager vdm = new VirtualDiskManager(profGen, diskId, datastoreName);
+	    final VirtualDiskManager vdm = new VirtualDiskManager(profile, diskId, datastoreName);
 
-	    final VirtualControllerManager vcm = new VirtualControllerManager(type, ckey, busNumber);
-
-	    /*
-	     * Get the corresponding virtual controller manager in the set, or the created
-	     * one is added to the set.
-	     */
-	    VirtualControllerManager vcmInSet = vcmSet.ceiling(vcm);
-	    if ((vcmInSet == null) || (vcmInSet.compareTo(vcm) != 0)) {
-		vcmSet.add(vcm);
-		vcmInSet = vcm;
-	    } else {
-		assert vcmInSet.compareTo(vcm) == 0;
+	    if (!vcmMap.containsKey(ckey)) {
+		final VirtualControllerManager vcm = new VirtualControllerManager(type, ckey, busNumber);
+		vcmMap.put(ckey, vcm);
 	    }
 
-	    vcmInSet.add(vdm);
+	    vcmMap.get(ckey).add(vdm);
 	}
 
-	final List<VirtualControllerManager> ret = new LinkedList<>();
-	ret.addAll(vcmSet);
-	return ret;
+	final List<VirtualControllerManager> result = new LinkedList<>();
+	result.addAll(vcmMap.values());
+
+	logger.exiting(getClass().getName(), "generateVirtualControllerManagerList", result);
+	return result;
     }
 
     public int getDependingGenerationId(final int id) {
