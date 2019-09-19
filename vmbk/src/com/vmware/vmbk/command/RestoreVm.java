@@ -522,7 +522,7 @@ public class RestoreVm {
 			IoFunction.showWarning(logger, "Could not find newly created vm.");
 			result.fails();
 		    } else {
-			if (vmm.reconfigureVm(vmArcMgr, managedInfo)) {
+			if (vmm.reconfigureVm(vmArcMgr,profGen, managedInfo)) {
 
 			    vmm.reload();
 			    if (this.options.isNoVmdk()) {
