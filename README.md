@@ -67,6 +67,9 @@ safekeeping --help
 ## Documentation
 Check the [wiki](https://github.com/vmware/safekeeping/wiki)
 
+## Blogs Articles
+[Cormac Hogan Blog](https://cormachogan.com/2019/11/13/safekeeping-a-useful-tool-for-managing-first-class-disks-improved-virtual-disks)
+
 ## Directory Contents
 ### Directories
 - **vmbk**
