@@ -65,6 +65,7 @@ import com.vmware.vmbk.soap.VslmConnection;
 import com.vmware.vmbk.soap.helpers.MorefUtil;
 import com.vmware.vmbk.util.Utility;
 import com.vmware.vslm.InvalidArgumentFaultMsg;
+import com.vmware.vslm.TaskInProgressFaultMsg;
 import com.vmware.vslm.VslmFaultFaultMsg;
 
 public class ImprovedVirtuaDisk implements FirstClassObject {
@@ -167,43 +168,6 @@ public class ImprovedVirtuaDisk implements FirstClassObject {
 	return result;
     }
 
-// TODO Remove unused code found by UCDetector
-//     public boolean ClearControlFlags(final List<String> tags) {
-// 	logger.entering(getClass().getName(), "ClearControlTags", tags);
-// 	final boolean result = false;
-// 	if (this.configInfo != null) {
-// 	    try {
-// 		vimConnection.getVimPort().clearVStorageObjectControlFlags(vsomanager, getId(),
-// 			getDatastore().getMoref(), tags);
-// 	    } catch (final Exception e) {
-// 		logger.warning(Utility.toString(e));
-// 	    }
-// 	}
-// 	logger.exiting(getClass().getName(), "ClearControlTags", result);
-// 	return result;
-//     }
-
-// TODO Remove unused code found by UCDetector
-//     public boolean Clone(final VslmCloneSpec cloneSpec) {
-// 	logger.entering(getClass().getName(), "Clone", cloneSpec);
-// 	boolean result = false;
-// 	if (this.configInfo != null) {
-// 	    try {
-// 		final ManagedObjectReference taskMor = vimConnection.getVimPort().cloneVStorageObjectTask(
-// 			vsomanager, getId(), getDatastore().getMoref(), cloneSpec);
-// 		if (vimConnection.waitForTask(taskMor)) {
-// 		    result = true;
-// 		} else {
-// 		    result = false;
-// 		}
-// 	    } catch (final Exception e) {
-// 		logger.warning(Utility.toString(e));
-// 	    }
-// 	}
-// 	logger.exiting(getClass().getName(), "Clone", result);
-// 	return result;
-//     }
-
     public boolean clone(final String cloneName, final String datastoreName) {
 	logger.entering(getClass().getName(), "cloneVM", new Object[] { cloneName, datastoreName });
 	final boolean result = this.vslmConnection.clone(this, cloneName, datastoreName);
@@ -248,21 +212,26 @@ public class ImprovedVirtuaDisk implements FirstClassObject {
 	return result;
     }
 
+    /**
+     * Destroy IVD
+     *
+     * @return
+     */
     public boolean destroy() {
-	ManagedObjectReference taskMor;
+	logger.entering(getClass().getName(), "destroy");
+	boolean result = false;
 	try {
-	    taskMor = this.vimConnection.getVimPort().deleteVStorageObjectTask(this.vsoManager, getId(),
-		    getDatastoreInfo().getMoref());
-
-	    if (this.vimConnection.waitForTask(taskMor)) {
-		return true;
-	    } else {
-		return false;
-	    }
-	} catch (final Exception e) {
+	    result = this.vimConnection.getVslmConnection().destroy(this);
+	} catch (com.vmware.vslm.FileFaultFaultMsg | com.vmware.vslm.InvalidDatastoreFaultMsg
+		| com.vmware.vslm.InvalidStateFaultMsg | com.vmware.vslm.NotFoundFaultMsg
+		| com.vmware.vslm.RuntimeFaultFaultMsg | TaskInProgressFaultMsg | VslmFaultFaultMsg
+		| InvalidPropertyFaultMsg | InvalidCollectorVersionFaultMsg | FileFaultFaultMsg
+		| InvalidDatastoreFaultMsg | InvalidStateFaultMsg | NotFoundFaultMsg | RuntimeFaultFaultMsg
+		| com.vmware.vim25.TaskInProgressFaultMsg e) {
 	    logger.warning(Utility.toString(e));
 	}
-	return false;
+	logger.exiting(getClass().getName(), "destroy", result);
+	return result;
     }
 
     public boolean detachTag(final FcoTag tag) {

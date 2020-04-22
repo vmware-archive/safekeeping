@@ -76,6 +76,7 @@ import com.vmware.vslm.InvalidDatastoreFaultMsg;
 import com.vmware.vslm.InvalidStateFaultMsg;
 import com.vmware.vslm.NotFoundFaultMsg;
 import com.vmware.vslm.RuntimeFaultFaultMsg;
+import com.vmware.vslm.TaskInProgressFaultMsg;
 import com.vmware.vslm.VslmAboutInfo;
 import com.vmware.vslm.VslmFaultFaultMsg;
 import com.vmware.vslm.VslmPortType;
@@ -258,11 +259,11 @@ public class VslmConnection extends HttpConf {
      * @throws InvalidStateFaultMsg
      * @throws InvalidDatastoreFaultMsg
      * @throws FileFaultFaultMsg
-     * @throws                                 com.vmware.vim25.FileFaultFaultMsg
-     * @throws                                 com.vmware.vim25.InvalidDatastoreFaultMsg
-     * @throws                                 com.vmware.vim25.InvalidStateFaultMsg
-     * @throws                                 com.vmware.vim25.NotFoundFaultMsg
-     * @throws                                 com.vmware.vim25.RuntimeFaultFaultMsg
+     * @throws com.vmware.vim25.FileFaultFaultMsg
+     * @throws com.vmware.vim25.InvalidDatastoreFaultMsg
+     * @throws com.vmware.vim25.InvalidStateFaultMsg
+     * @throws com.vmware.vim25.NotFoundFaultMsg
+     * @throws com.vmware.vim25.RuntimeFaultFaultMsg
      * @throws InvalidCollectorVersionFaultMsg
      * @throws InvalidPropertyFaultMsg
      */
@@ -290,11 +291,11 @@ public class VslmConnection extends HttpConf {
      * @param improvedVirtuaDisk
      * @param snap
      * @return
-     * @throws                                 com.vmware.vim25.RuntimeFaultFaultMsg
-     * @throws                                 com.vmware.vim25.NotFoundFaultMsg
-     * @throws                                 com.vmware.vim25.InvalidStateFaultMsg
-     * @throws                                 com.vmware.vim25.InvalidDatastoreFaultMsg
-     * @throws                                 com.vmware.vim25.FileFaultFaultMsg
+     * @throws com.vmware.vim25.RuntimeFaultFaultMsg
+     * @throws com.vmware.vim25.NotFoundFaultMsg
+     * @throws com.vmware.vim25.InvalidStateFaultMsg
+     * @throws com.vmware.vim25.InvalidDatastoreFaultMsg
+     * @throws com.vmware.vim25.FileFaultFaultMsg
      * @throws VslmFaultFaultMsg
      * @throws InvalidCollectorVersionFaultMsg
      * @throws InvalidPropertyFaultMsg
@@ -321,6 +322,27 @@ public class VslmConnection extends HttpConf {
 	logger.exiting(getClass().getName(), "deleteSnapshot", result);
 	return result;
 
+    }
+
+    public boolean destroy(final ImprovedVirtuaDisk ivd) throws FileFaultFaultMsg, InvalidDatastoreFaultMsg,
+	    InvalidStateFaultMsg, NotFoundFaultMsg, RuntimeFaultFaultMsg, TaskInProgressFaultMsg, VslmFaultFaultMsg,
+	    InvalidPropertyFaultMsg, InvalidCollectorVersionFaultMsg, com.vmware.vim25.FileFaultFaultMsg,
+	    com.vmware.vim25.InvalidDatastoreFaultMsg, com.vmware.vim25.InvalidStateFaultMsg,
+	    com.vmware.vim25.NotFoundFaultMsg, com.vmware.vim25.RuntimeFaultFaultMsg,
+	    com.vmware.vim25.TaskInProgressFaultMsg {
+	logger.entering(getClass().getName(), "destroy", ivd);
+	boolean result = false;
+	if (isVslm()) {
+	    final ManagedObjectReference taskMor = getvslmPort().vslmDeleteVStorageObjectTask(getVsoManager(),
+		    ivd.getId());
+	    result = waitForTask(taskMor);
+	} else {
+	    final ManagedObjectReference taskMor = this.vimConnection.getVimPort()
+		    .deleteVStorageObjectTask(getVsoManager(), ivd.getId(), ivd.getDatastoreInfo().getMoref());
+	    result = this.vimConnection.waitForTask(taskMor);
+	}
+	logger.exiting(getClass().getName(), "destroy", result);
+	return result;
     }
 
     public void disconnect() {
@@ -393,22 +415,26 @@ public class VslmConnection extends HttpConf {
 
 	try {
 
-		List<VslmVsoVStorageObjectQuerySpec> query = new LinkedList<>();
-		final VslmVsoVStorageObjectQuerySpec q = new VslmVsoVStorageObjectQuerySpec();
-		if ((datastoreMap != null) && (datastoreMap.size() > 0)) {
-			q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.DATASTORE_MO_ID.value());
-			q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.EQUALS.value());
-			for (final String key : datastoreMap.keySet()) {
-				final ManagedObjectReference dsMor = datastoreMap.get(key);
-				q.getQueryValue().add(dsMor.getValue());
-			}
-	    }else {
-			/* workaround for vSPhere 6.7U3 bug*/
-		 	q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.CREATE_TIME.value());
-			q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.GREATER_THAN.value());
-			q.getQueryValue().add("0");
-	    }
+	    List<VslmVsoVStorageObjectQuerySpec> query = new LinkedList<>();
+	    VslmVsoVStorageObjectQuerySpec q = null;
+	    if ((datastoreMap != null) && (datastoreMap.size() > 0)) {
+		q = new VslmVsoVStorageObjectQuerySpec();
+		q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.DATASTORE_MO_ID.value());
+		q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.EQUALS.value());
+		for (final String key : datastoreMap.keySet()) {
+		    final ManagedObjectReference dsMor = datastoreMap.get(key);
+		    q.getQueryValue().add(dsMor.getValue());
+		}
 		query.add(q);
+	    } else {
+//		q = new VslmVsoVStorageObjectQuerySpec();
+//		q.setQueryField(VslmVsoVStorageObjectQuerySpecQueryFieldEnum.NAME.value());
+//		q.setQueryOperator(VslmVsoVStorageObjectQuerySpecQueryOperatorEnum.CONTAINS.value());
+//
+//		q.getQueryValue().add("p");
+//
+//		query.add(q);
+	    }
 	    VslmVsoVStorageObjectQueryResult res = getvslmPort().vslmListVStorageObjectForSpec(this.getVsoManager(),
 		    query, 100);
 
@@ -1016,7 +1042,7 @@ public class VslmConnection extends HttpConf {
     }
 
     /**
-     * 
+     *
      * @param task
      * @return
      * @throws InvalidPropertyFaultMsg
