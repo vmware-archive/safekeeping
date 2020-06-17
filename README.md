@@ -38,7 +38,8 @@ Note: Other distributions should work fine
 - Extract the Safekeeping source tar file  
 - Download the [Virtual Disk Development Kit](https://code.vmware.com/web/sdk/6.7/vddk) 
 - copy or link the _VMware-vix-disklib-6.x.y-zzzzz.x86_64.tar.gz_ to the folder **_safekeeping-1.x.y/packages_**
-- The following steps will work on most recent Linux distributions:
+- root user or sudo is required for the following step
+- The following steps will work on most recent Linux distributions
 ```
 ant configure
 ant install
