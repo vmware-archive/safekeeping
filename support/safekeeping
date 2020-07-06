@@ -14,7 +14,7 @@ export JAVA_HOME=$VMBK_HOME/jre
 export VMBK_JAR=$VMBK_HOME/jar
 export VMBK_LIB=$VMBK_HOME/lib/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$VMBK_LIB/
-
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 export LIBRARY_PATH_OPTIONS="-Djava.library.path=$VMBK_LIB -classpath $VMBK_JAR"
 
 export ORIG_DIR=$PWD
