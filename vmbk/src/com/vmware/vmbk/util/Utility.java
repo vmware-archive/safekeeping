@@ -214,7 +214,7 @@ public class Utility {
 	    }
 	} catch (final Exception ex) {
 	    System.err.println("Linux UUID Exp : " + ex.getMessage());
-	    return "......";
+	    return null;
 
 	}
 
