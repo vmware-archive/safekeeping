@@ -9,7 +9,7 @@ function usage()
     echo ""
 }
 
-export VMBK_HOME=VMBK_DIR
+export VMBK_HOME=VMBK_DIR 
 export JAVA_HOME=$VMBK_HOME/jre
 export VMBK_JAR=$VMBK_HOME/jar
 export VMBK_LIB=$VMBK_HOME/lib/lib64
