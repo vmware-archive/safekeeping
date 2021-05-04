@@ -1,0 +1,164 @@
+/*******************************************************************************
+ * Copyright (C) 2019, VMware Inc
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ ******************************************************************************/
+package com.vmware.vmbk.control;
+
+import java.io.IOException;
+import java.util.jar.Attributes;
+import java.util.logging.Logger;
+
+import com.vmware.jvix.jDiskLib;
+import com.vmware.vmbk.util.ManifestUtility;
+
+/**
+ * Vmbk Version.
+ */
+public class VmbkVersion {
+    private static final Logger logger = Logger.getLogger(VmbkVersion.class.getName());
+    private static final String PRODUCT_NAME = "Safekeeping";
+
+
+    private static final String VMBK_VERSION = "XXXXXXXXXX";
+
+    private static final String VDDK_VERSION = "VVVVVVVVVV";
+
+    private static String[] vddkVerStringArray;
+
+    private static String[] verStringArray;
+
+    public static String getExtendedVersion() {
+//	return IoFunction.showInfo(logger,
+	return String.format("%s Version %s - VDDK Version %s", PRODUCT_NAME, VmbkVersion.getVersion(),
+		VmbkVersion.getVddkVersion());
+    }
+
+    /**
+     * @return Full VDDK Version String
+     */
+    public static String getFullVddkVersion() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return String.format("VDDK Version %s.%s.%s build %s", vddkVerStringArray[0], vddkVerStringArray[1],
+		vddkVerStringArray[2], vddkVerStringArray[3]);
+    }
+
+    public static String getIdentity() {
+	return String.format("%s Ver.%s", PRODUCT_NAME, VMBK_VERSION);
+    }
+
+    public static int getMajor() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(verStringArray[0]);
+    }
+
+    public static int getMinor() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(verStringArray[1]);
+    }
+
+    public static int getPatchLevev() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(verStringArray[2]);
+    }
+
+    public static String getProductName() {
+	return PRODUCT_NAME;
+    }
+
+    public static int getVddkBuildNumber() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(vddkVerStringArray[3]);
+    }
+
+    public static int getVddkMajor() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(vddkVerStringArray[0]);
+    }
+
+    public static int getVddkMinor() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(vddkVerStringArray[1]);
+    }
+
+    public static int getVddkPatchLevel() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return Integer.parseInt(vddkVerStringArray[2]);
+    }
+
+    public static String getVddkVersion() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return String.format("%s.%s.%s", vddkVerStringArray[0], vddkVerStringArray[1], vddkVerStringArray[2]);
+    }
+
+    public static String getVersion() {
+	if (verStringArray == null) {
+	    init();
+	}
+	return VMBK_VERSION;
+    }
+
+    static void init() {
+	verStringArray = VMBK_VERSION.split("\\.");
+	if (verStringArray.length != 3) {
+	    System.console().printf("Failure: VMBK version number uncorrect %s", VMBK_VERSION);
+	    System.exit(2);
+	}
+	try {
+	    final Attributes ass = ManifestUtility.detectClassBuildInfoAttributes(jDiskLib.class);
+
+	    final String implVersion = ass.getValue("VDDK-Version");
+	    vddkVerStringArray = implVersion.split("[\\s.-]");
+	} catch (final IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	    System.console().printf("Failure: VDDK version number uncorrect %s", VDDK_VERSION);
+	    System.exit(2);
+	}
+
+	if (vddkVerStringArray.length != 4) {
+	    System.console().printf("Failure: VDDK version number uncorrect %s", VDDK_VERSION);
+	    System.exit(2);
+	}
+
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SapiCli", "SapiCli.csproj", "{07B6657D-D6A9-4AEC-AF4D-5B10A0F76C63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07B6657D-D6A9-4AEC-AF4D-5B10A0F76C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B6657D-D6A9-4AEC-AF4D-5B10A0F76C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B6657D-D6A9-4AEC-AF4D-5B10A0F76C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B6657D-D6A9-4AEC-AF4D-5B10A0F76C63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1EC28E1-0544-4084-B671-B18B1B18E56E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,77 @@
+#!/bin/safekeeping --file
+vm -list
+archive -list
+backup vm:possa
+archive -list
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa -mode full
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+backup vm:max_possa
+
+
+archive -remove -generation 6 vm:max_possa
+archive -status vm:max_possa -detail
+
+restore vm:max_possa -name testpossa1
+
+vm -poweron vm:max_testpossa1
+
+snap -create vm:max_testpossa1
+snap -create vm:max_testpossa1
+snap -create vm:max_testpossa1
+snap -create vm:max_testpossa1
+snap -list vm:max_testpossa1
+snap -delete 2 vm:max_testpossa1
+snap -list vm:max_testpossa1
+snap -create vm:max_testpossa1
+snap -list vm:max_testpossa1
+snap -deleteall vm:max_testpossa1
+snap -list vm:max_testpossa1
+backup vm:max_testpossa1 -compression off
+backup vm:max_testpossa1 -compression off
+backup vm:max_testpossa1 -compression off
+vm -poweroff vm:max_testpossa1 
+vm -remove vm:max_testpossa1 -force
+
+restore vm:max_testpossa1 -poweron
+
+archive -remove -profile vm:max_testpossa1
+#restore new vm named testpossa2
+
+restore vm:max_possa -name max_testpossa2 -generation 23 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+restore vm:max_possa -name max_testpossa3 -generation 21 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+backup vm:max_testpossa2
+backup vm:max_testpossa2
+
+ivd -promote 0 vm:max_testpossa2 -name max_possa2_ivd
+backup ivd:max_possa2_ivd
+backup vm:max_testpossa2
+backup ivd:max_possa2_ivd
+
+
+
+archive -check -all
+archive -status vm:max_possa ivd:max_possa2_ivd -detail
+
+
+
+

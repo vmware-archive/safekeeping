@@ -1,23 +1,47 @@
-![logo](../assets/228456-vmw-os-lgo-safekeeper-final-sml.png )
+![logo](https://github.com/vmware/safekeeping/raw/assets/228456-vmw-os-lgo-safekeeper-final-sml.png)
 # safekeeping  
 
 ## Overview
 Safekeeping is an online backup tool for VMware vSphere.
-Features:
-1. Generation base repository
-2. Command-line Interface, Interactive mode, and batch mode.
-3. Support for Virtual Machine, Improved Virtual Disk, vApp and K8s (experimental).
-4. vCenter Tag support and management.
-5. Archive Compression.
-6. Different repository target support (AWS S3, File System, NFS  and more to come).
+There are two way to use Safekeeping 
+1. by command line using safekeeping-cmd
+2. by Soap WebService using safekeeping-cxf daemon
+
+## Common features between cmd and cxf:
+1. Generation base repository.
+2. Support for Virtual Machine, Improved Virtual Disk, vApp and K8s (experimental).
+3. vCenter Tag support and management.
+4. Archive Compression.
+5. Archive Encryption
+6. Multi repository target support (AWS S3,Azure, File System, and more to come).
 7. Restore to a New Virtual Machine new vApp or a new Improved Virtual Disk.
-9. Recovery of a Virtual Machine.
-10. Support VM vApp property.
+9. Full Recovery of a Virtual Machine and VAPP with identity (UUID and other metadata).
+10. Support VM and VAPP vApp property(OVF).
 11. Support for encrypted VM and IVD.
 12. Support for Storage Profile.
 13. Support for VM implementing Microsoft VBS.
 14. VMware Cloud on AWS and FedRamp support.
-15. Kubernetes backup support.
+15. Kubernetes backup support (work in progress).
+16. Full and incremental backup
+17. Data dedup on the fly
+18. Virtual full backup - forever incremental (create a full backup generation directly on the repository) 
+
+## safekeeping-cmd Features
+1. Command-line Interface, Interactive mode, and batch mode.
+2. Single user 
+3. single thread
+4. Support scripts 
+5. Extended command support for any entity on vCenter (more or less like powercli) 
+6. Works on Windows and Linux 
+
+## safekeeping-cxf Features
+1. Soap Web Service
+2. Multi concurrent users with different logins 
+3. authentication based on vSphere PSC or IVDM
+4. multiThreads operations
+5. multi targets supports on the same sessions (ex backup to 2 different S3 buckets)
+6. Rich SOAP Api   
+7. Works on Windows and Linux 
 
 ## Try it out
 
@@ -26,25 +50,82 @@ CentOS 7.x with the following packages:
 - [ ] open-vm-tools 
 - [ ] wget 
 - [ ] java-1.8.0-openjdk 
-- [ ] ant 
+- [ ] gradle 
 - [ ] gcc 
 - [ ] zip 
 - [ ] gcc-c++ 
 
 Note: Other distributions should work fine 
 
-### Build 
+Windows (any) with the following packages: 
+- [ ] powershell   
+- [ ] java-1.8.0-openjdk 
+- [ ] gradle 
+- [ ] Visual Studio 2017 or 2019  
 
-- Extract the Safekeeping source tar file  
-- Download the [Virtual Disk Development Kit](https://code.vmware.com/web/sdk/6.7/vddk) 
-- copy or link the _VMware-vix-disklib-6.x.y-zzzzz.x86_64.tar.gz_ to the folder **_safekeeping-1.x.y/packages_**
-- root user or sudo is required for the following step
-- The following steps will work on most recent Linux distributions
+
+
+# Build 
+
+- Extract the Safekeeping source tar file  or sincronize from this GIT deposit
+- Download the [Virtual Disk Development Kit](https://code.vmware.com/web/sdk/7.0/vddk) and copy on the files on safekeeping/jdisklib/"OS-type"/vddk  
+- 
+## Build the VDDK Wrapper
+
+#### on Windows 
 ```
-ant configure
-ant install
+cd safekeeping\jdisklib\windows 
 ```
-### Run
+Copy any VDDK library you want to use inside the **safekeeping\jdisklib\windows\vddk** directory or download any compatible version with ```_VMwareInternalDownload.ps1```
+
+To build the VDDK wrapper use
+- with VisualStudio 2017    ```build-2017.cmd``` 
+- with VisualStudio 2019    ```build-2019.cmd``` 
+
+#### on Linux 
+```
+cd ./safekeeping/jdisklib/linux
+```
+
+Copy any VDDK library you want to use inside the **./safekeeping/jdisklib/linux/vddk** directory or download any compatible version with ```./_VMwareInternalDownload.sh```
+
+To build the VDDK wrapper use:	```./buildVddkLibraries.sh```    
+
+
+## Build Java code
+
+***Important JAVA supported versions are jre1.8.0_251, jre1.8.0_261, or greater anything over Java 11 doesn't work.***
+```
+cd safekeeping
+configure.cmd <java_version>  
+gradle build 
+```
+<java_version> 8 jdk1.8 
+
+
+# Gradle main tasks 
+**Application tasks** 
+- **run** - Runs this project as a JVM application
+
+**Build tasks** 
+- **build** - Assembles and tests this project.
+- **clean** - Deletes the build directory.
+
+**safekeeping-cmd and safekeeping-cxf only tasks**
+- **deb** - Safekeeping Installation. - Create a deb file (requires Debian/Ubuntu)
+- **dmg** - Safekeeping Installation. - CmdLine Version (requires MacOS )
+- **msi** - Safekeeping Installation. - CmdLine Version (requires Windows and https://wixtoolset.org/ )
+- **rpm** - Safekeeping Installation. - CmdLine Version (requires ReadHat/Centos )
+
+
+## Run
+### safekeeping-cxf
+Run the webservice in interactive mode using port 8080 for HTTP and 8043 for HTTPS
+```
+safekeeping-cxf -port 8080 -secure 8043 -interactive
+```
+
+### safekeeping-cmd
 #### To run in interactive mode 
 ```
 safekeeping
@@ -66,26 +147,37 @@ safekeeping --help
 ```
 
 ## Documentation
-Check the [wiki](https://github.com/vmware/safekeeping/wiki)
+Check the [wiki](https://github.com/vmware/safekeeping/wiki) for safekeeping-cmd 
 
 ## Blogs Articles
 [Cormac Hogan Blog](https://cormachogan.com/2019/11/13/safekeeping-a-useful-tool-for-managing-first-class-disks-improved-virtual-disks)
 
 ## Directory Contents
 ### Directories
-- **vmbk**
-  - Virtual machine backup tool library written with Java using VMware vSphere SDK 6.7.0 U2
-- **vmbk-cmd**
-  - CLI to manage Safekeeping
+ 
+- **safekeeping-cmd**
+  - Safekeeping Command Line version 
+- **safekeeping-cxf**
+  - Safekeeping SOAP Web Service daemon version
+- **safekeeping-core**
+  - Core backup tool library written with Java
 - **jdisklib**
   - Native interface for VDDK written with C++ using VDDK library.
 - **jvix**
   - Java wrapper for *jdisklib* native library
-- **nfs-client**
-  - Modified [EMC NFS Java Client](https://github.com/EMCECS/nfs-client-java) library
+- **safekeeping-common**
+  - Java common library used by the project
+- **safekeeping-core-ext**
+  - Library used by the safekeeping-cmd to deal with: IVD, snapshots, etc. 
+- **safekeeping-external**
+  - Wrapper of the internal class. Used by safekeeping-cfx for reflection
 - **jopt-simple**
   - Modified [jopt-simple parsing command line](http://jopt-simple.github.io/jopt-simple/) library
-- **support**
+  **nssm**
+  - Updated NSSM - the Non-Sucking Service Manager (support Visual Studio 2017 and 2019)
+  **PowerShell**
+  - Safekeeping SAPI cmd-let 
+- **lib**
   - Support files 
 - **jar**
   - Java jar files required by Safekeeping  
@@ -93,7 +185,8 @@ Check the [wiki](https://github.com/vmware/safekeeping/wiki)
   - Documentation.
 - **sample_scripts**
   - Sample scripts to be used with Safekeeping
-
+- **nfs-client**
+  - NFS library ***DEPRECATED***
 ### Files
 - **LICENSE.txt**
   - BSD-2 License file.
@@ -103,6 +196,11 @@ Check the [wiki](https://github.com/vmware/safekeeping/wiki)
   - This file.
 - **VERSION**
   - Safekeeping version number
+- **build.gradle**
+  - Gradle master build script
+- **settings.gradle**
+  - Gradle settings file
+
 
 ## Contributing
 

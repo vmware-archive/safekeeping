@@ -1,0 +1,10 @@
+#!/bin/safekeeping
+# vapp test command script   &C:\\Users\\mdaneri\\Documents\\safekeeping-2.0\\sample_scripts\\test-fco.vmbk
+echo fco test 
+fco -import -url https://eco-contentlib.s3-us-west-2.amazonaws.com/ContentLib/Template_Centos7_v1.3/Template_Centos7_v1.3.ovf   -name import-centos -datastore vsanDatastore
+fco -import -url https://eco-contentlib.s3-us-west-2.amazonaws.com/ContentLib/Safekeeping/safekeeping_template_v1.0.1.ovf -name import-safekeeping -datastore vsanDatastore
+fco -clone vm:import-centos -name testVM-01
+fco -clone vm:import-safekeeping -name testVM-02
+fco  -cbt on vm:testVM-01
+fco  -remove vm:testVM-01 vm:testVM-02
+fco  -remove vm:import-centos vm:import-safekeeping 

@@ -1,0 +1,20 @@
+This directory contains a Java implementation of vmware-appmonitor. The program VMGuestAppMonitor takes the same set of parameters.
+This directory already includes the javah-generated header file and a C implementation file.
+
+Build instructions:
+There are two methods to build jar file, you can use either one.
+
+build.bat:
+Please modify build.bat to include your specific C and Java compiler and environment variables.
+type build.bat
+
+makefile:
+Please modify build.bat to include your specific C and Java compiler and environment variables.
+type nmake jarfile
+
+In both cases above .class, .jar, .lib and .dll files are produced.
+
+Run:
+Make sure you have libVMGuestAppMonitorNative.dll, vmware-appmonitor.dll in your PATH.
+java -cp VMGuestAppMonitor.jar VMGuestAppMonitor
+This will give you a usage message.

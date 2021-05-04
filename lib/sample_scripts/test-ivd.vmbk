@@ -1,0 +1,43 @@
+#!/bin/safekeeping
+# ivd test command script   &C:\\Users\\mdaneri\\Documents\\safekeeping-2.0\\sample_scripts\\test-ivd.vmbk
+ivd -list -detail
+fco -clone vm:testVM -name testVM-01
+ivd  -promote 0 vm:testVM-01 -name ivd-testVM-01_0
+ 
+
+ivd  -detach ivd:ivd-testVM-01_0
+ivd -rename ivd:ivd-testVM-01_0 -name ivd-test-01
+fco -clone ivd:ivd-test-01 -name ivd-test-02
+
+ivd -cbt on ivd:ivd-test-02
+
+fco -clone ivd:ivd-test-02 -name ivd-test-03
+fco -clone ivd:ivd-test-02 -name ivd-test-04
+fco -clone ivd:ivd-test-02 -name ivd-test-05
+fco -clone ivd:ivd-test-02 -name ivd-test-06
+
+
+ivd -create -name ivd-test-07 -type t -datastore vsanDatastore -size 20G
+
+ivd -cbt off ivd:ivd-test-03 ivd:ivd-test-04
+ 
+ivd -keepafterdeletevm on ivd:ivd-test-03  
+
+ivd -disablerelocation on ivd:ivd-test-04 
+
+ivd -extend -size 40G ivd:ivd-test-05 
+ 
+ivd -list
+
+ivd -attach vm:testVM-01 ivd:ivd-test-03
+ivd -attach vm:testVM-01 ivd:ivd-test-07
+vm  -poweron vm:testVM-01
+
+vm  -poweroff vm:testVM-01 -force
+
+vm -remove vm:testVM-01
+ivd -remove ivd:ivd-test-02 ivd:ivd-test-03 ivd:ivd-test-04
+ivd -remove ivd:ivd-test-01 ivd:ivd-test-05 ivd:ivd-test-06
+ivd -list -detail  
+  
+ivd -remove ivd:ivd-test-07

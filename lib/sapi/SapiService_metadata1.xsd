@@ -1,0 +1,2086 @@
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://cxf.safekeeping.vmware.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cxf.safekeeping.vmware.com/" version="1.0">
+  <xs:element name="InternalCoreResult" type="tns:InternalCoreResult"></xs:element>
+  <xs:element name="InternalServer" type="tns:InternalServer"></xs:element>
+  <xs:element name="InvalidOptions" type="tns:InvalidOptions"></xs:element>
+  <xs:element name="InvalidTask" type="tns:InvalidTask"></xs:element>
+  <xs:element name="UnrecognizedToken" type="tns:UnrecognizedToken"></xs:element>
+  <xs:element name="backup" type="tns:backup"></xs:element>
+  <xs:element name="backupAsync" type="tns:backupAsync"></xs:element>
+  <xs:element name="backupAsyncResponse" type="tns:backupAsyncResponse"></xs:element>
+  <xs:element name="backupResponse" type="tns:backupResponse"></xs:element>
+  <xs:element name="checkArchiveGenerations" type="tns:checkArchiveGenerations"></xs:element>
+  <xs:element name="checkArchiveGenerationsResponse" type="tns:checkArchiveGenerationsResponse"></xs:element>
+  <xs:element name="connect" type="tns:connect"></xs:element>
+  <xs:element name="connectAsync" type="tns:connectAsync"></xs:element>
+  <xs:element name="connectAsyncResponse" type="tns:connectAsyncResponse"></xs:element>
+  <xs:element name="connectRepository" type="tns:connectRepository"></xs:element>
+  <xs:element name="connectRepositoryAsync" type="tns:connectRepositoryAsync"></xs:element>
+  <xs:element name="connectRepositoryAsyncResponse" type="tns:connectRepositoryAsyncResponse"></xs:element>
+  <xs:element name="connectRepositoryResponse" type="tns:connectRepositoryResponse"></xs:element>
+  <xs:element name="connectResponse" type="tns:connectResponse"></xs:element>
+  <xs:element name="disconnect" type="tns:disconnect"></xs:element>
+  <xs:element name="disconnectAsync" type="tns:disconnectAsync"></xs:element>
+  <xs:element name="disconnectAsyncResponse" type="tns:disconnectAsyncResponse"></xs:element>
+  <xs:element name="disconnectRepository" type="tns:disconnectRepository"></xs:element>
+  <xs:element name="disconnectRepositoryAsync" type="tns:disconnectRepositoryAsync"></xs:element>
+  <xs:element name="disconnectRepositoryAsyncResponse" type="tns:disconnectRepositoryAsyncResponse"></xs:element>
+  <xs:element name="disconnectRepositoryResponse" type="tns:disconnectRepositoryResponse"></xs:element>
+  <xs:element name="disconnectResponse" type="tns:disconnectResponse"></xs:element>
+  <xs:element name="echo" type="tns:echo"></xs:element>
+  <xs:element name="echoResponse" type="tns:echoResponse"></xs:element>
+  <xs:element name="extension" type="tns:extension"></xs:element>
+  <xs:element name="extensionResponse" type="tns:extensionResponse"></xs:element>
+  <xs:element name="getActiveRepository" type="tns:getActiveRepository"></xs:element>
+  <xs:element name="getActiveRepositoryResponse" type="tns:getActiveRepositoryResponse"></xs:element>
+  <xs:element name="getAllDumps" type="tns:getAllDumps"></xs:element>
+  <xs:element name="getAllDumpsResponse" type="tns:getAllDumpsResponse"></xs:element>
+  <xs:element name="getCurrentTime" type="tns:getCurrentTime"></xs:element>
+  <xs:element name="getCurrentTimeResponse" type="tns:getCurrentTimeResponse"></xs:element>
+  <xs:element name="getDumps" type="tns:getDumps"></xs:element>
+  <xs:element name="getDumpsResponse" type="tns:getDumpsResponse"></xs:element>
+  <xs:element name="getRepositories" type="tns:getRepositories"></xs:element>
+  <xs:element name="getRepositoriesNames" type="tns:getRepositoriesNames"></xs:element>
+  <xs:element name="getRepositoriesNamesResponse" type="tns:getRepositoriesNamesResponse"></xs:element>
+  <xs:element name="getRepositoriesResponse" type="tns:getRepositoriesResponse"></xs:element>
+  <xs:element name="getRepository" type="tns:getRepository"></xs:element>
+  <xs:element name="getRepositoryResponse" type="tns:getRepositoryResponse"></xs:element>
+  <xs:element name="getTaskInfo" type="tns:getTaskInfo"></xs:element>
+  <xs:element name="getTaskInfoResponse" type="tns:getTaskInfoResponse"></xs:element>
+  <xs:element name="getVersion" type="tns:getVersion"></xs:element>
+  <xs:element name="getVersionResponse" type="tns:getVersionResponse"></xs:element>
+  <xs:element name="isConnected" type="tns:isConnected"></xs:element>
+  <xs:element name="isConnectedResponse" type="tns:isConnectedResponse"></xs:element>
+  <xs:element name="keepalive" type="tns:keepalive"></xs:element>
+  <xs:element name="keepaliveResponse" type="tns:keepaliveResponse"></xs:element>
+  <xs:element name="listArchive" type="tns:listArchive"></xs:element>
+  <xs:element name="listArchiveResponse" type="tns:listArchiveResponse"></xs:element>
+  <xs:element name="login" type="tns:login"></xs:element>
+  <xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
+  <xs:element name="logout" type="tns:logout"></xs:element>
+  <xs:element name="logoutResponse" type="tns:logoutResponse"></xs:element>
+  <xs:element name="removeArchiveGenerations" type="tns:removeArchiveGenerations"></xs:element>
+  <xs:element name="removeArchiveGenerationsAsync" type="tns:removeArchiveGenerationsAsync"></xs:element>
+  <xs:element name="removeArchiveGenerationsAsyncResponse" type="tns:removeArchiveGenerationsAsyncResponse"></xs:element>
+  <xs:element name="removeArchiveGenerationsResponse" type="tns:removeArchiveGenerationsResponse"></xs:element>
+  <xs:element name="removeArchiveProfile" type="tns:removeArchiveProfile"></xs:element>
+  <xs:element name="removeArchiveProfileAsync" type="tns:removeArchiveProfileAsync"></xs:element>
+  <xs:element name="removeArchiveProfileAsyncResponse" type="tns:removeArchiveProfileAsyncResponse"></xs:element>
+  <xs:element name="removeArchiveProfileResponse" type="tns:removeArchiveProfileResponse"></xs:element>
+  <xs:element name="restore" type="tns:restore"></xs:element>
+  <xs:element name="restoreAsync" type="tns:restoreAsync"></xs:element>
+  <xs:element name="restoreAsyncResponse" type="tns:restoreAsyncResponse"></xs:element>
+  <xs:element name="restoreResponse" type="tns:restoreResponse"></xs:element>
+  <xs:element name="setActiveRepository" type="tns:setActiveRepository"></xs:element>
+  <xs:element name="setActiveRepositoryResponse" type="tns:setActiveRepositoryResponse"></xs:element>
+  <xs:element name="showArchive" type="tns:showArchive"></xs:element>
+  <xs:element name="showArchiveAsync" type="tns:showArchiveAsync"></xs:element>
+  <xs:element name="showArchiveAsyncResponse" type="tns:showArchiveAsyncResponse"></xs:element>
+  <xs:element name="showArchiveResponse" type="tns:showArchiveResponse"></xs:element>
+  <xs:element name="statusArchive" type="tns:statusArchive"></xs:element>
+  <xs:element name="statusArchiveAsync" type="tns:statusArchiveAsync"></xs:element>
+  <xs:element name="statusArchiveAsyncResponse" type="tns:statusArchiveAsyncResponse"></xs:element>
+  <xs:element name="statusArchiveResponse" type="tns:statusArchiveResponse"></xs:element>
+  <xs:element name="virtualBackup" type="tns:virtualBackup"></xs:element>
+  <xs:element name="virtualBackupAsync" type="tns:virtualBackupAsync"></xs:element>
+  <xs:element name="virtualBackupAsyncResponse" type="tns:virtualBackupAsyncResponse"></xs:element>
+  <xs:element name="virtualBackupResponse" type="tns:virtualBackupResponse"></xs:element>
+  <xs:complexType name="resultActionConnect">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="connected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="ssoEndPointUrl" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="subActionConnectSso" type="tns:resultActionConnectSso"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subTasksActionConnectVCenters" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"></xs:element>
+      <xs:element name="done" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime"></xs:element>
+      <xs:element name="endTime" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="fcoEntityInfo" type="tns:managedFcoEntityInfo"></xs:element>
+      <xs:element minOccurs="0" name="parent" type="tns:task"></xs:element>
+      <xs:element name="progress" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="reason" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime"></xs:element>
+      <xs:element name="startTime" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="state" type="tns:operationState"></xs:element>
+      <xs:element minOccurs="0" name="task" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionConnectSso">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="connected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="ssoEndPointUrl" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="token" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="managedFcoEntityInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:managedEntityInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uuid" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="managedEntityInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityType" type="tns:entityType"></xs:element>
+      <xs:element minOccurs="0" name="morefValue" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="serverUuid" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="task">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fcoEntity" type="tns:managedFcoEntityInfo"></xs:element>
+      <xs:element minOccurs="0" name="id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="reason" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="state" type="tns:operationState"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionDisconnect">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="connected" type="xs:boolean"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subTasksActionConnectVCenters" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionVmBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionBackupForEntityWithDisks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="guestFlags" type="tns:guestInfoFlags"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionsOnDisk" nillable="true" type="tns:task"></xs:element>
+          <xs:element name="template" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionBackupForEntityWithDisks">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionBackup">
+        <xs:sequence>
+          <xs:element name="cipher" type="xs:boolean"></xs:element>
+          <xs:element name="compressed" type="xs:boolean"></xs:element>
+          <xs:element name="numberOfDisk" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:backupPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="resultActionBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionBackupRestore">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+          <xs:element name="cbtEnabled" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionBackupRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionWithSubOperations">
+        <xs:sequence>
+          <xs:element name="generationId" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="generationInfo" type="tns:generationInfo"></xs:element>
+          <xs:element minOccurs="0" name="index" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="locations" type="tns:fcoLocation"></xs:element>
+          <xs:element name="success" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="targetName" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionWithSubOperations">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subOperations" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="guestInfoFlags">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="changeTrackingEnabled" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="configurationEncrypted" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="diskUuidEnabled" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="guestFullName" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="numberOfVirtualDisk" type="xs:int"></xs:element>
+      <xs:element name="template" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="vbsEnabled" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="vmPathName" type="xs:string"></xs:element>
+      <xs:element name="vAppConfigAvailable" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+      <xs:element name="generationId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="previousGenerationId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="targetUri" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="fcoLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datacenterInfo" type="tns:managedEntityInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ivdLocation">
+    <xs:complexContent>
+      <xs:extension base="tns:fcoLocation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datastoreInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="datastorePath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vmdkFileName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vmdkFullPath" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="vappLocation">
+    <xs:complexContent>
+      <xs:extension base="tns:fcoLocation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="folderInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolFullPath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resourcePoolPath" nillable="true" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="vmFolderFullPath" type="xs:string"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="vmFolderPath" nillable="true" type="tns:managedEntityInfo"></xs:element>
+          <xs:element name="vAppMember" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="vmLocation">
+    <xs:complexContent>
+      <xs:extension base="tns:fcoLocation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datastoreInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="datastorePath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolFullPath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resourcePoolPath" nillable="true" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="vmFolderFullPath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vmFolderInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="vmFolderPath" nillable="true" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="vmxFileName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vmxFullPath" type="xs:string"></xs:element>
+          <xs:element name="vAppMember" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionIvdBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionBackupForEntityWithDisks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultActionOnDisk" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionVappBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionBackup">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fcoChildren" nillable="true" type="tns:managedFcoEntityInfo"></xs:element>
+          <xs:element name="numberOfChildVm" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:backupVappPhases"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionOnChildVms" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionVmVirtualBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionVirtualBackupForEntityWithDisks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="guestFlags" type="tns:guestInfoFlags"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionsOnDisk" nillable="true" type="tns:task"></xs:element>
+          <xs:element name="template" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionVirtualBackupForEntityWithDisks">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionVirtualBackup">
+        <xs:sequence>
+          <xs:element name="numberOfDisk" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:virtualBackupPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionVirtualBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionBackupRestore">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+          <xs:element name="cbtEnabled" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionIvdVirtualBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionVirtualBackupForEntityWithDisks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resultActionOnDisk" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionVappVirtualBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionVirtualBackup">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fcoChildren" nillable="true" type="tns:managedFcoEntityInfo"></xs:element>
+          <xs:element name="numberOfChildVm" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:virtualBackupVappPhases"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionOnChildVms" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionVmRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionRestoreForEntityWithDisks">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fcoChildren" nillable="true" type="tns:managedFcoEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="guestFlags" type="tns:guestInfoFlags"></xs:element>
+          <xs:element minOccurs="0" name="managedInfo" type="tns:restoreVmManagedInfo"></xs:element>
+          <xs:element name="numberOfChildVm" type="xs:int"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionOnChildVms" nillable="true" type="tns:task"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionsOnDisk" nillable="true" type="tns:task"></xs:element>
+          <xs:element name="template" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionRestoreForEntityWithDisks">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionRestore">
+        <xs:sequence>
+          <xs:element name="numberOfDisk" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:restorePhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="resultActionRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionBackupRestore">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="restoreFcoIndex" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="restoreVmManagedInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:restoreManagedInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dsInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="folderInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="hostInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="networkMapping" nillable="true" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="vAppConfig" type="tns:serializableVAppConfigInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="restoreManagedInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dcInfo" type="tns:managedEntityInfo"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+      <xs:element name="recovery" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppConfigInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:serializableVmConfigInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="annotation" type="xs:string"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="entityConfig" nillable="true" type="tns:serializableVAppEntityConfigInfo"></xs:element>
+          <xs:element minOccurs="0" name="instanceUuid" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="managedBy" type="tns:serializableManagedByInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serializableVmConfigInfo">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="eula" nillable="true" type="xs:string"></xs:element>
+      <xs:element name="installBootRequired" type="xs:boolean"></xs:element>
+      <xs:element name="installBootStopDelay" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="ipAssignment" type="tns:serializableVAppIPAssignmentInfo"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ovfEnvironmentTransport" nillable="true" type="xs:string"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ovfSection" nillable="true" type="tns:serializableVAppOvfSectionInfo"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="product" nillable="true" type="tns:serializableVAppProductInfo"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="property" nillable="true" type="tns:serializableVAppPropertyInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppEntityConfigInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destroyWithParent" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="key" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="startAction" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="startDelay" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="startOrder" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="stopAction" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="stopDelay" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="tag" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="type" type="tns:entityType"></xs:element>
+      <xs:element minOccurs="0" name="waitingForGuest" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableManagedByInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extensionKey" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppIPAssignmentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ipAllocationPolicy" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="ipProtocol" type="xs:string"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="supportedAllocationScheme" nillable="true" type="xs:string"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="supportedIpProtocol" nillable="true" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppOvfSectionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="atEnvelopeLevel" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="contents" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="key" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="namespace" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppProductInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="appUrl" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="classId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="fullVersion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="instanceId" type="xs:string"></xs:element>
+      <xs:element name="key" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="productUrl" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="vendor" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="vendorUrl" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serializableVAppPropertyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="category" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="classId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="defaultValue" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="description" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="instanceId" type="xs:string"></xs:element>
+      <xs:element name="key" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="label" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="typeReference" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="userConfigurable" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="value" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionVappRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionRestore">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fcoChildren" nillable="true" type="tns:managedFcoEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="managedInfo" type="tns:restoreVappManagedInfo"></xs:element>
+          <xs:element name="numberOfChildVm" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:restoreVappPhases"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resultActionOnChildVms" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="restoreVappManagedInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:restoreManagedInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="folderInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="resourcePoolInfo" type="tns:managedEntityInfo"></xs:element>
+          <xs:element minOccurs="0" name="vAppConfig" type="tns:serializableVAppConfigInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionIvdRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionRestoreForEntityWithDisks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="managedInfo" type="tns:restoreIvdManagedInfo"></xs:element>
+          <xs:element minOccurs="0" name="resultActionOnDisk" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="restoreIvdManagedInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:restoreManagedInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datastoreInfo" type="tns:managedEntityInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionDiskBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultDiskBackupRestore">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+          <xs:element name="cbtHealth" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="changeId" type="xs:string"></xs:element>
+          <xs:element name="cipher" type="xs:boolean"></xs:element>
+          <xs:element name="compressed" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="generationId" type="xs:int"></xs:element>
+          <xs:element name="noChanges" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:backupDiskPhases"></xs:element>
+          <xs:element minOccurs="0" name="queryBlocksOption" type="tns:queryBlocksOption"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultDiskBackupRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="adapterType" type="tns:adapterType"></xs:element>
+          <xs:element name="busNumber" type="xs:int"></xs:element>
+          <xs:element name="capacityInBytes" type="xs:long"></xs:element>
+          <xs:element name="controllerKey" type="xs:int"></xs:element>
+          <xs:element name="deviceKey" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="diskHandle" type="xs:long"></xs:element>
+          <xs:element name="diskId" type="xs:int"></xs:element>
+          <xs:element name="flags" type="xs:int"></xs:element>
+          <xs:element name="maxBlockSize" type="xs:int"></xs:element>
+          <xs:element name="maxBlockSizeInBytes" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="numberOfBlocks" type="xs:int"></xs:element>
+          <xs:element name="numberOfThreads" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="provisioningType" type="tns:fileBackingInfoProvisioningType"></xs:element>
+          <xs:element minOccurs="0" name="requestedTransportModes" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="targetName" type="xs:string"></xs:element>
+          <xs:element name="totalNumberOfDisks" type="xs:int"></xs:element>
+          <xs:element name="unitNumber" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="usedTransportModes" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="uuid" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="virtualDiskMode" type="tns:virtualDiskModeType"></xs:element>
+          <xs:element minOccurs="0" name="vDiskId" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionDiskRestore">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionDiskVirtualOperation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="phase" type="tns:restoreDiskPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionDiskVirtualOperation">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultDiskBackupRestore">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="diskRestoreGenerationsProfileTasks" nillable="true" type="tns:task"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationList" nillable="true" type="xs:int"></xs:element>
+          <xs:element name="numberOfGenerations" type="xs:int"></xs:element>
+          <xs:element name="numberOfRelocatedBlocks" type="xs:int"></xs:element>
+          <xs:element name="numberOfReplacedBlock" type="xs:int"></xs:element>
+          <xs:element name="totalBlocks" type="xs:int"></xs:element>
+          <xs:element name="totalDumpSize" type="xs:long"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionDiskVirtualBackup">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionDiskVirtualOperation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="phase" type="tns:virtualBackupDiskPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionConnectVcenter">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="api" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="cloudPlatform" type="tns:vMwareCloudPlatforms"></xs:element>
+          <xs:element minOccurs="0" name="instanceUuid" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+          <xs:element name="pbmConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="pbmUrl" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="pbmVersion" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="url" type="xs:string"></xs:element>
+          <xs:element name="vapiConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="vapiUrl" type="xs:string"></xs:element>
+          <xs:element name="vslmConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="vslmName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vslmUrl" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionDisconnectVcenter">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="api" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="instanceUuid" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+          <xs:element name="pbmConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="pbmUrl" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="pbmVersion" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="url" type="xs:string"></xs:element>
+          <xs:element name="vapiConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="vapiUrl" type="xs:string"></xs:element>
+          <xs:element name="vslmConnected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="vslmName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="vslmUrl" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveItemsList">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="tns:resultActionArchiveItem"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionArchive">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="targetName" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveItem">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="info" type="tns:infoData"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="infoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityType" type="tns:entityType"></xs:element>
+      <xs:element name="full" type="xs:boolean"></xs:element>
+      <xs:element name="latestGenerationId" type="xs:int"></xs:element>
+      <xs:element name="latestSucceededGenerationId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="moref" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+      <xs:element name="timestampMsOfLatestGenerationId" type="xs:long"></xs:element>
+      <xs:element name="timestampMsOfLatestSucceededGenerationId" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="timestampOfLatestGenerationId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="timestampOfLatestSucceededGenerationId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="uuid" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveRemoveGenerationWithDependencies">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchiveWithSubOperations">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="phase" type="tns:removeGenerationsPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionArchiveWithSubOperations">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subOperations" nillable="true" type="tns:task"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveRemoveGeneration">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dependenciesInfo" type="tns:generetionDependenciesInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="dependents" nillable="true" type="tns:generetionDependenciesInfo"></xs:element>
+          <xs:element name="genId" type="xs:int"></xs:element>
+          <xs:element name="generationDataRemoved" type="xs:boolean"></xs:element>
+          <xs:element name="generationProfileMetadataRemoved" type="xs:boolean"></xs:element>
+          <xs:element name="timestampMs" type="xs:long"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="generetionDependenciesInfo">
+    <xs:sequence>
+      <xs:element name="dependOnGenerationId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="dependingGenerationId" type="tns:generation"></xs:element>
+      <xs:element name="exist" type="xs:boolean"></xs:element>
+      <xs:element name="genId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="mode" type="tns:backupMode"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+      <xs:element minOccurs="0" name="dependingOnGenerationId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="genId" type="xs:int"></xs:element>
+      <xs:element name="succeeded" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="timestamp" type="xs:dateTime"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveRemovedProfile">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="phase" type="tns:removeProfilePhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveVappStatus">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionArchiveStatus">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationVmInfoList" nillable="true" type="tns:generationVirtualMachinesInfoList"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="resultActionArchiveStatus">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element name="available" type="xs:boolean"></xs:element>
+          <xs:element name="empty" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="generationStatus" type="xs:string"></xs:element>
+          <xs:element name="latestSucceededGenerationId" type="xs:int"></xs:element>
+          <xs:element name="numOfGeneration" type="xs:int"></xs:element>
+          <xs:element name="numOfSuccceededGeneration" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="phase" type="tns:statusProfilePhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="generationVirtualMachinesInfoList">
+    <xs:complexContent>
+      <xs:extension base="tns:generationStatusInfo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="vmsInfoList" nillable="true" type="tns:managedFcoEntityInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="generationStatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityType" type="tns:entityType"></xs:element>
+      <xs:element name="genId" type="xs:int"></xs:element>
+      <xs:element name="generationSucceeded" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="timeStamp" type="xs:dateTime"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveVmStatus">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionArchiveStatus">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationDisksInfoList" nillable="true" type="tns:generationDisksInfoList"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="generationDisksInfoList">
+    <xs:complexContent>
+      <xs:extension base="tns:generationStatusInfo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="disksInfoList" nillable="true" type="tns:statusVirtualMachineDiskInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="statusVirtualMachineDiskInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:statusDiskInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="adapterType" type="tns:adapterType"></xs:element>
+          <xs:element name="busNumber" type="xs:int"></xs:element>
+          <xs:element name="controllerDeviceKey" type="xs:int"></xs:element>
+          <xs:element name="diskId" type="xs:int"></xs:element>
+          <xs:element name="unitNumber" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="statusDiskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="backupMode" type="tns:backupMode"></xs:element>
+      <xs:element name="capacity" type="xs:long"></xs:element>
+      <xs:element name="dumpElapsedTimeMs" type="xs:long"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveIvdStatus">
+    <xs:complexContent>
+      <xs:extension base="tns:resultActionArchiveStatus">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationDiskInfo" nillable="true" type="tns:generationDiskInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="generationDiskInfo">
+    <xs:complexContent>
+      <xs:extension base="tns:generationStatusInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="disksInfo" type="tns:statusDiskInfo"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveCheckGenerationWithDependencies">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchiveWithSubOperations">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="phase" type="tns:checkGenerationsPhases"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveCheckGeneration">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dependenciesInfo" type="tns:generetionDependenciesInfo"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="dependents" nillable="true" type="tns:generetionDependenciesInfo"></xs:element>
+          <xs:element name="genId" type="xs:int"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="md5fileCheck" nillable="true" type="xs:boolean"></xs:element>
+          <xs:element name="numOfFiles" type="xs:int"></xs:element>
+          <xs:element name="timestampMs" type="xs:long"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionArchiveShow">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="archiveObject" type="tns:archiveObjects"></xs:element>
+          <xs:element minOccurs="0" name="content" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractResultActionConnectRepository">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="connected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="resultActionConnectAwsS3Repository">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResultActionConnectRepository">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="options" type="tns:awsS3RepositoryOptions"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="awsS3RepositoryOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:repositoryOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accessKey" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="backet" type="xs:string"></xs:element>
+          <xs:element name="base64" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="region" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="secretKey" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="repositoryOptions">
+    <xs:sequence>
+      <xs:element name="active" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fileRepositoryOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:repositoryOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="rootFolder" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getRepository">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnrecognizedToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepositoryAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepositoryAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listArchive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveListOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveListOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dateFilter" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractArchiveOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractBasicCommandOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="targetName" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractBasicCommandOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="anyFcoOfType" type="xs:int"></xs:element>
+      <xs:element name="dryRun" type="xs:boolean"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="targetList" nillable="true" type="tns:fcoTarget"></xs:element>
+      <xs:element minOccurs="0" name="vim" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fcoTarget">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="key" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="keyType" type="tns:fcoTypeSearch"></xs:element>
+      <xs:element minOccurs="0" name="vcenterUuid" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listArchiveResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InternalCoreResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="keepalive">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="keepaliveResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveRemoveProfileOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveRemoveProfileOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveProfileResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionArchiveRemovedProfile"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InternalServer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepository">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionDisconnectRepository"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionDisconnectRepository">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="extension">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:extensionOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="extensionOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extensionOperation" type="tns:extensionManagerOperation"></xs:element>
+      <xs:element name="force" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="extensionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionExtension"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionExtension">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="healthInfo" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="operation" type="tns:extensionManagerOperation"></xs:element>
+          <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="backup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:backupOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="backupOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:virtualBackupOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cipher" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="compression" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="maxBlockSize" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="queryBlocksOption" type="tns:queryBlocksOption"></xs:element>
+          <xs:element minOccurs="0" name="quisceSpec" type="tns:virtualMachineQuisceSpec"></xs:element>
+          <xs:element minOccurs="0" name="requestedBackupMode" type="tns:backupMode"></xs:element>
+          <xs:element minOccurs="0" name="requestedTransportMode" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="virtualBackupOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:backupRestoreCommonOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="generationId" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="backupRestoreCommonOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractBasicCommandOptions">
+        <xs:sequence>
+          <xs:element name="force" type="xs:boolean"></xs:element>
+          <xs:element name="noVmdk" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="numberOfThreads" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="virtualMachineQuisceSpec">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="timeout" type="xs:int"></xs:element>
+      <xs:element name="useWindowsVss" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="vssBackupContext" type="tns:windowsQuiesceSpecVssBackupContext"></xs:element>
+      <xs:element minOccurs="0" name="vssBackupType" type="tns:windowsQuiesceSpecVssBackupType"></xs:element>
+      <xs:element minOccurs="0" name="vssBootableSystemState" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="vssPartialFileSupport" type="xs:boolean"></xs:element>
+      <xs:element minOccurs="0" name="vssRetryOnFail" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="backupResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionBackup"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnect">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionDisconnect"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="virtualBackupAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:virtualBackupOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="virtualBackupAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tasks">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="reason" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="state" type="tns:operationState"></xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="taskList" nillable="true" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepositoryAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepositoryAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="showArchive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveShowOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveShowOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="archiveObject" type="tns:archiveObjects"></xs:element>
+          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
+          <xs:element minOccurs="0" name="generationId" type="xs:int"></xs:element>
+          <xs:element name="prettyJason" type="xs:boolean"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="showArchiveResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionArchiveShow"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveGenerationsAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveRemoveGenerationsOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveRemoveGenerationsOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationId" nillable="true" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveGenerationsAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:connectOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authServer" type="xs:string"></xs:element>
+      <xs:element name="base64" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cspConnectOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:connectOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="refreshToken" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="tokenExchangeServer" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="pscConnectOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:connectOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="port" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionConnectSso"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActiveRepository">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActiveRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="backupAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:backupOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="backupAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="echo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extra" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="echoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isConnected">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isConnectedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveGenerations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveRemoveGenerationsOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveGenerationsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionArchiveRemoveGenerationWithDependencies"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setActiveRepository">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setActiveRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logout">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logoutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionDisconnectSso"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionDisconnectSso">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="connected" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="ssoEndPointUrl" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveProfileAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveRemoveProfileOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeArchiveProfileAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="virtualBackup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:virtualBackupOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="virtualBackupResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:abstractResultActionVirtualBackup"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connect">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionConnect"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusArchiveAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveStatusOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveStatusOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationId" nillable="true" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="statusArchiveAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectAsync">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDumps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="tns:task"></xs:element>
+      <xs:element name="arg1" type="xs:int"></xs:element>
+      <xs:element name="arg2" type="xs:int"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDumpsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blockInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="blockInfo">
+    <xs:sequence>
+      <xs:element name="cipher" type="xs:boolean"></xs:element>
+      <xs:element name="compress" type="xs:boolean"></xs:element>
+      <xs:element name="diskId" type="xs:int"></xs:element>
+      <xs:element name="duplicated" type="xs:boolean"></xs:element>
+      <xs:element name="endTime" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="failed" type="xs:boolean"></xs:element>
+      <xs:element name="generationId" type="xs:int"></xs:element>
+      <xs:element name="index" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="key" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="keyPath" type="xs:string"></xs:element>
+      <xs:element name="lastBlock" type="xs:long"></xs:element>
+      <xs:element name="length" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="md5" type="xs:string"></xs:element>
+      <xs:element name="modified" type="xs:boolean"></xs:element>
+      <xs:element name="offset" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="reason" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sha1" type="xs:string"></xs:element>
+      <xs:element name="size" type="xs:long"></xs:element>
+      <xs:element name="startTime" type="xs:long"></xs:element>
+      <xs:element name="streamSize" type="xs:long"></xs:element>
+      <xs:element name="totalBlocks" type="xs:int"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCurrentTime">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCurrentTimeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllDumps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllDumpsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blockInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restore">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:restoreOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restoreOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:backupRestoreCommonOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="allowDuplicatedVmNamesInsideVapp" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="datacenter" type="tns:searchManagementEntity"></xs:element>
+          <xs:element minOccurs="0" name="datastore" type="tns:searchManagementEntity"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="disks" nillable="true" type="tns:restoreVmdkOption"></xs:element>
+          <xs:element minOccurs="0" name="folder" type="tns:searchManagementEntity"></xs:element>
+          <xs:element minOccurs="0" name="generationId" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="host" type="tns:searchManagementEntity"></xs:element>
+          <xs:element name="importVmxFile" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="networks" nillable="true" type="tns:searchManagementEntity"></xs:element>
+          <xs:element name="overwrite" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="postfix" type="xs:string"></xs:element>
+          <xs:element name="powerOn" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="prefix" type="xs:string"></xs:element>
+          <xs:element name="recover" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="requestedTransportMode" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="resPoolFilter" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="resourcePool" type="tns:searchManagementEntity"></xs:element>
+          <xs:element minOccurs="0" name="storageProfile" type="tns:searchManagementEntity"></xs:element>
+          <xs:element minOccurs="0" name="vmFolderFilter" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="searchManagementEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="searchType" type="tns:searchManagementEntityInfoType"></xs:element>
+      <xs:element minOccurs="0" name="searchValue" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restoreVmdkOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datastore" type="tns:searchManagementEntity"></xs:element>
+      <xs:element name="diskId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="spbmProfile" type="tns:searchManagementEntity"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restoreResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionRestore"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getVersion">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getVersionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionVersion"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionVersion">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="extendedVersion" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="identity" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="javaRuntime" type="xs:string"></xs:element>
+          <xs:element name="major" type="xs:int"></xs:element>
+          <xs:element name="minor" type="xs:int"></xs:element>
+          <xs:element name="patchLevel" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="productName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="serverInfo" type="tns:serverInfo"></xs:element>
+          <xs:element minOccurs="0" name="vddk" type="tns:vddkVersion"></xs:element>
+          <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serverInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bigEndianBiosUuid" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="extendedVersion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="hostname" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="serverBiosUuid" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="serverIp" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="serverOs" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vddkVersion">
+    <xs:sequence>
+      <xs:element name="build" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="extendedVersion" type="xs:string"></xs:element>
+      <xs:element name="major" type="xs:int"></xs:element>
+      <xs:element name="minor" type="xs:int"></xs:element>
+      <xs:element name="patchLevel" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restoreAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:restoreOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restoreAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRepositoriesNames">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRepositoriesNamesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTaskInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:taskResult"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="taskResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="result" type="tns:resultAction"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusArchive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveStatusOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusArchiveResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionArchiveStatus"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectAsync">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="showArchiveAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveShowOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="showArchiveAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepository">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:abstractResultActionConnectRepository"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRepositories">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRepositoriesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="checkArchiveGenerations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveCheckGenerationsOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveCheckGenerationsOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationId" nillable="true" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="checkArchiveGenerationsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="entityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"></xs:enumeration>
+      <xs:enumeration value="ComputeResource"></xs:enumeration>
+      <xs:enumeration value="ClusterComputeResource"></xs:enumeration>
+      <xs:enumeration value="ContainerView"></xs:enumeration>
+      <xs:enumeration value="Datacenter"></xs:enumeration>
+      <xs:enumeration value="Datastore"></xs:enumeration>
+      <xs:enumeration value="VirtualizationManager"></xs:enumeration>
+      <xs:enumeration value="VirtualMachineSnapshot"></xs:enumeration>
+      <xs:enumeration value="VirtualMachine"></xs:enumeration>
+      <xs:enumeration value="HostSystem"></xs:enumeration>
+      <xs:enumeration value="Folder"></xs:enumeration>
+      <xs:enumeration value="VirtualApp"></xs:enumeration>
+      <xs:enumeration value="ResourcePool"></xs:enumeration>
+      <xs:enumeration value="ImprovedVirtualDisk"></xs:enumeration>
+      <xs:enumeration value="K8sNamespace"></xs:enumeration>
+      <xs:enumeration value="Network"></xs:enumeration>
+      <xs:enumeration value="OpaqueNetwork"></xs:enumeration>
+      <xs:enumeration value="DistributedVirtualPortgroup"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="operationState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESS"></xs:enumeration>
+      <xs:enumeration value="FAILED"></xs:enumeration>
+      <xs:enumeration value="SKIPPED"></xs:enumeration>
+      <xs:enumeration value="ABORTED"></xs:enumeration>
+      <xs:enumeration value="STARTED"></xs:enumeration>
+      <xs:enumeration value="QUEUED"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="backupPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_INFO_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="END_INFO_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="START_CREATE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="END_CREATE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="START_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="END_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="START_DISCOVER_BACKUP_MODE"></xs:enumeration>
+      <xs:enumeration value="END_DISCOVER_BACKUP_MODE"></xs:enumeration>
+      <xs:enumeration value="START_VDDK_ACCESS"></xs:enumeration>
+      <xs:enumeration value="START_DISKS_BACKUP"></xs:enumeration>
+      <xs:enumeration value="END_DISKS_BACKUP"></xs:enumeration>
+      <xs:enumeration value="END_VDDK_ACCESS"></xs:enumeration>
+      <xs:enumeration value="START_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="START_REVERT_TO_TEMPLATE"></xs:enumeration>
+      <xs:enumeration value="END_REVERT_TO_TEMPLATE"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="backupMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FULL"></xs:enumeration>
+      <xs:enumeration value="INCREMENTAL"></xs:enumeration>
+      <xs:enumeration value="MIXED"></xs:enumeration>
+      <xs:enumeration value="UNKNOW"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="backupVappPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_INFO_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="END_INFO_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="START_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="END_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="START_POST_OVF_METADATA"></xs:enumeration>
+      <xs:enumeration value="END_POST_OVF_METADATA"></xs:enumeration>
+      <xs:enumeration value="START_CHILDREN_BACKUP"></xs:enumeration>
+      <xs:enumeration value="END_CHILDREN_BACKUP"></xs:enumeration>
+      <xs:enumeration value="START_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virtualBackupPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="END_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="START_DISKS_CONSOLIDATE"></xs:enumeration>
+      <xs:enumeration value="END_DISKS_CONSOLIDATE"></xs:enumeration>
+      <xs:enumeration value="START_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virtualBackupVappPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="END_GENERATION_COMPUTATION"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_CHILD_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_CHILD_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="START_CHILDREN_CONSOLIDATE"></xs:enumeration>
+      <xs:enumeration value="END_CHILDREN_CONSOLIDATE"></xs:enumeration>
+      <xs:enumeration value="START_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_FINALIZE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="restorePhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_RESTORE_MANAGED_INFO"></xs:enumeration>
+      <xs:enumeration value="END_RESTORE_MANAGED_INFO"></xs:enumeration>
+      <xs:enumeration value="START_RESTORE_METADATA"></xs:enumeration>
+      <xs:enumeration value="END_RESTORE_METADATA"></xs:enumeration>
+      <xs:enumeration value="START_RECONFIGURATION"></xs:enumeration>
+      <xs:enumeration value="END_RECONFIGURATION"></xs:enumeration>
+      <xs:enumeration value="START_CREATE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="END_CREATE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="START_VDDK_ACCESS"></xs:enumeration>
+      <xs:enumeration value="START_DISKS_RESTORE"></xs:enumeration>
+      <xs:enumeration value="END_DISKS_RESTORE"></xs:enumeration>
+      <xs:enumeration value="END_VDDK_ACCESS"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_SNAPSHOT"></xs:enumeration>
+      <xs:enumeration value="START_VM_POWERON"></xs:enumeration>
+      <xs:enumeration value="END_VM_POWERON"></xs:enumeration>
+      <xs:enumeration value="END_DESTROY"></xs:enumeration>
+      <xs:enumeration value="START_DESTROY"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="restoreVappPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_RESTORE_MANAGED_INFO"></xs:enumeration>
+      <xs:enumeration value="END_RESTORE_MANAGED_INFO"></xs:enumeration>
+      <xs:enumeration value="START_RESTORE_METADATA"></xs:enumeration>
+      <xs:enumeration value="END_RESTORE_METADATA"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_CHILD_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_CHILD_COLLECTION"></xs:enumeration>
+      <xs:enumeration value="START_CHILDREN_RESTORE"></xs:enumeration>
+      <xs:enumeration value="END_CHILDREN_RESTORE"></xs:enumeration>
+      <xs:enumeration value="START_VMS_RELOCATION"></xs:enumeration>
+      <xs:enumeration value="END_VMS_RELOCATION"></xs:enumeration>
+      <xs:enumeration value="START_REPLACE_VMS_IDENTITIES"></xs:enumeration>
+      <xs:enumeration value="END_REPLACE_VMS_IDENTITIES"></xs:enumeration>
+      <xs:enumeration value="START_UPDATE_CONFIG"></xs:enumeration>
+      <xs:enumeration value="END_UPDATE_CONFIG"></xs:enumeration>
+      <xs:enumeration value="START_POWERON"></xs:enumeration>
+      <xs:enumeration value="END_POWERON"></xs:enumeration>
+      <xs:enumeration value="START_VAPP_DESTROY"></xs:enumeration>
+      <xs:enumeration value="END_VAPP_DESTROY"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="backupDiskPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="START_QUERY_BLOCKS"></xs:enumeration>
+      <xs:enumeration value="END_QUERY_BLOCKS"></xs:enumeration>
+      <xs:enumeration value="START_NORMALIZE_VMDK_BLOCKS"></xs:enumeration>
+      <xs:enumeration value="END_NORMALIZE_VMDK_BLOCKS"></xs:enumeration>
+      <xs:enumeration value="START_DUMP_THREADS"></xs:enumeration>
+      <xs:enumeration value="START_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="END_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="END_DUMP_THREADS"></xs:enumeration>
+      <xs:enumeration value="START_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="queryBlocksOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ALLOCATED"></xs:enumeration>
+      <xs:enumeration value="CHANGED_AREAS"></xs:enumeration>
+      <xs:enumeration value="FULL"></xs:enumeration>
+      <xs:enumeration value="UNKNOWS"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="adapterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BUSLOGIC"></xs:enumeration>
+      <xs:enumeration value="IDE"></xs:enumeration>
+      <xs:enumeration value="LSILOGIC"></xs:enumeration>
+      <xs:enumeration value="LSILOGICSAS"></xs:enumeration>
+      <xs:enumeration value="NVME"></xs:enumeration>
+      <xs:enumeration value="PVSCSI"></xs:enumeration>
+      <xs:enumeration value="SATA"></xs:enumeration>
+      <xs:enumeration value="UNKNOWN"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="fileBackingInfoProvisioningType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EAGER_ZEROED_THICK"></xs:enumeration>
+      <xs:enumeration value="LAZY_ZEROED_THICK"></xs:enumeration>
+      <xs:enumeration value="THIN"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virtualDiskModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="append"></xs:enumeration>
+      <xs:enumeration value="independent_nonpersistent"></xs:enumeration>
+      <xs:enumeration value="independent_persistent"></xs:enumeration>
+      <xs:enumeration value="nonpersistent"></xs:enumeration>
+      <xs:enumeration value="persistent"></xs:enumeration>
+      <xs:enumeration value="undoable"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="restoreDiskPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="START_CALCULATE_NUMBER_OF_GENERATION_DISK_RESTORE"></xs:enumeration>
+      <xs:enumeration value="END_CALCULATE_NUMBER_OF_GENERATION_DISK_RESTORE"></xs:enumeration>
+      <xs:enumeration value="START_DUMP_THREDS"></xs:enumeration>
+      <xs:enumeration value="END_DUMP_THREDS"></xs:enumeration>
+      <xs:enumeration value="START_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="END_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="START_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virtualBackupDiskPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_OPEN_VMDK"></xs:enumeration>
+      <xs:enumeration value="START_CALCULATE_NUMBER_OF_GENERATION_DISK_RESTORE"></xs:enumeration>
+      <xs:enumeration value="END_CALCULATE_NUMBER_OF_GENERATION_DISK_RESTORE"></xs:enumeration>
+      <xs:enumeration value="START_DUMP_THREDS"></xs:enumeration>
+      <xs:enumeration value="END_DUMP_THREDS"></xs:enumeration>
+      <xs:enumeration value="START_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="END_DUMPS_TOTAL_CALCULATION"></xs:enumeration>
+      <xs:enumeration value="START_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END_CLOSE_VMDK"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="vMwareCloudPlatforms">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VMC_ON_AWS"></xs:enumeration>
+      <xs:enumeration value="VMC_ON_DELL_EMC"></xs:enumeration>
+      <xs:enumeration value="VMC_OUTPOST"></xs:enumeration>
+      <xs:enumeration value="VMC_GOVCLOUD"></xs:enumeration>
+      <xs:enumeration value="VMC_ON_GOOGLE"></xs:enumeration>
+      <xs:enumeration value="VMC_ON_AZURE"></xs:enumeration>
+      <xs:enumeration value="VMC_ON_IBM"></xs:enumeration>
+      <xs:enumeration value="VMC_ON_ORACLE"></xs:enumeration>
+      <xs:enumeration value="ON_PREM"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="removeGenerationsPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="END_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_REQUESTED_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_REQUESTED_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_DEPENDING_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_DEPENDING_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_DELETE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_DELETE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="START_DELETE_DATA"></xs:enumeration>
+      <xs:enumeration value="END_DELETE_DATA"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_PROFILE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_PROFILE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="END_DELETE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="END_DELETE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="removeProfilePhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="END_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_GENERATION"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_FCO_PROFILE_CONTENT"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_FCO_PROFILE_CONTENT"></xs:enumeration>
+      <xs:enumeration value="START_REMOVE_FCO_PROFILE_METADATA"></xs:enumeration>
+      <xs:enumeration value="END_REMOVE_FCO_PROFILE_METADATA"></xs:enumeration>
+      <xs:enumeration value="START_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="statusProfilePhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="END_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_GENERATIONS_INFO"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_GENERATION_INFO"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_GENERATION_INFO"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_GENERATIONS_INFO"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="checkGenerationsPhases">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"></xs:enumeration>
+      <xs:enumeration value="START"></xs:enumeration>
+      <xs:enumeration value="START_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="END_ACCESS_ARCHIVE"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_REQUESTED_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_REQUESTED_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_RETRIEVE_DEPENDING_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="END_RETRIEVE_DEPENDING_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_CHECK_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_CHECK_GENERATION"></xs:enumeration>
+      <xs:enumeration value="START_LOAD_GENERATION_PROFILE"></xs:enumeration>
+      <xs:enumeration value="END_LOAD_GENERATION_PROFILE"></xs:enumeration>
+      <xs:enumeration value="START_CHECK_FILES"></xs:enumeration>
+      <xs:enumeration value="START_CHECK_FILE"></xs:enumeration>
+      <xs:enumeration value="END_CHECK_FILE"></xs:enumeration>
+      <xs:enumeration value="END_CHECK_FILES"></xs:enumeration>
+      <xs:enumeration value="END_CHECK_GENERATION"></xs:enumeration>
+      <xs:enumeration value="END_CHECK_GENERATIONS"></xs:enumeration>
+      <xs:enumeration value="START_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END_UPDATE_FCO_PROFILES_CATALOG"></xs:enumeration>
+      <xs:enumeration value="END"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="archiveObjects">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GLOBALPROFILE"></xs:enumeration>
+      <xs:enumeration value="FCOPROFILE"></xs:enumeration>
+      <xs:enumeration value="GENERATIONPROFILE"></xs:enumeration>
+      <xs:enumeration value="VMXFILE"></xs:enumeration>
+      <xs:enumeration value="REPORTFILE"></xs:enumeration>
+      <xs:enumeration value="MD5FILE"></xs:enumeration>
+      <xs:enumeration value="VAPPCONFIG"></xs:enumeration>
+      <xs:enumeration value="NONE"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="fcoTypeSearch">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IVD_NAME"></xs:enumeration>
+      <xs:enumeration value="IVD_UUID"></xs:enumeration>
+      <xs:enumeration value="TAG"></xs:enumeration>
+      <xs:enumeration value="VAPP_NAME"></xs:enumeration>
+      <xs:enumeration value="VAPP_UUID"></xs:enumeration>
+      <xs:enumeration value="VAPP_MOREF"></xs:enumeration>
+      <xs:enumeration value="VM_IP"></xs:enumeration>
+      <xs:enumeration value="VM_MOREF"></xs:enumeration>
+      <xs:enumeration value="VM_NAME"></xs:enumeration>
+      <xs:enumeration value="VM_UUID"></xs:enumeration>
+      <xs:enumeration value="K8S_NAME"></xs:enumeration>
+      <xs:enumeration value="K8S_UUID"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="extensionManagerOperation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REGISTER"></xs:enumeration>
+      <xs:enumeration value="REMOVE"></xs:enumeration>
+      <xs:enumeration value="UPDATE"></xs:enumeration>
+      <xs:enumeration value="FORCE_UPDATE"></xs:enumeration>
+      <xs:enumeration value="CHECK"></xs:enumeration>
+      <xs:enumeration value="NONE"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="windowsQuiesceSpecVssBackupContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CTX_AUTO"></xs:enumeration>
+      <xs:enumeration value="CTX_BACKUP"></xs:enumeration>
+      <xs:enumeration value="CTX_FILE_SHARE_BACKUP"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="windowsQuiesceSpecVssBackupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VSS_BT_COPY"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_DIFFERENTIAL"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_FULL"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_INCREMENTAL"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_LOG"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_OTHER"></xs:enumeration>
+      <xs:enumeration value="VSS_BT_UNDEFINED"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="generationsFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"></xs:enumeration>
+      <xs:enumeration value="last"></xs:enumeration>
+      <xs:enumeration value="succeded"></xs:enumeration>
+      <xs:enumeration value="failed"></xs:enumeration>
+      <xs:enumeration value="list"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="searchManagementEntityInfoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NAME"></xs:enumeration>
+      <xs:enumeration value="MOREF"></xs:enumeration>
+      <xs:enumeration value="ID"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

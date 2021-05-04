@@ -1,0 +1,40 @@
+#!/bin/safekeeping
+# call test-vm
+# vm test command script   &C:\\Users\\mdaneri\\Documents\\safekeeping-2.0\\sample_scripts\\test-vm.vmbk
+vm -help
+vm -list
+
+fco -clone vm:3disks-vm -name 3disks-vm-01
+fco -clone vm:3disks-vm -name 3disks-vm-02
+fco -clone vm:3disks-vm -name 3disks-vm-03
+vm -list
+
+vm  -cbt on vm:3disks-vm-02 vm:3disks-vm-01
+vm  -poweron  vm:3disks-vm-01
+vm  -poweron  vm:3disks-vm-02
+vm  -poweron  vm:3disks-vm-03
+vm -list
+
+
+snapshot -create vm:3disks-vm-01
+snapshot -create vm:3disks-vm-01
+snapshot -create vm:3disks-vm-01
+snapshot -create vm:3disks-vm-01
+snapshot -list vm:3disks-vm-01
+snapshot -delete 2 vm:3disks-vm-01
+snapshot -list vm:3disks-vm-01
+snapshot -create vm:3disks-vm-02
+snapshot -list vm:3disks-vm-02
+snapshot -deleteall vm:3disks-vm-02
+snapshot -deleteall vm:3disks-vm-01
+snapshot -create vm:3disks-vm-03
+snapshot -create vm:3disks-vm-03
+snapshot -list vm:3disks-vm-03
+vm  -reboot vm:3disks-vm-02
+vm -list
+vm  -poweroff  vm:3disks-vm-03 -force
+vm  -remove vm:3disks-vm-03
+vm  -poweroff  vm:3disks-vm-01 
+vm  -cbt on vm:3disks-vm-02 vm:3disks-vm-01
+vm  -cbt off vm:3disks-vm-01
+vm  -remove vm:3disks-vm-02 vm:3disks-vm-01 -force

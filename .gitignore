@@ -1,2 +1,36 @@
+# Ignore Gradle project-specific cache directory
+.gradle
 
-.metadata
+# Ignore Gradle build output directory
+build
+
+bin
+
+# Ignore Java
+jdk
+jre
+
+# Ignore Eclipse
+.settings
+
+.project
+
+.classpath
+.lock
+/.cfx-log.log
+/.cmd-log.log
+/.cxf-log.log
+/.cxf-test-log.log
+/jvix/src/main/resources/x64
+/PowerShell/Sapi/obj
+/PowerShell/Sapi/packages
+/nssm/.vs
+/nssm/messages.h
+/nssm/messages.rc
+/nssm/MSG0040C.bin
+/nssm/MSG00409.bin
+/nssm/MSG00410.bin
+/nssm/version.h
+/nssm/out
+/nssm/tmp
+/native-libraries/vmware-tools

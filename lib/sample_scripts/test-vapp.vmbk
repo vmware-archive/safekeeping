@@ -1,0 +1,44 @@
+#!/bin/safekeeping
+# call test-vapp
+# vapp test command script   &C:\\Users\\mdaneri\\Documents\\safekeeping-2.0\\sample_scripts\\test-vapp.vmbk
+
+echo vapp test
+vapp -help
+vapp -list
+vapp  -poweroff  vapp:3disks-vapp -force
+fco -clone vapp:3disks-vapp -name 3disks-vapp-01
+fco -clone vapp:3disks-vapp -name 3disks-vapp-02
+fco -clone vapp:3disks-vapp -name 3disks-vapp-03
+
+vapp -list
+
+vapp  -cbt on vapp:3disks-vapp-02 vapp:3disks-vapp-01
+vapp  -poweron  vapp:3disks-vapp-01
+vapp  -poweron  vapp:3disks-vapp-02
+vapp  -poweron  vapp:3disks-vapp-03
+vapp -list
+snapshot -create vapp:3disks-vapp-01
+snapshot -create vapp:3disks-vapp-01
+snapshot -create vapp:3disks-vapp-01
+snapshot -create vapp:3disks-vapp-01
+snapshot -list vapp:3disks-vapp-01
+snapshot -delete 2 vapp:3disks-vapp-01
+snapshot -list vapp:3disks-vapp-01
+snapshot -create vapp:3disks-vapp-02
+snapshot -list vapp:3disks-vapp-02
+snapshot -deleteall vapp:3disks-vapp-02
+snapshot -deleteall vapp:3disks-vapp-01
+snapshot -create vapp:3disks-vapp-03
+snapshot -create vapp:3disks-vapp-03
+snapshot -list vapp:3disks-vapp-03
+
+
+vapp  -reboot vapp:3disks-vapp-02 vapp:3disks-vapp-01 
+vapp -list
+vapp  -poweroff  vapp:3disks-vapp-03 -force
+vapp  -remove vapp:3disks-vapp-03
+vapp  -poweroff  vapp:3disks-vapp-01
+vapp  -cbt on vapp:3disks-vapp-02 vapp:3disks-vapp-01
+vapp  -cbt off vapp:3disks-vapp-01
+vapp  -poweroff  vapp:3disks-vapp-02 -force
+vapp  -remove vapp:3disks-vapp-02 vapp:3disks-vapp-01

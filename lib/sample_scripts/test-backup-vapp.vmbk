@@ -1,0 +1,50 @@
+#!/bin/safekeeping --file
+vapp -list
+archive -list
+backup vapp:3disks-vapp
+archive -list
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp -mode full
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+backup vapp:3disks-vapp
+
+snapshot -list vapp:3disks-vapp
+archive -remove -generation 6 vapp:3disks-vapp
+archive -list vapp:3disks-vapp -detail
+
+restore vapp:3disks-vapp -name 3disks-vapp-clone
+
+vapp -poweron vapp:3disks-vapp-clone
+
+ 
+ 
+backup vapp:3disks-vapp-clone -compression off
+backup vapp:3disks-vapp-clone -compression off
+backup vapp:3disks-vapp-clone -compression off
+snapshot -list vapp:3disks-vapp-clone
+
+vapp -poweroff vapp:3disks-vapp-clone 
+vapp -remove vapp:3disks-vapp-clone -force
+
+restore vapp:3disks-vapp-clone -poweron
+
+archive -remove -profile vapp:3disks-vapp-clone 
+
+restore vapp:3disks-vapp -name 3disks-vapp-clone2 -generation 23 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+restore vapp:3disks-vapp -name 3disks-vapp-clone3 -generation 21 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+backup vapp:3disks-vapp-clone2
+backup vapp:3disks-vapp-clone3
+
+vapp vapp:3disks-vapp-clone2 vapp:3disks-vapp-clone3 -remove -force
+
+vapp -poweroff vapp:3disks-vapp-clone -force
+
+vapp vapp:3disks-vapp-clone -remove
+ 
+

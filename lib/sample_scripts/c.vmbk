@@ -1,0 +1,19 @@
+#!/bin/safekeeping --file
+vm -poweroff vm:3disks-vm-clone 
+vm -remove vm:3disks-vm-clone -force
+
+restore vm:3disks-vm-clone -poweron
+
+archive -remove -profile vm:3disks-vm-clone 
+
+restore vm:3disks-vm -name 3disks-vm-clone2 -generation 5 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+restore vm:3disks-vm -name 3disks-vm-clone3 -generation 8 -poweron -folder ISBU-ES-WDC/vm/Max/ForBackup/autoTest  
+backup vm:3disks-vm-clone2
+backup vm:3disks-vm-clone3
+
+vm vm:3disks-vm-clone2 vm:3disks-vm-clone3 -remove -force
+
+vm -poweroff vm:3disks-vm-clone -force
+
+vm -remove vm:3disks-vm-clone  
+ 

@@ -1,0 +1,32 @@
+Description of each directory.
+
+vmbk:
+  Virtual machine backup tool library
+  written with Java 
+  using VMware vSphere SDK 6.7.0 
+
+vmbk-cmd:
+  Command line Virtual machine backup tool
+  written with Java 
+  using VMware vSphere SDK 6.7.0 
+
+jdisklib:
+  native interface for VDDK
+  written with C++
+  using VDDK library.
+
+ 
+support:
+  support files
+ 
+LICENSE:
+  License file.
+
+doc:
+  Documents.
+
+README:
+  This file.
+
+VERSION:
+  VMBK Version
