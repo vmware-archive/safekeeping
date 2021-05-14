@@ -76,7 +76,7 @@ Windows (any) with the following packages:
 ```
 cd safekeeping\jdisklib\windows 
 ```
-Copy any VDDK library you want to use inside the **safekeeping\jdisklib\windows\vddk** directory or download any compatible version with ```_VMwareInternalDownload.ps1```
+Copy any VDDK library you want to use inside the **safekeeping\jdisklib\windows\vddk** directory
 
 To build the VDDK wrapper use
 - with VisualStudio 2017    ```build-2017.cmd``` 
