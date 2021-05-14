@@ -87,20 +87,32 @@ To build the VDDK wrapper use
 cd ./safekeeping/jdisklib/linux
 ```
 
-Copy any VDDK library you want to use inside the **./safekeeping/jdisklib/linux/vddk** directory or download any compatible version with ```./_VMwareInternalDownload.sh```
+Copy any VDDK library you want to use inside the **./safekeeping/jdisklib/linux/vddk** directory 
 
 To build the VDDK wrapper use:	```./buildVddkLibraries.sh```    
 
 
 ## Build Java code
-
 ***Important JAVA supported versions are jre1.8.0_251, jre1.8.0_261, or greater anything over Java 11 doesn't work.***
+
+#### on Windows 
 ```
 cd safekeeping
 configure.cmd <java_version>  
 gradle build 
+``` 
+#### on Linux 
 ```
-<java_version> 8 jdk1.8 
+cd safekeeping
+configure.sh <java_version>  
+gradle build 
+``` 
+<java_version> 
+8 jdk1.8
+9 jdk1.9
+10 jdk10
+11 jdk11
+
 
 
 # Gradle main tasks 
