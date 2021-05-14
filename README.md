@@ -99,13 +99,13 @@ To build the VDDK wrapper use:	```./buildVddkLibraries.sh```
 ```
 cd safekeeping
 configure.cmd <java_version>  
-gradle build 
+gradle installDist 
 ``` 
 #### on Linux 
 ```
 cd safekeeping
 configure.sh <java_version>  
-gradle build 
+gradle installDist 
 ``` 
 <java_version> 
 8 jdk1.8
@@ -124,10 +124,11 @@ gradle build
 - **clean** - Deletes the build directory.
 
 **safekeeping-cmd and safekeeping-cxf only tasks**
-- **deb** - Safekeeping Installation. - Create a deb file (requires Debian/Ubuntu)
-- **dmg** - Safekeeping Installation. - CmdLine Version (requires MacOS )
-- **msi** - Safekeeping Installation. - CmdLine Version (requires Windows and https://wixtoolset.org/ )
-- **rpm** - Safekeeping Installation. - CmdLine Version (requires ReadHat/Centos )
+- **deb**         - Safekeeping Installation. - Create a deb file (requires Debian/Ubuntu)
+- **dmg**         - Safekeeping Installation. - (requires MacOS )
+- **msi**         - Safekeeping Installation. - (requires Windows and https://wixtoolset.org/ )
+- **rpm**         - Safekeeping Installation. - (requires ReadHat/Centos )
+- **installDist** - Safekeeping Installation. - Create the installation directory
 
 
 ## Run
