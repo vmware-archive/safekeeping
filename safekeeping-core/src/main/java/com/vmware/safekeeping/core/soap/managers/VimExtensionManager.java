@@ -261,35 +261,35 @@ public class VimExtensionManager {
         final ExtensionResourceInfo eriEs = new ExtensionResourceInfo();
         eriEs.setLocale(SPANISH_LOCALIZATION);
         eriEs.setModule(EVENT_KEY);
-        addEventResourceInfo(eriEs, EventEventSeverity.INFO, BACKUP_VM_EVENT, "Máquina virtual copia de respaldo");
+        addEventResourceInfo(eriEs, EventEventSeverity.INFO, BACKUP_VM_EVENT, "MÃ¡quina virtual copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, BACKUP_VAPP_EVENT, "vApp copia de respaldo ");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, BACKUP_IVD_EVENT,
                 "Improved Virtual Disk copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, RESTORE_VM_EVENT,
-                "Máquina virtual restaurar datos guardados");
+                "MÃ¡quina virtual restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, RESTORE_VAPP_EVENT, "vApp restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, RESTORE_IVD_EVENT,
                 "Improved Virtual Disk restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, VIRTUALBACKUP_VM_EVENT,
-                "Máquina virtual consolidar copia de respaldo");
+                "MÃ¡quina virtual consolidar copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, VIRTUALBACKUP_VAPP_EVENT,
                 "vApp consolidar copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.INFO, VIRTUALBACKUP_IVD_EVENT,
                 "Improved Virtual Disk consolidar copia de respaldo");
 
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, BACKUP_VM_FAULT_EVENT,
-                "Máquina virtual copia de respaldo");
+                "MÃ¡quina virtual copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, BACKUP_VAPP_FAULT_EVENT, "vApp copia de respaldo ");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, BACKUP_IVD_FAULT_EVENT,
                 "Improved Virtual Disk copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, RESTORE_VM_FAULT_EVENT,
-                "Máquina virtual restaurar datos guardados");
+                "MÃ¡quina virtual restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, RESTORE_VAPP_FAULT_EVENT,
                 "vApp restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, RESTORE_IVD_FAULT_EVENT,
                 "Improved Virtual Disk restaurar datos guardados");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, VIRTUALBACKUP_VM_FAULT_EVENT,
-                "Máquina virtual consolidar copia de respaldo");
+                "MÃ¡quina virtual consolidar copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, VIRTUALBACKUP_VAPP_FAULT_EVENT,
                 "vApp consolidar copia de respaldo");
         addEventResourceInfo(eriEs, EventEventSeverity.ERROR, VIRTUALBACKUP_IVD_FAULT_EVENT,
@@ -310,7 +310,7 @@ public class VimExtensionManager {
         eriEs.setLocale(SPANISH_LOCALIZATION);
         eriEs.setModule("extension");
         addExtensionResourceInfo(eriEs, SafekeepingVersion.PRODUCT_NAME,
-                "Resguardo de la copia de seguridad de VMware de código abierto");
+                "Resguardo de la copia de seguridad de VMware de cÃ³digo abierto");
         extension.getResourceList().add(eriEs);
 
     }
@@ -359,16 +359,16 @@ public class VimExtensionManager {
         final ExtensionResourceInfo eriEs = new ExtensionResourceInfo();
         eriEs.setLocale(SPANISH_LOCALIZATION);
         eriEs.setModule(FAULT_KEY);
-        addFaultResourceInfo(eriEs, BACKUP_VM_FAULT, "Máquina virtual copia de respaldo fallido: [data.result]");
+        addFaultResourceInfo(eriEs, BACKUP_VM_FAULT, "MÃ¡quina virtual copia de respaldo fallido: [data.result]");
         addFaultResourceInfo(eriEs, BACKUP_VAPP_FAULT, "vApp copia de respaldo  fallido: [data.result]");
         addFaultResourceInfo(eriEs, BACKUP_IVD_FAULT, "Improved Virtual Disk copia de respaldo fallido: [data.result]");
         addFaultResourceInfo(eriEs, RESTORE_VM_FAULT,
-                "Máquina virtual restaurar datos guardados fallido: [data.result]");
+                "MÃ¡quina virtual restaurar datos guardados fallido: [data.result]");
         addFaultResourceInfo(eriEs, RESTORE_VAPP_FAULT, "vApp restaurar datos guardados fallido: [data.result]");
         addFaultResourceInfo(eriEs, RESTORE_IVD_FAULT,
                 "Improved Virtual Disk restaurar datos guardados fallido: [data.result]");
         addFaultResourceInfo(eriEs, VIRTUALBACKUP_VM_FAULT,
-                "Máquina virtual consolidar copia de respaldo fallido: [data.result]");
+                "MÃ¡quina virtual consolidar copia de respaldo fallido: [data.result]");
         addFaultResourceInfo(eriEs, VIRTUALBACKUP_VAPP_FAULT,
                 "vApp consolidar copia de respaldo fallido: [data.result]");
         addFaultResourceInfo(eriEs, VIRTUALBACKUP_IVD_FAULT,
@@ -413,13 +413,13 @@ public class VimExtensionManager {
         final ExtensionResourceInfo eriEs = new ExtensionResourceInfo();
         eriEs.setLocale(SPANISH_LOCALIZATION);
         eriEs.setModule(TASK_KEY);
-        addTaskResourceInfo(eriEs, BACKUP_VM_TASK, "Máquina virtual copia de respaldo");
+        addTaskResourceInfo(eriEs, BACKUP_VM_TASK, "MÃ¡quina virtual copia de respaldo");
         addTaskResourceInfo(eriEs, BACKUP_VAPP_TASK, "vApp copia de respaldo ");
         addTaskResourceInfo(eriEs, BACKUP_IVD_TASK, "Improved Virtual Disk copia de respaldo");
-        addTaskResourceInfo(eriEs, RESTORE_VM_TASK, "Máquina virtual restaurar datos guardados");
+        addTaskResourceInfo(eriEs, RESTORE_VM_TASK, "MÃ¡quina virtual restaurar datos guardados");
         addTaskResourceInfo(eriEs, RESTORE_VAPP_TASK, "vApp restaurar datos guardados");
         addTaskResourceInfo(eriEs, RESTORE_IVD_TASK, "Improved Virtual Disk restaurar datos guardados");
-        addTaskResourceInfo(eriEs, VIRTUALBACKUP_VM_TASK, "Máquina virtual consolidar copia de respaldo");
+        addTaskResourceInfo(eriEs, VIRTUALBACKUP_VM_TASK, "MÃ¡quina virtual consolidar copia de respaldo");
         addTaskResourceInfo(eriEs, VIRTUALBACKUP_VAPP_TASK, "vApp consolidar copia de respaldo");
         addTaskResourceInfo(eriEs, VIRTUALBACKUP_IVD_TASK, "Improved Virtual Disk consolidar copia de respaldo");
         extension.getResourceList().add(eriEs);
