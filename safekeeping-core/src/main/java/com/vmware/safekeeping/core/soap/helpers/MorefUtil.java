@@ -493,42 +493,9 @@ public class MorefUtil {
             final RetrieveOptions options = new RetrieveOptions();
             final RetrieveResult retrieveResult = this.vimPort
                     .retrievePropertiesEx(propertyCollector.getPropertyCollector(), listpfs, options);
-
-            retrieveObjectContent(propertyCollector, retrieveResult, retVal);
-//	    while (true) {
-//		final List<ObjectContent> listobcont = result.getObjects();
-//		if (listobcont != null) {
-//		    for (final ObjectContent oc : listobcont) {
-//			final ManagedObjectReference mr = oc.getObj();
-//			String vmname = null;
-//			final List<DynamicProperty> dps = oc.getPropSet();
-//			final Vector<Object> a = new Vector<>();
-//			a.add(mr);
-//			if (dps != null) {
-//			    for (final DynamicProperty dp : dps) {
-//				switch (dp.getName()) {
-//				case "name":
-//				    vmname = (String) dp.getVal();
-//				    break;
-//				case "config":
-//				    a.add(dp.getVal());
-//				    break;
-//				default:
-//				    break;
-//				}
-//			    }
-//
-//			    retVal.put(vmname, a);
-//			}
-//		    }
-//		}
-//		if ((result.getToken() != null)) {
-//		    result = this.vimPort.continueRetrievePropertiesEx(propertyCollector.getPropertyCollector(),
-//			    result.getToken());
-//		} else {
-//		    break;
-//		}
-//	    }
+            if (retrieveResult != null) {
+                retrieveObjectContent(propertyCollector, retrieveResult, retVal);
+            }
             return retVal;
         } finally {
             releasePropertyCollector(propertyCollector);

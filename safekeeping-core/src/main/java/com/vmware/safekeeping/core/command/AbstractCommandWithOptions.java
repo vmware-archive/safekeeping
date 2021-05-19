@@ -115,8 +115,10 @@ public abstract class AbstractCommandWithOptions implements ICommand {
         final List<VirtualMachineManager> vmmList = connetionManager.getAllVmList(this.options.getVim(), vmFilter);
 
         if (vmmList.isEmpty()) {
-            final String msg = "No virtual machine available with filter " + vmFilter;
-            this.logger.warning(msg);
+            if (StringUtils.isNotEmpty(vmFilter)) {
+                final String msg = "No virtual machine available with filter " + vmFilter;
+                this.logger.warning(msg);
+            }
 
         } else {
             Map<String, VStorageObjectAssociations> vStorageObjectAssociations = null;

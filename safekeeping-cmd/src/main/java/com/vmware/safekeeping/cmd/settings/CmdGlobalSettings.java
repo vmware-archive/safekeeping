@@ -101,14 +101,6 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
             System.out.println("Importing default cloud settings");
             confDefault.put(TRANSPORT_FULL_MODE, DEFAULT_VALUE_VMC_TRANSPORT_MODE);
             confDefault.put(TRANSPORT_INC_MODE, DEFAULT_VALUE_VMC_TRANSPORT_MODE);
-            confDefault.put(VM_FOLDER_FILTER, DEFAULT_VALUE_VMC_VM_FOLDER_FILTER);
-            if (StringUtils.isEmpty(configurationMap.getStringProperty(filterGroup, VM_FOLDER_FILTER))) {
-                configurationMap.setStringProperty(filterGroup, VM_FOLDER_FILTER, DEFAULT_VALUE_VMC_VM_FOLDER_FILTER);
-            }
-            if (StringUtils.isEmpty(configurationMap.getStringProperty(filterGroup, VM_RESOURCE_POOL_FILTER))) {
-                configurationMap.setStringProperty(filterGroup, VM_RESOURCE_POOL_FILTER,
-                        DEFAULT_VALUE_VMC_VM_RESOURCE_POOL_FILTER);
-            }
             configurationMap.setStringProperty(globalGroup, TRANSPORT_FULL_MODE, DEFAULT_VALUE_VMC_TRANSPORT_MODE);
             configurationMap.setStringProperty(globalGroup, TRANSPORT_INC_MODE, DEFAULT_VALUE_VMC_TRANSPORT_MODE);
             configurationMap.setStringProperty(globalGroup, TRANSPORT_MODE_RESTORE, DEFAULT_VALUE_VMC_TRANSPORT_MODE);
@@ -117,7 +109,6 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
             confDefault.put(TRANSPORT_FULL_MODE, DEFAULT_VALUE_TRANSPORT_FULL_MODE);
             confDefault.put(TRANSPORT_INC_MODE, DEFAULT_VALUE_TRANSPORT_INC_MODE);
             confDefault.put(VDDK_CONFIG, DEFAULT_VALUE_VDDK_CONFIG);
-            confDefault.put(VM_FOLDER_FILTER, DEFAULT_VALUE_VM_FOLDER_FILTER);
             if (StringUtils.isEmpty(configurationMap.getStringProperty(globalGroup, VDDK_CONFIG))) {
                 configurationMap.setStringProperty(globalGroup, VDDK_CONFIG, DEFAULT_VALUE_VDDK_CONFIG);
             }
@@ -133,6 +124,8 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
             }
         }
 
+        confDefault.put(VM_FOLDER_FILTER, DEFAULT_VALUE_VM_FOLDER_FILTER);
+        confDefault.put(VM_RESOURCE_POOL_FILTER, DEFAULT_VALUE_VM_RESOURCE_POOL_FILTER);
         if (StringUtils.isEmpty(configurationMap.getStringProperty(pscProvider, NFCHOSTPORT))) {
             configurationMap.setIntegerProperty(pscProvider, NFCHOSTPORT, DEFAULT_VALUE_NFC_HOST_PORT);
         }
@@ -254,7 +247,6 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
                 CoreGlobalSettings.getTargetCustomValueAsBool(AwsS3Target.TARGET_TYPE_NAME, AwsS3Target.ACTIVE_KEY));
 
         repositories = new ITarget[] { new AwsS3Target(s3Option), new FileTarget(fileOption) };
-        // , new FileTarget(), new NfsTarget() };
     }
 
     public static boolean manualConfiguration(final boolean quiet)

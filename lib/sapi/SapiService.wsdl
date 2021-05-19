@@ -4,14 +4,29 @@
       <xsd:import namespace="http://cxf.safekeeping.vmware.com/" schemaLocation="SapiService_metadata1.xsd"></xsd:import>
     </xsd:schema>
   </types>
+  <message name="connect">
+    <part element="tns:connect" name="parameters"></part>
+  </message>
+  <message name="connectResponse">
+    <part element="tns:connectResponse" name="parameters"></part>
+  </message>
+  <message name="UnrecognizedToken">
+    <part element="tns:UnrecognizedToken" name="fault"></part>
+  </message>
+  <message name="getVersion">
+    <part element="tns:getVersion" name="parameters"></part>
+  </message>
+  <message name="getVersionResponse">
+    <part element="tns:getVersionResponse" name="parameters"></part>
+  </message>
+  <message name="InternalCoreResult">
+    <part element="tns:InternalCoreResult" name="fault"></part>
+  </message>
   <message name="isConnected">
     <part element="tns:isConnected" name="parameters"></part>
   </message>
   <message name="isConnectedResponse">
     <part element="tns:isConnectedResponse" name="parameters"></part>
-  </message>
-  <message name="UnrecognizedToken">
-    <part element="tns:UnrecognizedToken" name="fault"></part>
   </message>
   <message name="restore">
     <part element="tns:restore" name="parameters"></part>
@@ -25,104 +40,29 @@
   <message name="InternalServer">
     <part element="tns:InternalServer" name="fault"></part>
   </message>
-  <message name="login">
-    <part element="tns:login" name="parameters"></part>
-  </message>
-  <message name="loginResponse">
-    <part element="tns:loginResponse" name="parameters"></part>
-  </message>
-  <message name="InternalCoreResult">
-    <part element="tns:InternalCoreResult" name="fault"></part>
-  </message>
   <message name="logout">
     <part element="tns:logout" name="parameters"></part>
   </message>
   <message name="logoutResponse">
     <part element="tns:logoutResponse" name="parameters"></part>
   </message>
-  <message name="disconnectRepositoryAsync">
-    <part element="tns:disconnectRepositoryAsync" name="parameters"></part>
+  <message name="login">
+    <part element="tns:login" name="parameters"></part>
   </message>
-  <message name="disconnectRepositoryAsyncResponse">
-    <part element="tns:disconnectRepositoryAsyncResponse" name="parameters"></part>
+  <message name="loginResponse">
+    <part element="tns:loginResponse" name="parameters"></part>
   </message>
-  <message name="setActiveRepository">
-    <part element="tns:setActiveRepository" name="parameters"></part>
+  <message name="backupAsync">
+    <part element="tns:backupAsync" name="parameters"></part>
   </message>
-  <message name="setActiveRepositoryResponse">
-    <part element="tns:setActiveRepositoryResponse" name="parameters"></part>
+  <message name="backupAsyncResponse">
+    <part element="tns:backupAsyncResponse" name="parameters"></part>
   </message>
-  <message name="removeArchiveGenerations">
-    <part element="tns:removeArchiveGenerations" name="parameters"></part>
+  <message name="connectAsync">
+    <part element="tns:connectAsync" name="parameters"></part>
   </message>
-  <message name="removeArchiveGenerationsResponse">
-    <part element="tns:removeArchiveGenerationsResponse" name="parameters"></part>
-  </message>
-  <message name="removeArchiveGenerationsAsync">
-    <part element="tns:removeArchiveGenerationsAsync" name="parameters"></part>
-  </message>
-  <message name="removeArchiveGenerationsAsyncResponse">
-    <part element="tns:removeArchiveGenerationsAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="getRepositoriesNames">
-    <part element="tns:getRepositoriesNames" name="parameters"></part>
-  </message>
-  <message name="getRepositoriesNamesResponse">
-    <part element="tns:getRepositoriesNamesResponse" name="parameters"></part>
-  </message>
-  <message name="connectRepositoryAsync">
-    <part element="tns:connectRepositoryAsync" name="parameters"></part>
-  </message>
-  <message name="connectRepositoryAsyncResponse">
-    <part element="tns:connectRepositoryAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="removeArchiveProfile">
-    <part element="tns:removeArchiveProfile" name="parameters"></part>
-  </message>
-  <message name="removeArchiveProfileResponse">
-    <part element="tns:removeArchiveProfileResponse" name="parameters"></part>
-  </message>
-  <message name="disconnectRepository">
-    <part element="tns:disconnectRepository" name="parameters"></part>
-  </message>
-  <message name="disconnectRepositoryResponse">
-    <part element="tns:disconnectRepositoryResponse" name="parameters"></part>
-  </message>
-  <message name="checkArchiveGenerations">
-    <part element="tns:checkArchiveGenerations" name="parameters"></part>
-  </message>
-  <message name="checkArchiveGenerationsResponse">
-    <part element="tns:checkArchiveGenerationsResponse" name="parameters"></part>
-  </message>
-  <message name="getActiveRepository">
-    <part element="tns:getActiveRepository" name="parameters"></part>
-  </message>
-  <message name="getActiveRepositoryResponse">
-    <part element="tns:getActiveRepositoryResponse" name="parameters"></part>
-  </message>
-  <message name="virtualBackupAsync">
-    <part element="tns:virtualBackupAsync" name="parameters"></part>
-  </message>
-  <message name="virtualBackupAsyncResponse">
-    <part element="tns:virtualBackupAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="statusArchiveAsync">
-    <part element="tns:statusArchiveAsync" name="parameters"></part>
-  </message>
-  <message name="statusArchiveAsyncResponse">
-    <part element="tns:statusArchiveAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="connectRepository">
-    <part element="tns:connectRepository" name="parameters"></part>
-  </message>
-  <message name="connectRepositoryResponse">
-    <part element="tns:connectRepositoryResponse" name="parameters"></part>
-  </message>
-  <message name="removeArchiveProfileAsync">
-    <part element="tns:removeArchiveProfileAsync" name="parameters"></part>
-  </message>
-  <message name="removeArchiveProfileAsyncResponse">
-    <part element="tns:removeArchiveProfileAsyncResponse" name="parameters"></part>
+  <message name="connectAsyncResponse">
+    <part element="tns:connectAsyncResponse" name="parameters"></part>
   </message>
   <message name="virtualBackup">
     <part element="tns:virtualBackup" name="parameters"></part>
@@ -130,11 +70,11 @@
   <message name="virtualBackupResponse">
     <part element="tns:virtualBackupResponse" name="parameters"></part>
   </message>
-  <message name="connectAsync">
-    <part element="tns:connectAsync" name="parameters"></part>
+  <message name="backup">
+    <part element="tns:backup" name="parameters"></part>
   </message>
-  <message name="connectAsyncResponse">
-    <part element="tns:connectAsyncResponse" name="parameters"></part>
+  <message name="backupResponse">
+    <part element="tns:backupResponse" name="parameters"></part>
   </message>
   <message name="disconnect">
     <part element="tns:disconnect" name="parameters"></part>
@@ -148,65 +88,17 @@
   <message name="extensionResponse">
     <part element="tns:extensionResponse" name="parameters"></part>
   </message>
-  <message name="backup">
-    <part element="tns:backup" name="parameters"></part>
+  <message name="keepalive">
+    <part element="tns:keepalive" name="parameters"></part>
   </message>
-  <message name="backupResponse">
-    <part element="tns:backupResponse" name="parameters"></part>
-  </message>
-  <message name="disconnectAsync">
-    <part element="tns:disconnectAsync" name="parameters"></part>
-  </message>
-  <message name="disconnectAsyncResponse">
-    <part element="tns:disconnectAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="getRepository">
-    <part element="tns:getRepository" name="parameters"></part>
-  </message>
-  <message name="getRepositoryResponse">
-    <part element="tns:getRepositoryResponse" name="parameters"></part>
+  <message name="keepaliveResponse">
+    <part element="tns:keepaliveResponse" name="parameters"></part>
   </message>
   <message name="getDumps">
     <part element="tns:getDumps" name="parameters"></part>
   </message>
   <message name="getDumpsResponse">
     <part element="tns:getDumpsResponse" name="parameters"></part>
-  </message>
-  <message name="backupAsync">
-    <part element="tns:backupAsync" name="parameters"></part>
-  </message>
-  <message name="backupAsyncResponse">
-    <part element="tns:backupAsyncResponse" name="parameters"></part>
-  </message>
-  <message name="getAllDumps">
-    <part element="tns:getAllDumps" name="parameters"></part>
-  </message>
-  <message name="getAllDumpsResponse">
-    <part element="tns:getAllDumpsResponse" name="parameters"></part>
-  </message>
-  <message name="getCurrentTime">
-    <part element="tns:getCurrentTime" name="parameters"></part>
-  </message>
-  <message name="getCurrentTimeResponse">
-    <part element="tns:getCurrentTimeResponse" name="parameters"></part>
-  </message>
-  <message name="getRepositories">
-    <part element="tns:getRepositories" name="parameters"></part>
-  </message>
-  <message name="getRepositoriesResponse">
-    <part element="tns:getRepositoriesResponse" name="parameters"></part>
-  </message>
-  <message name="statusArchive">
-    <part element="tns:statusArchive" name="parameters"></part>
-  </message>
-  <message name="statusArchiveResponse">
-    <part element="tns:statusArchiveResponse" name="parameters"></part>
-  </message>
-  <message name="echo">
-    <part element="tns:echo" name="parameters"></part>
-  </message>
-  <message name="echoResponse">
-    <part element="tns:echoResponse" name="parameters"></part>
   </message>
   <message name="listArchive">
     <part element="tns:listArchive" name="parameters"></part>
@@ -217,17 +109,53 @@
   <message name="InvalidOptions">
     <part element="tns:InvalidOptions" name="fault"></part>
   </message>
+  <message name="disconnectAsync">
+    <part element="tns:disconnectAsync" name="parameters"></part>
+  </message>
+  <message name="disconnectAsyncResponse">
+    <part element="tns:disconnectAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="getAllDumps">
+    <part element="tns:getAllDumps" name="parameters"></part>
+  </message>
+  <message name="getAllDumpsResponse">
+    <part element="tns:getAllDumpsResponse" name="parameters"></part>
+  </message>
+  <message name="statusArchive">
+    <part element="tns:statusArchive" name="parameters"></part>
+  </message>
+  <message name="statusArchiveResponse">
+    <part element="tns:statusArchiveResponse" name="parameters"></part>
+  </message>
+  <message name="getCurrentTime">
+    <part element="tns:getCurrentTime" name="parameters"></part>
+  </message>
+  <message name="getCurrentTimeResponse">
+    <part element="tns:getCurrentTimeResponse" name="parameters"></part>
+  </message>
   <message name="restoreAsync">
     <part element="tns:restoreAsync" name="parameters"></part>
   </message>
   <message name="restoreAsyncResponse">
     <part element="tns:restoreAsyncResponse" name="parameters"></part>
   </message>
-  <message name="keepalive">
-    <part element="tns:keepalive" name="parameters"></part>
+  <message name="echo">
+    <part element="tns:echo" name="parameters"></part>
   </message>
-  <message name="keepaliveResponse">
-    <part element="tns:keepaliveResponse" name="parameters"></part>
+  <message name="echoResponse">
+    <part element="tns:echoResponse" name="parameters"></part>
+  </message>
+  <message name="getRepository">
+    <part element="tns:getRepository" name="parameters"></part>
+  </message>
+  <message name="getRepositoryResponse">
+    <part element="tns:getRepositoryResponse" name="parameters"></part>
+  </message>
+  <message name="getRepositories">
+    <part element="tns:getRepositories" name="parameters"></part>
+  </message>
+  <message name="getRepositoriesResponse">
+    <part element="tns:getRepositoriesResponse" name="parameters"></part>
   </message>
   <message name="showArchive">
     <part element="tns:showArchive" name="parameters"></part>
@@ -235,31 +163,113 @@
   <message name="showArchiveResponse">
     <part element="tns:showArchiveResponse" name="parameters"></part>
   </message>
-  <message name="getTaskInfo">
-    <part element="tns:getTaskInfo" name="parameters"></part>
-  </message>
-  <message name="getTaskInfoResponse">
-    <part element="tns:getTaskInfoResponse" name="parameters"></part>
-  </message>
   <message name="showArchiveAsync">
     <part element="tns:showArchiveAsync" name="parameters"></part>
   </message>
   <message name="showArchiveAsyncResponse">
     <part element="tns:showArchiveAsyncResponse" name="parameters"></part>
   </message>
-  <message name="connect">
-    <part element="tns:connect" name="parameters"></part>
+  <message name="getTaskInfo">
+    <part element="tns:getTaskInfo" name="parameters"></part>
   </message>
-  <message name="connectResponse">
-    <part element="tns:connectResponse" name="parameters"></part>
+  <message name="getTaskInfoResponse">
+    <part element="tns:getTaskInfoResponse" name="parameters"></part>
   </message>
-  <message name="getVersion">
-    <part element="tns:getVersion" name="parameters"></part>
+  <message name="disconnectRepository">
+    <part element="tns:disconnectRepository" name="parameters"></part>
   </message>
-  <message name="getVersionResponse">
-    <part element="tns:getVersionResponse" name="parameters"></part>
+  <message name="disconnectRepositoryResponse">
+    <part element="tns:disconnectRepositoryResponse" name="parameters"></part>
+  </message>
+  <message name="connectRepositoryAsync">
+    <part element="tns:connectRepositoryAsync" name="parameters"></part>
+  </message>
+  <message name="connectRepositoryAsyncResponse">
+    <part element="tns:connectRepositoryAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="removeArchiveGenerationsAsync">
+    <part element="tns:removeArchiveGenerationsAsync" name="parameters"></part>
+  </message>
+  <message name="removeArchiveGenerationsAsyncResponse">
+    <part element="tns:removeArchiveGenerationsAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="getActiveRepository">
+    <part element="tns:getActiveRepository" name="parameters"></part>
+  </message>
+  <message name="getActiveRepositoryResponse">
+    <part element="tns:getActiveRepositoryResponse" name="parameters"></part>
+  </message>
+  <message name="disconnectRepositoryAsync">
+    <part element="tns:disconnectRepositoryAsync" name="parameters"></part>
+  </message>
+  <message name="disconnectRepositoryAsyncResponse">
+    <part element="tns:disconnectRepositoryAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="removeArchiveProfile">
+    <part element="tns:removeArchiveProfile" name="parameters"></part>
+  </message>
+  <message name="removeArchiveProfileResponse">
+    <part element="tns:removeArchiveProfileResponse" name="parameters"></part>
+  </message>
+  <message name="checkArchiveGenerations">
+    <part element="tns:checkArchiveGenerations" name="parameters"></part>
+  </message>
+  <message name="checkArchiveGenerationsResponse">
+    <part element="tns:checkArchiveGenerationsResponse" name="parameters"></part>
+  </message>
+  <message name="getRepositoriesNames">
+    <part element="tns:getRepositoriesNames" name="parameters"></part>
+  </message>
+  <message name="getRepositoriesNamesResponse">
+    <part element="tns:getRepositoriesNamesResponse" name="parameters"></part>
+  </message>
+  <message name="connectRepository">
+    <part element="tns:connectRepository" name="parameters"></part>
+  </message>
+  <message name="connectRepositoryResponse">
+    <part element="tns:connectRepositoryResponse" name="parameters"></part>
+  </message>
+  <message name="virtualBackupAsync">
+    <part element="tns:virtualBackupAsync" name="parameters"></part>
+  </message>
+  <message name="virtualBackupAsyncResponse">
+    <part element="tns:virtualBackupAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="removeArchiveGenerations">
+    <part element="tns:removeArchiveGenerations" name="parameters"></part>
+  </message>
+  <message name="removeArchiveGenerationsResponse">
+    <part element="tns:removeArchiveGenerationsResponse" name="parameters"></part>
+  </message>
+  <message name="removeArchiveProfileAsync">
+    <part element="tns:removeArchiveProfileAsync" name="parameters"></part>
+  </message>
+  <message name="removeArchiveProfileAsyncResponse">
+    <part element="tns:removeArchiveProfileAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="statusArchiveAsync">
+    <part element="tns:statusArchiveAsync" name="parameters"></part>
+  </message>
+  <message name="statusArchiveAsyncResponse">
+    <part element="tns:statusArchiveAsyncResponse" name="parameters"></part>
+  </message>
+  <message name="setActiveRepository">
+    <part element="tns:setActiveRepository" name="parameters"></part>
+  </message>
+  <message name="setActiveRepositoryResponse">
+    <part element="tns:setActiveRepositoryResponse" name="parameters"></part>
   </message>
   <portType name="Sapi">
+    <operation name="connect">
+      <input message="tns:connect" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRequest"></input>
+      <output message="tns:connectResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connect/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="getVersion">
+      <input message="tns:getVersion" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersionRequest"></input>
+      <output message="tns:getVersionResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersionResponse"></output>
+      <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersion/Fault/InternalCoreResult"></fault>
+    </operation>
     <operation name="isConnected">
       <input message="tns:isConnected" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/isConnectedRequest"></input>
       <output message="tns:isConnectedResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/isConnectedResponse"></output>
@@ -272,92 +282,26 @@
       <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/restore/Fault/InvalidTask"></fault>
       <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/restore/Fault/InternalServer"></fault>
     </operation>
-    <operation name="login">
-      <input message="tns:login" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/loginRequest"></input>
-      <output message="tns:loginResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/loginResponse"></output>
-      <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/login/Fault/InternalCoreResult"></fault>
-    </operation>
     <operation name="logout">
       <input message="tns:logout" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/logoutRequest"></input>
       <output message="tns:logoutResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/logoutResponse"></output>
       <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/logout/Fault/UnrecognizedToken"></fault>
       <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/logout/Fault/InternalCoreResult"></fault>
     </operation>
-    <operation name="disconnectRepositoryAsync">
-      <input message="tns:disconnectRepositoryAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncRequest"></input>
-      <output message="tns:disconnectRepositoryAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsync/Fault/UnrecognizedToken"></fault>
+    <operation name="login">
+      <input message="tns:login" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/loginRequest"></input>
+      <output message="tns:loginResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/loginResponse"></output>
+      <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/login/Fault/InternalCoreResult"></fault>
     </operation>
-    <operation name="setActiveRepository">
-      <input message="tns:setActiveRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryRequest"></input>
-      <output message="tns:setActiveRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepository/Fault/UnrecognizedToken"></fault>
+    <operation name="backupAsync">
+      <input message="tns:backupAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncRequest"></input>
+      <output message="tns:backupAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsync/Fault/UnrecognizedToken"></fault>
     </operation>
-    <operation name="removeArchiveGenerations">
-      <input message="tns:removeArchiveGenerations" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsRequest"></input>
-      <output message="tns:removeArchiveGenerationsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/InternalServer"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="removeArchiveGenerationsAsync">
-      <input message="tns:removeArchiveGenerationsAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncRequest"></input>
-      <output message="tns:removeArchiveGenerationsAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsync/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="getRepositoriesNames">
-      <input message="tns:getRepositoriesNames" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesRequest"></input>
-      <output message="tns:getRepositoriesNamesResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNames/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="connectRepositoryAsync">
-      <input message="tns:connectRepositoryAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncRequest"></input>
-      <output message="tns:connectRepositoryAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsync/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsync/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="removeArchiveProfile">
-      <input message="tns:removeArchiveProfile" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileRequest"></input>
-      <output message="tns:removeArchiveProfileResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/InternalServer"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="disconnectRepository">
-      <input message="tns:disconnectRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryRequest"></input>
-      <output message="tns:disconnectRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepository/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="checkArchiveGenerations">
-      <input message="tns:checkArchiveGenerations" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsRequest"></input>
-      <output message="tns:checkArchiveGenerationsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerations/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="getActiveRepository">
-      <input message="tns:getActiveRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryRequest"></input>
-      <output message="tns:getActiveRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepository/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="virtualBackupAsync">
-      <input message="tns:virtualBackupAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncRequest"></input>
-      <output message="tns:virtualBackupAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsync/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="statusArchiveAsync">
-      <input message="tns:statusArchiveAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncRequest"></input>
-      <output message="tns:statusArchiveAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsync/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="connectRepository">
-      <input message="tns:connectRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryRequest"></input>
-      <output message="tns:connectRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="removeArchiveProfileAsync">
-      <input message="tns:removeArchiveProfileAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncRequest"></input>
-      <output message="tns:removeArchiveProfileAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsync/Fault/UnrecognizedToken"></fault>
+    <operation name="connectAsync">
+      <input message="tns:connectAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncRequest"></input>
+      <output message="tns:connectAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsync/Fault/UnrecognizedToken"></fault>
     </operation>
     <operation name="virtualBackup">
       <input message="tns:virtualBackup" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupRequest"></input>
@@ -365,10 +309,11 @@
       <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/UnrecognizedToken"></fault>
       <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/InvalidTask"></fault>
     </operation>
-    <operation name="connectAsync">
-      <input message="tns:connectAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncRequest"></input>
-      <output message="tns:connectAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsync/Fault/UnrecognizedToken"></fault>
+    <operation name="backup">
+      <input message="tns:backup" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupRequest"></input>
+      <output message="tns:backupResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/InvalidTask"></fault>
     </operation>
     <operation name="disconnect">
       <input message="tns:disconnect" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRequest"></input>
@@ -381,59 +326,16 @@
       <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/UnrecognizedToken"></fault>
       <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/InternalServer"></fault>
     </operation>
-    <operation name="backup">
-      <input message="tns:backup" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupRequest"></input>
-      <output message="tns:backupResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="disconnectAsync">
-      <input message="tns:disconnectAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncRequest"></input>
-      <output message="tns:disconnectAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsync/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="getRepository">
-      <input message="tns:getRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryRequest"></input>
-      <output message="tns:getRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepository/Fault/UnrecognizedToken"></fault>
+    <operation name="keepalive">
+      <input message="tns:keepalive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveRequest"></input>
+      <output message="tns:keepaliveResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepalive/Fault/UnrecognizedToken"></fault>
     </operation>
     <operation name="getDumps">
       <input message="tns:getDumps" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getDumpsRequest"></input>
       <output message="tns:getDumpsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getDumpsResponse"></output>
       <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/UnrecognizedToken"></fault>
       <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="backupAsync">
-      <input message="tns:backupAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncRequest"></input>
-      <output message="tns:backupAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsync/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="getAllDumps">
-      <input message="tns:getAllDumps" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsRequest"></input>
-      <output message="tns:getAllDumpsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="getCurrentTime">
-      <input message="tns:getCurrentTime" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeRequest"></input>
-      <output message="tns:getCurrentTimeResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTime/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="getRepositories">
-      <input message="tns:getRepositories" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesRequest"></input>
-      <output message="tns:getRepositoriesResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositories/Fault/UnrecognizedToken"></fault>
-    </operation>
-    <operation name="statusArchive">
-      <input message="tns:statusArchive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveRequest"></input>
-      <output message="tns:statusArchiveResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/UnrecognizedToken"></fault>
-      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InternalServer"></fault>
-      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InvalidTask"></fault>
-    </operation>
-    <operation name="echo">
-      <input message="tns:echo" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/echoRequest"></input>
-      <output message="tns:echoResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/echoResponse"></output>
     </operation>
     <operation name="listArchive">
       <input message="tns:listArchive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/listArchiveRequest"></input>
@@ -442,15 +344,47 @@
       <fault message="tns:InvalidOptions" name="InvalidOptions" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InvalidOptions"></fault>
       <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InternalCoreResult"></fault>
     </operation>
+    <operation name="disconnectAsync">
+      <input message="tns:disconnectAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncRequest"></input>
+      <output message="tns:disconnectAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="getAllDumps">
+      <input message="tns:getAllDumps" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsRequest"></input>
+      <output message="tns:getAllDumpsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/InvalidTask"></fault>
+    </operation>
+    <operation name="statusArchive">
+      <input message="tns:statusArchive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveRequest"></input>
+      <output message="tns:statusArchiveResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InternalServer"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InvalidTask"></fault>
+    </operation>
+    <operation name="getCurrentTime">
+      <input message="tns:getCurrentTime" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeRequest"></input>
+      <output message="tns:getCurrentTimeResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTime/Fault/UnrecognizedToken"></fault>
+    </operation>
     <operation name="restoreAsync">
       <input message="tns:restoreAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncRequest"></input>
       <output message="tns:restoreAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncResponse"></output>
       <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsync/Fault/UnrecognizedToken"></fault>
     </operation>
-    <operation name="keepalive">
-      <input message="tns:keepalive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveRequest"></input>
-      <output message="tns:keepaliveResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/keepalive/Fault/UnrecognizedToken"></fault>
+    <operation name="echo">
+      <input message="tns:echo" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/echoRequest"></input>
+      <output message="tns:echoResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/echoResponse"></output>
+    </operation>
+    <operation name="getRepository">
+      <input message="tns:getRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryRequest"></input>
+      <output message="tns:getRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepository/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="getRepositories">
+      <input message="tns:getRepositories" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesRequest"></input>
+      <output message="tns:getRepositoriesResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositories/Fault/UnrecognizedToken"></fault>
     </operation>
     <operation name="showArchive">
       <input message="tns:showArchive" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveRequest"></input>
@@ -459,6 +393,11 @@
       <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InternalServer"></fault>
       <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InvalidTask"></fault>
     </operation>
+    <operation name="showArchiveAsync">
+      <input message="tns:showArchiveAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncRequest"></input>
+      <output message="tns:showArchiveAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
     <operation name="getTaskInfo">
       <input message="tns:getTaskInfo" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoRequest"></input>
       <output message="tns:getTaskInfoResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoResponse"></output>
@@ -466,24 +405,109 @@
       <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InvalidTask"></fault>
       <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InternalServer"></fault>
     </operation>
-    <operation name="showArchiveAsync">
-      <input message="tns:showArchiveAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncRequest"></input>
-      <output message="tns:showArchiveAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsync/Fault/UnrecognizedToken"></fault>
+    <operation name="disconnectRepository">
+      <input message="tns:disconnectRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryRequest"></input>
+      <output message="tns:disconnectRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepository/Fault/UnrecognizedToken"></fault>
     </operation>
-    <operation name="connect">
-      <input message="tns:connect" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRequest"></input>
-      <output message="tns:connectResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectResponse"></output>
-      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connect/Fault/UnrecognizedToken"></fault>
+    <operation name="connectRepositoryAsync">
+      <input message="tns:connectRepositoryAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncRequest"></input>
+      <output message="tns:connectRepositoryAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsync/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsync/Fault/InvalidTask"></fault>
     </operation>
-    <operation name="getVersion">
-      <input message="tns:getVersion" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersionRequest"></input>
-      <output message="tns:getVersionResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersionResponse"></output>
-      <fault message="tns:InternalCoreResult" name="InternalCoreResult" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getVersion/Fault/InternalCoreResult"></fault>
+    <operation name="removeArchiveGenerationsAsync">
+      <input message="tns:removeArchiveGenerationsAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncRequest"></input>
+      <output message="tns:removeArchiveGenerationsAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="getActiveRepository">
+      <input message="tns:getActiveRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryRequest"></input>
+      <output message="tns:getActiveRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepository/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="disconnectRepositoryAsync">
+      <input message="tns:disconnectRepositoryAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncRequest"></input>
+      <output message="tns:disconnectRepositoryAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="removeArchiveProfile">
+      <input message="tns:removeArchiveProfile" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileRequest"></input>
+      <output message="tns:removeArchiveProfileResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/InternalServer"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/InvalidTask"></fault>
+    </operation>
+    <operation name="checkArchiveGenerations">
+      <input message="tns:checkArchiveGenerations" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsRequest"></input>
+      <output message="tns:checkArchiveGenerationsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerations/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="getRepositoriesNames">
+      <input message="tns:getRepositoriesNames" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesRequest"></input>
+      <output message="tns:getRepositoriesNamesResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNames/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="connectRepository">
+      <input message="tns:connectRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryRequest"></input>
+      <output message="tns:connectRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/InvalidTask"></fault>
+    </operation>
+    <operation name="virtualBackupAsync">
+      <input message="tns:virtualBackupAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncRequest"></input>
+      <output message="tns:virtualBackupAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="removeArchiveGenerations">
+      <input message="tns:removeArchiveGenerations" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsRequest"></input>
+      <output message="tns:removeArchiveGenerationsResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/UnrecognizedToken"></fault>
+      <fault message="tns:InternalServer" name="InternalServer" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/InternalServer"></fault>
+      <fault message="tns:InvalidTask" name="InvalidTask" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerations/Fault/InvalidTask"></fault>
+    </operation>
+    <operation name="removeArchiveProfileAsync">
+      <input message="tns:removeArchiveProfileAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncRequest"></input>
+      <output message="tns:removeArchiveProfileAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="statusArchiveAsync">
+      <input message="tns:statusArchiveAsync" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncRequest"></input>
+      <output message="tns:statusArchiveAsyncResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsync/Fault/UnrecognizedToken"></fault>
+    </operation>
+    <operation name="setActiveRepository">
+      <input message="tns:setActiveRepository" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryRequest"></input>
+      <output message="tns:setActiveRepositoryResponse" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryResponse"></output>
+      <fault message="tns:UnrecognizedToken" name="UnrecognizedToken" wsam:Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepository/Fault/UnrecognizedToken"></fault>
     </operation>
   </portType>
   <binding name="SapiPortBinding" type="tns:Sapi">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="connect">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="getVersion">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="InternalCoreResult">
+        <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
+      </fault>
+    </operation>
     <operation name="isConnected">
       <soap:operation soapAction=""></soap:operation>
       <input>
@@ -514,18 +538,6 @@
         <soap:fault name="InternalServer" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="login">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="InternalCoreResult">
-        <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
-      </fault>
-    </operation>
     <operation name="logout">
       <soap:operation soapAction=""></soap:operation>
       <input>
@@ -541,7 +553,19 @@
         <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="disconnectRepositoryAsync">
+    <operation name="login">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="InternalCoreResult">
+        <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="backupAsync">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -553,169 +577,7 @@
         <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="setActiveRepository">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="removeArchiveGenerations">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InternalServer">
-        <soap:fault name="InternalServer" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="removeArchiveGenerationsAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getRepositoriesNames">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="connectRepositoryAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="removeArchiveProfile">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InternalServer">
-        <soap:fault name="InternalServer" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="disconnectRepository">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="checkArchiveGenerations">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getActiveRepository">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="virtualBackupAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="statusArchiveAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="connectRepository">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="removeArchiveProfileAsync">
+    <operation name="connectAsync">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -742,7 +604,7 @@
         <soap:fault name="InvalidTask" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="connectAsync">
+    <operation name="backup">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -752,6 +614,9 @@
       </output>
       <fault name="UnrecognizedToken">
         <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
       </fault>
     </operation>
     <operation name="disconnect">
@@ -781,34 +646,7 @@
         <soap:fault name="InternalServer" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="backup">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="disconnectAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getRepository">
+    <operation name="keepalive">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -834,84 +672,6 @@
       <fault name="InvalidTask">
         <soap:fault name="InvalidTask" use="literal"></soap:fault>
       </fault>
-    </operation>
-    <operation name="backupAsync">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getAllDumps">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getCurrentTime">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="getRepositories">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="statusArchive">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
-      <fault name="UnrecognizedToken">
-        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
-      </fault>
-      <fault name="InternalServer">
-        <soap:fault name="InternalServer" use="literal"></soap:fault>
-      </fault>
-      <fault name="InvalidTask">
-        <soap:fault name="InvalidTask" use="literal"></soap:fault>
-      </fault>
-    </operation>
-    <operation name="echo">
-      <soap:operation soapAction=""></soap:operation>
-      <input>
-        <soap:body use="literal"></soap:body>
-      </input>
-      <output>
-        <soap:body use="literal"></soap:body>
-      </output>
     </operation>
     <operation name="listArchive">
       <soap:operation soapAction=""></soap:operation>
@@ -931,6 +691,63 @@
         <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
       </fault>
     </operation>
+    <operation name="disconnectAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="getAllDumps">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="statusArchive">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InternalServer">
+        <soap:fault name="InternalServer" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="getCurrentTime">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
     <operation name="restoreAsync">
       <soap:operation soapAction=""></soap:operation>
       <input>
@@ -943,7 +760,28 @@
         <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="keepalive">
+    <operation name="echo">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+    </operation>
+    <operation name="getRepository">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="getRepositories">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -973,6 +811,18 @@
         <soap:fault name="InvalidTask" use="literal"></soap:fault>
       </fault>
     </operation>
+    <operation name="showArchiveAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
     <operation name="getTaskInfo">
       <soap:operation soapAction=""></soap:operation>
       <input>
@@ -991,7 +841,7 @@
         <soap:fault name="InternalServer" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="showArchiveAsync">
+    <operation name="disconnectRepository">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -1003,7 +853,22 @@
         <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="connect">
+    <operation name="connectRepositoryAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="removeArchiveGenerationsAsync">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -1015,7 +880,7 @@
         <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
       </fault>
     </operation>
-    <operation name="getVersion">
+    <operation name="getActiveRepository">
       <soap:operation soapAction=""></soap:operation>
       <input>
         <soap:body use="literal"></soap:body>
@@ -1023,8 +888,143 @@
       <output>
         <soap:body use="literal"></soap:body>
       </output>
-      <fault name="InternalCoreResult">
-        <soap:fault name="InternalCoreResult" use="literal"></soap:fault>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="disconnectRepositoryAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="removeArchiveProfile">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InternalServer">
+        <soap:fault name="InternalServer" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="checkArchiveGenerations">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="getRepositoriesNames">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="connectRepository">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="virtualBackupAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="removeArchiveGenerations">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+      <fault name="InternalServer">
+        <soap:fault name="InternalServer" use="literal"></soap:fault>
+      </fault>
+      <fault name="InvalidTask">
+        <soap:fault name="InvalidTask" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="removeArchiveProfileAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="statusArchiveAsync">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
+      </fault>
+    </operation>
+    <operation name="setActiveRepository">
+      <soap:operation soapAction=""></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+      <fault name="UnrecognizedToken">
+        <soap:fault name="UnrecognizedToken" use="literal"></soap:fault>
       </fault>
     </operation>
   </binding>

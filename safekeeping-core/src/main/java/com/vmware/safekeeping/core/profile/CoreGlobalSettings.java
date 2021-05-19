@@ -222,6 +222,8 @@ public class CoreGlobalSettings {
     private static final String WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS = "waitingTimeAfterBlockThreadFailure";
     private static final Long DEFAULT_WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS = 3L;
 
+    private static final String KEY_STORE_CA_CERTS_DEFAULT_PASSOWORD = "changeit";
+
     public static boolean acceptUntrustedCertificate() {
         return configurationMap.getBooleanProperty(globalGroup, ACCEPT_UNTRUSTED_CERTIFICATE,
                 DEFAULT_VALUE_ACCEPT_UNTRUSTED_CERTIFICATE);
@@ -241,7 +243,7 @@ public class CoreGlobalSettings {
             confDirectory.mkdirs();
             Utility.copyFromResource(obj, confDirectory, "/config.properties");
             Utility.copyFromResource(CoreGlobalSettings.class, confDirectory, "/vddk.conf");
-            Utility.copyFromResource(CoreGlobalSettings.class, confDirectory, "/cacerts");
+            Utility.copyFromResource(CoreGlobalSettings.class, confDirectory, "/cacerts.tar");
 
             KeyStoreHelper.generateKeyPair(confDirectory);
 
@@ -329,10 +331,6 @@ public class CoreGlobalSettings {
         return String.format("%s/%s", moref, CoreGlobalSettings.FCO_PROFILE_FILE_NAME);
     }
 
-    public static Integer getQuisceTimeout() {
-        return configurationMap.getIntegerProperty(globalGroup, QUISCE_TIMEOUT, DEFAULT_VALUE_QUISCE_TIMEOUT);
-    }
-
     public static Boolean getDefaultUSeWindowsVss() {
         return configurationMap.getBooleanProperty(globalGroup, USE_VSS_WINDOWS_SYSTEM,
                 DEFAULT_VALUE_USE_VSS_WINDOWS_SYSTEM);
@@ -384,6 +382,14 @@ public class CoreGlobalSettings {
         return configurationMap.getStringProperty(globalGroup, KEYSTORE, DEFAULT_VALUE_KEYSTORE);
     }
 
+    public static String getKeyStoreCaCertsPassword() {
+        return KEY_STORE_CA_CERTS_DEFAULT_PASSOWORD;
+    }
+
+    public static String getKeystoreCaCertsPath() {
+        return getCertificatePath() + File.separatorChar + "cacerts";
+    }
+
     public static String getKeyStorePassword() {
         String result = configurationMap.getStringProperty(globalGroup, KEY_STORE_PASSWORD,
                 DEFAULT_VALUE_KEY_STORE_PASSWORD);
@@ -395,15 +401,6 @@ public class CoreGlobalSettings {
 
     public static String getKeystorePath() {
         return getCertificatePath() + File.separatorChar + getKeystore();
-    }
-
-    public static String getKeystoreCaCertsPath() {
-        return getCertificatePath() + File.separatorChar + "cacerts";
-    }
-
-    public static String getKeyStoreCaCertsPassword() {
-
-        return "changeit";
     }
 
     public static String getKeyStoreSslAlias() {
@@ -479,6 +476,10 @@ public class CoreGlobalSettings {
         return res;
     }
 
+    public static Integer getQuisceTimeout() {
+        return configurationMap.getIntegerProperty(globalGroup, QUISCE_TIMEOUT, DEFAULT_VALUE_QUISCE_TIMEOUT);
+    }
+
     public static String getRefreshToken() {
         return configurationMap.getStringProperty(globalGroup, CSP_REFRESH_TOKEN);
     }
@@ -539,13 +540,6 @@ public class CoreGlobalSettings {
         return result;
     }
 
-    public static long getWaitingTimeAfterBlockThreadFailureInMilliSeconds() {
-        Long result = configurationMap.getLongProperty(globalGroup, WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS,
-                DEFAULT_WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS);
-        result *= Utility.ONE_SECOND_IN_MILLIS;
-        return result;
-    }
-
     public static String getVddkConfig() {
         return getConfigPath() + File.separatorChar
                 + configurationMap.getStringProperty(globalGroup, VDDK_CONFIG, DEFAULT_VALUE_VDDK_CONFIG);
@@ -566,6 +560,13 @@ public class CoreGlobalSettings {
 
     public static String getVmFilter() {
         return configurationMap.getStringProperty(filterGroup, VM_FOLDER_FILTER, DEFAULT_VALUE_VM_FOLDER_FILTER);
+    }
+
+    public static long getWaitingTimeAfterBlockThreadFailureInMilliSeconds() {
+        Long result = configurationMap.getLongProperty(globalGroup, WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS,
+                DEFAULT_WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS);
+        result *= Utility.ONE_SECOND_IN_MILLIS;
+        return result;
     }
 
     public static Integer getWindowsVssTimeOut() {

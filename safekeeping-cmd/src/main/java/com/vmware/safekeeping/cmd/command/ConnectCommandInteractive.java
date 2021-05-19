@@ -97,7 +97,7 @@ public class ConnectCommandInteractive extends AbstractConnectCommand implements
                 this.parser.printHelpOn(System.out);
                 result = new OperationStateList(OperationState.SUCCESS);
             } catch (final IOException e) {
-                Utility.logWarning(logger, e);
+                Utility.logWarning(this.logger, e);
                 result = new OperationStateList(OperationState.FAILED);
             }
         } else {
@@ -113,54 +113,65 @@ public class ConnectCommandInteractive extends AbstractConnectCommand implements
     private OperationStateList actionConnectInteractive(final ConnectionManager connetionManager)
             throws CoreResultActionException {
         final OperationStateList result = new OperationStateList();
-        IoFunction.showInfo(logger, "Connecting...");
+        IoFunction.showInfo(this.logger, "Connecting...");
         final CoreResultActionConnectSso resultActionSso = connetionManager.connectSso(this.password,
                 getOptions().isBase64());
 
         switch (resultActionSso.getState()) {
         case ABORTED:
-            IoFunction.showWarning(logger, Vmbk.OPERATION_ABORTED_BY_USER);
+            IoFunction.showWarning(this.logger, Vmbk.OPERATION_ABORTED_BY_USER);
             break;
 
         case FAILED:
-            IoFunction.showWarning(logger, resultActionSso.getReason());
+            IoFunction.showWarning(this.logger, resultActionSso.getReason());
             break;
         case SKIPPED:
-            IoFunction.showInfo(logger, " skip - Reason: %s", resultActionSso.getReason());
+            IoFunction.showInfo(this.logger, " skip - Reason: %s", resultActionSso.getReason());
             break;
         case SUCCESS:
-            IoFunction.showInfo(logger, "Connected to Platform Service Controller: %s",
+            IoFunction.showInfo(this.logger, "Connected to Platform Service Controller: %s",
                     resultActionSso.getSsoEndPointUrl());
 
             final CoreResultActionConnect resultAction = actionConnect(connetionManager);
 
             switch (resultAction.getState()) {
             case ABORTED:
-                IoFunction.showWarning(logger, Vmbk.OPERATION_ABORTED_BY_USER);
+                IoFunction.showWarning(this.logger, Vmbk.OPERATION_ABORTED_BY_USER);
                 break;
 
             case FAILED:
-                IoFunction.showWarning(logger, resultActionSso.getReason());
+                IoFunction.showWarning(this.logger, resultActionSso.getReason());
                 break;
             case SKIPPED:
-                IoFunction.showInfo(logger, " skip - Reason: %s", resultAction.getReason());
+                IoFunction.showInfo(this.logger, " skip - Reason: %s", resultAction.getReason());
                 break;
             case SUCCESS:
                 final ConcurrentDoublyLinkedList<CoreResultActionConnectVcenter> vims = resultAction
                         .getSubActionConnectVCenters();
-                IoFunction.showInfo(logger, "LookupService reports %d VimService Instance%s", vims.size(),
+                IoFunction.showInfo(this.logger, "LookupService reports %d VimService Instance%s", vims.size(),
                         vims.size() > 1 ? "s" : "");
                 int index = 0;
                 for (final CoreResultActionConnectVcenter vim : vims) {
                     ++index;
-                    IoFunction.showInfo(logger, "vCenter %d:", index);
-                    IoFunction.showInfo(logger, "\tVimService uuid: %s url: %s", vim.getInstanceUuid(), vim.getUrl());
-                    IoFunction.showInfo(logger, "\t\t%s - Api Version: %s - Platform: %s", vim.getName(), vim.getApi(),
-                            vim.getCloudPlatform().toString());
-                    IoFunction.showInfo(logger, "\tStorage Profile Service Ver.%s url: %s", vim.getPbmVersion(),
+                    IoFunction.showInfo(this.logger, "vCenter %d:", index);
+                    IoFunction.showInfo(this.logger, "\tVimService uuid: %s url: %s", vim.getInstanceUuid(),
+                            vim.getUrl());
+                    IoFunction.showInfo(this.logger, "\t\t%s - Api Version: %s - Platform: %s", vim.getName(),
+                            vim.getApi(), vim.getCloudPlatform().toString());
+                    IoFunction.showInfo(this.logger, "\tStorage Profile Service Ver.%s url: %s", vim.getPbmVersion(),
                             vim.getPbmUrl());
-                    IoFunction.showInfo(logger, "\t%s url: %s", vim.getVslmName(), vim.getVslmUrl());
-                    IoFunction.showInfo(logger, "\tVapi Service url: %s", vim.getVapiUrl());
+                    IoFunction.showInfo(this.logger, "\t%s url: %s", vim.getVslmName(), vim.getVslmUrl());
+                    IoFunction.showInfo(this.logger, "\tVapi Service url: %s", vim.getVapiUrl());
+                    if (vim.isVmFolderFilterSet() || vim.isResourcePoolFilterSet()) {
+                        IoFunction.showInfo(this.logger, "\tFilters:");
+                        if (vim.isVmFolderFilterSet()) {
+                            IoFunction.showInfo(this.logger, "\t\tVMfolder: %s", vim.getVmFolderFilter());
+                        }
+                        if (vim.isResourcePoolFilterSet()) {
+                            IoFunction.showInfo(this.logger, "\t\tResourcePool: %s", vim.getResourcePoolFilter());
+                        }
+                    }
+
                 }
                 break;
             default:
@@ -252,7 +263,7 @@ public class ConnectCommandInteractive extends AbstractConnectCommand implements
 
     @Override
     public void initialize() {
-        help = false;
+        this.help = false;
     }
 
     @Override

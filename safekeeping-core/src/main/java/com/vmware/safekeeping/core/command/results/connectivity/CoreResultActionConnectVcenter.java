@@ -26,16 +26,43 @@
  ******************************************************************************/
 package com.vmware.safekeeping.core.command.results.connectivity;
 
+import org.apache.commons.lang.StringUtils;
+
 public class CoreResultActionConnectVcenter extends AbstractCoreResultActionConnectDisconnectVcenter {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -8340474635527749314L;
+    private String resourcePoolFilter;
+    private String vmFolderFilter;
 
     public CoreResultActionConnectVcenter(final CoreResultActionConnect rac) {
         super(rac);
         rac.getSubActionConnectVCenters().add(this);
     }
 
+    public String getResourcePoolFilter() {
+        return this.resourcePoolFilter;
+    }
+
+    public String getVmFolderFilter() {
+        return this.vmFolderFilter;
+    }
+
+    public boolean isResourcePoolFilterSet() {
+        return StringUtils.isNotBlank(this.resourcePoolFilter);
+    }
+
+    public boolean isVmFolderFilterSet() {
+        return StringUtils.isNotBlank(this.vmFolderFilter);
+    }
+
+    public void setResourcePoolFilter(final String rpFilter) {
+        this.resourcePoolFilter = rpFilter;
+    }
+
+    public void setVmFolderFilter(final String vmFilter) {
+        this.vmFolderFilter = vmFilter;
+    }
 }

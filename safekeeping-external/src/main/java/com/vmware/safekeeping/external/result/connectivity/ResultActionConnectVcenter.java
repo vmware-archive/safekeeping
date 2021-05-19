@@ -32,6 +32,22 @@ import com.vmware.safekeeping.core.type.enums.VMwareCloudPlatforms;
 import com.vmware.safekeeping.external.result.ResultAction;
 
 public class ResultActionConnectVcenter extends ResultAction {
+    public String getResourcePoolFilter() {
+        return resourcePoolFilter;
+    }
+
+    public void setResourcePoolFilter(String resourcePoolFilter) {
+        this.resourcePoolFilter = resourcePoolFilter;
+    }
+
+    public String getVmFolderFilter() {
+        return vmFolderFilter;
+    }
+
+    public void setVmFolderFilter(String vmFolderFilter) {
+        this.vmFolderFilter = vmFolderFilter;
+    }
+
     /**
      * @param dst
      * @return
@@ -53,6 +69,8 @@ public class ResultActionConnectVcenter extends ResultAction {
         dst.setVapiConnected(src.isVapiConnected());
         dst.setVslmConnected(src.isVslmConnected());
         dst.setPbmConnected(src.isPbmConnected());
+        dst.vmFolderFilter = src.getVmFolderFilter();
+        dst.resourcePoolFilter = src.getResourcePoolFilter();
         dst.cloudPlatform = src.getCloudPlatform();
     }
 
@@ -80,6 +98,8 @@ public class ResultActionConnectVcenter extends ResultAction {
 
     private boolean pbmConnected;
     private VMwareCloudPlatforms cloudPlatform;
+    private String resourcePoolFilter;
+    private String vmFolderFilter;
 
     @Override
     public void convert(ICoreResultAction src) {

@@ -1291,6 +1291,8 @@ public class ConnectionManager {
                     }
                 }
             };
+            racv.setVmFolderFilter(CoreGlobalSettings.getVmFilter());
+            racv.setResourcePoolFilter(CoreGlobalSettings.getRpFilter());
             connectVapi.start();
             connectVslm.start();
             connectPbm.start();

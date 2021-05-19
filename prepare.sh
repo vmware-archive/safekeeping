@@ -234,7 +234,8 @@ subprojects {
     apply plugin: 'java' 
     java {
              sourceCompatibility = JavaVersion.$JdkVersion
-             targetCompatibility = JavaVersion.$JdkVersion  
+             targetCompatibility = JavaVersion.$JdkVersion
+             compileJava.options.encoding = 'Cp1252'
     }
 }
 

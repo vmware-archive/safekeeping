@@ -142,7 +142,7 @@ public final class Utility {
      * A Locale object represents a specific geographical, political,or cultural
      * region. An operation that requires a Locale to perform its task is called
      * locale-sensitive and uses the Locale to tailor information for the user. For
-     * example, displaying a number is a locale-sensitive operation— the number
+     * example, displaying a number is a locale-sensitive operation the number
      * should be formatted according to the customs and conventions of the user's
      * native country,region, or culture.
      */
@@ -203,17 +203,38 @@ public final class Utility {
     public static void copyFromResource(final Class<? extends Object> obj, final File confDirectory,
             final String resourceName) throws IOException {
         int count = 0;
-        try (final InputStream in = obj.getResourceAsStream(resourceName)) {
-            final byte[] buffer = new byte[in.available()];
-            count = in.read(buffer);
-            final File targetFile = new File(confDirectory.getAbsolutePath() + resourceName);
-            try (OutputStream outStream = new FileOutputStream(targetFile)) {
-                outStream.write(buffer);
+
+        if (resourceName.endsWith(".tar")) {
+            try (final InputStream in = obj.getResourceAsStream(resourceName)) {
+                count = in.available();
+                com.vmware.safekeeping.common.IOUtils.unTarFile(in, confDirectory);
+                if (logger.isLoggable(Level.INFO)) {
+                    final String msg = String.format("Copy resource %s to %s (%d bytes)", resourceName,
+                            confDirectory.getAbsolutePath() + resourceName, count);
+                    logger.info(msg);
+                }
             }
-            if (logger.isLoggable(Level.INFO)) {
-                final String msg = String.format("Copy resource %s to %s (%d bytes)", resourceName,
-                        targetFile.toString(), count);
-                logger.info(msg);
+        } else {
+            try (final InputStream in = obj.getResourceAsStream(resourceName)) {
+                int available = in.available();
+                final File targetFile = new File(confDirectory.getAbsolutePath() + resourceName);
+                int pos = 0;
+                try (OutputStream outStream = new FileOutputStream(targetFile)) {
+                    while (available > 0) {
+                        final byte[] buffer = new byte[available];
+
+                        int readSize = in.read(buffer, pos, available);
+                        count += readSize;
+                        outStream.write(buffer, pos, readSize);
+                        pos += readSize;
+                        available = in.available();
+                    }
+                }
+                if (logger.isLoggable(Level.INFO)) {
+                    final String msg = String.format("Copy resource %s to %s (%d bytes)", resourceName,
+                            targetFile.toString(), count);
+                    logger.info(msg);
+                }
             }
         }
     }
