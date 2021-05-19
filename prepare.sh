@@ -235,7 +235,6 @@ subprojects {
     java {
              sourceCompatibility = JavaVersion.$JdkVersion
              targetCompatibility = JavaVersion.$JdkVersion
-             compileJava.options.encoding = 'Cp1252'
     }
 }
 
