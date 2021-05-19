@@ -29,7 +29,7 @@ build(){
     VERSION=$MAJOR.$MINOR 
     VDDK_DIRECTORY="./vddk"
     TAR_FILE=VMware-vix-disklib-$VERSION.$PATCH-$BUILD.x86_64.tar.gz
-    JVIX_RESOURCES_DIRECTORY="../../../../jvix/src/main/resources" 
+    JVIX_RESOURCES_DIRECTORY="../../../../../../jvix/src/main/resources" 
     echo "Checking $VDDK_DIRECTORY/$TAR_FILE file"
     if [ -f "$VDDK_DIRECTORY/$TAR_FILE" ]; then
         tar -zxvf  "$VDDK_DIRECTORY/$TAR_FILE" vmware-vix-disklib-distrib/lib64   

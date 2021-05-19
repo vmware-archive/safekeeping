@@ -3,7 +3,7 @@
 THREAD = 1
 CC = gcc
 CXX = g++
-CFLAGS = -fPIC -Wextra -Iinclude -I../../../jdk/include -I../../../jdk/include/linux
+CFLAGS = -fPIC -Wextra -Iinclude -I../../../../jdk/include -I../../../../jdk/include/linux
 LDFLAGS = -Wl,-rpath,./lib/lib64:\$$ORIGIN/./lib/lib64 -Wl,-rpath-link,$$ORIGIN/./lib/lib64 
 LDLIBS = -L. -L./lib/lib64 -lvixDiskLib -lvixMntapi
 ifeq ($(DEBUG),1)
