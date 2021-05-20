@@ -379,7 +379,14 @@ class RestoreIvd extends AbstractRestoreFcoWithDisk {
                 | InvalidArgumentFaultMsg | com.vmware.pbm.RuntimeFaultFaultMsg | VimObjectNotExistException e) {
             Utility.logWarning(this.logger, e);
             ragrm.failure(e);
+        } catch (Exception e) {
+            if (this.logger.isLoggable(Level.FINE)) {
+                this.logger.fine("Unexpected Exception type");
+            }
+            Utility.logWarning(this.logger, e);
+            ragrm.failure(e);
         } finally {
+
             // assign the result to vmrestore
             rar.setManagedInfo(managedInfo);
             ragrm.done();

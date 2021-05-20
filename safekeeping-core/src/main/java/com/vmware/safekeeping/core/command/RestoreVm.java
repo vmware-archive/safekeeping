@@ -148,14 +148,15 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
 
                     ManagedObjectReference folder = getVimConnection().getFind().findByInventoryPath(vmFolder);
 
-                    if ((folder == null) && StringUtils.isNotEmpty(getOptions().getVmFolderFilter())
-                            && (!StringUtils.equals(vmFolder, getOptions().getVmFolderFilter()))) {
+                    if (folder == null) {
                         final String msg = String.format("vmFolder(%s) doesn't exist vmFilter(%s) will be used instead",
                                 vmFolder, getOptions().getVmFolderFilter());
                         this.logger.warning(msg);
 
                         vmFolder = getOptions().getVmFolderFilter();
-                        folder = getVimConnection().getFind().findByInventoryPath(vmFolder);
+                        if (StringUtils.isNotEmpty(vmFolder)) {
+                            folder = getVimConnection().getFind().findByInventoryPath(vmFolder);
+                        }
                     }
                     if (folder != null) {
                         managedInfo
@@ -183,7 +184,9 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
                                 originalResourcePoolName, getOptions().getResPoolFilter());
                         this.logger.warning(msg);
                         originalResourcePoolName = getOptions().getResPoolFilter();
-                        rp = getVimConnection().getFind().findByInventoryPath(originalResourcePoolName);
+                        if (StringUtils.isNotEmpty(originalResourcePoolName)) {
+                            rp = getVimConnection().getFind().findByInventoryPath(originalResourcePoolName);
+                        }
                     }
                     if (rp != null) {
                         managedInfo.setResourcePollInfo(new ManagedEntityInfo(
@@ -580,6 +583,8 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
                     if (newNetwork == null) {
                         throw new VimObjectNotExistException(item.getSearchValue(), EntityType.Network);
                     }
+                    managedInfo.getNetworkMapping()[i] = new ManagedEntityInfo(item.getSearchValue(), newNetwork,
+                            getVimConnection().getServerIntanceUuid());
                 } else {
                     String name = null;
                     try {
@@ -927,7 +932,7 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
                             final Jvddk jvddk = new Jvddk(this.logger, rar.getFirstClassObject());
                             if (createSnapshot(rar) && startVddkAccess(rar, jvddk) && disksRestore(rar, jvddk)
                                     && endVddkAccess(rar, jvddk)) {
-                                String st = rar.getFcoToString() + " Restore Success - start cleaning";
+                                final String st = rar.getFcoToString() + " Restore Success - start cleaning";
                                 if (this.logger.isLoggable(Level.INFO)) {
                                     this.logger.info(st);
                                 }
@@ -1120,6 +1125,7 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
 
     protected boolean restoreManagedInfo(final GenerationProfile profile, final CoreResultActionVmRestore rar)
             throws CoreResultActionException {
+        final int i = 0;
         /**
          * Start Section RestoreManagedInfo
          */
@@ -1263,6 +1269,12 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
         } catch (final InvalidPropertyFaultMsg | RuntimeFaultFaultMsg | VimObjectNotExistException
                 | com.vmware.pbm.RuntimeFaultFaultMsg | InvalidArgumentFaultMsg | VimOperationException
                 | SafekeepingUnsupportedObjectException e) {
+            Utility.logWarning(this.logger, e);
+            ragrm.failure(e);
+        } catch (final Exception e) {
+            if (this.logger.isLoggable(Level.FINE)) {
+                this.logger.fine("Unexpected Exception type");
+            }
             Utility.logWarning(this.logger, e);
             ragrm.failure(e);
         } finally {

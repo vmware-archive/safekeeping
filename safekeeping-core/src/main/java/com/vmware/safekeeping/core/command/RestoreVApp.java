@@ -624,6 +624,12 @@ class RestoreVApp extends AbstractRestoreFco implements IRestoreEntry {
         } catch (final InvalidPropertyFaultMsg | RuntimeFaultFaultMsg | VimObjectNotExistException e) {
             Utility.logWarning(this.logger, e);
             ragrm.failure(e);
+        } catch (Exception e) {
+            if (this.logger.isLoggable(Level.FINE)) {
+                this.logger.fine("Unexpected Exception type");
+            }
+            Utility.logWarning(this.logger, e);
+            ragrm.failure(e);
         } finally {
             // assign the result to vapprestore
             rar.setManagedInfo(managedInfo);

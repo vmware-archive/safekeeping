@@ -33,6 +33,8 @@ import java.util.Map.Entry;
 import java.util.Vector;
 import java.util.logging.Level;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.vmware.safekeeping.common.Utility;
 import com.vmware.safekeeping.core.type.fco.ImprovedVirtualDisk;
 import com.vmware.safekeeping.core.type.fco.VirtualAppManager;
@@ -72,10 +74,12 @@ public class VimFindFco {
      */
     public ManagedObjectReference findByInventoryPath(final String path) {
         ManagedObjectReference result = null;
-        try {
-            result = vimPort.findByInventoryPath(searchIndex, path);
-        } catch (final RuntimeFaultFaultMsg e) {
-            Utility.logWarning(AbstractConnection.logger, e);
+        if (StringUtils.isNotBlank(path)) {
+            try {
+                result = vimPort.findByInventoryPath(searchIndex, path);
+            } catch (final RuntimeFaultFaultMsg e) {
+                Utility.logWarning(AbstractConnection.logger, e);
+            }
         }
         return result;
     }

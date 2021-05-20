@@ -89,7 +89,7 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
     private static final String OPTION_DATASTORE = "datastore";
     private static final String OPTION_FOLDER = "folder";
     private static final String OPTION_RESPOOL = "respool";
-    private static final String OPTION_VM_NETWORKS = "network";
+    private static final String OPTION_VM_NETWORKS = "networks";
     private static final String OPTION_POWERON = "poweron";
     private static final String OPTION_THREADS = "threads";
     private static final String OPTION_OVERWRITE = "overwrite";
@@ -279,21 +279,21 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
                 .accepts(OPTION_VM_NETWORKS,
                         "Reconfigure VM newtwork to the new specified backend starting from vm eth0 to eth9. ")
                 .availableUnless(optionHelp);
-        optionNetwork.withRequiredArg().withValuesSeparatedBy(",").describedAs("name,..,name");
+        optionNetwork.withRequiredArg().withValuesSeparatedBy(",").describedAs("name|..|name");
         /*
          * Option VMDK datastores
          */
         final OptionSpecBuilder optionVmdkDatastore = this.parser.accepts(OPTION_VMDK_DATASTORES,
                 "Reconfigure VM VMDK backend datastore to the new specified backend starting from vm disk0 to disk(n).")
                 .availableUnless(optionHelp);
-        optionVmdkDatastore.withRequiredArg().withValuesSeparatedBy(",").describedAs("name,..,name");
+        optionVmdkDatastore.withRequiredArg().withValuesSeparatedBy(",").describedAs("name|..|name");
         /*
          * Option VMDK profiles
          */
         final OptionSpecBuilder optionVmdkProfile = this.parser.accepts(OPTION_VMDK_PROFILE,
                 "Reconfigure VM VMDK storage profile to the new specified backend starting from vm disk0 to disk(n).")
                 .availableUnless(optionHelp);
-        optionVmdkProfile.withRequiredArg().withValuesSeparatedBy(",").describedAs("name,..,name");
+        optionVmdkProfile.withRequiredArg().withValuesSeparatedBy(",").describedAs("name|..|name");
 
         this.parser.mainOptions(optionHelp);
 
@@ -383,7 +383,7 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
                         " restore vm:testVM  %s \"newVM\" %s \"myDatacenter\" %s \"myDatastore\" %s \"myResPool\" %n%n\tRestore vm:testVM  to an new VM named NewVm using as Datacenter:myDatacenter, as Datastore:myDatastore and as Resource Pool:myResPool %n%n",
                         OPTION_NAME, OPTION_DATACENTER, OPTION_DATASTORE, OPTION_RESPOOL)
                 + String.format(
-                        " restore vm:testVM  %s \"newVM\" %s \"myVmFolder\" %s \"mynetwork01,mynetwork02,,,mynetwork05\"%n%n\tRestore vm:testVM  to an new VM named NewVm using as Virtual Machine folder: myVmFolder and reconfigure the vm network backend to eth0:mynetwork01,eth1:mynetwork02 and eth4:mynetwork05 %n%n",
+                        " restore vm:testVM  %s \"newVM\" %s \"myVmFolder\" %s \"mynetwork01|mynetwork02|||mynetwork05\"%n%n\tRestore vm:testVM  to an new VM named NewVm using as Virtual Machine folder: myVmFolder and reconfigure the vm network backend to eth0:mynetwork01,eth1:mynetwork02 and eth4:mynetwork05 %n%n",
                         OPTION_NAME, OPTION_FOLDER, OPTION_VM_NETWORKS);
 
     }
@@ -439,7 +439,7 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
 
         if (options.has(OPTION_VM_NETWORKS)) {
             List<SearchManagementEntity> remappedNetwork = new ArrayList<>();
-            final String[] newVmNetworksName = options.valueOf(OPTION_VM_NETWORKS).toString().split(",");
+            final String[] newVmNetworksName = StringUtils.split(options.valueOf(OPTION_VM_NETWORKS).toString(), '|');
             for (String name : newVmNetworksName) {
                 if (StringUtils.isEmpty(name)) {
                     remappedNetwork.add(null);
@@ -450,7 +450,8 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
             getOptions().getNetworks().addAll(remappedNetwork);
         }
         if (options.has(OPTION_VMDK_DATASTORES)) {
-            final String[] newVmDatastoresName = options.valueOf(OPTION_VMDK_DATASTORES).toString().split(",");
+            final String[] newVmDatastoresName = StringUtils.split(options.valueOf(OPTION_VMDK_DATASTORES).toString(),
+                    '|');
             int i = 0;
             for (String name : newVmDatastoresName) {
                 CoreRestoreVmdkOption disk;
@@ -470,7 +471,7 @@ public class RestoreCommandInteractive extends AbstractCommandWithOptions implem
         }
 
         if (options.has(OPTION_VMDK_PROFILE)) {
-            final String[] newVmSpbmProfile = options.valueOf(OPTION_VMDK_PROFILE).toString().split(",");
+            final String[] newVmSpbmProfile = StringUtils.split(options.valueOf(OPTION_VMDK_PROFILE).toString(), '|');
             int i = 0;
             for (String name : newVmSpbmProfile) {
                 CoreRestoreVmdkOption disk;
