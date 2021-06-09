@@ -49,7 +49,7 @@ public class VirtualBackupDiskInteractive extends AbstractVirtualBackupDiskInter
     @Override
     public void dumpFailure(final ExBlockInfo dumpFileInfo) {
         super.dumpFailure(dumpFileInfo);
-        IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
     }
 
     /**
@@ -58,7 +58,7 @@ public class VirtualBackupDiskInteractive extends AbstractVirtualBackupDiskInter
     @Override
     public void dumpSuccess(final ExBlockInfo dumpFileInfo) {
         super.dumpSuccess(dumpFileInfo);
-        IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
     }
 
     @Override

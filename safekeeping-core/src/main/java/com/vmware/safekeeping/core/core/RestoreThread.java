@@ -41,6 +41,7 @@ import com.vmware.safekeeping.core.command.interactive.AbstractRestoreDiskIntera
 import com.vmware.safekeeping.core.command.results.CoreResultActionDiskRestore;
 import com.vmware.safekeeping.core.control.TargetBuffer;
 import com.vmware.safekeeping.core.control.info.ExBlockInfo;
+import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 class RestoreThread extends AbstractBlockThread implements IRestoreThread {
 
@@ -67,13 +68,13 @@ class RestoreThread extends AbstractBlockThread implements IRestoreThread {
                 }
             } catch (final InterruptedException e) {
                 this.logger.severe("<no args> - exception: " + e); //$NON-NLS-1$
-                this.blockInfo.failed(e.getMessage());
+                this.blockInfo.failed(getEntity(), e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
                 return false;
             } catch (final Exception e) {
                 Utility.logWarning(this.logger, e);
-                this.blockInfo.setReason("Server error - Check Logs");
+                this.blockInfo.setReason(getEntity(), "Server error - Check Logs");
                 return false;
             }
         }
@@ -93,7 +94,7 @@ class RestoreThread extends AbstractBlockThread implements IRestoreThread {
                         && computeOpenGetDump(this.blockInfo, buffer, true) && vddkWrite(bufferIndex, this.tentative));
             } catch (final BadPaddingException | IllegalBlockSizeException | IOException e) {
                 Utility.logWarning(this.logger, e);
-                this.blockInfo.setReason(e.getMessage());
+                this.blockInfo.setReason(getEntity(), e);
             } finally {
                 result &= this.target.closeGetDump(this.blockInfo, bufferIndex);
                 this.buffers.getBuffer(bufferIndex).getAvailable().set(true);
@@ -148,22 +149,32 @@ class RestoreThread extends AbstractBlockThread implements IRestoreThread {
                     }
                 } else {
 
-                    this.blockInfo.setReason(SJvddk.dli.getErrorText(dliResult, null));
+                    this.blockInfo.setReason(getEntity(), SJvddk.dli.getErrorText(dliResult, null));
                     final String msg = String.format("Index:%d Buffer:%d Tentative:%d  Error:%s",
                             this.blockInfo.getIndex(), bufferIndex, tentative, this.blockInfo.getReason());
                     this.logger.warning(msg);
                 }
 
             }
+        } catch (final InterruptedException e) {
+            blockInfo.setReason(getEntity(), e);
+            this.logger.log(Level.WARNING, "Interrupted!", e);
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
         } catch (final Exception e) {
             this.logger.severe("int - exception: " + e); //$NON-NLS-1$
 
-            this.blockInfo.setReason(e.getMessage());
+            this.blockInfo.setReason(getEntity(), e.getMessage());
 
         }
         if (this.logger.isLoggable(Level.CONFIG)) {
             this.logger.config("int - end"); //$NON-NLS-1$
         }
         return result;
+    }
+
+    @Override
+    protected ManagedFcoEntityInfo getEntity() {
+        return radr.getFcoEntityInfo();
     }
 }

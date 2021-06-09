@@ -33,6 +33,7 @@ import com.vmware.safekeeping.core.command.results.CoreResultActionDiskVirtualBa
 import com.vmware.safekeeping.core.command.results.support.OperationState;
 import com.vmware.safekeeping.core.control.info.ExBlockInfo;
 import com.vmware.safekeeping.core.control.info.TotalBlocksInfo;
+import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.enums.phase.VirtualBackupDiskPhases;
 
 public abstract class AbstractVirtualBackupDiskInteractive implements InteractiveDisk {
@@ -43,6 +44,11 @@ public abstract class AbstractVirtualBackupDiskInteractive implements Interactiv
 
     private final AbstractVirtualBackupInteractive parent;
     private float progressPercentagePerBlock;
+
+    @Override
+    public ManagedEntityInfo getEntity() {
+        return raVirtualBackupDisk.getFcoEntityInfo();
+    }
 
     /**
      * Constructor

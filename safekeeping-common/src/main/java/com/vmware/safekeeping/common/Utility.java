@@ -117,6 +117,7 @@ public final class Utility {
     public static final int ONE_KBYTE = 1024;
 
     public static final int FOUR_KBYTES = 4 * ONE_KBYTE;
+    public static final int SIXTEEN_KBYTES = 16 * ONE_KBYTE;
     public static final int ONE_MBYTES = ONE_KBYTE * ONE_KBYTE;
     public static final int ONE_GBYTES = ONE_MBYTES * ONE_KBYTE;
     public static final long HALF_SECOND_IN_MILLIS = ONE_SECOND_IN_MILLIS / 2;

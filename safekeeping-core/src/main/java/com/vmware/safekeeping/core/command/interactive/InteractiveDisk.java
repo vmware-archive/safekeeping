@@ -31,29 +31,32 @@ import java.util.List;
 import com.vmware.safekeeping.core.command.results.support.OperationState;
 import com.vmware.safekeeping.core.control.info.ExBlockInfo;
 import com.vmware.safekeeping.core.control.info.TotalBlocksInfo;
+import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 
 public interface InteractiveDisk {
-	/**
-	 * @param dumpFileInfo
-	 */
-	void dumpFailure(final ExBlockInfo blockInfo);
+    /**
+     * @param dumpFileInfo
+     */
+    void dumpFailure(final ExBlockInfo blockInfo);
 
-	/**
-	 * @param dumpFileInfo
-	 */
-	void dumpSuccess(final ExBlockInfo blockInfo);
+    /**
+     * @param dumpFileInfo
+     */
+    void dumpSuccess(final ExBlockInfo blockInfo);
 
-	void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo);
+    void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo);
 
-	void endDumpThreads(final OperationState state);
+    void endDumpThreads(final OperationState state);
 
-	/**
-	 * @return the totalDumpsInfo
-	 */
-	List<TotalBlocksInfo> getTotalDumpsInfo();
+    /**
+     * @return the totalDumpsInfo
+     */
+    List<TotalBlocksInfo> getTotalDumpsInfo();
 
-	void startDumpsTotalCalculation();
+    void startDumpsTotalCalculation();
 
-	void startDumpThreads();
+    void startDumpThreads();
+
+    ManagedEntityInfo getEntity();
 
 }

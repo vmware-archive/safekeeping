@@ -50,6 +50,7 @@ import com.vmware.safekeeping.core.control.target.ITargetOperation;
 import com.vmware.safekeeping.core.logger.MessagesTemplate;
 import com.vmware.safekeeping.core.profile.CoreGlobalSettings;
 import com.vmware.safekeeping.core.type.EncryptResult;
+import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 import com.vmware.safekeeping.core.util.AESEncryptionManager;
 
 abstract class AbstractBlockThread {
@@ -113,7 +114,7 @@ abstract class AbstractBlockThread {
                     this.logger.warning(msg1);
                     final String errMsg = String.format("%s Error(%s) - Check logs for more information", msg1,
                             this.blockInfo.getReason());
-                    this.blockInfo.failed(errMsg);
+                    this.blockInfo.failed(getEntity(), errMsg);
                     return true;
                 }
             } else {
@@ -193,7 +194,7 @@ abstract class AbstractBlockThread {
     }
 
     protected void reportResult(final ExBlockInfo blockInfo, final boolean result) {
-        final String msg = MessagesTemplate.dumpInfo(blockInfo);
+        final String msg = MessagesTemplate.dumpInfo(getEntity(), blockInfo);
         if (result) {
             this.logger.info(msg);
             this.interactive.dumpSuccess(blockInfo);
@@ -207,6 +208,8 @@ abstract class AbstractBlockThread {
 
         }
     }
+
+    protected abstract ManagedFcoEntityInfo getEntity();
 
     protected Integer waitForBuffer(final ExBlockInfo blockInfo) throws InterruptedException {
         if (this.logger.isLoggable(Level.CONFIG)) {

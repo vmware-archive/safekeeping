@@ -33,12 +33,12 @@ import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.StringUtils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.vmware.jvix.jDiskLibConst;
 import com.vmware.safekeeping.common.IBlockInfoProperties;
 import com.vmware.safekeeping.core.logger.MessagesTemplate;
 import com.vmware.safekeeping.core.profile.BasicBlockInfo;
 import com.vmware.safekeeping.core.profile.SimpleBlockInfo;
+import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 public class ExBlockInfo extends BasicBlockInfo implements IBlockInfoProperties {
 
@@ -87,14 +87,14 @@ public class ExBlockInfo extends BasicBlockInfo implements IBlockInfoProperties 
         this.keyPath = keyPath;
     }
 
-    public void failed(final JsonProcessingException e) {
-        failed(e.getMessage());
-
+    public void failed(ManagedFcoEntityInfo entity, final Exception e) {
+        this.failed = true;
+        setReason(entity, e);
     }
 
-    public void failed(final String reason) {
+    public void failed(ManagedFcoEntityInfo entity, final String reason) {
         this.failed = true;
-        this.reason = reason;
+        setReason(entity, reason);
     }
 
     public String getDataKey() {
@@ -210,15 +210,15 @@ public class ExBlockInfo extends BasicBlockInfo implements IBlockInfoProperties 
         }
     }
 
-    public void setReason(final Exception reason) {
-        this.reason = reason.getMessage();
+    public void setReason(ManagedFcoEntityInfo entity, final Exception reason) {
+        this.reason = (entity == null) ? reason.getMessage() : entity.toString().concat(reason.getMessage());
     }
 
     /**
      * @param reason the reason to set
      */
-    public void setReason(final String reason) {
-        this.reason = reason;
+    public void setReason(ManagedFcoEntityInfo entity, final String reason) {
+        this.reason = (entity == null) ? reason : entity.toString().concat(reason);
     }
 
     /**

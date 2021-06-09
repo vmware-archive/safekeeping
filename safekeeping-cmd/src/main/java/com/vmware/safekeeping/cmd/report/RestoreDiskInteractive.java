@@ -36,91 +36,91 @@ import com.vmware.safekeeping.core.logger.MessagesTemplate;
 
 public class RestoreDiskInteractive extends AbstractRestoreDiskInteractive {
 
-	private static final String LINE_SEPARATOR = "##################################################################################################################################################################################################################";
+    private static final String LINE_SEPARATOR = "##################################################################################################################################################################################################################";
 
-	/**
-	 * @param rar
-	 */
-	public RestoreDiskInteractive(final CoreResultActionDiskRestore radr, final RestoreInteractive restoreInteractive) {
-		super(radr, restoreInteractive);
-	}
+    /**
+     * @param rar
+     */
+    public RestoreDiskInteractive(final CoreResultActionDiskRestore radr, final RestoreInteractive restoreInteractive) {
+        super(radr, restoreInteractive);
+    }
 
-	@Override
-	public void dumpFailure(final ExBlockInfo dumpFileInfo) {
-		super.dumpFailure(dumpFileInfo);
-		IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
-	}
+    @Override
+    public void dumpFailure(final ExBlockInfo dumpFileInfo) {
+        super.dumpFailure(dumpFileInfo);
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
+    }
 
-	/**
-	 * @param dumpFileInfo
-	 */
-	@Override
-	public void dumpSuccess(final ExBlockInfo dumpFileInfo) {
-		super.dumpSuccess(dumpFileInfo);
-		IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
-	}
+    /**
+     * @param dumpFileInfo
+     */
+    @Override
+    public void dumpSuccess(final ExBlockInfo dumpFileInfo) {
+        super.dumpSuccess(dumpFileInfo);
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
+    }
 
-	@Override
-	public void endCalculateNumberOfGenerationDiskRestore() {
-		super.endCalculateNumberOfGenerationDiskRestore();
-		IoFunction.println(MessagesTemplate.getDiskGenerationsInfo(getRaDiskRestore()));
+    @Override
+    public void endCalculateNumberOfGenerationDiskRestore() {
+        super.endCalculateNumberOfGenerationDiskRestore();
+        IoFunction.println(MessagesTemplate.getDiskGenerationsInfo(getRaDiskRestore()));
 
-	}
+    }
 
-	@Override
-	public void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo) {
-		super.endDumpsTotalCalculation(totalDumpInfo);
-		IoFunction.println(totalDumpInfo.toString());
+    @Override
+    public void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo) {
+        super.endDumpsTotalCalculation(totalDumpInfo);
+        IoFunction.println(totalDumpInfo.toString());
 
-	}
+    }
 
-	@Override
-	public void endDumpThreads(final OperationState state) {
-		super.endDumpThreads(state);
-		IoFunction.println(MessagesTemplate.separatorBar(true));
-		switch (state) {
-		case ABORTED:
-		case FAILED:
-		case SKIPPED:
-			IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskRestore()));
+    @Override
+    public void endDumpThreads(final OperationState state) {
+        super.endDumpThreads(state);
+        IoFunction.println(MessagesTemplate.separatorBar(true));
+        switch (state) {
+        case ABORTED:
+        case FAILED:
+        case SKIPPED:
+            IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskRestore()));
 
-			IoFunction.println(getRaDiskRestore().getReason());
+            IoFunction.println(getRaDiskRestore().getReason());
 
-			IoFunction.println(MessagesTemplate.separatorBar(true));
-			break;
+            IoFunction.println(MessagesTemplate.separatorBar(true));
+            break;
 
-		case QUEUED:
-		case STARTED:
-			break;
-		case SUCCESS:
-		default:
-			break;
+        case QUEUED:
+        case STARTED:
+            break;
+        case SUCCESS:
+        default:
+            break;
 
-		}
-	}
+        }
+    }
 
-	/**
-	 *
-	 */
-	@Override
-	public void startCalculateNumberOfGenerationDiskRestore() {
-		super.startCalculateNumberOfGenerationDiskRestore();
-		IoFunction.println(RestoreDiskInteractive.LINE_SEPARATOR);
+    /**
+     *
+     */
+    @Override
+    public void startCalculateNumberOfGenerationDiskRestore() {
+        super.startCalculateNumberOfGenerationDiskRestore();
+        IoFunction.println(RestoreDiskInteractive.LINE_SEPARATOR);
 
-	}
+    }
 
-	@Override
-	public void startDumpThreads() {
-		super.startDumpThreads();
-		try {
+    @Override
+    public void startDumpThreads() {
+        super.startDumpThreads();
+        try {
 
-			IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskRestore()));
+            IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskRestore()));
 
-			IoFunction.println(MessagesTemplate.diskDumpHeaderInfo(getRaDiskRestore()));
-			IoFunction.println(MessagesTemplate.header(true));
-		} catch (final Exception e) {
-			IoFunction.println(e.getMessage());
-		}
-	}
+            IoFunction.println(MessagesTemplate.diskDumpHeaderInfo(getRaDiskRestore()));
+            IoFunction.println(MessagesTemplate.header(true));
+        } catch (final Exception e) {
+            IoFunction.println(e.getMessage());
+        }
+    }
 
 }

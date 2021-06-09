@@ -41,6 +41,7 @@ import com.vmware.safekeeping.core.command.interactive.AbstractBackupDiskInterac
 import com.vmware.safekeeping.core.command.results.CoreResultActionDiskBackup;
 import com.vmware.safekeeping.core.control.TargetBuffer;
 import com.vmware.safekeeping.core.control.info.ExBlockInfo;
+import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 class DumpThread extends AbstractBlockThread implements IDumpThread {
 
@@ -67,16 +68,21 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
                 }
             } catch (final InterruptedException e) {
                 this.logger.severe("<no args> - exception: " + e); //$NON-NLS-1$
-                this.blockInfo.failed(e.getMessage());
+                this.blockInfo.failed(getEntity(), e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
                 return false;
             } catch (final Exception e) {
                 Utility.logWarning(this.logger, e);
-                this.blockInfo.setReason("Server error - Check Logs");
+                this.blockInfo.setReason(getEntity(), "Server error - Check Logs");
                 return false;
             }
         }
+    }
+
+    @Override
+    protected ManagedFcoEntityInfo getEntity() {
+        return radb.getFcoEntityInfo();
     }
 
     private boolean cloneDump(final ExBlockInfo blockInfoOut, final TargetBuffer buffer) {
@@ -86,7 +92,7 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
                 BlockLocker.lockBlock(blockInfoOut);
                 result1 = this.target.dedupDump(blockInfoOut);
             } catch (final InterruptedException e) {
-                blockInfoOut.setReason(e);
+                blockInfoOut.setReason(getEntity(), e);
                 this.logger.log(Level.WARNING, "Interrupted!", e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
@@ -121,14 +127,14 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
             }
         } catch (final IOException e) {
             Utility.logWarning(this.logger, e);
-            blockInfo.setReason(e);
+            blockInfo.setReason(getEntity(), e);
         } catch (final InterruptedException e) {
-            blockInfo.setReason(e);
+            blockInfo.setReason(getEntity(), e);
             this.logger.log(Level.WARNING, "Interrupted!", e);
             // Restore interrupted state...
             Thread.currentThread().interrupt();
         } catch (final Exception e) {
-            blockInfo.setReason(e);
+            blockInfo.setReason(getEntity(), e);
             Utility.logWarning(this.logger, e);
         } finally {
             blockInfo.setFailed(!result);
@@ -162,11 +168,11 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
                 }
             } catch (BadPaddingException | IllegalBlockSizeException e) {
                 result = false;
-                this.blockInfo.setReason(e);
+                this.blockInfo.setReason(getEntity(), e);
                 Utility.logWarning(this.logger, e);
             } catch (final Exception e) {
                 result = false;
-                this.blockInfo.setReason("Server error - Check Logs");
+                this.blockInfo.setReason(getEntity(), "Server error - Check Logs");
                 Utility.logWarning(this.logger, e);
             }
         }
@@ -194,7 +200,7 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
                 dliResult = SJvddk.dli.read(this.diskHandle, this.blockInfo.getOffset(), this.blockInfo.getLength(),
                         this.buffers.getBuffer(bufferIndex).getInputBuffer());
             } catch (final InterruptedException e) {
-                this.blockInfo.setReason(e.getMessage());
+                this.blockInfo.setReason(getEntity(), e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
             } finally {
@@ -211,7 +217,7 @@ class DumpThread extends AbstractBlockThread implements IDumpThread {
             if (dliResult == jDiskLibConst.VIX_OK) {
                 result = true;
             } else {
-                this.blockInfo.setReason(SJvddk.dli.getErrorText(dliResult, null));
+                this.blockInfo.setReason(getEntity(), SJvddk.dli.getErrorText(dliResult, null));
                 final String msg = String.format("Index:%d Buffer:%d  Error:%s", this.blockInfo.getIndex(), bufferIndex,
                         this.blockInfo.getReason());
                 this.logger.warning(msg);

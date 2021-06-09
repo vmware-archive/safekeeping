@@ -50,18 +50,19 @@ public class TargetBuffer {
     private final MessageDigest sha;
     private final ManagedFcoEntityInfo entityInfo;
     private final Semaphore semaphore;
-
+    private final int bufferSize;
     private ByteArrayInputStream inputStream;
 
     private final byte[] finalBuffer;
 
-    public TargetBuffer(final int maxByteBufferSize, final ManagedFcoEntityInfo entityInfo,
-            MessageDigestAlgoritmhs algorithm) throws NoSuchAlgorithmException {
-        this.bufferCompressData = new byte[(int) (maxByteBufferSize * BUFFER_SIZE_MULTIPLICATOR)];
-        this.bufferCipher = new byte[(int) (maxByteBufferSize * BUFFER_SIZE_MULTIPLICATOR)];
-        this.inputBuffer = new byte[(int) (maxByteBufferSize * BUFFER_SIZE_MULTIPLICATOR)];
-        this.outputBuffer = new byte[(int) (maxByteBufferSize * BUFFER_SIZE_MULTIPLICATOR)];
-        this.finalBuffer = new byte[(int) (maxByteBufferSize * BUFFER_SIZE_MULTIPLICATOR)];
+    public TargetBuffer(final int bufferSize, final ManagedFcoEntityInfo entityInfo, MessageDigestAlgoritmhs algorithm)
+            throws NoSuchAlgorithmException {
+        this.bufferSize = bufferSize;
+        this.bufferCompressData = new byte[(int) (bufferSize * BUFFER_SIZE_MULTIPLICATOR)];
+        this.bufferCipher = new byte[(int) (bufferSize * BUFFER_SIZE_MULTIPLICATOR)];
+        this.inputBuffer = new byte[(int) (bufferSize * BUFFER_SIZE_MULTIPLICATOR)];
+        this.outputBuffer = new byte[(int) (bufferSize * BUFFER_SIZE_MULTIPLICATOR)];
+        this.finalBuffer = new byte[(int) (bufferSize * BUFFER_SIZE_MULTIPLICATOR)];
         this.md5 = MessageDigest.getInstance(MessageDigestAlgoritmhs.MD5.toString());
         this.sha = MessageDigest.getInstance(algorithm.toString());
         this.available = new AtomicBoolean(true);
@@ -146,5 +147,9 @@ public class TargetBuffer {
         this.sha.reset();
         this.sha.update(buffer, offset, count);
 
+    }
+
+    public int getBufferSize() {
+        return bufferSize;
     }
 }

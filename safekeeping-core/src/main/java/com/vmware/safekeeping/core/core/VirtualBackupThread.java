@@ -38,6 +38,7 @@ import com.vmware.safekeeping.core.command.interactive.AbstractVirtualBackupDisk
 import com.vmware.safekeeping.core.command.results.CoreResultActionDiskVirtualBackup;
 import com.vmware.safekeeping.core.control.TargetBuffer;
 import com.vmware.safekeeping.core.control.info.ExBlockInfo;
+import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread {
 
@@ -61,13 +62,13 @@ class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread 
                 }
             } catch (final InterruptedException e) {
                 this.logger.severe("<no args> - exception: " + e); //$NON-NLS-1$
-                this.blockInfo.failed(e.getMessage());
+                this.blockInfo.failed(getEntity(), e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
                 return false;
             } catch (final Exception e) {
                 Utility.logWarning(this.logger, e);
-                this.blockInfo.setReason("Server error - Check Logs");
+                this.blockInfo.setReason(getEntity(), "Server error - Check Logs");
                 return false;
             }
         }
@@ -79,7 +80,7 @@ class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread 
             BlockLocker.lockBlock(blockInfoOut);
             result = this.target.dedupDump(blockInfoOut);
         } catch (final InterruptedException e) {
-            blockInfoOut.setReason(e);
+            blockInfoOut.setReason(getEntity(), e);
             this.logger.log(Level.WARNING, "Interrupted!", e);
             // Restore interrupted state...
             Thread.currentThread().interrupt();
@@ -114,9 +115,9 @@ class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread 
             }
         } catch (final IOException e) {
             Utility.logWarning(this.logger, e);
-            blockInfo.setReason(e);
+            blockInfo.setReason(getEntity(), e);
         } catch (final InterruptedException e) {
-            blockInfo.setReason(e);
+            blockInfo.setReason(getEntity(), e);
             this.logger.log(Level.WARNING, "Interrupted!", e);
             // Restore interrupted state...
             Thread.currentThread().interrupt();
@@ -143,7 +144,7 @@ class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread 
                         }
                     }
                 } catch (IllegalBlockSizeException | IOException | BadPaddingException e) {
-                    this.blockInfo.setReason(e);
+                    this.blockInfo.setReason(getEntity(), e);
                     Utility.logWarning(this.logger, e);
                 } finally {
                     this.blockInfo.setFailed(!result);
@@ -157,5 +158,10 @@ class VirtualBackupThread extends AbstractBlockThread implements IRestoreThread 
 
         }
         return result;
+    }
+
+    @Override
+    protected ManagedFcoEntityInfo getEntity() {
+        return radr.getFcoEntityInfo();
     }
 }

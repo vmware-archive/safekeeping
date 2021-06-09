@@ -50,16 +50,13 @@ import com.vmware.safekeeping.core.core.SJvddk;
 import com.vmware.safekeeping.core.profile.GenerationProfile;
 import com.vmware.safekeeping.core.type.GenerationInfo;
 import com.vmware.safekeeping.core.type.GuestInfoFlags;
+import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.enums.BackupMode;
 import com.vmware.safekeeping.core.type.location.CoreIvdLocation;
 import com.vmware.safekeeping.core.type.location.CoreVappLocation;
 import com.vmware.safekeeping.core.type.location.CoreVmLocation;
 
-/**
- * @author mdaneri
- *
- */
-public class MessagesTemplate {
+public final class MessagesTemplate {
 
     private static Logger logger = Logger.getLogger("MessagesTemplate");
 
@@ -138,7 +135,7 @@ public class MessagesTemplate {
 
     }
 
-    public static String dumpInfo(final ExBlockInfo dump) {
+    public static String dumpInfo(ManagedEntityInfo entity, final ExBlockInfo dump) {
         if (logger.isLoggable(Level.CONFIG)) {
             logger.config("DumpBlockInfo dump=" + dump + " - start"); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -146,9 +143,9 @@ public class MessagesTemplate {
         if (Boolean.TRUE.equals(dump.isFailed())) {
             final String reason = (StringUtils.isNotEmpty(dump.getReason())) ? dump.getReason()
                     : "unknow - check the log";
-            returnString = String.format(Utility.LOCALE, "(%4d/%4d)  FAILED\t\t%7.2fMB\t\t%5.2fs%n\tReason: %s ",
+            returnString = String.format(Utility.LOCALE, "(%4d/%4d)  FAILED\t\t%7.2fMB\t\t%5.2fs%n\tReason:(%s) %s ",
                     dump.getIndex() + 1, dump.getTotalBlocks(), dump.getSizeInMb(), dump.getOverallTimeInSeconds(),
-                    reason);
+                    entity.toString(), reason);
 
         } else {
             final String nominalSpeed;

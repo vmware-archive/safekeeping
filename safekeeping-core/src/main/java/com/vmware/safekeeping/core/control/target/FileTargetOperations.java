@@ -53,203 +53,203 @@ import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 class FileTargetOperations extends AbstractTargetOperationImpl {
 
-	FileTargetOperations(final FileTarget parent, final ManagedFcoEntityInfo entityInfo, final Logger logger) {
-		super(parent, entityInfo);
-		this.logger = logger;
-	}
+    FileTargetOperations(final FileTarget parent, final ManagedFcoEntityInfo entityInfo, final Logger logger) {
+        super(parent, entityInfo);
+        this.logger = logger;
+    }
 
-	@Override
-	public boolean closePostDump(final ExBlockInfo block, final TargetBuffer targetBuffer) {
-		boolean result = true;
-		try {
-			final String uuid = getEntityInfo().getUuid();
-			final Dedup dedup = new Dedup(uuid, block);
-			final String entities = new ObjectMapper().writeValueAsString(dedup);
-			new File(block.getKey()).mkdirs();
-			IOUtils.writeTextFile(block.getJsonKey(), entities);
-			IOUtils.inputStreamToFile(targetBuffer.getInputStream(), block.getDataKey());
+    @Override
+    public boolean closePostDump(final ExBlockInfo block, final TargetBuffer targetBuffer) {
+        boolean result = true;
+        try {
+            final String uuid = getEntityInfo().getUuid();
+            final Dedup dedup = new Dedup(uuid, block);
+            final String entities = new ObjectMapper().writeValueAsString(dedup);
+            new File(block.getKey()).mkdirs();
+            IOUtils.writeTextFile(block.getJsonKey(), entities);
+            IOUtils.inputStreamToFile(targetBuffer.getInputStream(), block.getDataKey());
 
-			block.setDuplicated(false);
+            block.setDuplicated(false);
 
-			getMd5DiskList().put(block.getKey(), block.getMd5());
+            getMd5DiskList().put(block.getKey(), block.getMd5());
 
-		} catch (final IOException e) {
-			result = false;
-			Utility.logWarning(this.logger, e);
-			block.setReason(e);
+        } catch (final IOException e) {
+            result = false;
+            Utility.logWarning(this.logger, e);
+            block.setReason(getEntityInfo(), e);
 
-		} finally {
-			final long postEndTime = System.nanoTime();
-			block.setEndTime(postEndTime);
-		}
-		return result;
-	}
+        } finally {
+            final long postEndTime = System.nanoTime();
+            block.setEndTime(postEndTime);
+        }
+        return result;
+    }
 
-	@Override
-	public boolean copyObject(final String sourceKey, final String destinationKey) {
-		boolean result = true;
-		try {
-			IOUtils.copyFile(getFullPath(sourceKey), getFullPath(destinationKey));
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-			result = false;
-		}
-		return result;
-	}
+    @Override
+    public boolean copyObject(final String sourceKey, final String destinationKey) {
+        boolean result = true;
+        try {
+            IOUtils.copyFile(getFullPath(sourceKey), getFullPath(destinationKey));
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+            result = false;
+        }
+        return result;
+    }
 
-	@Override
-	public boolean createGenerationFolder(final GenerationProfile profile) {
-		boolean result = true;
-		final Path path = Paths.get(getFullPath(profile.getGenerationPath()));
+    @Override
+    public boolean createGenerationFolder(final GenerationProfile profile) {
+        boolean result = true;
+        final Path path = Paths.get(getFullPath(profile.getGenerationPath()));
 
-		try {
-			Files.createDirectories(path);
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-			result = false;
-		}
-		return result;
-	}
+        try {
+            Files.createDirectories(path);
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+            result = false;
+        }
+        return result;
+    }
 
-	@Override
-	public boolean createProfileFolder(final FcoGenerationsCatalog fcoProfile) {
-		boolean result = true;
-		final Path path = Paths.get(getFullPath(fcoProfile.getUuid()));
+    @Override
+    public boolean createProfileFolder(final FcoGenerationsCatalog fcoProfile) {
+        boolean result = true;
+        final Path path = Paths.get(getFullPath(fcoProfile.getUuid()));
 
-		try {
-			Files.createDirectories(path);
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-			result = false;
-		}
-		return result;
-	}
+        try {
+            Files.createDirectories(path);
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+            result = false;
+        }
+        return result;
+    }
 
-	@Override
-	public boolean dedupDump(final ExBlockInfo block) {
-		boolean result = true;
-		try {
-			final String entities = IOUtils.readTextFile(block.getJsonKey());
+    @Override
+    public boolean dedupDump(final ExBlockInfo block) {
+        boolean result = true;
+        try {
+            final String entities = IOUtils.readTextFile(block.getJsonKey());
 
-			final String newEntities = manageDedupEntities(block, entities);
-			IOUtils.writeTextFile(block.getJsonKey(), newEntities);
+            final String newEntities = manageDedupEntities(block, entities);
+            IOUtils.writeTextFile(block.getJsonKey(), newEntities);
 
-			block.setDuplicated(true);
+            block.setDuplicated(true);
 
-			getMd5DiskList().put(block.getKey(), block.getMd5());
+            getMd5DiskList().put(block.getKey(), block.getMd5());
 
-		} catch (final IOException e) {
-			result = false;
-			Utility.logWarning(this.logger, e);
-			block.setReason(e);
+        } catch (final IOException e) {
+            result = false;
+            Utility.logWarning(this.logger, e);
+            block.setReason(getEntityInfo(), e);
 
-		} finally {
-			final long postEndTime = System.nanoTime();
-			block.setEndTime(postEndTime);
-		}
-		return result;
-	}
+        } finally {
+            final long postEndTime = System.nanoTime();
+            block.setEndTime(postEndTime);
+        }
+        return result;
+    }
 
-	@Override
-	public boolean deleteFolder(final String folderName) {
-		boolean result = true;
-		try {
-			Utility.deleteDirectoryRecursive(new File(folderName), true);
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-			result = false;
-		}
-		return result;
-	}
+    @Override
+    public boolean deleteFolder(final String folderName) {
+        boolean result = true;
+        try {
+            Utility.deleteDirectoryRecursive(new File(folderName), true);
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+            result = false;
+        }
+        return result;
+    }
 
-	@Override
-	public void deleteObject(final String key) throws IOException {
+    @Override
+    public void deleteObject(final String key) throws IOException {
 
-		Files.deleteIfExists(new File(key).toPath());
-	}
+        Files.deleteIfExists(new File(key).toPath());
+    }
 
-	@Override
-	public boolean doesKeyExist(final ExBlockInfo block) {
-		final File dataKeyFile = new File(block.getDataKey());
-		final File jsonKey = new File(block.getJsonKey());
-		return jsonKey.exists() && dataKeyFile.exists();
-	}
+    @Override
+    public boolean doesKeyExist(final ExBlockInfo block) {
+        final File dataKeyFile = new File(block.getDataKey());
+        final File jsonKey = new File(block.getJsonKey());
+        return jsonKey.exists() && dataKeyFile.exists();
+    }
 
-	@Override
-	public byte[] getObject(final String key) throws IOException {
-		return IOUtils.readBinaryFile(getFullPath(key));
-	}
+    @Override
+    public byte[] getObject(final String key) throws IOException {
+        return IOUtils.readBinaryFile(getFullPath(key));
+    }
 
-	@Override
-	public String getObjectAsString(final String key) throws IOException {
-		return IOUtils.readTextFile(getFullPath(key));
-	}
+    @Override
+    public String getObjectAsString(final String key) throws IOException {
+        return IOUtils.readTextFile(getFullPath(key));
+    }
 
-	@Override
-	public byte[] getObjectMd5(final String path) throws IOException {
+    @Override
+    public byte[] getObjectMd5(final String path) throws IOException {
 
-		try {
-			return IOUtils.getFileChecksum(MessageDigest.getInstance("MD5"), getFullPath(path));
-		} catch (NoSuchAlgorithmException | IOException e) {
-			Utility.logWarning(this.logger, e);
-			return new byte[0];
-		}
-	}
+        try {
+            return IOUtils.getFileChecksum(MessageDigest.getInstance("MD5"), getFullPath(path));
+        } catch (NoSuchAlgorithmException | IOException e) {
+            Utility.logWarning(this.logger, e);
+            return new byte[0];
+        }
+    }
 
-	@Override
-	public FileTarget getParent() {
-		return (FileTarget) this.parent;
-	}
+    @Override
+    public FileTarget getParent() {
+        return (FileTarget) this.parent;
+    }
 
-	@Override
-	public ITargetOperation newTargetOperation(final ManagedFcoEntityInfo entityInfo, final Logger logger)
-			throws NoSuchAlgorithmException {
-		return new FileTargetOperations(getParent(), entityInfo, logger);
-	}
+    @Override
+    public ITargetOperation newTargetOperation(final ManagedFcoEntityInfo entityInfo, final Logger logger)
+            throws NoSuchAlgorithmException {
+        return new FileTargetOperations(getParent(), entityInfo, logger);
+    }
 
-	@Override
-	public boolean openGetDump(final ExBlockInfo blockInfo, final TargetBuffer targetBuffer) {
-		boolean result = true;
+    @Override
+    public boolean openGetDump(final ExBlockInfo blockInfo, final TargetBuffer targetBuffer) {
+        boolean result = true;
 
-		if (this.logger.isLoggable(Level.FINE)) {
-			final String msg = String.format("Getting Dump Generation %d from %s", blockInfo.getGenerationId(),
-					blockInfo.getKey());
-			this.logger.fine(msg);
-		}
-		try {
-			final FileInputStream is = new FileInputStream(blockInfo.getDataKey());
-			final int count = IOUtils.copyToByteArray(is, targetBuffer.getInputBuffer());
-			blockInfo.setStreamSize(count);
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-			result = false;
-			blockInfo.setReason(e.getMessage());
-		}
+        if (this.logger.isLoggable(Level.FINE)) {
+            final String msg = String.format("Getting Dump Generation %d from %s", blockInfo.getGenerationId(),
+                    blockInfo.getKey());
+            this.logger.fine(msg);
+        }
+        try {
+            final FileInputStream is = new FileInputStream(blockInfo.getDataKey());
+            final int count = IOUtils.copyToByteArray(is, targetBuffer.getInputBuffer());
+            blockInfo.setStreamSize(count);
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+            result = false;
+            blockInfo.setReason(getEntityInfo(), e);
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	@Override
-	protected boolean post(final GenerationProfile profile, final String path, final ByteArrayInOutStream digestOutput,
-			final String contentType) throws IOException {
-		boolean result = false;
-		byte[] md5Digest = null;
-		final String relativePath = getFullPath(path);
-		md5Digest = digestOutput.md5Digest();
-		final InputStream content = digestOutput.getByteArrayInputStream();
-		if (IOUtils.inputStreamToFile(content, relativePath) > 0) {
-			if ((profile != null) && path.startsWith(profile.getGenerationPath())) {
-				getMd5DiskList().put(path, DatatypeConverter.printHexBinary(md5Digest));
-			}
-			result = true;
-		}
-		return result;
-	}
+    @Override
+    protected boolean post(final GenerationProfile profile, final String path, final ByteArrayInOutStream digestOutput,
+            final String contentType) throws IOException {
+        boolean result = false;
+        byte[] md5Digest = null;
+        final String relativePath = getFullPath(path);
+        md5Digest = digestOutput.md5Digest();
+        final InputStream content = digestOutput.getByteArrayInputStream();
+        if (IOUtils.inputStreamToFile(content, relativePath) > 0) {
+            if ((profile != null) && path.startsWith(profile.getGenerationPath())) {
+                getMd5DiskList().put(path, DatatypeConverter.printHexBinary(md5Digest));
+            }
+            result = true;
+        }
+        return result;
+    }
 
-	@Override
-	public void putObject(final String key, final String content) throws IOException {
-		IOUtils.writeTextFile(key, content);
+    @Override
+    public void putObject(final String key, final String content) throws IOException {
+        IOUtils.writeTextFile(key, content);
 
-	}
+    }
 
 }

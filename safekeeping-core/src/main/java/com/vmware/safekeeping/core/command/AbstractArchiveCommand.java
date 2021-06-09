@@ -1253,13 +1253,13 @@ public abstract class AbstractArchiveCommand extends AbstractCommandWithOptions 
                     }
                 } catch (final JsonProcessingException e) {
                     Utility.logWarning(this.logger, e);
-                    dumpFileInfo.failed(e);
+                    dumpFileInfo.failed(profile.getFcoEntity(), e);
                 } finally {
                     BlockLocker.releaseBlock(dumpFileInfo);
                 }
             } else {
                 final String msg = String.format("Key %s doesn't exist", json);
-                dumpFileInfo.failed(msg);
+                dumpFileInfo.failed(profile.getFcoEntity(), msg);
             }
             return dumpFileInfo.isFailed();
         });

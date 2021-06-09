@@ -38,69 +38,69 @@ import com.vmware.safekeeping.core.logger.MessagesTemplate;
 
 public class BackupDiskInteractive extends AbstractBackupDiskInteractive {
 
-	protected static Logger logger = Logger.getLogger("BackupReport");
+    protected static Logger logger = Logger.getLogger("BackupReport");
 
-	/**
-	 * @param rab
-	 */
-	public BackupDiskInteractive(final CoreResultActionDiskBackup radb, final BackupInteractive backupInteractive) {
-		super(radb, backupInteractive);
-	}
+    /**
+     * @param rab
+     */
+    public BackupDiskInteractive(final CoreResultActionDiskBackup radb, final BackupInteractive backupInteractive) {
+        super(radb, backupInteractive);
+    }
 
-	@Override
-	public void dumpFailure(final ExBlockInfo dumpFileInfo) {
-		super.dumpFailure(dumpFileInfo);
-		IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
-	}
+    @Override
+    public void dumpFailure(final ExBlockInfo dumpFileInfo) {
+        super.dumpFailure(dumpFileInfo);
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
+    }
 
-	/**
-	 * @param dumpFileInfo
-	 */
-	@Override
-	public void dumpSuccess(final ExBlockInfo dumpFileInfo) {
-		super.dumpSuccess(dumpFileInfo);
-		IoFunction.println(MessagesTemplate.dumpInfo(dumpFileInfo));
-	}
+    /**
+     * @param dumpFileInfo
+     */
+    @Override
+    public void dumpSuccess(final ExBlockInfo dumpFileInfo) {
+        super.dumpSuccess(dumpFileInfo);
+        IoFunction.println(MessagesTemplate.dumpInfo(getEntity(), dumpFileInfo));
+    }
 
-	/**
-	 * @param totalDumpInfo
-	 */
-	@Override
-	public void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo) {
-		super.endDumpsTotalCalculation(totalDumpInfo);
-		IoFunction.println(totalDumpInfo.toString());
-	}
+    /**
+     * @param totalDumpInfo
+     */
+    @Override
+    public void endDumpsTotalCalculation(final TotalBlocksInfo totalDumpInfo) {
+        super.endDumpsTotalCalculation(totalDumpInfo);
+        IoFunction.println(totalDumpInfo.toString());
+    }
 
-	@Override
-	public void endDumpThreads(final OperationState state) {
-		super.endDumpThreads(state);
-		IoFunction.println(MessagesTemplate.separatorBar(true));
-		switch (state) {
-		case ABORTED:
-		case FAILED:
-		case SKIPPED:
-			IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskBackup()));
-			IoFunction.println(getRaDiskBackup().getReason());
-			IoFunction.println(MessagesTemplate.separatorBar(true));
-			break;
+    @Override
+    public void endDumpThreads(final OperationState state) {
+        super.endDumpThreads(state);
+        IoFunction.println(MessagesTemplate.separatorBar(true));
+        switch (state) {
+        case ABORTED:
+        case FAILED:
+        case SKIPPED:
+            IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskBackup()));
+            IoFunction.println(getRaDiskBackup().getReason());
+            IoFunction.println(MessagesTemplate.separatorBar(true));
+            break;
 
-		case QUEUED:
-		case STARTED:
-			break;
-		case SUCCESS:
-		default:
-			break;
+        case QUEUED:
+        case STARTED:
+            break;
+        case SUCCESS:
+        default:
+            break;
 
-		}
-	}
+        }
+    }
 
-	@Override
-	public void startDumpThreads() {
-		super.startDumpThreads();
-		IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskBackup()));
-		IoFunction.println(MessagesTemplate.diskDumpHeaderInfo(getRaDiskBackup()));
-		IoFunction.println(MessagesTemplate.header(true));
+    @Override
+    public void startDumpThreads() {
+        super.startDumpThreads();
+        IoFunction.println(MessagesTemplate.diskHeaderInfo(getRaDiskBackup()));
+        IoFunction.println(MessagesTemplate.diskDumpHeaderInfo(getRaDiskBackup()));
+        IoFunction.println(MessagesTemplate.header(true));
 
-	}
+    }
 
 }
