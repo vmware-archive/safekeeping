@@ -95,6 +95,10 @@ public class BackupVApp extends AbstractBackupFco implements IBackupEntry, IVapp
             } catch (final NoSuchAlgorithmException | IOException e) {
                 rab.failure(e);
                 Utility.logWarning(this.logger, e);
+            } catch (final Exception e) {
+                logger.warning("----------------- Unexpected Error ---------------------");
+                Utility.logWarning(this.logger, e);
+                rab.failure();
             }
         }
         if (this.logger.isLoggable(Level.INFO)) {

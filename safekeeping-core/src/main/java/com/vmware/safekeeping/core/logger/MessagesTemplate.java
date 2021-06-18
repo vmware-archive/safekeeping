@@ -159,7 +159,7 @@ public final class MessagesTemplate {
                 closeParenthesis = ']';
             } else {
                 nominalSpeed = (dump.isCompress()) ? String.format(Utility.LOCALE, "%7.2fMB/s", dump.getMbSec())
-                        : "            -";
+                        : "          -";
                 realSpeed = String.format(Utility.LOCALE, "%7.2fMB/s", dump.getStreamMbSec());
                 openParenthesis = '(';
                 closeParenthesis = ')';
@@ -208,25 +208,20 @@ public final class MessagesTemplate {
             logger.config(
                     "CoreAbstractResultActionBackupRestore resultActionBackup=" + resultActionBackup + " - start"); //$NON-NLS-1$ //$NON-NLS-2$
         }
-
+        String returnString = null;
         if (resultActionBackup instanceof CoreResultActionVmBackup) {
-            final String returnString = getGenerationInfo((CoreResultActionVmBackup) resultActionBackup);
-            if (logger.isLoggable(Level.CONFIG)) {
-                logger.config("CoreAbstractResultActionBackupRestore - end"); //$NON-NLS-1$
-            }
-            return returnString;
+            returnString = getGenerationInfo((CoreResultActionVmBackup) resultActionBackup);
         } else if (resultActionBackup instanceof CoreResultActionVappBackup) {
-            final String returnString = getGenerationInfo((CoreResultActionVappBackup) resultActionBackup);
-            if (logger.isLoggable(Level.CONFIG)) {
-                logger.config("CoreAbstractResultActionBackupRestore - end"); //$NON-NLS-1$
-            }
-            return returnString;
+            returnString = getGenerationInfo((CoreResultActionVappBackup) resultActionBackup);
+        } else if (resultActionBackup instanceof CoreResultActionIvdBackup) {
+            returnString = getGenerationInfo((CoreResultActionIvdBackup) resultActionBackup);
         } else {
-            if (logger.isLoggable(Level.CONFIG)) {
-                logger.config("CoreAbstractResultActionBackupRestore - end"); //$NON-NLS-1$
-            }
-            return "";
+            returnString = "";
         }
+        if (logger.isLoggable(Level.CONFIG)) {
+            logger.config("CoreAbstractResultActionBackupRestore - end"); //$NON-NLS-1$
+        }
+        return returnString;
     }
 
     public static String getGenerationInfo(final CoreResultActionIvdBackup resultActionBackup) {
@@ -434,12 +429,12 @@ public final class MessagesTemplate {
             if (logger.isLoggable(Level.CONFIG)) {
                 logger.config("boolean - end"); //$NON-NLS-1$
             }
-            return "    n  tot    c e     offset        last           size    compress     time      n-speed   c-ratio      r-speed\tsha1\t\t\t\t\t\tmd5";
+            return "    n  tot    c e     offset        last           size    compress     time      n-speed   c-ratio      r-speed\tsha1                                                              \tmd5";
         } else {
             if (logger.isLoggable(Level.CONFIG)) {
                 logger.config("boolean - end"); //$NON-NLS-1$
             }
-            return "    n  tot          offset       size     time      speed\t\tsha1\t\t\t\t\t\tmd5 ";
+            return "    n  tot          offset       size     time      speed\t\tsha1                                                              \tmd5 ";
         }
     }
 

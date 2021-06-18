@@ -178,11 +178,18 @@ public abstract class AbstractBackupFco {
             throws VimPermissionException {
         Map<String, Boolean> methodAuhorization = new HashMap<>();
         try {
-            final VimPrivilegeChecker privChecker = rab.getFirstClassObject().getVimConnection().getPrivilegeChecker();
+            if (rab.getEntityType() == EntityType.ImprovedVirtualDisk) {
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("No additional privileges test for IVD");
+                }
+            } else {
+                final VimPrivilegeChecker privChecker = rab.getFirstClassObject().getVimConnection()
+                        .getPrivilegeChecker();
 
-            methodAuhorization.putAll(privChecker.hasUserPrivilegesOnEntity(
-                    rab.getFirstClassObject().getManageEntityInfo(), PrivilegesList.PRIVILEGE_CRYPTOGRAPHER_ACCESS));
-
+                methodAuhorization
+                        .putAll(privChecker.hasUserPrivilegesOnEntity(rab.getFirstClassObject().getManageEntityInfo(),
+                                PrivilegesList.PRIVILEGE_CRYPTOGRAPHER_ACCESS));
+            }
         } catch (final RuntimeFaultFaultMsg e) {
             throw new VimPermissionException(e);
         }

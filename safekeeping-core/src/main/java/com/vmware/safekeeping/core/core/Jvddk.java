@@ -140,7 +140,8 @@ public class Jvddk extends SJvddk implements IJvddkBasic {
      * @throws JVixException
      */
     private boolean checkEnableDisablePrivileges() throws JVixException {
-        if (this.fco.getEntityType() == EntityType.VirtualMachine) {
+        switch (this.fco.getEntityType()) {
+        case VirtualMachine:
             if (this.privilageEnableDisableMethod != null) {
                 return this.privilageEnableDisableMethod;
             }
@@ -156,9 +157,17 @@ public class Jvddk extends SJvddk implements IJvddkBasic {
                     .equals(methodAuhorization.get(PrivilegesList.PRIVILEGE_ENABLE_METHOD))
                     && Boolean.TRUE.equals(methodAuhorization.get(PrivilegesList.PRIVILEGE_DISABLE_METHOD));
             return this.privilageEnableDisableMethod;
-        } else {
+        case ImprovedVirtualDisk:
+        case VirtualApp:
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("No Enable-Disable options available for not VirtualMachine entity");
+            }
+            return true;
+        default:
             throw new JVixException("Unsupported Type");
+
         }
+
     }
 
     private void closeVmdk(final AbstractCoreResultDiskBackupRestore radb) throws CoreResultActionException {
@@ -730,20 +739,21 @@ public class Jvddk extends SJvddk implements IJvddkBasic {
     }
 
     public long endAccess() throws JVixException {
-        final long vddkCallResult = endAccess(this.identity);
-        this.identity = null;
+        long vddkCallResult = jDiskLibConst.VIX_OK;
+        if (StringUtils.isNotBlank(identity)) {
+            vddkCallResult = endAccess(this.identity);
+            this.identity = null;
+        }
         return vddkCallResult;
     }
 
     public long endAccess(final String idt) throws JVixException {
-
         if (checkEnableDisablePrivileges() && CoreGlobalSettings.isEnableForAccessOn()) {
             final long vddkCallResult = SJvddk.dli.endAccess(this.connectParams, idt);
             if (vddkCallResult != jDiskLibConst.VIX_OK) {
                 final String msg = SJvddk.dli.getErrorText(vddkCallResult, null);
                 this.logger.warning(msg);
             }
-
             return vddkCallResult;
         } else {
             return jDiskLibConst.VIX_OK;

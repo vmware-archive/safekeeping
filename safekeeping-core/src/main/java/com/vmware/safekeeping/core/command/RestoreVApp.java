@@ -411,6 +411,10 @@ class RestoreVApp extends AbstractRestoreFco implements IRestoreEntry {
             rar.failure(e);
             // Restore interrupted state...
             Thread.currentThread().interrupt();
+        } catch (final Exception e) {
+            logger.warning("----------------- Unexpected Error ---------------------");
+            Utility.logWarning(this.logger, e);
+            rar.failure();
         } finally {
             if (rar.isAbortedOrFailed() && rar.isOnErrorDestroyFco()) {
                 destroy(rar);

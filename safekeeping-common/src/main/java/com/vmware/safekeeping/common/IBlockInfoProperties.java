@@ -127,7 +127,7 @@ public interface IBlockInfoProperties {
     default String printSummary() {
         if (isCompress()) {
             return String.format(Utility.LOCALE,
-                    "Summary                                      %10s  %10s  %6.2fs  %5.2fMB/s   %7s  %5.2fMB/s",
+                    "Summary                                      %10s  %10s  %6.2fs    %5.2fMB/s   %7s    %5.2fMB/s",
                     printSize(), printStreamSize(), getOverallTimeInSeconds(), getMbSec(),
                     getExplicitCompressionRatio(), getStreamMbSec());
         } else {

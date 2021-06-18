@@ -196,8 +196,6 @@ public class VimPrivilegeChecker {
         for (final EntityPrivilege pr : this.vimPort.hasUserPrivilegeOnEntities(this.auth, mos,
                 this.userSession.getUserName(), privId)) {
             for (final PrivilegeAvailability aval : pr.getPrivAvailability()) {
-                // entitlePrivilages.put(String.format("[%s(%s)]", aval.getPrivId(),
-                // moref.getType()), aval.isIsGranted());
                 entitlePrivilages.put(aval.getPrivId(), aval.isIsGranted());
             }
         }

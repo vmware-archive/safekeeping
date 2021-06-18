@@ -117,6 +117,10 @@ public class BackupIvd extends AbstractBackupFcoWithDisks {
                 rab.failure(e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
+            } catch (final Exception e) {
+                logger.warning("----------------- Unexpected Error ---------------------");
+                Utility.logWarning(this.logger, e);
+                rab.failure();
             } finally {
                 removeSnapshot(rab);
             }

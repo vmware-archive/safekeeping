@@ -245,7 +245,6 @@ class AwsS3TargetOperations extends AbstractTargetOperationImpl {
             final byte[] buffer = targetBuffer.getInputBuffer();
             int count = 0;
             try (final S3ObjectInputStream s3InputStream = s3Object.getObjectContent()) {
-
                 int n = 0;
                 while ((n = s3InputStream.read(buffer, count, Utility.SIXTEEN_KBYTES)) > -1) {
                     count += n;

@@ -276,6 +276,10 @@ class RestoreIvd extends AbstractRestoreFcoWithDisk {
             } catch (final JVixException | VimPermissionException e) {
                 Utility.logWarning(this.logger, e);
                 rar.failure(e);
+            } catch (final Exception e) {
+                logger.warning("----------------- Unexpected Error ---------------------");
+                Utility.logWarning(this.logger, e);
+                rar.failure();
             } finally {
                 if (rar.isAbortedOrFailed() && rar.isOnErrorDestroyFco()) {
                     destroy(rar);

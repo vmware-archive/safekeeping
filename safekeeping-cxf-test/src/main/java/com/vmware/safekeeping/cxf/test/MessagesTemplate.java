@@ -67,10 +67,10 @@ public final class MessagesTemplate {
     public static final int OPEN_COMPRESSION_FASTLZ = (1 << 5);
     public static final int OPEN_COMPRESSION_SKIPZ = (1 << 6);
 
-    private static final String COMPRESS_HEADER = "    n  tot    c e     offset        last           size    compress     time      n-speed   c-ratio      r-speed\tmd5";
+    private static final String COMPRESS_HEADER = "    n  tot    c e     offset        last           size    compress     time      n-speed   c-ratio      r-speed\tsha1                                                              \tmd5";
 
     private static final String LINE_SEPARATOR = "##################################################################################################################################################################################################################";
-    private static final String STANDARD_HEADER = "    n  tot          offset       size     time      speed\t\tmd5 ";
+    private static final String STANDARD_HEADER = "    n  tot          offset       size     time      speed\t\tsha1                                                              \tmd5";
 
     public static String compressHeader() {
         return COMPRESS_HEADER;
