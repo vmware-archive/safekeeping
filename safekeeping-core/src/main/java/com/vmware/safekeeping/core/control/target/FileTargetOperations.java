@@ -65,8 +65,8 @@ class FileTargetOperations extends AbstractTargetOperationImpl {
             final String uuid = getEntityInfo().getUuid();
             final Dedup dedup = new Dedup(uuid, block);
             final String entities = new ObjectMapper().writeValueAsString(dedup);
-            new File(block.getKey()).mkdirs();
-            IOUtils.writeTextFile(block.getJsonKey(), entities);
+            new File(getFullPath(block.getKey())).mkdirs();
+            IOUtils.writeTextFile(getFullPath(block.getJsonKey()), entities);
             IOUtils.inputStreamToFile(targetBuffer.getInputStream(), block.getDataKey());
 
             block.setDuplicated(false);

@@ -44,6 +44,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.vmware.jvix.JVixException;
 import com.vmware.safekeeping.common.PrettyBoolean;
+import com.vmware.safekeeping.common.Utility;
 import com.vmware.safekeeping.core.command.options.CoreAwsS3TargetOptions;
 import com.vmware.safekeeping.core.command.options.CoreFileTargetOptions;
 import com.vmware.safekeeping.core.control.SafekeepingVersion;
@@ -227,10 +228,13 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
 
     }
 
-    public static void initTargets() {
+    public static void initTargets() throws URISyntaxException {
         final CoreFileTargetOptions fileOption = new CoreFileTargetOptions();
-        fileOption.setRootFolder(
+        fileOption.setRoot(
                 CoreGlobalSettings.getTargetCustomValueAsString(FileTarget.TARGET_TYPE_NAME, FileTarget.ROOT_FOLDER));
+        if (StringUtils.isEmpty(fileOption.getRoot())) {
+            fileOption.setRoot(FileTarget.getDefaultPathFileArchive());
+        }
         fileOption.setActive(getTargetRepository().equals(FileTarget.TARGET_TYPE_NAME));
         fileOption.setName("Default_" + FileTarget.TARGET_TYPE_NAME);
         fileOption.setEnable(getTargetCustomValueAsBool(FileTarget.TARGET_TYPE_NAME, FileTarget.ACTIVE_KEY));
@@ -370,7 +374,7 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
         System.out.println(new String(new char[50]).replace("\0", "\r\n"));
         for (final String group : confParams.keySet()) {
             System.out.println();
-            System.out.println(group.toUpperCase());
+            System.out.println(group.toUpperCase(Utility.LOCALE));
             for (final String key : confParams.get(group).keySet()) {
                 final String val = configurationMap.getStringProperty(group, key);
                 System.out.println(String.format(confParams.get(group).get(key), val));
@@ -385,7 +389,7 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
         final java.io.Console cnsl = System.console();
         for (final String group : confParams.keySet()) {
             System.out.println();
-            System.out.println(group.toUpperCase());
+            System.out.println(group.toUpperCase(Utility.LOCALE));
             for (final String key : confParams.get(group).keySet()) {
                 String val = configurationMap.getStringProperty(group, key);
                 if (val == null) {
@@ -436,7 +440,7 @@ public final class CmdGlobalSettings extends CoreGlobalSettings {
         }
     }
 
-    public static boolean reloadConfig() throws IOException {
+    public static boolean reloadConfig() throws IOException, URISyntaxException {
 
         if (configPropertyFile.exists()) {
             configurationMap.clear();

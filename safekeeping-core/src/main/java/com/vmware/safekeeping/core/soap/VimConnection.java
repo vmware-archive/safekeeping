@@ -46,8 +46,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
@@ -676,20 +674,13 @@ public class VimConnection extends AbstractConnection {
         return null;
     }
 
-    private static final Pattern pattern1 = Pattern.compile("\\[(.*)\\]\\s(.*)/(.*\\.vmdk)",
-            Pattern.UNICODE_CHARACTER_CLASS);
-
     String getDiskPathForVc(final ManagedEntityInfo dcInfo, final String fileNameOfDisk) {
 
-        String ds = null;
-        String vmFolder = null;
-        String vmdk = null;
-        final Matcher m = pattern1.matcher(fileNameOfDisk);
-        if (m.matches() && m.find()) {
-            ds = m.group(1);
-            vmFolder = m.group(2);
-            vmdk = m.group(3);
-        }
+        String vmdk = StringUtils.substringAfterLast(fileNameOfDisk, "/");
+        String s = StringUtils.substringBeforeLast(fileNameOfDisk, "/");
+
+        String ds = StringUtils.substringBefore(s, "]").substring(1);
+        String vmFolder = StringUtils.substringAfter(s, "] ");
 
         /*
          * diskPath format as recognized by VC:

@@ -28,6 +28,7 @@ package com.vmware.safekeeping.core.control.target;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,117 +42,118 @@ import com.vmware.safekeeping.core.type.ManagedFcoEntityInfo;
 
 public class FileTarget extends AbstractTarget {
 
-	public static final String ROOT_FOLDER = "root";
-	public static final String TARGET_TYPE_NAME = "fileStorage";
+    public static final String ROOT_FOLDER = "root";
+    public static final String TARGET_TYPE_NAME = "fileStorage";
+    public static final String DEFAULT_ARCHIVE_FOLDER = "archive";
 
-//    public FileTarget() {
-//	this(new CoreFileOptions());
-//	getOptions().setRootFolder(CoreGlobalSettings.getTargetCustomValueAsString(S3_GROUP, ROOT_FOLDER));
-//
-//	getOptions().setDefaultTarget(CoreGlobalSettings.getTargetRepository().equals(S3_GROUP));
-//	getOptions().setName("Default_" + S3_GROUP);
-//	getOptions().setActive(CoreGlobalSettings.getTargetCustomValueAsBool(S3_GROUP, ACTIVE_KEY));
-//    }
+    public static String getDefaultPathFileArchive() throws URISyntaxException {
+        return CoreGlobalSettings.getAppData() + File.separator + "archive";
+    }
 
-	public FileTarget(final CoreFileTargetOptions options) {
-		super(options);
-		this.logger = Logger.getLogger(FileTarget.class.getName());
-		this.options = options;
-		this.targetType = TARGET_TYPE_NAME;
-	}
+    public FileTarget(final CoreFileTargetOptions options) {
+        super(options);
+        this.logger = Logger.getLogger(FileTarget.class.getName());
+        this.options = options;
+        this.targetType = TARGET_TYPE_NAME;
+    }
 
-	@Override
-	public void close() {
-		// No need
-	}
+    @Override
+    public void close() {
+        // No need
+    }
 
-	@Override
-	public LinkedHashMap<String, String> defaultConfigurations() {
-		final LinkedHashMap<String, String> result = super.defaultConfigurations();
-		result.put(ROOT_FOLDER, "");
-		return result;
-	}
+    @Override
+    public LinkedHashMap<String, String> defaultConfigurations() {
+        final LinkedHashMap<String, String> result = super.defaultConfigurations();
+        try {
+            result.put(ROOT_FOLDER, getDefaultPathFileArchive());
+        } catch (URISyntaxException e) {
 
-	@Override
-	public boolean doesObjectExist(final String key) {
-		final File keyFile = new File(getFullPath(key));
-		return keyFile.exists();
-	}
+        }
+        return result;
+    }
 
-	@Override
-	public byte[] getGlobalProfileToByteArray() throws IOException {
+    @Override
+    public boolean doesObjectExist(final String key) {
+        final File keyFile = new File(getFullPath(key));
+        return keyFile.exists();
+    }
 
-		final String contentName = getFullPath(CoreGlobalSettings.getGlobalProfileFileName());
-		if (this.logger.isLoggable(Level.INFO)) {
-			final String msg = String.format("Get %s from %s", contentName, getTargetType());
-			this.logger.info(msg);
-		}
-		byte[] result = null;
-		if (doesObjectExist(contentName)) {
-			result = IOUtils.readBinaryFile(contentName);
-		}
-		return result;
-	}
+    @Override
+    public byte[] getGlobalProfileToByteArray() throws IOException {
 
-	@Override
-	public CoreFileTargetOptions getOptions() {
-		return (CoreFileTargetOptions) this.options;
-	}
+        final String contentName = getFullPath(CoreGlobalSettings.getGlobalProfileFileName());
+        if (this.logger.isLoggable(Level.INFO)) {
+            final String msg = String.format("Get %s from %s", contentName, getTargetType());
+            this.logger.info(msg);
+        }
+        byte[] result = null;
+        if (doesObjectExist(contentName)) {
+            result = IOUtils.readBinaryFile(contentName);
+        }
+        return result;
+    }
 
-	@Override
-	public String getSeparator() {
-		return File.separator;
-	}
+    @Override
+    public CoreFileTargetOptions getOptions() {
+        return (CoreFileTargetOptions) this.options;
+    }
 
-	@Override
-	public String getUri(final String path) {
-		return String.format("file://%s/%s", getOptions().getRootFolder(), path);
-	}
+    @Override
+    public String getSeparator() {
+        return File.separator;
+    }
 
-	@Override
-	public boolean isProfAllVmExist() {
-		final String profAllFcoPath = getFullPath(CoreGlobalSettings.getGlobalProfileFileName());
+    @Override
+    public String getUri(final String path) {
+        return String.format("file://%s/%s", getOptions().getRoot(), path);
+    }
 
-		final File profile = new File(profAllFcoPath);
-		return profile.exists();
+    @Override
+    public boolean isProfAllVmExist() {
+        final String profAllFcoPath = getFullPath(CoreGlobalSettings.getGlobalProfileFileName());
 
-	}
+        final File profile = new File(profAllFcoPath);
+        return profile.exists();
 
-	@Override
-	public LinkedHashMap<String, String> manualConfiguration() {
-		final LinkedHashMap<String, String> result = super.manualConfiguration();
-		result.put(ROOT_FOLDER, "Root Folder [%s]");
+    }
 
-		return result;
-	}
+    @Override
+    public LinkedHashMap<String, String> manualConfiguration() {
+        final LinkedHashMap<String, String> result = super.manualConfiguration();
+        result.put(ROOT_FOLDER, "Root Folder [%s]");
 
-	@Override
-	public ITargetOperation newTargetOperation(final ManagedFcoEntityInfo entityInfo, final Logger logger) {
-		return new FileTargetOperations(this, entityInfo, logger);
-	}
+        return result;
+    }
 
-	@Override
-	public boolean open() {
-		boolean result = false;
+    @Override
+    public ITargetOperation newTargetOperation(final ManagedFcoEntityInfo entityInfo, final Logger logger) {
+        return new FileTargetOperations(this, entityInfo, logger);
+    }
 
-		final File root = new File(getOptions().getRootFolder());
-		result = root.exists();
+    @Override
+    public boolean open() {
+        boolean result = false;
+        final File root = new File(getOptions().getRoot());
+        if (!root.exists()) {
+            root.mkdirs();
+        }
+        result = root.exists();
+        return result;
+    }
 
-		return result;
-	}
+    @Override
+    protected boolean post(final String path, final ByteArrayInOutStream digestOutput, final String contentType) {
+        boolean result = false;
+        try {
+            final File fileOut = new File(getFullPath(path));
+            IOUtils.inputStreamToFile(digestOutput.getByteArrayInputStream(), fileOut);
 
-	@Override
-	protected boolean post(final String path, final ByteArrayInOutStream digestOutput, final String contentType) {
-		boolean result = false;
-		try {
-			final File fileOut = new File(getFullPath(path));
-			IOUtils.inputStreamToFile(digestOutput.getByteArrayInputStream(), fileOut);
-
-			result = true;
-		} catch (final IOException e) {
-			Utility.logWarning(this.logger, e);
-		}
-		return result;
-	}
+            result = true;
+        } catch (final IOException e) {
+            Utility.logWarning(this.logger, e);
+        }
+        return result;
+    }
 
 }

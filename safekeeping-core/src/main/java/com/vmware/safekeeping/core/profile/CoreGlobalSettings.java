@@ -237,7 +237,7 @@ public class CoreGlobalSettings {
     }
 
     public static void createConfigFolder(final Class<? extends Object> obj) throws IOException, URISyntaxException {
-        final String appData = GuestOsUtils.getAppData();
+        final String appData = getAppData();
         final File confDirectory = new File(appData + File.separatorChar + "conf");
         if (!confDirectory.isDirectory()) {
             confDirectory.mkdirs();
@@ -264,6 +264,10 @@ public class CoreGlobalSettings {
 
         CoreGlobalSettings.setConfigPath(confDirectory.toString());
 
+    }
+
+    public static String getAppData() throws URISyntaxException {
+        return GuestOsUtils.getAppData();
     }
 
     /**

@@ -198,19 +198,25 @@ public class App {
                         ConsoleWrapper.console.println();
                     }
                 } catch (final NoCommandException e) {
-
+                    if (logger.isLoggable(Level.FINE)) {
+                        Utility.logWarning(logger, e);
+                    }
                 } catch (final ParsingException e) {
-                    ConsoleWrapper.console.println(e.getMessage());
+                    if (logger.isLoggable(Level.FINE)) {
+                        Utility.logWarning(logger, e);
+                    } else {
+                        ConsoleWrapper.console.println(e.getMessage());
+                    }
                 } catch (final Exception e) {
-                    e.printStackTrace();
+                    Utility.logWarning(logger, e);
                 }
 
             }
         } catch (final IOException e) {
-            e.printStackTrace();
+            Utility.logWarning(logger, e);
             result = 1;
         } catch (final Exception e) {
-            e.printStackTrace();
+            Utility.logWarning(logger, e);
             result = e.getCause().hashCode();
         } finally {
             ConsoleWrapper.console.println("\nClosing connection...");

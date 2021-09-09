@@ -28,14 +28,14 @@ package com.vmware.safekeeping.core.command.options;
 
 public class CoreFileTargetOptions extends AbstractCoreTargetRepository {
 
-	private String rootFolder;
-
-	public String getRootFolder() {
-		return this.rootFolder;
-	}
-
-	public void setRootFolder(final String rootFolder) {
-		this.rootFolder = rootFolder;
-	}
+//	private String rootFolder;
+//
+//	public String getRootFolder() {
+//		return this.rootFolder;
+//	}
+//
+//	public void setRootFolder(final String rootFolder) {
+//		this.rootFolder = rootFolder;
+//	}
 
 }
