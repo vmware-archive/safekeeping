@@ -26,6 +26,7 @@
  ******************************************************************************/
 package com.vmware.safekeeping.cxf;
 
+import java.io.File;
 import java.util.logging.Logger;
 
 import com.vmware.safekeeping.common.JavaWarning;
@@ -44,7 +45,7 @@ public class App {
             CoreGlobalSettings.createLogFolder();
             CoreGlobalSettings.loadLogSetting();
             CoreGlobalSettings.createConfigFolder(App.class);
-            final Cxf safekeeping = new Cxf();
+            final Cxf safekeeping = new Cxf(new File(CoreGlobalSettings.getDefaulConfigPropertiesFile()));
             if (safekeeping.parse(args)) {
                 safekeeping.run();
             }
