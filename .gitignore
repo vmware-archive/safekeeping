@@ -34,3 +34,5 @@ jre
 /nssm/out
 /nssm/tmp
 /native-libraries/vmware-tools
+build.gradle
+gradle.properties

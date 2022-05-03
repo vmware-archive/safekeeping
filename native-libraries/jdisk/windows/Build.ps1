@@ -44,7 +44,7 @@ function build([String] $Version ){
         Remove-Item -Path "$VddkDirectory/vmware-vix-disklib-distrib" -Force -Confirm:$false -Recurse
     }
 
-     Expand-7Zip -ArchiveFileName "$VddkDirectory/$ZipFile" -TargetPath "$VddkDirectory/vmware-vix-disklib-distrib"  
+     Expand-Archive -Path "$VddkDirectory/$ZipFile" -DestinationPath "$VddkDirectory/vmware-vix-disklib-distrib"  
      if (Test-Path "./$Version/bin"){
          Remove-Item -Path "./$Version/bin" -Force -Confirm:$false -Recurse
      }
@@ -63,7 +63,8 @@ function build([String] $Version ){
      $process="nmake"
      Start-Process $process   -Wait -NoNewWindow 
      copy -Path "./release/jDiskLib.dll" -Destination "./bin/"
-     Compress-7Zip -ArchiveFileName "$Build.tar" -Format tar -Path "./bin" 
+     #Compress-7Zip -ArchiveFileName "$Build.tar" -Format tar -Path "./bin" 
+     tar -cf "$Build.tar" "./bin"
      echo "move -Path ""./$Build.tar"" -Destination ""$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch""" 
      if (!(Test-Path "$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch")){
         mkdir -Name "$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch" 

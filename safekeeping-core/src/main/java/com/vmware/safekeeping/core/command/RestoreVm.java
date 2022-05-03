@@ -1129,7 +1129,6 @@ class RestoreVm extends AbstractRestoreFcoWithDisk {
 
     protected boolean restoreManagedInfo(final GenerationProfile profile, final CoreResultActionVmRestore rar)
             throws CoreResultActionException {
-        final int i = 0;
         /**
          * Start Section RestoreManagedInfo
          */
