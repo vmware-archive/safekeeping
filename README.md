@@ -49,19 +49,19 @@ There are two way to use Safekeeping
 CentOS 7.x with the following packages: 
 - [ ] open-vm-tools 
 - [ ] wget 
-- [ ] java-1.8.0-openjdk 
-- [ ] gradle 
+- [ ] java-1.8.0-openjdk  
 - [ ] gcc 
 - [ ] zip 
 - [ ] gcc-c++ 
+- [ ] fuse-libs
+- [ ] make 
 
 Note: Other distributions should work fine 
 
 Windows (any) with the following packages: 
 - [ ] powershell   
-- [ ] java-1.8.0-openjdk 
-- [ ] gradle 
-- [ ] Visual Studio 2017 or 2019  
+- [ ] java-1.8.0-openjdk  
+- [ ] Visual Studio 2017,2019 or 2022  
 
 
 
@@ -81,6 +81,7 @@ Copy any VDDK library you want to use inside the **safekeeping\jdisklib\windows\
 To build the VDDK wrapper use
 - with VisualStudio 2017    ```build-2017.cmd``` 
 - with VisualStudio 2019    ```build-2019.cmd``` 
+- with VisualStudio 2022    ```build-2022.cmd``` 
 
 #### on Linux 
 ```
