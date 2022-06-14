@@ -36,3 +36,16 @@ jre
 /native-libraries/vmware-tools
 build.gradle
 gradle.properties
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.5.2-6195444.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.5.3-8315684.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.7.0-8173251.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.7.0-8535999.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.7.1-10362358.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.7.2-13015725.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.7.3-14389676.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-7.0.0-15832853.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-7.0.1-16860560.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-7.0.2-17696664.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-7.0.3-18705163.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-7.0.3-19513565.x86_64.zip
+native-libraries/jdisk/windows/vddk/VMware-vix-disklib-6.5.4-13861102.x86_64.zip

@@ -28,6 +28,7 @@ package com.vmware.safekeeping.cxf;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -236,7 +237,7 @@ public class Cxf {
 	private boolean httpConnector;
 
 	private boolean httpsConnector;
-	private Integer plainPort;
+	private Integer unsecurePort;
 	private Integer securePort;
 	private String context;
 	private File configFile;
@@ -261,7 +262,7 @@ public class Cxf {
 		this.numberOfConcurrentsVddkThreads = DEFAULT_NUMBER_OF_CONCURRENTS_VDDK_THREADS;
 		this.numberOfConcurrentsArchiveThreads = DEFAULT_NUMBER_OF_CONCURRENTS_ARCHIVE_THREADS;
 		this.shutdownRequested = false;
-		this.plainPort = CxfGlobalSettings.getHttpPort();
+		this.unsecurePort = CxfGlobalSettings.getHttpPort();
 		this.securePort = CxfGlobalSettings.getHttpsPort();
 		this.context = CxfGlobalSettings.getContext();
 		this.binding = CxfGlobalSettings.getBind();
@@ -376,8 +377,9 @@ public class Cxf {
 			// the output buffer size, etc. We also set the port (8080) and
 			// configure an idle timeout.
 			final ServerConnector http = new ServerConnector(server, new HttpConnectionFactory(httpConfig));
-			http.setHost(this.binding);
-			http.setPort(this.plainPort);
+			InetSocketAddress addr = new InetSocketAddress(binding, unsecurePort);
+			http.setHost(addr.getHostName());
+			http.setPort(addr.getPort());
 			http.setIdleTimeout(Utility.THIRTY_SECONDS_IN_MILLIS);
 			this.httpConnector = connectors.add(http);
 		}
@@ -582,8 +584,8 @@ public class Cxf {
 		endpoint.append("%nHealth Info:%n");
 		if (this.httpConnector) {
 
-			endpoint.append(String.format("\t\thttp://%s:%d/status%n", bios.getHostname(), this.plainPort));
-			endpoint.append(String.format("\t\thttp://%s:%d/status%n", ipAddress, this.plainPort));
+			endpoint.append(String.format("\t\thttp://%s:%d/status%n", bios.getHostname(), this.unsecurePort));
+			endpoint.append(String.format("\t\thttp://%s:%d/status%n", ipAddress, this.unsecurePort));
 		}
 		if (this.httpsConnector) {
 			endpoint.append(String.format("\t\thttps://%s:%d/status%n", ipAddress, this.securePort));
@@ -593,8 +595,8 @@ public class Cxf {
 
 		endpoint.append((this.sapi.isDebugMode()) ? "(Debug)%n" : "%n");
 		if (this.httpConnector) {
-			endpoint.append(String.format("\t\thttp://%s:%d%s%n", bios.getHostname(), this.plainPort, this.context));
-			endpoint.append(String.format("\t\thttp://%s:%d%s%n", ipAddress, this.plainPort, this.context));
+			endpoint.append(String.format("\t\thttp://%s:%d%s%n", bios.getHostname(), this.unsecurePort, this.context));
+			endpoint.append(String.format("\t\thttp://%s:%d%s%n", ipAddress, this.unsecurePort, this.context));
 		}
 		if (this.httpsConnector) {
 			endpoint.append(String.format("\t\thttps://%s:%d%s%n", bios.getHostname(), this.securePort, this.context));
@@ -670,7 +672,7 @@ public class Cxf {
 		}
 
 		if (options.has(OPTION_PORT)) {
-			this.plainPort = (int) options.valueOf(OPTION_PORT);
+			this.unsecurePort = (int) options.valueOf(OPTION_PORT);
 			this.enableHttp = true;
 		}
 		if (options.has(OPTION_SECUREPORT)) {
