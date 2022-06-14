@@ -351,13 +351,13 @@ public class Cxf {
 		this.jettyServer = new JettyHttpServer(this.serverlet, true);
 		this.sapi = new SapiImpl(vmbk, debug, generateExtensionOptionsClass());
 		this.ep = Endpoint.create(this.sapi);
+		final ContextHandlerCollection collection1 = new ContextHandlerCollection();
+		ServletContextHandler handler = new ServletContextHandler(serverlet, "/");
 		if (this.enableStatusPage) {
-			final ContextHandlerCollection collection1 = new ContextHandlerCollection();
-			ServletContextHandler handler = new ServletContextHandler(serverlet, "/");
 			handler.addServlet(BlockingServletAsync.class, "/status");
-			collection1.addHandler(handler);
-			this.serverlet.setHandler(collection1);
 		}
+		collection1.addHandler(handler);
+		this.serverlet.setHandler(collection1);
 		this.ep.publish(this.jettyServer.createContext(this.context));
 	}
 
