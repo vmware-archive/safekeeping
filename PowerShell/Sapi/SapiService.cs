@@ -18,17 +18,6 @@ public interface Sapi
 {
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connect/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    connectResponse connect(connectRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getVersionRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getVersionResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalCoreResult), Action="http://cxf.safekeeping.vmware.com/Sapi/getVersion/Fault/InternalCoreResult", Name="InternalCoreResult")]
     [System.ServiceModel.XmlSerializerFormatAttribute()]
@@ -38,6 +27,17 @@ public interface Sapi
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
     [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
     getVersionResponse getVersion(getVersionRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connect/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    connectResponse connect(connectRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/restoreRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/restoreResponse")]
@@ -87,6 +87,238 @@ public interface Sapi
     logoutResponse logout(logoutRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/keepaliveResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/keepalive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    keepaliveResponse keepalive(keepaliveRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/echoRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/echoResponse")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    echoResponse echo(echoRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/listArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/listArchiveResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidOptions), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InvalidOptions", Name="InvalidOptions")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalCoreResult), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InternalCoreResult", Name="InternalCoreResult")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    listArchiveResponse listArchive(listArchiveRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getRepository/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getRepositoryResponse getRepository(getRepositoryRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/backupRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/backupResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    backupResponse backup(backupRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    connectAsyncResponse connectAsync(connectAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    virtualBackupResponse virtualBackup(virtualBackupRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnect/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    disconnectResponse disconnect(disconnectRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getAllDumpsResponse getAllDumps(getAllDumpsRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/extensionRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/extensionResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/InternalServer", Name="InternalServer")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    extensionResponse extension(extensionRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    disconnectAsyncResponse disconnectAsync(disconnectAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getDumpsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getDumpsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getDumpsResponse getDumps(getDumpsRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTime/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getCurrentTimeResponse getCurrentTime(getCurrentTimeRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    backupAsyncResponse backupAsync(backupAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositories/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getRepositoriesResponse getRepositories(getRepositoriesRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InternalServer", Name="InternalServer")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getTaskInfoResponse getTaskInfo(getTaskInfoRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    restoreAsyncResponse restoreAsync(restoreAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    showArchiveAsyncResponse showArchiveAsync(showArchiveAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/showArchiveResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InternalServer", Name="InternalServer")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    showArchiveResponse showArchive(showArchiveRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InternalServer", Name="InternalServer")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InvalidTask", Name="InvalidTask")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    statusArchiveResponse statusArchive(statusArchiveRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfile/Fault/UnrecognizedTok" +
         "en", Name="UnrecognizedToken")]
@@ -101,28 +333,40 @@ public interface Sapi
     removeArchiveProfileResponse removeArchiveProfile(removeArchiveProfileRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerations/Fault/Unrecognized" +
-        "Token", Name="UnrecognizedToken")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsync/Fault/UnrecognizedToken" +
+        "", Name="UnrecognizedToken")]
     [System.ServiceModel.XmlSerializerFormatAttribute()]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
     [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    checkArchiveGenerationsResponse checkArchiveGenerations(checkArchiveGenerationsRequest request);
+    statusArchiveAsyncResponse statusArchiveAsync(statusArchiveAsyncRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsync/Fault/Unreco" +
-        "gnizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/InvalidTask", Name="InvalidTask")]
     [System.ServiceModel.XmlSerializerFormatAttribute()]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
     [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    removeArchiveGenerationsAsyncResponse removeArchiveGenerationsAsync(removeArchiveGenerationsAsyncRequest request);
+    connectRepositoryResponse connectRepository(connectRepositoryRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsync/Fault/Unrecogniz" +
+        "edToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    removeArchiveProfileAsyncResponse removeArchiveProfileAsync(removeArchiveProfileAsyncRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/setActiveRepositoryResponse")]
@@ -137,6 +381,18 @@ public interface Sapi
     setActiveRepositoryResponse setActiveRepository(setActiveRepositoryRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepository/Fault/UnrecognizedToke" +
+        "n", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    getActiveRepositoryResponse getActiveRepository(getActiveRepositoryRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsyncResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryAsync/Fault/UnrecognizedT" +
         "oken", Name="UnrecognizedToken")]
@@ -148,6 +404,54 @@ public interface Sapi
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
     [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
     connectRepositoryAsyncResponse connectRepositoryAsync(connectRepositoryAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepository/Fault/UnrecognizedTok" +
+        "en", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    disconnectRepositoryResponse disconnectRepository(disconnectRepositoryRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsync/Fault/UnrecognizedToken" +
+        "", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    virtualBackupAsyncResponse virtualBackupAsync(virtualBackupAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsync/Fault/Unrecogniz" +
+        "edToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    disconnectRepositoryAsyncResponse disconnectRepositoryAsync(disconnectRepositoryAsyncRequest request);
+    
+    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsyncResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveGenerationsAsync/Fault/Unreco" +
+        "gnizedToken", Name="UnrecognizedToken")]
+    [System.ServiceModel.XmlSerializerFormatAttribute()]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
+    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+    removeArchiveGenerationsAsyncResponse removeArchiveGenerationsAsync(removeArchiveGenerationsAsyncRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
     [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesNamesResponse")]
@@ -178,320 +482,16 @@ public interface Sapi
     removeArchiveGenerationsResponse removeArchiveGenerations(removeArchiveGenerationsRequest request);
     
     // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveAsync/Fault/UnrecognizedToken" +
-        "", Name="UnrecognizedToken")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerationsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/checkArchiveGenerations/Fault/Unrecognized" +
+        "Token", Name="UnrecognizedToken")]
     [System.ServiceModel.XmlSerializerFormatAttribute()]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
     [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    statusArchiveAsyncResponse statusArchiveAsync(statusArchiveAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryAsync/Fault/Unrecogniz" +
-        "edToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    disconnectRepositoryAsyncResponse disconnectRepositoryAsync(disconnectRepositoryAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupAsync/Fault/UnrecognizedToken" +
-        "", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    virtualBackupAsyncResponse virtualBackupAsync(virtualBackupAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepositoryResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRepository/Fault/UnrecognizedTok" +
-        "en", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    disconnectRepositoryResponse disconnectRepository(disconnectRepositoryRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/removeArchiveProfileAsync/Fault/Unrecogniz" +
-        "edToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    removeArchiveProfileAsyncResponse removeArchiveProfileAsync(removeArchiveProfileAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectRepositoryResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/connectRepository/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    connectRepositoryResponse connectRepository(connectRepositoryRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepositoryResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getActiveRepository/Fault/UnrecognizedToke" +
-        "n", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getActiveRepositoryResponse getActiveRepository(getActiveRepositoryRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/connectAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/connectAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    connectAsyncResponse connectAsync(connectAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/backupRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/backupResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/backup/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    backupResponse backup(backupRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/backupAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/backupAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    backupAsyncResponse backupAsync(backupAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getAllDumpsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getAllDumps/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getAllDumpsResponse getAllDumps(getAllDumpsRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    disconnectAsyncResponse disconnectAsync(disconnectAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getRepositoriesResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositories/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getRepositoriesResponse getRepositories(getRepositoriesRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getRepositoryResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getRepository/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getRepositoryResponse getRepository(getRepositoryRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/virtualBackupResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/virtualBackup/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    virtualBackupResponse virtualBackup(virtualBackupRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getDumpsRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getDumpsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getDumps/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getDumpsResponse getDumps(getDumpsRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/keepaliveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/keepaliveResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/keepalive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    keepaliveResponse keepalive(keepaliveRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/disconnectRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/disconnectResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/disconnect/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    disconnectResponse disconnect(disconnectRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/restoreAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/restoreAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    restoreAsyncResponse restoreAsync(restoreAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/showArchiveResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InternalServer", Name="InternalServer")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchive/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    showArchiveResponse showArchive(showArchiveRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/extensionRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/extensionResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/extension/Fault/InternalServer", Name="InternalServer")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    extensionResponse extension(extensionRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/listArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/listArchiveResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidOptions), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InvalidOptions", Name="InvalidOptions")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalCoreResult), Action="http://cxf.safekeeping.vmware.com/Sapi/listArchive/Fault/InternalCoreResult", Name="InternalCoreResult")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    listArchiveResponse listArchive(listArchiveRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/echoRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/echoResponse")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    echoResponse echo(echoRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsyncResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/showArchiveAsync/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    showArchiveAsyncResponse showArchiveAsync(showArchiveAsyncRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/statusArchiveResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InternalServer", Name="InternalServer")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/statusArchive/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    statusArchiveResponse statusArchive(statusArchiveRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTimeResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getCurrentTime/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getCurrentTimeResponse getCurrentTime(getCurrentTimeRequest request);
-    
-    // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-    [System.ServiceModel.OperationContractAttribute(Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoRequest", ReplyAction="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfoResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.UnrecognizedToken), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/UnrecognizedToken", Name="UnrecognizedToken")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InvalidTask), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InvalidTask", Name="InvalidTask")]
-    [System.ServiceModel.FaultContractAttribute(typeof(cxf.safekeeping.vmware.com.InternalServer), Action="http://cxf.safekeeping.vmware.com/Sapi/getTaskInfo/Fault/InternalServer", Name="InternalServer")]
-    [System.ServiceModel.XmlSerializerFormatAttribute()]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractBasicCommandOptions))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(generationStatusInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(serializableVmConfigInfo))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(restoreManagedInfo))]
-    [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-    getTaskInfoResponse getTaskInfo(getTaskInfoRequest request);
+    checkArchiveGenerationsResponse checkArchiveGenerations(checkArchiveGenerationsRequest request);
 }
 
 /// <remarks/>
@@ -500,70 +500,166 @@ public interface Sapi
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionConnect : resultAction
+public partial class resultActionVersion : resultAction
 {
     
-    private bool connectedField;
+    private string extendedVersionField;
     
-    private string ssoEndPointUrlField;
+    private string identityField;
     
-    private resultActionConnectSso subActionConnectSsoField;
+    private string javaRuntimeField;
     
-    private task[] subTasksActionConnectVCentersField;
+    private int majorField;
+    
+    private int minorField;
+    
+    private int patchLevelField;
+    
+    private string productNameField;
+    
+    private serverInfo serverInfoField;
+    
+    private vddkVersion vddkField;
+    
+    private string versionField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool connected
+    public string extendedVersion
     {
         get
         {
-            return this.connectedField;
+            return this.extendedVersionField;
         }
         set
         {
-            this.connectedField = value;
+            this.extendedVersionField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string ssoEndPointUrl
+    public string identity
     {
         get
         {
-            return this.ssoEndPointUrlField;
+            return this.identityField;
         }
         set
         {
-            this.ssoEndPointUrlField = value;
+            this.identityField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public resultActionConnectSso subActionConnectSso
+    public string javaRuntime
     {
         get
         {
-            return this.subActionConnectSsoField;
+            return this.javaRuntimeField;
         }
         set
         {
-            this.subActionConnectSsoField = value;
+            this.javaRuntimeField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("subTasksActionConnectVCenters", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public task[] subTasksActionConnectVCenters
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int major
     {
         get
         {
-            return this.subTasksActionConnectVCentersField;
+            return this.majorField;
         }
         set
         {
-            this.subTasksActionConnectVCentersField = value;
+            this.majorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int minor
+    {
+        get
+        {
+            return this.minorField;
+        }
+        set
+        {
+            this.minorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public int patchLevel
+    {
+        get
+        {
+            return this.patchLevelField;
+        }
+        set
+        {
+            this.patchLevelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public string productName
+    {
+        get
+        {
+            return this.productNameField;
+        }
+        set
+        {
+            this.productNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public serverInfo serverInfo
+    {
+        get
+        {
+            return this.serverInfoField;
+        }
+        set
+        {
+            this.serverInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public vddkVersion vddk
+    {
+        get
+        {
+            return this.vddkField;
+        }
+        set
+        {
+            this.vddkField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string version
+    {
+        get
+        {
+            return this.versionField;
+        }
+        set
+        {
+            this.versionField = value;
         }
     }
 }
@@ -574,54 +670,144 @@ public partial class resultActionConnect : resultAction
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionConnectSso : resultAction
+public partial class serverInfo
 {
     
-    private bool connectedField;
+    private string bigEndianBiosUuidField;
     
-    private string ssoEndPointUrlField;
+    private string extendedVersionField;
     
-    private string tokenField;
+    private string hostnameField;
+    
+    private string serverBiosUuidField;
+    
+    private string serverIpField;
+    
+    private string serverOsField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool connected
+    public string bigEndianBiosUuid
     {
         get
         {
-            return this.connectedField;
+            return this.bigEndianBiosUuidField;
         }
         set
         {
-            this.connectedField = value;
+            this.bigEndianBiosUuidField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string ssoEndPointUrl
+    public string extendedVersion
     {
         get
         {
-            return this.ssoEndPointUrlField;
+            return this.extendedVersionField;
         }
         set
         {
-            this.ssoEndPointUrlField = value;
+            this.extendedVersionField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string token
+    public string hostname
     {
         get
         {
-            return this.tokenField;
+            return this.hostnameField;
         }
         set
         {
-            this.tokenField = value;
+            this.hostnameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string serverBiosUuid
+    {
+        get
+        {
+            return this.serverBiosUuidField;
+        }
+        set
+        {
+            this.serverBiosUuidField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public string serverIp
+    {
+        get
+        {
+            return this.serverIpField;
+        }
+        set
+        {
+            this.serverIpField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string serverOs
+    {
+        get
+        {
+            return this.serverOsField;
+        }
+        set
+        {
+            this.serverOsField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class taskResult
+{
+    
+    private string idField;
+    
+    private resultAction resultField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string id
+    {
+        get
+        {
+            return this.idField;
+        }
+        set
+        {
+            this.idField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public resultAction result
+    {
+        get
+        {
+            return this.resultField;
+        }
+        set
+        {
+            this.resultField = value;
         }
     }
 }
@@ -629,9 +815,10 @@ public partial class resultActionConnectSso : resultAction
 /// <remarks/>
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionVersion))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionDisconnectSso))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionExtension))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionDisconnectRepository))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionExtension))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionConnectRepository))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionConnectFileRepository))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionConnectAwsS3Repository))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionArchive))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveShow))]
@@ -1124,594 +1311,6 @@ public enum entityType
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class taskResult
-{
-    
-    private string idField;
-    
-    private resultAction resultField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string id
-    {
-        get
-        {
-            return this.idField;
-        }
-        set
-        {
-            this.idField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public resultAction result
-    {
-        get
-        {
-            return this.resultField;
-        }
-        set
-        {
-            this.resultField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class extensionOptions
-{
-    
-    private extensionManagerOperation extensionOperationField;
-    
-    private bool extensionOperationFieldSpecified;
-    
-    private bool forceField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public extensionManagerOperation extensionOperation
-    {
-        get
-        {
-            return this.extensionOperationField;
-        }
-        set
-        {
-            this.extensionOperationField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool extensionOperationSpecified
-    {
-        get
-        {
-            return this.extensionOperationFieldSpecified;
-        }
-        set
-        {
-            this.extensionOperationFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool force
-    {
-        get
-        {
-            return this.forceField;
-        }
-        set
-        {
-            this.forceField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum extensionManagerOperation
-{
-    
-    /// <remarks/>
-    REGISTER,
-    
-    /// <remarks/>
-    REMOVE,
-    
-    /// <remarks/>
-    UPDATE,
-    
-    /// <remarks/>
-    FORCE_UPDATE,
-    
-    /// <remarks/>
-    CHECK,
-    
-    /// <remarks/>
-    NONE,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class blockInfo
-{
-    
-    private bool cipherField;
-    
-    private bool compressField;
-    
-    private int diskIdField;
-    
-    private bool duplicatedField;
-    
-    private long endTimeField;
-    
-    private bool failedField;
-    
-    private bool failedFieldSpecified;
-    
-    private int generationIdField;
-    
-    private int indexField;
-    
-    private string keyField;
-    
-    private string keyPathField;
-    
-    private long lastBlockField;
-    
-    private long lengthField;
-    
-    private string md5Field;
-    
-    private bool modifiedField;
-    
-    private long offsetField;
-    
-    private string reasonField;
-    
-    private string sha1Field;
-    
-    private long sizeField;
-    
-    private long startTimeField;
-    
-    private long streamSizeField;
-    
-    private int totalBlocksField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool cipher
-    {
-        get
-        {
-            return this.cipherField;
-        }
-        set
-        {
-            this.cipherField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool compress
-    {
-        get
-        {
-            return this.compressField;
-        }
-        set
-        {
-            this.compressField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int diskId
-    {
-        get
-        {
-            return this.diskIdField;
-        }
-        set
-        {
-            this.diskIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public bool duplicated
-    {
-        get
-        {
-            return this.duplicatedField;
-        }
-        set
-        {
-            this.duplicatedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public long endTime
-    {
-        get
-        {
-            return this.endTimeField;
-        }
-        set
-        {
-            this.endTimeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public bool failed
-    {
-        get
-        {
-            return this.failedField;
-        }
-        set
-        {
-            this.failedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool failedSpecified
-    {
-        get
-        {
-            return this.failedFieldSpecified;
-        }
-        set
-        {
-            this.failedFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public int generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public int index
-    {
-        get
-        {
-            return this.indexField;
-        }
-        set
-        {
-            this.indexField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public string key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string keyPath
-    {
-        get
-        {
-            return this.keyPathField;
-        }
-        set
-        {
-            this.keyPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-    public long lastBlock
-    {
-        get
-        {
-            return this.lastBlockField;
-        }
-        set
-        {
-            this.lastBlockField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-    public long length
-    {
-        get
-        {
-            return this.lengthField;
-        }
-        set
-        {
-            this.lengthField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
-    public string md5
-    {
-        get
-        {
-            return this.md5Field;
-        }
-        set
-        {
-            this.md5Field = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
-    public bool modified
-    {
-        get
-        {
-            return this.modifiedField;
-        }
-        set
-        {
-            this.modifiedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
-    public long offset
-    {
-        get
-        {
-            return this.offsetField;
-        }
-        set
-        {
-            this.offsetField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
-    public string reason
-    {
-        get
-        {
-            return this.reasonField;
-        }
-        set
-        {
-            this.reasonField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
-    public string sha1
-    {
-        get
-        {
-            return this.sha1Field;
-        }
-        set
-        {
-            this.sha1Field = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
-    public long size
-    {
-        get
-        {
-            return this.sizeField;
-        }
-        set
-        {
-            this.sizeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
-    public long startTime
-    {
-        get
-        {
-            return this.startTimeField;
-        }
-        set
-        {
-            this.startTimeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
-    public long streamSize
-    {
-        get
-        {
-            return this.streamSizeField;
-        }
-        set
-        {
-            this.streamSizeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
-    public int totalBlocks
-    {
-        get
-        {
-            return this.totalBlocksField;
-        }
-        set
-        {
-            this.totalBlocksField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class tasks
-{
-    
-    private string reasonField;
-    
-    private operationState stateField;
-    
-    private bool stateFieldSpecified;
-    
-    private task[] taskListField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string reason
-    {
-        get
-        {
-            return this.reasonField;
-        }
-        set
-        {
-            this.reasonField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public operationState state
-    {
-        get
-        {
-            return this.stateField;
-        }
-        set
-        {
-            this.stateField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool stateSpecified
-    {
-        get
-        {
-            return this.stateFieldSpecified;
-        }
-        set
-        {
-            this.stateFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("taskList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-    public task[] taskList
-    {
-        get
-        {
-            return this.taskListField;
-        }
-        set
-        {
-            this.taskListField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum operationState
-{
-    
-    /// <remarks/>
-    SUCCESS,
-    
-    /// <remarks/>
-    FAILED,
-    
-    /// <remarks/>
-    SKIPPED,
-    
-    /// <remarks/>
-    ABORTED,
-    
-    /// <remarks/>
-    STARTED,
-    
-    /// <remarks/>
-    QUEUED,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
 public partial class task
 {
     
@@ -1797,45 +1396,69 @@ public partial class task
 }
 
 /// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(pscConnectOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(cspConnectOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum operationState
+{
+    
+    /// <remarks/>
+    SUCCESS,
+    
+    /// <remarks/>
+    FAILED,
+    
+    /// <remarks/>
+    SKIPPED,
+    
+    /// <remarks/>
+    ABORTED,
+    
+    /// <remarks/>
+    STARTED,
+    
+    /// <remarks/>
+    QUEUED,
+}
+
+/// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class connectOptions
+public partial class resultActionDisconnectSso : resultAction
 {
     
-    private string authServerField;
+    private bool connectedField;
     
-    private bool base64Field;
+    private string ssoEndPointUrlField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string authServer
+    public bool connected
     {
         get
         {
-            return this.authServerField;
+            return this.connectedField;
         }
         set
         {
-            this.authServerField = value;
+            this.connectedField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool base64
+    public string ssoEndPointUrl
     {
         get
         {
-            return this.base64Field;
+            return this.ssoEndPointUrlField;
         }
         set
         {
-            this.base64Field = value;
+            this.ssoEndPointUrlField = value;
         }
     }
 }
@@ -1846,1004 +1469,13 @@ public partial class connectOptions
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class pscConnectOptions : connectOptions
+public partial class resultActionDisconnectRepository : resultAction
 {
-    
-    private string passwordField;
-    
-    private int portField;
-    
-    private bool portFieldSpecified;
-    
-    private string userField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string password
-    {
-        get
-        {
-            return this.passwordField;
-        }
-        set
-        {
-            this.passwordField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public int port
-    {
-        get
-        {
-            return this.portField;
-        }
-        set
-        {
-            this.portField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool portSpecified
-    {
-        get
-        {
-            return this.portFieldSpecified;
-        }
-        set
-        {
-            this.portFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string user
-    {
-        get
-        {
-            return this.userField;
-        }
-        set
-        {
-            this.userField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class cspConnectOptions : connectOptions
-{
-    
-    private string refreshTokenField;
-    
-    private string tokenExchangeServerField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string refreshToken
-    {
-        get
-        {
-            return this.refreshTokenField;
-        }
-        set
-        {
-            this.refreshTokenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string tokenExchangeServer
-    {
-        get
-        {
-            return this.tokenExchangeServerField;
-        }
-        set
-        {
-            this.tokenExchangeServerField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreVmdkOption
-{
-    
-    private searchManagementEntity datastoreField;
-    
-    private int diskIdField;
-    
-    private searchManagementEntity spbmProfileField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public searchManagementEntity datastore
-    {
-        get
-        {
-            return this.datastoreField;
-        }
-        set
-        {
-            this.datastoreField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public int diskId
-    {
-        get
-        {
-            return this.diskIdField;
-        }
-        set
-        {
-            this.diskIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public searchManagementEntity spbmProfile
-    {
-        get
-        {
-            return this.spbmProfileField;
-        }
-        set
-        {
-            this.spbmProfileField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class searchManagementEntity
-{
-    
-    private searchManagementEntityInfoType searchTypeField;
-    
-    private bool searchTypeFieldSpecified;
-    
-    private string searchValueField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public searchManagementEntityInfoType searchType
-    {
-        get
-        {
-            return this.searchTypeField;
-        }
-        set
-        {
-            this.searchTypeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool searchTypeSpecified
-    {
-        get
-        {
-            return this.searchTypeFieldSpecified;
-        }
-        set
-        {
-            this.searchTypeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string searchValue
-    {
-        get
-        {
-            return this.searchValueField;
-        }
-        set
-        {
-            this.searchValueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum searchManagementEntityInfoType
-{
-    
-    /// <remarks/>
-    NAME,
-    
-    /// <remarks/>
-    MOREF,
-    
-    /// <remarks/>
-    ID,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class virtualMachineQuisceSpec
-{
-    
-    private int timeoutField;
-    
-    private bool timeoutFieldSpecified;
-    
-    private bool useWindowsVssField;
-    
-    private windowsQuiesceSpecVssBackupContext vssBackupContextField;
-    
-    private bool vssBackupContextFieldSpecified;
-    
-    private windowsQuiesceSpecVssBackupType vssBackupTypeField;
-    
-    private bool vssBackupTypeFieldSpecified;
-    
-    private bool vssBootableSystemStateField;
-    
-    private bool vssBootableSystemStateFieldSpecified;
-    
-    private bool vssPartialFileSupportField;
-    
-    private bool vssPartialFileSupportFieldSpecified;
-    
-    private bool vssRetryOnFailField;
-    
-    private bool vssRetryOnFailFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public int timeout
-    {
-        get
-        {
-            return this.timeoutField;
-        }
-        set
-        {
-            this.timeoutField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool timeoutSpecified
-    {
-        get
-        {
-            return this.timeoutFieldSpecified;
-        }
-        set
-        {
-            this.timeoutFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool useWindowsVss
-    {
-        get
-        {
-            return this.useWindowsVssField;
-        }
-        set
-        {
-            this.useWindowsVssField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public windowsQuiesceSpecVssBackupContext vssBackupContext
-    {
-        get
-        {
-            return this.vssBackupContextField;
-        }
-        set
-        {
-            this.vssBackupContextField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vssBackupContextSpecified
-    {
-        get
-        {
-            return this.vssBackupContextFieldSpecified;
-        }
-        set
-        {
-            this.vssBackupContextFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public windowsQuiesceSpecVssBackupType vssBackupType
-    {
-        get
-        {
-            return this.vssBackupTypeField;
-        }
-        set
-        {
-            this.vssBackupTypeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vssBackupTypeSpecified
-    {
-        get
-        {
-            return this.vssBackupTypeFieldSpecified;
-        }
-        set
-        {
-            this.vssBackupTypeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public bool vssBootableSystemState
-    {
-        get
-        {
-            return this.vssBootableSystemStateField;
-        }
-        set
-        {
-            this.vssBootableSystemStateField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vssBootableSystemStateSpecified
-    {
-        get
-        {
-            return this.vssBootableSystemStateFieldSpecified;
-        }
-        set
-        {
-            this.vssBootableSystemStateFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public bool vssPartialFileSupport
-    {
-        get
-        {
-            return this.vssPartialFileSupportField;
-        }
-        set
-        {
-            this.vssPartialFileSupportField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vssPartialFileSupportSpecified
-    {
-        get
-        {
-            return this.vssPartialFileSupportFieldSpecified;
-        }
-        set
-        {
-            this.vssPartialFileSupportFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public bool vssRetryOnFail
-    {
-        get
-        {
-            return this.vssRetryOnFailField;
-        }
-        set
-        {
-            this.vssRetryOnFailField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vssRetryOnFailSpecified
-    {
-        get
-        {
-            return this.vssRetryOnFailFieldSpecified;
-        }
-        set
-        {
-            this.vssRetryOnFailFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum windowsQuiesceSpecVssBackupContext
-{
-    
-    /// <remarks/>
-    CTX_AUTO,
-    
-    /// <remarks/>
-    CTX_BACKUP,
-    
-    /// <remarks/>
-    CTX_FILE_SHARE_BACKUP,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum windowsQuiesceSpecVssBackupType
-{
-    
-    /// <remarks/>
-    VSS_BT_COPY,
-    
-    /// <remarks/>
-    VSS_BT_DIFFERENTIAL,
-    
-    /// <remarks/>
-    VSS_BT_FULL,
-    
-    /// <remarks/>
-    VSS_BT_INCREMENTAL,
-    
-    /// <remarks/>
-    VSS_BT_LOG,
-    
-    /// <remarks/>
-    VSS_BT_OTHER,
-    
-    /// <remarks/>
-    VSS_BT_UNDEFINED,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class fcoTarget
-{
-    
-    private string keyField;
-    
-    private fcoTypeSearch keyTypeField;
-    
-    private bool keyTypeFieldSpecified;
-    
-    private string vcenterUuidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public fcoTypeSearch keyType
-    {
-        get
-        {
-            return this.keyTypeField;
-        }
-        set
-        {
-            this.keyTypeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool keyTypeSpecified
-    {
-        get
-        {
-            return this.keyTypeFieldSpecified;
-        }
-        set
-        {
-            this.keyTypeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string vcenterUuid
-    {
-        get
-        {
-            return this.vcenterUuidField;
-        }
-        set
-        {
-            this.vcenterUuidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum fcoTypeSearch
-{
-    
-    /// <remarks/>
-    IVD_NAME,
-    
-    /// <remarks/>
-    IVD_UUID,
-    
-    /// <remarks/>
-    TAG,
-    
-    /// <remarks/>
-    VAPP_NAME,
-    
-    /// <remarks/>
-    VAPP_UUID,
-    
-    /// <remarks/>
-    VAPP_MOREF,
-    
-    /// <remarks/>
-    VM_IP,
-    
-    /// <remarks/>
-    VM_MOREF,
-    
-    /// <remarks/>
-    VM_NAME,
-    
-    /// <remarks/>
-    VM_UUID,
-    
-    /// <remarks/>
-    K8S_NAME,
-    
-    /// <remarks/>
-    K8S_UUID,
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupRestoreCommonOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(virtualBackupOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractArchiveOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveCheckGenerationsOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveStatusOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveGenerationsOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveShowOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveProfileOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveListOptions))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class abstractBasicCommandOptions
-{
-    
-    private int anyFcoOfTypeField;
-    
-    private bool anyFcoOfTypeFieldSpecified;
-    
-    private bool dryRunField;
-    
-    private fcoTarget[] targetListField;
-    
-    private string vimField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public int anyFcoOfType
-    {
-        get
-        {
-            return this.anyFcoOfTypeField;
-        }
-        set
-        {
-            this.anyFcoOfTypeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool anyFcoOfTypeSpecified
-    {
-        get
-        {
-            return this.anyFcoOfTypeFieldSpecified;
-        }
-        set
-        {
-            this.anyFcoOfTypeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool dryRun
-    {
-        get
-        {
-            return this.dryRunField;
-        }
-        set
-        {
-            this.dryRunField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("targetList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-    public fcoTarget[] targetList
-    {
-        get
-        {
-            return this.targetListField;
-        }
-        set
-        {
-            this.targetListField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string vim
-    {
-        get
-        {
-            return this.vimField;
-        }
-        set
-        {
-            this.vimField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(virtualBackupOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class backupRestoreCommonOptions : abstractBasicCommandOptions
-{
-    
-    private bool forceField;
-    
-    private bool noVmdkField;
-    
-    private int numberOfThreadsField;
-    
-    private bool numberOfThreadsFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool force
-    {
-        get
-        {
-            return this.forceField;
-        }
-        set
-        {
-            this.forceField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool noVmdk
-    {
-        get
-        {
-            return this.noVmdkField;
-        }
-        set
-        {
-            this.noVmdkField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int numberOfThreads
-    {
-        get
-        {
-            return this.numberOfThreadsField;
-        }
-        set
-        {
-            this.numberOfThreadsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool numberOfThreadsSpecified
-    {
-        get
-        {
-            return this.numberOfThreadsFieldSpecified;
-        }
-        set
-        {
-            this.numberOfThreadsFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreOptions : backupRestoreCommonOptions
-{
-    
-    private bool allowDuplicatedVmNamesInsideVappField;
-    
-    private bool allowDuplicatedVmNamesInsideVappFieldSpecified;
-    
-    private searchManagementEntity datacenterField;
-    
-    private searchManagementEntity datastoreField;
-    
-    private restoreVmdkOption[] disksField;
-    
-    private searchManagementEntity folderField;
-    
-    private int generationIdField;
-    
-    private bool generationIdFieldSpecified;
-    
-    private searchManagementEntity hostField;
-    
-    private bool importVmxFileField;
     
     private string nameField;
     
-    private searchManagementEntity[] networksField;
-    
-    private bool overwriteField;
-    
-    private string postfixField;
-    
-    private bool powerOnField;
-    
-    private string prefixField;
-    
-    private bool recoverField;
-    
-    private string requestedTransportModeField;
-    
-    private string resPoolFilterField;
-    
-    private searchManagementEntity resourcePoolField;
-    
-    private searchManagementEntity storageProfileField;
-    
-    private string vmFolderFilterField;
-    
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool allowDuplicatedVmNamesInsideVapp
-    {
-        get
-        {
-            return this.allowDuplicatedVmNamesInsideVappField;
-        }
-        set
-        {
-            this.allowDuplicatedVmNamesInsideVappField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool allowDuplicatedVmNamesInsideVappSpecified
-    {
-        get
-        {
-            return this.allowDuplicatedVmNamesInsideVappFieldSpecified;
-        }
-        set
-        {
-            this.allowDuplicatedVmNamesInsideVappFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public searchManagementEntity datacenter
-    {
-        get
-        {
-            return this.datacenterField;
-        }
-        set
-        {
-            this.datacenterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public searchManagementEntity datastore
-    {
-        get
-        {
-            return this.datastoreField;
-        }
-        set
-        {
-            this.datastoreField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("disks", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public restoreVmdkOption[] disks
-    {
-        get
-        {
-            return this.disksField;
-        }
-        set
-        {
-            this.disksField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public searchManagementEntity folder
-    {
-        get
-        {
-            return this.folderField;
-        }
-        set
-        {
-            this.folderField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public int generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool generationIdSpecified
-    {
-        get
-        {
-            return this.generationIdFieldSpecified;
-        }
-        set
-        {
-            this.generationIdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public searchManagementEntity host
-    {
-        get
-        {
-            return this.hostField;
-        }
-        set
-        {
-            this.hostField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public bool importVmxFile
-    {
-        get
-        {
-            return this.importVmxFileField;
-        }
-        set
-        {
-            this.importVmxFileField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
     public string name
     {
         get
@@ -2855,203 +1487,6 @@ public partial class restoreOptions : backupRestoreCommonOptions
             this.nameField = value;
         }
     }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("networks", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=9)]
-    public searchManagementEntity[] networks
-    {
-        get
-        {
-            return this.networksField;
-        }
-        set
-        {
-            this.networksField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-    public bool overwrite
-    {
-        get
-        {
-            return this.overwriteField;
-        }
-        set
-        {
-            this.overwriteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-    public string postfix
-    {
-        get
-        {
-            return this.postfixField;
-        }
-        set
-        {
-            this.postfixField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
-    public bool powerOn
-    {
-        get
-        {
-            return this.powerOnField;
-        }
-        set
-        {
-            this.powerOnField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
-    public string prefix
-    {
-        get
-        {
-            return this.prefixField;
-        }
-        set
-        {
-            this.prefixField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
-    public bool recover
-    {
-        get
-        {
-            return this.recoverField;
-        }
-        set
-        {
-            this.recoverField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
-    public string requestedTransportMode
-    {
-        get
-        {
-            return this.requestedTransportModeField;
-        }
-        set
-        {
-            this.requestedTransportModeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
-    public string resPoolFilter
-    {
-        get
-        {
-            return this.resPoolFilterField;
-        }
-        set
-        {
-            this.resPoolFilterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
-    public searchManagementEntity resourcePool
-    {
-        get
-        {
-            return this.resourcePoolField;
-        }
-        set
-        {
-            this.resourcePoolField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
-    public searchManagementEntity storageProfile
-    {
-        get
-        {
-            return this.storageProfileField;
-        }
-        set
-        {
-            this.storageProfileField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
-    public string vmFolderFilter
-    {
-        get
-        {
-            return this.vmFolderFilterField;
-        }
-        set
-        {
-            this.vmFolderFilterField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class virtualBackupOptions : backupRestoreCommonOptions
-{
-    
-    private int generationIdField;
-    
-    private bool generationIdFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public int generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool generationIdSpecified
-    {
-        get
-        {
-            return this.generationIdFieldSpecified;
-        }
-        set
-        {
-            this.generationIdFieldSpecified = value;
-        }
-    }
 }
 
 /// <remarks/>
@@ -3060,754 +1495,61 @@ public partial class virtualBackupOptions : backupRestoreCommonOptions
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class backupOptions : virtualBackupOptions
+public partial class resultActionExtension : resultAction
 {
     
-    private bool cipherField;
+    private bool healthInfoField;
     
-    private bool cipherFieldSpecified;
+    private extensionManagerOperation operationField;
     
-    private bool compressionField;
-    
-    private bool compressionFieldSpecified;
-    
-    private int maxBlockSizeField;
-    
-    private bool maxBlockSizeFieldSpecified;
-    
-    private queryBlocksOption queryBlocksOptionField;
-    
-    private bool queryBlocksOptionFieldSpecified;
-    
-    private virtualMachineQuisceSpec quisceSpecField;
-    
-    private backupMode requestedBackupModeField;
-    
-    private bool requestedBackupModeFieldSpecified;
-    
-    private string requestedTransportModeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool cipher
-    {
-        get
-        {
-            return this.cipherField;
-        }
-        set
-        {
-            this.cipherField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool cipherSpecified
-    {
-        get
-        {
-            return this.cipherFieldSpecified;
-        }
-        set
-        {
-            this.cipherFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool compression
-    {
-        get
-        {
-            return this.compressionField;
-        }
-        set
-        {
-            this.compressionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool compressionSpecified
-    {
-        get
-        {
-            return this.compressionFieldSpecified;
-        }
-        set
-        {
-            this.compressionFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int maxBlockSize
-    {
-        get
-        {
-            return this.maxBlockSizeField;
-        }
-        set
-        {
-            this.maxBlockSizeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool maxBlockSizeSpecified
-    {
-        get
-        {
-            return this.maxBlockSizeFieldSpecified;
-        }
-        set
-        {
-            this.maxBlockSizeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public queryBlocksOption queryBlocksOption
-    {
-        get
-        {
-            return this.queryBlocksOptionField;
-        }
-        set
-        {
-            this.queryBlocksOptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool queryBlocksOptionSpecified
-    {
-        get
-        {
-            return this.queryBlocksOptionFieldSpecified;
-        }
-        set
-        {
-            this.queryBlocksOptionFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public virtualMachineQuisceSpec quisceSpec
-    {
-        get
-        {
-            return this.quisceSpecField;
-        }
-        set
-        {
-            this.quisceSpecField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public backupMode requestedBackupMode
-    {
-        get
-        {
-            return this.requestedBackupModeField;
-        }
-        set
-        {
-            this.requestedBackupModeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool requestedBackupModeSpecified
-    {
-        get
-        {
-            return this.requestedBackupModeFieldSpecified;
-        }
-        set
-        {
-            this.requestedBackupModeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public string requestedTransportMode
-    {
-        get
-        {
-            return this.requestedTransportModeField;
-        }
-        set
-        {
-            this.requestedTransportModeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum queryBlocksOption
-{
-    
-    /// <remarks/>
-    ALLOCATED,
-    
-    /// <remarks/>
-    CHANGED_AREAS,
-    
-    /// <remarks/>
-    FULL,
-    
-    /// <remarks/>
-    UNKNOWS,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum backupMode
-{
-    
-    /// <remarks/>
-    FULL,
-    
-    /// <remarks/>
-    INCREMENTAL,
-    
-    /// <remarks/>
-    MIXED,
-    
-    /// <remarks/>
-    UNKNOW,
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveCheckGenerationsOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveStatusOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveGenerationsOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveShowOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveProfileOptions))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveListOptions))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class abstractArchiveOptions : abstractBasicCommandOptions
-{
-    
-    private string targetNameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string targetName
-    {
-        get
-        {
-            return this.targetNameField;
-        }
-        set
-        {
-            this.targetNameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveCheckGenerationsOptions : abstractArchiveOptions
-{
-    
-    private generationsFilter filterField;
-    
-    private bool filterFieldSpecified;
-    
-    private System.Nullable<int>[] generationIdField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public generationsFilter filter
-    {
-        get
-        {
-            return this.filterField;
-        }
-        set
-        {
-            this.filterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool filterSpecified
-    {
-        get
-        {
-            return this.filterFieldSpecified;
-        }
-        set
-        {
-            this.filterFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-    public System.Nullable<int>[] generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum generationsFilter
-{
-    
-    /// <remarks/>
-    all,
-    
-    /// <remarks/>
-    last,
-    
-    /// <remarks/>
-    succeded,
-    
-    /// <remarks/>
-    failed,
-    
-    /// <remarks/>
-    list,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveStatusOptions : abstractArchiveOptions
-{
-    
-    private generationsFilter filterField;
-    
-    private bool filterFieldSpecified;
-    
-    private System.Nullable<int>[] generationIdField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public generationsFilter filter
-    {
-        get
-        {
-            return this.filterField;
-        }
-        set
-        {
-            this.filterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool filterSpecified
-    {
-        get
-        {
-            return this.filterFieldSpecified;
-        }
-        set
-        {
-            this.filterFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-    public System.Nullable<int>[] generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveRemoveGenerationsOptions : abstractArchiveOptions
-{
-    
-    private generationsFilter filterField;
-    
-    private bool filterFieldSpecified;
-    
-    private System.Nullable<int>[] generationIdField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public generationsFilter filter
-    {
-        get
-        {
-            return this.filterField;
-        }
-        set
-        {
-            this.filterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool filterSpecified
-    {
-        get
-        {
-            return this.filterFieldSpecified;
-        }
-        set
-        {
-            this.filterFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-    public System.Nullable<int>[] generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveShowOptions : abstractArchiveOptions
-{
-    
-    private archiveObjects archiveObjectField;
-    
-    private bool archiveObjectFieldSpecified;
-    
-    private generationsFilter filterField;
-    
-    private bool filterFieldSpecified;
-    
-    private int generationIdField;
-    
-    private bool generationIdFieldSpecified;
-    
-    private bool prettyJasonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public archiveObjects archiveObject
-    {
-        get
-        {
-            return this.archiveObjectField;
-        }
-        set
-        {
-            this.archiveObjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool archiveObjectSpecified
-    {
-        get
-        {
-            return this.archiveObjectFieldSpecified;
-        }
-        set
-        {
-            this.archiveObjectFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public generationsFilter filter
-    {
-        get
-        {
-            return this.filterField;
-        }
-        set
-        {
-            this.filterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool filterSpecified
-    {
-        get
-        {
-            return this.filterFieldSpecified;
-        }
-        set
-        {
-            this.filterFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool generationIdSpecified
-    {
-        get
-        {
-            return this.generationIdFieldSpecified;
-        }
-        set
-        {
-            this.generationIdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public bool prettyJason
-    {
-        get
-        {
-            return this.prettyJasonField;
-        }
-        set
-        {
-            this.prettyJasonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum archiveObjects
-{
-    
-    /// <remarks/>
-    GLOBALPROFILE,
-    
-    /// <remarks/>
-    FCOPROFILE,
-    
-    /// <remarks/>
-    GENERATIONPROFILE,
-    
-    /// <remarks/>
-    VMXFILE,
-    
-    /// <remarks/>
-    REPORTFILE,
-    
-    /// <remarks/>
-    MD5FILE,
-    
-    /// <remarks/>
-    VAPPCONFIG,
-    
-    /// <remarks/>
-    NONE,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveRemoveProfileOptions : abstractArchiveOptions
-{
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class archiveListOptions : abstractArchiveOptions
-{
-    
-    private string dateFilterField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string dateFilter
-    {
-        get
-        {
-            return this.dateFilterField;
-        }
-        set
-        {
-            this.dateFilterField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class vddkVersion
-{
-    
-    private int buildField;
-    
-    private string extendedVersionField;
-    
-    private int majorField;
-    
-    private int minorField;
-    
-    private int patchLevelField;
+    private bool operationFieldSpecified;
     
     private string versionField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public int build
+    public bool healthInfo
     {
         get
         {
-            return this.buildField;
+            return this.healthInfoField;
         }
         set
         {
-            this.buildField = value;
+            this.healthInfoField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string extendedVersion
+    public extensionManagerOperation operation
     {
         get
         {
-            return this.extendedVersionField;
+            return this.operationField;
         }
         set
         {
-            this.extendedVersionField = value;
+            this.operationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool operationSpecified
+    {
+        get
+        {
+            return this.operationFieldSpecified;
+        }
+        set
+        {
+            this.operationFieldSpecified = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int major
-    {
-        get
-        {
-            return this.majorField;
-        }
-        set
-        {
-            this.majorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int minor
-    {
-        get
-        {
-            return this.minorField;
-        }
-        set
-        {
-            this.minorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int patchLevel
-    {
-        get
-        {
-            return this.patchLevelField;
-        }
-        set
-        {
-            this.patchLevelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
     public string version
     {
         get
@@ -3824,107 +1566,107 @@ public partial class vddkVersion
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
 [System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum extensionManagerOperation
+{
+    
+    /// <remarks/>
+    REGISTER,
+    
+    /// <remarks/>
+    REMOVE,
+    
+    /// <remarks/>
+    UPDATE,
+    
+    /// <remarks/>
+    FORCE_UPDATE,
+    
+    /// <remarks/>
+    CHECK,
+    
+    /// <remarks/>
+    NONE,
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionConnectFileRepository))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionConnectAwsS3Repository))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serverInfo
+public abstract partial class abstractResultActionConnectRepository : resultAction
 {
     
-    private string bigEndianBiosUuidField;
+    private bool connectedField;
     
-    private string extendedVersionField;
-    
-    private string hostnameField;
-    
-    private string serverBiosUuidField;
-    
-    private string serverIpField;
-    
-    private string serverOsField;
+    private string nameField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string bigEndianBiosUuid
+    public bool connected
     {
         get
         {
-            return this.bigEndianBiosUuidField;
+            return this.connectedField;
         }
         set
         {
-            this.bigEndianBiosUuidField = value;
+            this.connectedField = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string extendedVersion
+    public string name
     {
         get
         {
-            return this.extendedVersionField;
+            return this.nameField;
         }
         set
         {
-            this.extendedVersionField = value;
+            this.nameField = value;
         }
     }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionConnectFileRepository : abstractResultActionConnectRepository
+{
+    
+    private fileRepositoryOptions optionsField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string hostname
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public fileRepositoryOptions options
     {
         get
         {
-            return this.hostnameField;
+            return this.optionsField;
         }
         set
         {
-            this.hostnameField = value;
+            this.optionsField = value;
         }
     }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string serverBiosUuid
-    {
-        get
-        {
-            return this.serverBiosUuidField;
-        }
-        set
-        {
-            this.serverBiosUuidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public string serverIp
-    {
-        get
-        {
-            return this.serverIpField;
-        }
-        set
-        {
-            this.serverIpField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string serverOs
-    {
-        get
-        {
-            return this.serverOsField;
-        }
-        set
-        {
-            this.serverOsField = value;
-        }
-    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class fileRepositoryOptions : repositoryOptions
+{
 }
 
 /// <remarks/>
@@ -3941,6 +1683,8 @@ public abstract partial class repositoryOptions
     private bool activeField;
     
     private string nameField;
+    
+    private string rootField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -3969,16 +1713,20 @@ public abstract partial class repositoryOptions
             this.nameField = value;
         }
     }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class fileRepositoryOptions : repositoryOptions
-{
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string root
+    {
+        get
+        {
+            return this.rootField;
+        }
+        set
+        {
+            this.rootField = value;
+        }
+    }
 }
 
 /// <remarks/>
@@ -4067,6 +1815,781 @@ public partial class awsS3RepositoryOptions : repositoryOptions
         set
         {
             this.secretKeyField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionConnectAwsS3Repository : abstractResultActionConnectRepository
+{
+    
+    private awsS3RepositoryOptions optionsField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public awsS3RepositoryOptions options
+    {
+        get
+        {
+            return this.optionsField;
+        }
+        set
+        {
+            this.optionsField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveShow))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveCheckGeneration))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveIvdStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVmStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVappStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemovedProfile))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemoveGeneration))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionArchiveWithSubOperations))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveCheckGenerationWithDependencies))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemoveGenerationWithDependencies))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveItem))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveItemsList))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public abstract partial class abstractResultActionArchive : resultAction
+{
+    
+    private string targetNameField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string targetName
+    {
+        get
+        {
+            return this.targetNameField;
+        }
+        set
+        {
+            this.targetNameField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionArchiveShow : abstractResultActionArchive
+{
+    
+    private archiveObjects archiveObjectField;
+    
+    private bool archiveObjectFieldSpecified;
+    
+    private string contentField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public archiveObjects archiveObject
+    {
+        get
+        {
+            return this.archiveObjectField;
+        }
+        set
+        {
+            this.archiveObjectField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool archiveObjectSpecified
+    {
+        get
+        {
+            return this.archiveObjectFieldSpecified;
+        }
+        set
+        {
+            this.archiveObjectFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string content
+    {
+        get
+        {
+            return this.contentField;
+        }
+        set
+        {
+            this.contentField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum archiveObjects
+{
+    
+    /// <remarks/>
+    GLOBALPROFILE,
+    
+    /// <remarks/>
+    FCOPROFILE,
+    
+    /// <remarks/>
+    GENERATIONPROFILE,
+    
+    /// <remarks/>
+    VMXFILE,
+    
+    /// <remarks/>
+    REPORTFILE,
+    
+    /// <remarks/>
+    MD5FILE,
+    
+    /// <remarks/>
+    VAPPCONFIG,
+    
+    /// <remarks/>
+    NONE,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionArchiveCheckGeneration : abstractResultActionArchive
+{
+    
+    private generetionDependenciesInfo dependenciesInfoField;
+    
+    private generetionDependenciesInfo[] dependentsField;
+    
+    private int genIdField;
+    
+    private System.Nullable<bool>[] md5fileCheckField;
+    
+    private int numOfFilesField;
+    
+    private long timestampMsField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public generetionDependenciesInfo dependenciesInfo
+    {
+        get
+        {
+            return this.dependenciesInfoField;
+        }
+        set
+        {
+            this.dependenciesInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("dependents", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+    public generetionDependenciesInfo[] dependents
+    {
+        get
+        {
+            return this.dependentsField;
+        }
+        set
+        {
+            this.dependentsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int genId
+    {
+        get
+        {
+            return this.genIdField;
+        }
+        set
+        {
+            this.genIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("md5fileCheck", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public System.Nullable<bool>[] md5fileCheck
+    {
+        get
+        {
+            return this.md5fileCheckField;
+        }
+        set
+        {
+            this.md5fileCheckField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int numOfFiles
+    {
+        get
+        {
+            return this.numOfFilesField;
+        }
+        set
+        {
+            this.numOfFilesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public long timestampMs
+    {
+        get
+        {
+            return this.timestampMsField;
+        }
+        set
+        {
+            this.timestampMsField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class generetionDependenciesInfo
+{
+    
+    private int dependOnGenerationIdField;
+    
+    private generation dependingGenerationIdField;
+    
+    private bool existField;
+    
+    private int genIdField;
+    
+    private backupMode modeField;
+    
+    private bool modeFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public int dependOnGenerationId
+    {
+        get
+        {
+            return this.dependOnGenerationIdField;
+        }
+        set
+        {
+            this.dependOnGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public generation dependingGenerationId
+    {
+        get
+        {
+            return this.dependingGenerationIdField;
+        }
+        set
+        {
+            this.dependingGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public bool exist
+    {
+        get
+        {
+            return this.existField;
+        }
+        set
+        {
+            this.existField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int genId
+    {
+        get
+        {
+            return this.genIdField;
+        }
+        set
+        {
+            this.genIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public backupMode mode
+    {
+        get
+        {
+            return this.modeField;
+        }
+        set
+        {
+            this.modeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool modeSpecified
+    {
+        get
+        {
+            return this.modeFieldSpecified;
+        }
+        set
+        {
+            this.modeFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class generation
+{
+    
+    private backupMode backupModeField;
+    
+    private bool backupModeFieldSpecified;
+    
+    private int dependingOnGenerationIdField;
+    
+    private bool dependingOnGenerationIdFieldSpecified;
+    
+    private int genIdField;
+    
+    private bool genIdFieldSpecified;
+    
+    private bool succeededField;
+    
+    private System.DateTime timestampField;
+    
+    private bool timestampFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public backupMode backupMode
+    {
+        get
+        {
+            return this.backupModeField;
+        }
+        set
+        {
+            this.backupModeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool backupModeSpecified
+    {
+        get
+        {
+            return this.backupModeFieldSpecified;
+        }
+        set
+        {
+            this.backupModeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public int dependingOnGenerationId
+    {
+        get
+        {
+            return this.dependingOnGenerationIdField;
+        }
+        set
+        {
+            this.dependingOnGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool dependingOnGenerationIdSpecified
+    {
+        get
+        {
+            return this.dependingOnGenerationIdFieldSpecified;
+        }
+        set
+        {
+            this.dependingOnGenerationIdFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int genId
+    {
+        get
+        {
+            return this.genIdField;
+        }
+        set
+        {
+            this.genIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool genIdSpecified
+    {
+        get
+        {
+            return this.genIdFieldSpecified;
+        }
+        set
+        {
+            this.genIdFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public bool succeeded
+    {
+        get
+        {
+            return this.succeededField;
+        }
+        set
+        {
+            this.succeededField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public System.DateTime timestamp
+    {
+        get
+        {
+            return this.timestampField;
+        }
+        set
+        {
+            this.timestampField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool timestampSpecified
+    {
+        get
+        {
+            return this.timestampFieldSpecified;
+        }
+        set
+        {
+            this.timestampFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum backupMode
+{
+    
+    /// <remarks/>
+    FULL,
+    
+    /// <remarks/>
+    INCREMENTAL,
+    
+    /// <remarks/>
+    MIXED,
+    
+    /// <remarks/>
+    UNKNOW,
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveIvdStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVmStatus))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVappStatus))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public abstract partial class resultActionArchiveStatus : abstractResultActionArchive
+{
+    
+    private bool availableField;
+    
+    private bool emptyField;
+    
+    private string generationStatusField;
+    
+    private int latestSucceededGenerationIdField;
+    
+    private int numOfGenerationField;
+    
+    private int numOfSuccceededGenerationField;
+    
+    private statusProfilePhases phaseField;
+    
+    private bool phaseFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool available
+    {
+        get
+        {
+            return this.availableField;
+        }
+        set
+        {
+            this.availableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool empty
+    {
+        get
+        {
+            return this.emptyField;
+        }
+        set
+        {
+            this.emptyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string generationStatus
+    {
+        get
+        {
+            return this.generationStatusField;
+        }
+        set
+        {
+            this.generationStatusField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int latestSucceededGenerationId
+    {
+        get
+        {
+            return this.latestSucceededGenerationIdField;
+        }
+        set
+        {
+            this.latestSucceededGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int numOfGeneration
+    {
+        get
+        {
+            return this.numOfGenerationField;
+        }
+        set
+        {
+            this.numOfGenerationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public int numOfSuccceededGeneration
+    {
+        get
+        {
+            return this.numOfSuccceededGenerationField;
+        }
+        set
+        {
+            this.numOfSuccceededGenerationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public statusProfilePhases phase
+    {
+        get
+        {
+            return this.phaseField;
+        }
+        set
+        {
+            this.phaseField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool phaseSpecified
+    {
+        get
+        {
+            return this.phaseFieldSpecified;
+        }
+        set
+        {
+            this.phaseFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum statusProfilePhases
+{
+    
+    /// <remarks/>
+    NONE,
+    
+    /// <remarks/>
+    START,
+    
+    /// <remarks/>
+    START_ACCESS_ARCHIVE,
+    
+    /// <remarks/>
+    END_ACCESS_ARCHIVE,
+    
+    /// <remarks/>
+    START_RETRIEVE_GENERATIONS,
+    
+    /// <remarks/>
+    END_RETRIEVE_GENERATIONS,
+    
+    /// <remarks/>
+    START_RETRIEVE_GENERATIONS_INFO,
+    
+    /// <remarks/>
+    START_RETRIEVE_GENERATION_INFO,
+    
+    /// <remarks/>
+    END_RETRIEVE_GENERATION_INFO,
+    
+    /// <remarks/>
+    END_RETRIEVE_GENERATIONS_INFO,
+    
+    /// <remarks/>
+    END,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionArchiveIvdStatus : resultActionArchiveStatus
+{
+    
+    private generationDiskInfo[] generationDiskInfoField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("generationDiskInfo", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+    public generationDiskInfo[] generationDiskInfo
+    {
+        get
+        {
+            return this.generationDiskInfoField;
+        }
+        set
+        {
+            this.generationDiskInfoField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class generationDiskInfo : generationStatusInfo
+{
+    
+    private statusDiskInfo disksInfoField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public statusDiskInfo disksInfo
+    {
+        get
+        {
+            return this.disksInfoField;
+        }
+        set
+        {
+            this.disksInfoField = value;
         }
     }
 }
@@ -4399,32 +2922,6 @@ public abstract partial class generationStatusInfo
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class generationDiskInfo : generationStatusInfo
-{
-    
-    private statusDiskInfo disksInfoField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public statusDiskInfo disksInfo
-    {
-        get
-        {
-            return this.disksInfoField;
-        }
-        set
-        {
-            this.disksInfoField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
 public partial class generationDisksInfoList : generationStatusInfo
 {
     
@@ -4467,3367 +2964,6 @@ public partial class generationVirtualMachinesInfoList : generationStatusInfo
         set
         {
             this.vmsInfoListField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class generation
-{
-    
-    private backupMode backupModeField;
-    
-    private bool backupModeFieldSpecified;
-    
-    private int dependingOnGenerationIdField;
-    
-    private bool dependingOnGenerationIdFieldSpecified;
-    
-    private int genIdField;
-    
-    private bool genIdFieldSpecified;
-    
-    private bool succeededField;
-    
-    private System.DateTime timestampField;
-    
-    private bool timestampFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public backupMode backupMode
-    {
-        get
-        {
-            return this.backupModeField;
-        }
-        set
-        {
-            this.backupModeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool backupModeSpecified
-    {
-        get
-        {
-            return this.backupModeFieldSpecified;
-        }
-        set
-        {
-            this.backupModeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public int dependingOnGenerationId
-    {
-        get
-        {
-            return this.dependingOnGenerationIdField;
-        }
-        set
-        {
-            this.dependingOnGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool dependingOnGenerationIdSpecified
-    {
-        get
-        {
-            return this.dependingOnGenerationIdFieldSpecified;
-        }
-        set
-        {
-            this.dependingOnGenerationIdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int genId
-    {
-        get
-        {
-            return this.genIdField;
-        }
-        set
-        {
-            this.genIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool genIdSpecified
-    {
-        get
-        {
-            return this.genIdFieldSpecified;
-        }
-        set
-        {
-            this.genIdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public bool succeeded
-    {
-        get
-        {
-            return this.succeededField;
-        }
-        set
-        {
-            this.succeededField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public System.DateTime timestamp
-    {
-        get
-        {
-            return this.timestampField;
-        }
-        set
-        {
-            this.timestampField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool timestampSpecified
-    {
-        get
-        {
-            return this.timestampFieldSpecified;
-        }
-        set
-        {
-            this.timestampFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class generetionDependenciesInfo
-{
-    
-    private int dependOnGenerationIdField;
-    
-    private generation dependingGenerationIdField;
-    
-    private bool existField;
-    
-    private int genIdField;
-    
-    private backupMode modeField;
-    
-    private bool modeFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public int dependOnGenerationId
-    {
-        get
-        {
-            return this.dependOnGenerationIdField;
-        }
-        set
-        {
-            this.dependOnGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public generation dependingGenerationId
-    {
-        get
-        {
-            return this.dependingGenerationIdField;
-        }
-        set
-        {
-            this.dependingGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public bool exist
-    {
-        get
-        {
-            return this.existField;
-        }
-        set
-        {
-            this.existField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int genId
-    {
-        get
-        {
-            return this.genIdField;
-        }
-        set
-        {
-            this.genIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public backupMode mode
-    {
-        get
-        {
-            return this.modeField;
-        }
-        set
-        {
-            this.modeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool modeSpecified
-    {
-        get
-        {
-            return this.modeFieldSpecified;
-        }
-        set
-        {
-            this.modeFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class infoData
-{
-    
-    private entityType entityTypeField;
-    
-    private bool entityTypeFieldSpecified;
-    
-    private bool fullField;
-    
-    private int latestGenerationIdField;
-    
-    private int latestSucceededGenerationIdField;
-    
-    private string morefField;
-    
-    private string nameField;
-    
-    private long timestampMsOfLatestGenerationIdField;
-    
-    private long timestampMsOfLatestSucceededGenerationIdField;
-    
-    private string timestampOfLatestGenerationIdField;
-    
-    private string timestampOfLatestSucceededGenerationIdField;
-    
-    private string uuidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public entityType entityType
-    {
-        get
-        {
-            return this.entityTypeField;
-        }
-        set
-        {
-            this.entityTypeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool entityTypeSpecified
-    {
-        get
-        {
-            return this.entityTypeFieldSpecified;
-        }
-        set
-        {
-            this.entityTypeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool full
-    {
-        get
-        {
-            return this.fullField;
-        }
-        set
-        {
-            this.fullField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int latestGenerationId
-    {
-        get
-        {
-            return this.latestGenerationIdField;
-        }
-        set
-        {
-            this.latestGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int latestSucceededGenerationId
-    {
-        get
-        {
-            return this.latestSucceededGenerationIdField;
-        }
-        set
-        {
-            this.latestSucceededGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public string moref
-    {
-        get
-        {
-            return this.morefField;
-        }
-        set
-        {
-            this.morefField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public long timestampMsOfLatestGenerationId
-    {
-        get
-        {
-            return this.timestampMsOfLatestGenerationIdField;
-        }
-        set
-        {
-            this.timestampMsOfLatestGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public long timestampMsOfLatestSucceededGenerationId
-    {
-        get
-        {
-            return this.timestampMsOfLatestSucceededGenerationIdField;
-        }
-        set
-        {
-            this.timestampMsOfLatestSucceededGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public string timestampOfLatestGenerationId
-    {
-        get
-        {
-            return this.timestampOfLatestGenerationIdField;
-        }
-        set
-        {
-            this.timestampOfLatestGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string timestampOfLatestSucceededGenerationId
-    {
-        get
-        {
-            return this.timestampOfLatestSucceededGenerationIdField;
-        }
-        set
-        {
-            this.timestampOfLatestSucceededGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-    public string uuid
-    {
-        get
-        {
-            return this.uuidField;
-        }
-        set
-        {
-            this.uuidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableManagedByInfo
-{
-    
-    private string extensionKeyField;
-    
-    private string typeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string extensionKey
-    {
-        get
-        {
-            return this.extensionKeyField;
-        }
-        set
-        {
-            this.extensionKeyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
-        {
-            this.typeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppEntityConfigInfo
-{
-    
-    private bool destroyWithParentField;
-    
-    private bool destroyWithParentFieldSpecified;
-    
-    private string keyField;
-    
-    private string startActionField;
-    
-    private int startDelayField;
-    
-    private bool startDelayFieldSpecified;
-    
-    private int startOrderField;
-    
-    private bool startOrderFieldSpecified;
-    
-    private string stopActionField;
-    
-    private int stopDelayField;
-    
-    private bool stopDelayFieldSpecified;
-    
-    private string tagField;
-    
-    private entityType typeField;
-    
-    private bool typeFieldSpecified;
-    
-    private bool waitingForGuestField;
-    
-    private bool waitingForGuestFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool destroyWithParent
-    {
-        get
-        {
-            return this.destroyWithParentField;
-        }
-        set
-        {
-            this.destroyWithParentField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool destroyWithParentSpecified
-    {
-        get
-        {
-            return this.destroyWithParentFieldSpecified;
-        }
-        set
-        {
-            this.destroyWithParentFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string startAction
-    {
-        get
-        {
-            return this.startActionField;
-        }
-        set
-        {
-            this.startActionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int startDelay
-    {
-        get
-        {
-            return this.startDelayField;
-        }
-        set
-        {
-            this.startDelayField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool startDelaySpecified
-    {
-        get
-        {
-            return this.startDelayFieldSpecified;
-        }
-        set
-        {
-            this.startDelayFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int startOrder
-    {
-        get
-        {
-            return this.startOrderField;
-        }
-        set
-        {
-            this.startOrderField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool startOrderSpecified
-    {
-        get
-        {
-            return this.startOrderFieldSpecified;
-        }
-        set
-        {
-            this.startOrderFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string stopAction
-    {
-        get
-        {
-            return this.stopActionField;
-        }
-        set
-        {
-            this.stopActionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public int stopDelay
-    {
-        get
-        {
-            return this.stopDelayField;
-        }
-        set
-        {
-            this.stopDelayField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool stopDelaySpecified
-    {
-        get
-        {
-            return this.stopDelayFieldSpecified;
-        }
-        set
-        {
-            this.stopDelayFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public string tag
-    {
-        get
-        {
-            return this.tagField;
-        }
-        set
-        {
-            this.tagField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public entityType type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
-        {
-            this.typeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool typeSpecified
-    {
-        get
-        {
-            return this.typeFieldSpecified;
-        }
-        set
-        {
-            this.typeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public bool waitingForGuest
-    {
-        get
-        {
-            return this.waitingForGuestField;
-        }
-        set
-        {
-            this.waitingForGuestField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool waitingForGuestSpecified
-    {
-        get
-        {
-            return this.waitingForGuestFieldSpecified;
-        }
-        set
-        {
-            this.waitingForGuestFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppPropertyInfo
-{
-    
-    private string categoryField;
-    
-    private string classIdField;
-    
-    private string defaultValueField;
-    
-    private string descriptionField;
-    
-    private string idField;
-    
-    private string instanceIdField;
-    
-    private int keyField;
-    
-    private string labelField;
-    
-    private string typeField;
-    
-    private string typeReferenceField;
-    
-    private bool userConfigurableField;
-    
-    private bool userConfigurableFieldSpecified;
-    
-    private string valueField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string category
-    {
-        get
-        {
-            return this.categoryField;
-        }
-        set
-        {
-            this.categoryField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string classId
-    {
-        get
-        {
-            return this.classIdField;
-        }
-        set
-        {
-            this.classIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string defaultValue
-    {
-        get
-        {
-            return this.defaultValueField;
-        }
-        set
-        {
-            this.defaultValueField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string description
-    {
-        get
-        {
-            return this.descriptionField;
-        }
-        set
-        {
-            this.descriptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public string id
-    {
-        get
-        {
-            return this.idField;
-        }
-        set
-        {
-            this.idField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string instanceId
-    {
-        get
-        {
-            return this.instanceIdField;
-        }
-        set
-        {
-            this.instanceIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public int key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public string label
-    {
-        get
-        {
-            return this.labelField;
-        }
-        set
-        {
-            this.labelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public string type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
-        {
-            this.typeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string typeReference
-    {
-        get
-        {
-            return this.typeReferenceField;
-        }
-        set
-        {
-            this.typeReferenceField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-    public bool userConfigurable
-    {
-        get
-        {
-            return this.userConfigurableField;
-        }
-        set
-        {
-            this.userConfigurableField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool userConfigurableSpecified
-    {
-        get
-        {
-            return this.userConfigurableFieldSpecified;
-        }
-        set
-        {
-            this.userConfigurableFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-    public string value
-    {
-        get
-        {
-            return this.valueField;
-        }
-        set
-        {
-            this.valueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppProductInfo
-{
-    
-    private string appUrlField;
-    
-    private string classIdField;
-    
-    private string fullVersionField;
-    
-    private string instanceIdField;
-    
-    private int keyField;
-    
-    private string nameField;
-    
-    private string productUrlField;
-    
-    private string vendorField;
-    
-    private string vendorUrlField;
-    
-    private string versionField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string appUrl
-    {
-        get
-        {
-            return this.appUrlField;
-        }
-        set
-        {
-            this.appUrlField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string classId
-    {
-        get
-        {
-            return this.classIdField;
-        }
-        set
-        {
-            this.classIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string fullVersion
-    {
-        get
-        {
-            return this.fullVersionField;
-        }
-        set
-        {
-            this.fullVersionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string instanceId
-    {
-        get
-        {
-            return this.instanceIdField;
-        }
-        set
-        {
-            this.instanceIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public string productUrl
-    {
-        get
-        {
-            return this.productUrlField;
-        }
-        set
-        {
-            this.productUrlField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public string vendor
-    {
-        get
-        {
-            return this.vendorField;
-        }
-        set
-        {
-            this.vendorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public string vendorUrl
-    {
-        get
-        {
-            return this.vendorUrlField;
-        }
-        set
-        {
-            this.vendorUrlField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string version
-    {
-        get
-        {
-            return this.versionField;
-        }
-        set
-        {
-            this.versionField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppOvfSectionInfo
-{
-    
-    private bool atEnvelopeLevelField;
-    
-    private bool atEnvelopeLevelFieldSpecified;
-    
-    private string contentsField;
-    
-    private int keyField;
-    
-    private bool keyFieldSpecified;
-    
-    private string namespaceField;
-    
-    private string typeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool atEnvelopeLevel
-    {
-        get
-        {
-            return this.atEnvelopeLevelField;
-        }
-        set
-        {
-            this.atEnvelopeLevelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool atEnvelopeLevelSpecified
-    {
-        get
-        {
-            return this.atEnvelopeLevelFieldSpecified;
-        }
-        set
-        {
-            this.atEnvelopeLevelFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string contents
-    {
-        get
-        {
-            return this.contentsField;
-        }
-        set
-        {
-            this.contentsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int key
-    {
-        get
-        {
-            return this.keyField;
-        }
-        set
-        {
-            this.keyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool keySpecified
-    {
-        get
-        {
-            return this.keyFieldSpecified;
-        }
-        set
-        {
-            this.keyFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string @namespace
-    {
-        get
-        {
-            return this.namespaceField;
-        }
-        set
-        {
-            this.namespaceField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public string type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
-        {
-            this.typeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppIPAssignmentInfo
-{
-    
-    private string ipAllocationPolicyField;
-    
-    private string ipProtocolField;
-    
-    private string[] supportedAllocationSchemeField;
-    
-    private string[] supportedIpProtocolField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string ipAllocationPolicy
-    {
-        get
-        {
-            return this.ipAllocationPolicyField;
-        }
-        set
-        {
-            this.ipAllocationPolicyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string ipProtocol
-    {
-        get
-        {
-            return this.ipProtocolField;
-        }
-        set
-        {
-            this.ipProtocolField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("supportedAllocationScheme", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-    public string[] supportedAllocationScheme
-    {
-        get
-        {
-            return this.supportedAllocationSchemeField;
-        }
-        set
-        {
-            this.supportedAllocationSchemeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("supportedIpProtocol", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public string[] supportedIpProtocol
-    {
-        get
-        {
-            return this.supportedIpProtocolField;
-        }
-        set
-        {
-            this.supportedIpProtocolField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(serializableVAppConfigInfo))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVmConfigInfo
-{
-    
-    private string[] eulaField;
-    
-    private bool installBootRequiredField;
-    
-    private int installBootStopDelayField;
-    
-    private serializableVAppIPAssignmentInfo ipAssignmentField;
-    
-    private string[] ovfEnvironmentTransportField;
-    
-    private serializableVAppOvfSectionInfo[] ovfSectionField;
-    
-    private serializableVAppProductInfo[] productField;
-    
-    private serializableVAppPropertyInfo[] propertyField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("eula", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-    public string[] eula
-    {
-        get
-        {
-            return this.eulaField;
-        }
-        set
-        {
-            this.eulaField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool installBootRequired
-    {
-        get
-        {
-            return this.installBootRequiredField;
-        }
-        set
-        {
-            this.installBootRequiredField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int installBootStopDelay
-    {
-        get
-        {
-            return this.installBootStopDelayField;
-        }
-        set
-        {
-            this.installBootStopDelayField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public serializableVAppIPAssignmentInfo ipAssignment
-    {
-        get
-        {
-            return this.ipAssignmentField;
-        }
-        set
-        {
-            this.ipAssignmentField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("ovfEnvironmentTransport", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
-    public string[] ovfEnvironmentTransport
-    {
-        get
-        {
-            return this.ovfEnvironmentTransportField;
-        }
-        set
-        {
-            this.ovfEnvironmentTransportField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("ovfSection", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
-    public serializableVAppOvfSectionInfo[] ovfSection
-    {
-        get
-        {
-            return this.ovfSectionField;
-        }
-        set
-        {
-            this.ovfSectionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("product", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
-    public serializableVAppProductInfo[] product
-    {
-        get
-        {
-            return this.productField;
-        }
-        set
-        {
-            this.productField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("property", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
-    public serializableVAppPropertyInfo[] property
-    {
-        get
-        {
-            return this.propertyField;
-        }
-        set
-        {
-            this.propertyField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class serializableVAppConfigInfo : serializableVmConfigInfo
-{
-    
-    private string annotationField;
-    
-    private serializableVAppEntityConfigInfo[] entityConfigField;
-    
-    private string instanceUuidField;
-    
-    private serializableManagedByInfo managedByField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string annotation
-    {
-        get
-        {
-            return this.annotationField;
-        }
-        set
-        {
-            this.annotationField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("entityConfig", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-    public serializableVAppEntityConfigInfo[] entityConfig
-    {
-        get
-        {
-            return this.entityConfigField;
-        }
-        set
-        {
-            this.entityConfigField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string instanceUuid
-    {
-        get
-        {
-            return this.instanceUuidField;
-        }
-        set
-        {
-            this.instanceUuidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public serializableManagedByInfo managedBy
-    {
-        get
-        {
-            return this.managedByField;
-        }
-        set
-        {
-            this.managedByField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreIvdManagedInfo))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreVappManagedInfo))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreVmManagedInfo))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreManagedInfo
-{
-    
-    private managedEntityInfo dcInfoField;
-    
-    private string nameField;
-    
-    private bool recoveryField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo dcInfo
-    {
-        get
-        {
-            return this.dcInfoField;
-        }
-        set
-        {
-            this.dcInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public bool recovery
-    {
-        get
-        {
-            return this.recoveryField;
-        }
-        set
-        {
-            this.recoveryField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreIvdManagedInfo : restoreManagedInfo
-{
-    
-    private managedEntityInfo datastoreInfoField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo datastoreInfo
-    {
-        get
-        {
-            return this.datastoreInfoField;
-        }
-        set
-        {
-            this.datastoreInfoField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreVappManagedInfo : restoreManagedInfo
-{
-    
-    private managedEntityInfo folderInfoField;
-    
-    private managedEntityInfo resourcePoolInfoField;
-    
-    private serializableVAppConfigInfo vAppConfigField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo folderInfo
-    {
-        get
-        {
-            return this.folderInfoField;
-        }
-        set
-        {
-            this.folderInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public managedEntityInfo resourcePoolInfo
-    {
-        get
-        {
-            return this.resourcePoolInfoField;
-        }
-        set
-        {
-            this.resourcePoolInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public serializableVAppConfigInfo vAppConfig
-    {
-        get
-        {
-            return this.vAppConfigField;
-        }
-        set
-        {
-            this.vAppConfigField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class restoreVmManagedInfo : restoreManagedInfo
-{
-    
-    private managedEntityInfo dsInfoField;
-    
-    private managedEntityInfo folderInfoField;
-    
-    private managedEntityInfo hostInfoField;
-    
-    private managedEntityInfo[] networkMappingField;
-    
-    private managedEntityInfo resourcePoolInfoField;
-    
-    private serializableVAppConfigInfo vAppConfigField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo dsInfo
-    {
-        get
-        {
-            return this.dsInfoField;
-        }
-        set
-        {
-            this.dsInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public managedEntityInfo folderInfo
-    {
-        get
-        {
-            return this.folderInfoField;
-        }
-        set
-        {
-            this.folderInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public managedEntityInfo hostInfo
-    {
-        get
-        {
-            return this.hostInfoField;
-        }
-        set
-        {
-            this.hostInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("networkMapping", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public managedEntityInfo[] networkMapping
-    {
-        get
-        {
-            return this.networkMappingField;
-        }
-        set
-        {
-            this.networkMappingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public managedEntityInfo resourcePoolInfo
-    {
-        get
-        {
-            return this.resourcePoolInfoField;
-        }
-        set
-        {
-            this.resourcePoolInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public serializableVAppConfigInfo vAppConfig
-    {
-        get
-        {
-            return this.vAppConfigField;
-        }
-        set
-        {
-            this.vAppConfigField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class guestInfoFlags
-{
-    
-    private bool changeTrackingEnabledField;
-    
-    private bool changeTrackingEnabledFieldSpecified;
-    
-    private bool configurationEncryptedField;
-    
-    private bool configurationEncryptedFieldSpecified;
-    
-    private bool diskUuidEnabledField;
-    
-    private bool diskUuidEnabledFieldSpecified;
-    
-    private string guestFullNameField;
-    
-    private int numberOfVirtualDiskField;
-    
-    private bool numberOfVirtualDiskFieldSpecified;
-    
-    private bool templateField;
-    
-    private bool vbsEnabledField;
-    
-    private bool vbsEnabledFieldSpecified;
-    
-    private string vmPathNameField;
-    
-    private bool vAppConfigAvailableField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool changeTrackingEnabled
-    {
-        get
-        {
-            return this.changeTrackingEnabledField;
-        }
-        set
-        {
-            this.changeTrackingEnabledField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool changeTrackingEnabledSpecified
-    {
-        get
-        {
-            return this.changeTrackingEnabledFieldSpecified;
-        }
-        set
-        {
-            this.changeTrackingEnabledFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool configurationEncrypted
-    {
-        get
-        {
-            return this.configurationEncryptedField;
-        }
-        set
-        {
-            this.configurationEncryptedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool configurationEncryptedSpecified
-    {
-        get
-        {
-            return this.configurationEncryptedFieldSpecified;
-        }
-        set
-        {
-            this.configurationEncryptedFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public bool diskUuidEnabled
-    {
-        get
-        {
-            return this.diskUuidEnabledField;
-        }
-        set
-        {
-            this.diskUuidEnabledField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool diskUuidEnabledSpecified
-    {
-        get
-        {
-            return this.diskUuidEnabledFieldSpecified;
-        }
-        set
-        {
-            this.diskUuidEnabledFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string guestFullName
-    {
-        get
-        {
-            return this.guestFullNameField;
-        }
-        set
-        {
-            this.guestFullNameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int numberOfVirtualDisk
-    {
-        get
-        {
-            return this.numberOfVirtualDiskField;
-        }
-        set
-        {
-            this.numberOfVirtualDiskField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool numberOfVirtualDiskSpecified
-    {
-        get
-        {
-            return this.numberOfVirtualDiskFieldSpecified;
-        }
-        set
-        {
-            this.numberOfVirtualDiskFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public bool template
-    {
-        get
-        {
-            return this.templateField;
-        }
-        set
-        {
-            this.templateField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public bool vbsEnabled
-    {
-        get
-        {
-            return this.vbsEnabledField;
-        }
-        set
-        {
-            this.vbsEnabledField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool vbsEnabledSpecified
-    {
-        get
-        {
-            return this.vbsEnabledFieldSpecified;
-        }
-        set
-        {
-            this.vbsEnabledFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public string vmPathName
-    {
-        get
-        {
-            return this.vmPathNameField;
-        }
-        set
-        {
-            this.vmPathNameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public bool vAppConfigAvailable
-    {
-        get
-        {
-            return this.vAppConfigAvailableField;
-        }
-        set
-        {
-            this.vAppConfigAvailableField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(vmLocation))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(vappLocation))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ivdLocation))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class fcoLocation
-{
-    
-    private managedEntityInfo datacenterInfoField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo datacenterInfo
-    {
-        get
-        {
-            return this.datacenterInfoField;
-        }
-        set
-        {
-            this.datacenterInfoField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class vmLocation : fcoLocation
-{
-    
-    private managedEntityInfo datastoreInfoField;
-    
-    private string datastorePathField;
-    
-    private string resourcePoolFullPathField;
-    
-    private managedEntityInfo resourcePoolInfoField;
-    
-    private managedEntityInfo[] resourcePoolPathField;
-    
-    private string vmFolderFullPathField;
-    
-    private managedEntityInfo vmFolderInfoField;
-    
-    private managedEntityInfo[] vmFolderPathField;
-    
-    private string vmxFileNameField;
-    
-    private string vmxFullPathField;
-    
-    private bool vAppMemberField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo datastoreInfo
-    {
-        get
-        {
-            return this.datastoreInfoField;
-        }
-        set
-        {
-            this.datastoreInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string datastorePath
-    {
-        get
-        {
-            return this.datastorePathField;
-        }
-        set
-        {
-            this.datastorePathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string resourcePoolFullPath
-    {
-        get
-        {
-            return this.resourcePoolFullPathField;
-        }
-        set
-        {
-            this.resourcePoolFullPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public managedEntityInfo resourcePoolInfo
-    {
-        get
-        {
-            return this.resourcePoolInfoField;
-        }
-        set
-        {
-            this.resourcePoolInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("resourcePoolPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
-    public managedEntityInfo[] resourcePoolPath
-    {
-        get
-        {
-            return this.resourcePoolPathField;
-        }
-        set
-        {
-            this.resourcePoolPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public string vmFolderFullPath
-    {
-        get
-        {
-            return this.vmFolderFullPathField;
-        }
-        set
-        {
-            this.vmFolderFullPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public managedEntityInfo vmFolderInfo
-    {
-        get
-        {
-            return this.vmFolderInfoField;
-        }
-        set
-        {
-            this.vmFolderInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("vmFolderPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
-    public managedEntityInfo[] vmFolderPath
-    {
-        get
-        {
-            return this.vmFolderPathField;
-        }
-        set
-        {
-            this.vmFolderPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public string vmxFileName
-    {
-        get
-        {
-            return this.vmxFileNameField;
-        }
-        set
-        {
-            this.vmxFileNameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string vmxFullPath
-    {
-        get
-        {
-            return this.vmxFullPathField;
-        }
-        set
-        {
-            this.vmxFullPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-    public bool vAppMember
-    {
-        get
-        {
-            return this.vAppMemberField;
-        }
-        set
-        {
-            this.vAppMemberField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class vappLocation : fcoLocation
-{
-    
-    private managedEntityInfo folderInfoField;
-    
-    private string resourcePoolFullPathField;
-    
-    private managedEntityInfo resourcePoolInfoField;
-    
-    private managedEntityInfo[] resourcePoolPathField;
-    
-    private string vmFolderFullPathField;
-    
-    private managedEntityInfo[] vmFolderPathField;
-    
-    private bool vAppMemberField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo folderInfo
-    {
-        get
-        {
-            return this.folderInfoField;
-        }
-        set
-        {
-            this.folderInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string resourcePoolFullPath
-    {
-        get
-        {
-            return this.resourcePoolFullPathField;
-        }
-        set
-        {
-            this.resourcePoolFullPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public managedEntityInfo resourcePoolInfo
-    {
-        get
-        {
-            return this.resourcePoolInfoField;
-        }
-        set
-        {
-            this.resourcePoolInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("resourcePoolPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public managedEntityInfo[] resourcePoolPath
-    {
-        get
-        {
-            return this.resourcePoolPathField;
-        }
-        set
-        {
-            this.resourcePoolPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public string vmFolderFullPath
-    {
-        get
-        {
-            return this.vmFolderFullPathField;
-        }
-        set
-        {
-            this.vmFolderFullPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("vmFolderPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
-    public managedEntityInfo[] vmFolderPath
-    {
-        get
-        {
-            return this.vmFolderPathField;
-        }
-        set
-        {
-            this.vmFolderPathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public bool vAppMember
-    {
-        get
-        {
-            return this.vAppMemberField;
-        }
-        set
-        {
-            this.vAppMemberField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class ivdLocation : fcoLocation
-{
-    
-    private managedEntityInfo datastoreInfoField;
-    
-    private string datastorePathField;
-    
-    private string vmdkFileNameField;
-    
-    private string vmdkFullPathField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public managedEntityInfo datastoreInfo
-    {
-        get
-        {
-            return this.datastoreInfoField;
-        }
-        set
-        {
-            this.datastoreInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string datastorePath
-    {
-        get
-        {
-            return this.datastorePathField;
-        }
-        set
-        {
-            this.datastorePathField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string vmdkFileName
-    {
-        get
-        {
-            return this.vmdkFileNameField;
-        }
-        set
-        {
-            this.vmdkFileNameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string vmdkFullPath
-    {
-        get
-        {
-            return this.vmdkFullPathField;
-        }
-        set
-        {
-            this.vmdkFullPathField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class generationInfo
-{
-    
-    private backupMode backupModeField;
-    
-    private bool backupModeFieldSpecified;
-    
-    private int generationIdField;
-    
-    private int previousGenerationIdField;
-    
-    private bool previousGenerationIdFieldSpecified;
-    
-    private string targetUriField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public backupMode backupMode
-    {
-        get
-        {
-            return this.backupModeField;
-        }
-        set
-        {
-            this.backupModeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool backupModeSpecified
-    {
-        get
-        {
-            return this.backupModeFieldSpecified;
-        }
-        set
-        {
-            this.backupModeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public int generationId
-    {
-        get
-        {
-            return this.generationIdField;
-        }
-        set
-        {
-            this.generationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int previousGenerationId
-    {
-        get
-        {
-            return this.previousGenerationIdField;
-        }
-        set
-        {
-            this.previousGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool previousGenerationIdSpecified
-    {
-        get
-        {
-            return this.previousGenerationIdFieldSpecified;
-        }
-        set
-        {
-            this.previousGenerationIdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public string targetUri
-    {
-        get
-        {
-            return this.targetUriField;
-        }
-        set
-        {
-            this.targetUriField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionVersion : resultAction
-{
-    
-    private string extendedVersionField;
-    
-    private string identityField;
-    
-    private string javaRuntimeField;
-    
-    private int majorField;
-    
-    private int minorField;
-    
-    private int patchLevelField;
-    
-    private string productNameField;
-    
-    private serverInfo serverInfoField;
-    
-    private vddkVersion vddkField;
-    
-    private string versionField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string extendedVersion
-    {
-        get
-        {
-            return this.extendedVersionField;
-        }
-        set
-        {
-            this.extendedVersionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string identity
-    {
-        get
-        {
-            return this.identityField;
-        }
-        set
-        {
-            this.identityField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string javaRuntime
-    {
-        get
-        {
-            return this.javaRuntimeField;
-        }
-        set
-        {
-            this.javaRuntimeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int major
-    {
-        get
-        {
-            return this.majorField;
-        }
-        set
-        {
-            this.majorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int minor
-    {
-        get
-        {
-            return this.minorField;
-        }
-        set
-        {
-            this.minorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public int patchLevel
-    {
-        get
-        {
-            return this.patchLevelField;
-        }
-        set
-        {
-            this.patchLevelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public string productName
-    {
-        get
-        {
-            return this.productNameField;
-        }
-        set
-        {
-            this.productNameField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-    public serverInfo serverInfo
-    {
-        get
-        {
-            return this.serverInfoField;
-        }
-        set
-        {
-            this.serverInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-    public vddkVersion vddk
-    {
-        get
-        {
-            return this.vddkField;
-        }
-        set
-        {
-            this.vddkField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-    public string version
-    {
-        get
-        {
-            return this.versionField;
-        }
-        set
-        {
-            this.versionField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionDisconnectSso : resultAction
-{
-    
-    private bool connectedField;
-    
-    private string ssoEndPointUrlField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool connected
-    {
-        get
-        {
-            return this.connectedField;
-        }
-        set
-        {
-            this.connectedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string ssoEndPointUrl
-    {
-        get
-        {
-            return this.ssoEndPointUrlField;
-        }
-        set
-        {
-            this.ssoEndPointUrlField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionExtension : resultAction
-{
-    
-    private bool healthInfoField;
-    
-    private extensionManagerOperation operationField;
-    
-    private bool operationFieldSpecified;
-    
-    private string versionField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool healthInfo
-    {
-        get
-        {
-            return this.healthInfoField;
-        }
-        set
-        {
-            this.healthInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public extensionManagerOperation operation
-    {
-        get
-        {
-            return this.operationField;
-        }
-        set
-        {
-            this.operationField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool operationSpecified
-    {
-        get
-        {
-            return this.operationFieldSpecified;
-        }
-        set
-        {
-            this.operationFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string version
-    {
-        get
-        {
-            return this.versionField;
-        }
-        set
-        {
-            this.versionField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionDisconnectRepository : resultAction
-{
-    
-    private string nameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionConnectAwsS3Repository))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class abstractResultActionConnectRepository : resultAction
-{
-    
-    private bool connectedField;
-    
-    private string nameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool connected
-    {
-        get
-        {
-            return this.connectedField;
-        }
-        set
-        {
-            this.connectedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionConnectAwsS3Repository : abstractResultActionConnectRepository
-{
-    
-    private awsS3RepositoryOptions optionsField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public awsS3RepositoryOptions options
-    {
-        get
-        {
-            return this.optionsField;
-        }
-        set
-        {
-            this.optionsField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveShow))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveCheckGeneration))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveIvdStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVmStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVappStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemovedProfile))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemoveGeneration))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionArchiveWithSubOperations))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveCheckGenerationWithDependencies))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveRemoveGenerationWithDependencies))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveItem))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveItemsList))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class abstractResultActionArchive : resultAction
-{
-    
-    private string targetNameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public string targetName
-    {
-        get
-        {
-            return this.targetNameField;
-        }
-        set
-        {
-            this.targetNameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionArchiveShow : abstractResultActionArchive
-{
-    
-    private archiveObjects archiveObjectField;
-    
-    private bool archiveObjectFieldSpecified;
-    
-    private string contentField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public archiveObjects archiveObject
-    {
-        get
-        {
-            return this.archiveObjectField;
-        }
-        set
-        {
-            this.archiveObjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool archiveObjectSpecified
-    {
-        get
-        {
-            return this.archiveObjectFieldSpecified;
-        }
-        set
-        {
-            this.archiveObjectFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public string content
-    {
-        get
-        {
-            return this.contentField;
-        }
-        set
-        {
-            this.contentField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionArchiveCheckGeneration : abstractResultActionArchive
-{
-    
-    private generetionDependenciesInfo dependenciesInfoField;
-    
-    private generetionDependenciesInfo[] dependentsField;
-    
-    private int genIdField;
-    
-    private System.Nullable<bool>[] md5fileCheckField;
-    
-    private int numOfFilesField;
-    
-    private long timestampMsField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public generetionDependenciesInfo dependenciesInfo
-    {
-        get
-        {
-            return this.dependenciesInfoField;
-        }
-        set
-        {
-            this.dependenciesInfoField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("dependents", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-    public generetionDependenciesInfo[] dependents
-    {
-        get
-        {
-            return this.dependentsField;
-        }
-        set
-        {
-            this.dependentsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public int genId
-    {
-        get
-        {
-            return this.genIdField;
-        }
-        set
-        {
-            this.genIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("md5fileCheck", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-    public System.Nullable<bool>[] md5fileCheck
-    {
-        get
-        {
-            return this.md5fileCheckField;
-        }
-        set
-        {
-            this.md5fileCheckField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int numOfFiles
-    {
-        get
-        {
-            return this.numOfFilesField;
-        }
-        set
-        {
-            this.numOfFilesField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public long timestampMs
-    {
-        get
-        {
-            return this.timestampMsField;
-        }
-        set
-        {
-            this.timestampMsField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveIvdStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVmStatus))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionArchiveVappStatus))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public abstract partial class resultActionArchiveStatus : abstractResultActionArchive
-{
-    
-    private bool availableField;
-    
-    private bool emptyField;
-    
-    private string generationStatusField;
-    
-    private int latestSucceededGenerationIdField;
-    
-    private int numOfGenerationField;
-    
-    private int numOfSuccceededGenerationField;
-    
-    private statusProfilePhases phaseField;
-    
-    private bool phaseFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-    public bool available
-    {
-        get
-        {
-            return this.availableField;
-        }
-        set
-        {
-            this.availableField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-    public bool empty
-    {
-        get
-        {
-            return this.emptyField;
-        }
-        set
-        {
-            this.emptyField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-    public string generationStatus
-    {
-        get
-        {
-            return this.generationStatusField;
-        }
-        set
-        {
-            this.generationStatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-    public int latestSucceededGenerationId
-    {
-        get
-        {
-            return this.latestSucceededGenerationIdField;
-        }
-        set
-        {
-            this.latestSucceededGenerationIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-    public int numOfGeneration
-    {
-        get
-        {
-            return this.numOfGenerationField;
-        }
-        set
-        {
-            this.numOfGenerationField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-    public int numOfSuccceededGeneration
-    {
-        get
-        {
-            return this.numOfSuccceededGenerationField;
-        }
-        set
-        {
-            this.numOfSuccceededGenerationField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-    public statusProfilePhases phase
-    {
-        get
-        {
-            return this.phaseField;
-        }
-        set
-        {
-            this.phaseField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool phaseSpecified
-    {
-        get
-        {
-            return this.phaseFieldSpecified;
-        }
-        set
-        {
-            this.phaseFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public enum statusProfilePhases
-{
-    
-    /// <remarks/>
-    NONE,
-    
-    /// <remarks/>
-    START,
-    
-    /// <remarks/>
-    START_ACCESS_ARCHIVE,
-    
-    /// <remarks/>
-    END_ACCESS_ARCHIVE,
-    
-    /// <remarks/>
-    START_RETRIEVE_GENERATIONS,
-    
-    /// <remarks/>
-    END_RETRIEVE_GENERATIONS,
-    
-    /// <remarks/>
-    START_RETRIEVE_GENERATIONS_INFO,
-    
-    /// <remarks/>
-    START_RETRIEVE_GENERATION_INFO,
-    
-    /// <remarks/>
-    END_RETRIEVE_GENERATION_INFO,
-    
-    /// <remarks/>
-    END_RETRIEVE_GENERATIONS_INFO,
-    
-    /// <remarks/>
-    END,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
-public partial class resultActionArchiveIvdStatus : resultActionArchiveStatus
-{
-    
-    private generationDiskInfo[] generationDiskInfoField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("generationDiskInfo", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-    public generationDiskInfo[] generationDiskInfo
-    {
-        get
-        {
-            return this.generationDiskInfoField;
-        }
-        set
-        {
-            this.generationDiskInfoField = value;
         }
     }
 }
@@ -8355,6 +3491,208 @@ public partial class resultActionArchiveItem : abstractResultActionArchive
         set
         {
             this.infoField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class infoData
+{
+    
+    private entityType entityTypeField;
+    
+    private bool entityTypeFieldSpecified;
+    
+    private bool fullField;
+    
+    private int latestGenerationIdField;
+    
+    private int latestSucceededGenerationIdField;
+    
+    private string morefField;
+    
+    private string nameField;
+    
+    private long timestampMsOfLatestGenerationIdField;
+    
+    private long timestampMsOfLatestSucceededGenerationIdField;
+    
+    private string timestampOfLatestGenerationIdField;
+    
+    private string timestampOfLatestSucceededGenerationIdField;
+    
+    private string uuidField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public entityType entityType
+    {
+        get
+        {
+            return this.entityTypeField;
+        }
+        set
+        {
+            this.entityTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool entityTypeSpecified
+    {
+        get
+        {
+            return this.entityTypeFieldSpecified;
+        }
+        set
+        {
+            this.entityTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool full
+    {
+        get
+        {
+            return this.fullField;
+        }
+        set
+        {
+            this.fullField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int latestGenerationId
+    {
+        get
+        {
+            return this.latestGenerationIdField;
+        }
+        set
+        {
+            this.latestGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int latestSucceededGenerationId
+    {
+        get
+        {
+            return this.latestSucceededGenerationIdField;
+        }
+        set
+        {
+            this.latestSucceededGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public string moref
+    {
+        get
+        {
+            return this.morefField;
+        }
+        set
+        {
+            this.morefField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public long timestampMsOfLatestGenerationId
+    {
+        get
+        {
+            return this.timestampMsOfLatestGenerationIdField;
+        }
+        set
+        {
+            this.timestampMsOfLatestGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public long timestampMsOfLatestSucceededGenerationId
+    {
+        get
+        {
+            return this.timestampMsOfLatestSucceededGenerationIdField;
+        }
+        set
+        {
+            this.timestampMsOfLatestSucceededGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string timestampOfLatestGenerationId
+    {
+        get
+        {
+            return this.timestampOfLatestGenerationIdField;
+        }
+        set
+        {
+            this.timestampOfLatestGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string timestampOfLatestSucceededGenerationId
+    {
+        get
+        {
+            return this.timestampOfLatestSucceededGenerationIdField;
+        }
+        set
+        {
+            this.timestampOfLatestSucceededGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+    public string uuid
+    {
+        get
+        {
+            return this.uuidField;
+        }
+        set
+        {
+            this.uuidField = value;
         }
     }
 }
@@ -9951,6 +5289,26 @@ public enum backupDiskPhases
 }
 
 /// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum queryBlocksOption
+{
+    
+    /// <remarks/>
+    ALLOCATED,
+    
+    /// <remarks/>
+    CHANGED_AREAS,
+    
+    /// <remarks/>
+    FULL,
+    
+    /// <remarks/>
+    UNKNOWS,
+}
+
+/// <remarks/>
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionBackupRestore))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionRestore))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionVappRestore))]
@@ -10130,6 +5488,523 @@ public abstract partial class abstractResultActionBackupRestore : abstractResult
 }
 
 /// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class generationInfo
+{
+    
+    private backupMode backupModeField;
+    
+    private bool backupModeFieldSpecified;
+    
+    private int generationIdField;
+    
+    private int previousGenerationIdField;
+    
+    private bool previousGenerationIdFieldSpecified;
+    
+    private string targetUriField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public backupMode backupMode
+    {
+        get
+        {
+            return this.backupModeField;
+        }
+        set
+        {
+            this.backupModeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool backupModeSpecified
+    {
+        get
+        {
+            return this.backupModeFieldSpecified;
+        }
+        set
+        {
+            this.backupModeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public int generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int previousGenerationId
+    {
+        get
+        {
+            return this.previousGenerationIdField;
+        }
+        set
+        {
+            this.previousGenerationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool previousGenerationIdSpecified
+    {
+        get
+        {
+            return this.previousGenerationIdFieldSpecified;
+        }
+        set
+        {
+            this.previousGenerationIdFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string targetUri
+    {
+        get
+        {
+            return this.targetUriField;
+        }
+        set
+        {
+            this.targetUriField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(vmLocation))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(vappLocation))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(ivdLocation))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public abstract partial class fcoLocation
+{
+    
+    private managedEntityInfo datacenterInfoField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo datacenterInfo
+    {
+        get
+        {
+            return this.datacenterInfoField;
+        }
+        set
+        {
+            this.datacenterInfoField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class vmLocation : fcoLocation
+{
+    
+    private managedEntityInfo datastoreInfoField;
+    
+    private string datastorePathField;
+    
+    private string resourcePoolFullPathField;
+    
+    private managedEntityInfo resourcePoolInfoField;
+    
+    private managedEntityInfo[] resourcePoolPathField;
+    
+    private string vmFolderFullPathField;
+    
+    private managedEntityInfo vmFolderInfoField;
+    
+    private managedEntityInfo[] vmFolderPathField;
+    
+    private string vmxFileNameField;
+    
+    private string vmxFullPathField;
+    
+    private bool vAppMemberField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo datastoreInfo
+    {
+        get
+        {
+            return this.datastoreInfoField;
+        }
+        set
+        {
+            this.datastoreInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string datastorePath
+    {
+        get
+        {
+            return this.datastorePathField;
+        }
+        set
+        {
+            this.datastorePathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string resourcePoolFullPath
+    {
+        get
+        {
+            return this.resourcePoolFullPathField;
+        }
+        set
+        {
+            this.resourcePoolFullPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public managedEntityInfo resourcePoolInfo
+    {
+        get
+        {
+            return this.resourcePoolInfoField;
+        }
+        set
+        {
+            this.resourcePoolInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("resourcePoolPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+    public managedEntityInfo[] resourcePoolPath
+    {
+        get
+        {
+            return this.resourcePoolPathField;
+        }
+        set
+        {
+            this.resourcePoolPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string vmFolderFullPath
+    {
+        get
+        {
+            return this.vmFolderFullPathField;
+        }
+        set
+        {
+            this.vmFolderFullPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public managedEntityInfo vmFolderInfo
+    {
+        get
+        {
+            return this.vmFolderInfoField;
+        }
+        set
+        {
+            this.vmFolderInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("vmFolderPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+    public managedEntityInfo[] vmFolderPath
+    {
+        get
+        {
+            return this.vmFolderPathField;
+        }
+        set
+        {
+            this.vmFolderPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string vmxFileName
+    {
+        get
+        {
+            return this.vmxFileNameField;
+        }
+        set
+        {
+            this.vmxFileNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string vmxFullPath
+    {
+        get
+        {
+            return this.vmxFullPathField;
+        }
+        set
+        {
+            this.vmxFullPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+    public bool vAppMember
+    {
+        get
+        {
+            return this.vAppMemberField;
+        }
+        set
+        {
+            this.vAppMemberField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class vappLocation : fcoLocation
+{
+    
+    private managedEntityInfo folderInfoField;
+    
+    private string resourcePoolFullPathField;
+    
+    private managedEntityInfo resourcePoolInfoField;
+    
+    private managedEntityInfo[] resourcePoolPathField;
+    
+    private string vmFolderFullPathField;
+    
+    private managedEntityInfo[] vmFolderPathField;
+    
+    private bool vAppMemberField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo folderInfo
+    {
+        get
+        {
+            return this.folderInfoField;
+        }
+        set
+        {
+            this.folderInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string resourcePoolFullPath
+    {
+        get
+        {
+            return this.resourcePoolFullPathField;
+        }
+        set
+        {
+            this.resourcePoolFullPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public managedEntityInfo resourcePoolInfo
+    {
+        get
+        {
+            return this.resourcePoolInfoField;
+        }
+        set
+        {
+            this.resourcePoolInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("resourcePoolPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public managedEntityInfo[] resourcePoolPath
+    {
+        get
+        {
+            return this.resourcePoolPathField;
+        }
+        set
+        {
+            this.resourcePoolPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public string vmFolderFullPath
+    {
+        get
+        {
+            return this.vmFolderFullPathField;
+        }
+        set
+        {
+            this.vmFolderFullPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("vmFolderPath", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
+    public managedEntityInfo[] vmFolderPath
+    {
+        get
+        {
+            return this.vmFolderPathField;
+        }
+        set
+        {
+            this.vmFolderPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public bool vAppMember
+    {
+        get
+        {
+            return this.vAppMemberField;
+        }
+        set
+        {
+            this.vAppMemberField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class ivdLocation : fcoLocation
+{
+    
+    private managedEntityInfo datastoreInfoField;
+    
+    private string datastorePathField;
+    
+    private string vmdkFileNameField;
+    
+    private string vmdkFullPathField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo datastoreInfo
+    {
+        get
+        {
+            return this.datastoreInfoField;
+        }
+        set
+        {
+            this.datastoreInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string datastorePath
+    {
+        get
+        {
+            return this.datastorePathField;
+        }
+        set
+        {
+            this.datastorePathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string vmdkFileName
+    {
+        get
+        {
+            return this.vmdkFileNameField;
+        }
+        set
+        {
+            this.vmdkFileNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string vmdkFullPath
+    {
+        get
+        {
+            return this.vmdkFullPathField;
+        }
+        set
+        {
+            this.vmdkFullPathField = value;
+        }
+    }
+}
+
+/// <remarks/>
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionVappRestore))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractResultActionRestoreForEntityWithDisks))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(resultActionIvdRestore))]
@@ -10277,6 +6152,1362 @@ public partial class resultActionVappRestore : resultActionRestore
         set
         {
             this.resultActionOnChildVmsField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreVappManagedInfo : restoreManagedInfo
+{
+    
+    private managedEntityInfo folderInfoField;
+    
+    private managedEntityInfo resourcePoolInfoField;
+    
+    private serializableVAppConfigInfo vAppConfigField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo folderInfo
+    {
+        get
+        {
+            return this.folderInfoField;
+        }
+        set
+        {
+            this.folderInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public managedEntityInfo resourcePoolInfo
+    {
+        get
+        {
+            return this.resourcePoolInfoField;
+        }
+        set
+        {
+            this.resourcePoolInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public serializableVAppConfigInfo vAppConfig
+    {
+        get
+        {
+            return this.vAppConfigField;
+        }
+        set
+        {
+            this.vAppConfigField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppConfigInfo : serializableVmConfigInfo
+{
+    
+    private string annotationField;
+    
+    private serializableVAppEntityConfigInfo[] entityConfigField;
+    
+    private string instanceUuidField;
+    
+    private serializableManagedByInfo managedByField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string annotation
+    {
+        get
+        {
+            return this.annotationField;
+        }
+        set
+        {
+            this.annotationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("entityConfig", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+    public serializableVAppEntityConfigInfo[] entityConfig
+    {
+        get
+        {
+            return this.entityConfigField;
+        }
+        set
+        {
+            this.entityConfigField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string instanceUuid
+    {
+        get
+        {
+            return this.instanceUuidField;
+        }
+        set
+        {
+            this.instanceUuidField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public serializableManagedByInfo managedBy
+    {
+        get
+        {
+            return this.managedByField;
+        }
+        set
+        {
+            this.managedByField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppEntityConfigInfo
+{
+    
+    private bool destroyWithParentField;
+    
+    private bool destroyWithParentFieldSpecified;
+    
+    private string keyField;
+    
+    private string startActionField;
+    
+    private int startDelayField;
+    
+    private bool startDelayFieldSpecified;
+    
+    private int startOrderField;
+    
+    private bool startOrderFieldSpecified;
+    
+    private string stopActionField;
+    
+    private int stopDelayField;
+    
+    private bool stopDelayFieldSpecified;
+    
+    private string tagField;
+    
+    private entityType typeField;
+    
+    private bool typeFieldSpecified;
+    
+    private bool waitingForGuestField;
+    
+    private bool waitingForGuestFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool destroyWithParent
+    {
+        get
+        {
+            return this.destroyWithParentField;
+        }
+        set
+        {
+            this.destroyWithParentField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool destroyWithParentSpecified
+    {
+        get
+        {
+            return this.destroyWithParentFieldSpecified;
+        }
+        set
+        {
+            this.destroyWithParentFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string startAction
+    {
+        get
+        {
+            return this.startActionField;
+        }
+        set
+        {
+            this.startActionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int startDelay
+    {
+        get
+        {
+            return this.startDelayField;
+        }
+        set
+        {
+            this.startDelayField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool startDelaySpecified
+    {
+        get
+        {
+            return this.startDelayFieldSpecified;
+        }
+        set
+        {
+            this.startDelayFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int startOrder
+    {
+        get
+        {
+            return this.startOrderField;
+        }
+        set
+        {
+            this.startOrderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool startOrderSpecified
+    {
+        get
+        {
+            return this.startOrderFieldSpecified;
+        }
+        set
+        {
+            this.startOrderFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string stopAction
+    {
+        get
+        {
+            return this.stopActionField;
+        }
+        set
+        {
+            this.stopActionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public int stopDelay
+    {
+        get
+        {
+            return this.stopDelayField;
+        }
+        set
+        {
+            this.stopDelayField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool stopDelaySpecified
+    {
+        get
+        {
+            return this.stopDelayFieldSpecified;
+        }
+        set
+        {
+            this.stopDelayFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public string tag
+    {
+        get
+        {
+            return this.tagField;
+        }
+        set
+        {
+            this.tagField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public entityType type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool typeSpecified
+    {
+        get
+        {
+            return this.typeFieldSpecified;
+        }
+        set
+        {
+            this.typeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public bool waitingForGuest
+    {
+        get
+        {
+            return this.waitingForGuestField;
+        }
+        set
+        {
+            this.waitingForGuestField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool waitingForGuestSpecified
+    {
+        get
+        {
+            return this.waitingForGuestFieldSpecified;
+        }
+        set
+        {
+            this.waitingForGuestFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableManagedByInfo
+{
+    
+    private string extensionKeyField;
+    
+    private string typeField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string extensionKey
+    {
+        get
+        {
+            return this.extensionKeyField;
+        }
+        set
+        {
+            this.extensionKeyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(serializableVAppConfigInfo))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVmConfigInfo
+{
+    
+    private string[] eulaField;
+    
+    private bool installBootRequiredField;
+    
+    private int installBootStopDelayField;
+    
+    private serializableVAppIPAssignmentInfo ipAssignmentField;
+    
+    private string[] ovfEnvironmentTransportField;
+    
+    private serializableVAppOvfSectionInfo[] ovfSectionField;
+    
+    private serializableVAppProductInfo[] productField;
+    
+    private serializableVAppPropertyInfo[] propertyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("eula", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+    public string[] eula
+    {
+        get
+        {
+            return this.eulaField;
+        }
+        set
+        {
+            this.eulaField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool installBootRequired
+    {
+        get
+        {
+            return this.installBootRequiredField;
+        }
+        set
+        {
+            this.installBootRequiredField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int installBootStopDelay
+    {
+        get
+        {
+            return this.installBootStopDelayField;
+        }
+        set
+        {
+            this.installBootStopDelayField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public serializableVAppIPAssignmentInfo ipAssignment
+    {
+        get
+        {
+            return this.ipAssignmentField;
+        }
+        set
+        {
+            this.ipAssignmentField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ovfEnvironmentTransport", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+    public string[] ovfEnvironmentTransport
+    {
+        get
+        {
+            return this.ovfEnvironmentTransportField;
+        }
+        set
+        {
+            this.ovfEnvironmentTransportField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ovfSection", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
+    public serializableVAppOvfSectionInfo[] ovfSection
+    {
+        get
+        {
+            return this.ovfSectionField;
+        }
+        set
+        {
+            this.ovfSectionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("product", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
+    public serializableVAppProductInfo[] product
+    {
+        get
+        {
+            return this.productField;
+        }
+        set
+        {
+            this.productField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("property", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+    public serializableVAppPropertyInfo[] property
+    {
+        get
+        {
+            return this.propertyField;
+        }
+        set
+        {
+            this.propertyField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppIPAssignmentInfo
+{
+    
+    private string ipAllocationPolicyField;
+    
+    private string ipProtocolField;
+    
+    private string[] supportedAllocationSchemeField;
+    
+    private string[] supportedIpProtocolField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string ipAllocationPolicy
+    {
+        get
+        {
+            return this.ipAllocationPolicyField;
+        }
+        set
+        {
+            this.ipAllocationPolicyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string ipProtocol
+    {
+        get
+        {
+            return this.ipProtocolField;
+        }
+        set
+        {
+            this.ipProtocolField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("supportedAllocationScheme", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
+    public string[] supportedAllocationScheme
+    {
+        get
+        {
+            return this.supportedAllocationSchemeField;
+        }
+        set
+        {
+            this.supportedAllocationSchemeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("supportedIpProtocol", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public string[] supportedIpProtocol
+    {
+        get
+        {
+            return this.supportedIpProtocolField;
+        }
+        set
+        {
+            this.supportedIpProtocolField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppOvfSectionInfo
+{
+    
+    private bool atEnvelopeLevelField;
+    
+    private bool atEnvelopeLevelFieldSpecified;
+    
+    private string contentsField;
+    
+    private int keyField;
+    
+    private bool keyFieldSpecified;
+    
+    private string namespaceField;
+    
+    private string typeField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool atEnvelopeLevel
+    {
+        get
+        {
+            return this.atEnvelopeLevelField;
+        }
+        set
+        {
+            this.atEnvelopeLevelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool atEnvelopeLevelSpecified
+    {
+        get
+        {
+            return this.atEnvelopeLevelFieldSpecified;
+        }
+        set
+        {
+            this.atEnvelopeLevelFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string contents
+    {
+        get
+        {
+            return this.contentsField;
+        }
+        set
+        {
+            this.contentsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool keySpecified
+    {
+        get
+        {
+            return this.keyFieldSpecified;
+        }
+        set
+        {
+            this.keyFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string @namespace
+    {
+        get
+        {
+            return this.namespaceField;
+        }
+        set
+        {
+            this.namespaceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public string type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppProductInfo
+{
+    
+    private string appUrlField;
+    
+    private string classIdField;
+    
+    private string fullVersionField;
+    
+    private string instanceIdField;
+    
+    private int keyField;
+    
+    private string nameField;
+    
+    private string productUrlField;
+    
+    private string vendorField;
+    
+    private string vendorUrlField;
+    
+    private string versionField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string appUrl
+    {
+        get
+        {
+            return this.appUrlField;
+        }
+        set
+        {
+            this.appUrlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string classId
+    {
+        get
+        {
+            return this.classIdField;
+        }
+        set
+        {
+            this.classIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string fullVersion
+    {
+        get
+        {
+            return this.fullVersionField;
+        }
+        set
+        {
+            this.fullVersionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string instanceId
+    {
+        get
+        {
+            return this.instanceIdField;
+        }
+        set
+        {
+            this.instanceIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public string productUrl
+    {
+        get
+        {
+            return this.productUrlField;
+        }
+        set
+        {
+            this.productUrlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public string vendor
+    {
+        get
+        {
+            return this.vendorField;
+        }
+        set
+        {
+            this.vendorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string vendorUrl
+    {
+        get
+        {
+            return this.vendorUrlField;
+        }
+        set
+        {
+            this.vendorUrlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string version
+    {
+        get
+        {
+            return this.versionField;
+        }
+        set
+        {
+            this.versionField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class serializableVAppPropertyInfo
+{
+    
+    private string categoryField;
+    
+    private string classIdField;
+    
+    private string defaultValueField;
+    
+    private string descriptionField;
+    
+    private string idField;
+    
+    private string instanceIdField;
+    
+    private int keyField;
+    
+    private string labelField;
+    
+    private string typeField;
+    
+    private string typeReferenceField;
+    
+    private bool userConfigurableField;
+    
+    private bool userConfigurableFieldSpecified;
+    
+    private string valueField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string category
+    {
+        get
+        {
+            return this.categoryField;
+        }
+        set
+        {
+            this.categoryField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string classId
+    {
+        get
+        {
+            return this.classIdField;
+        }
+        set
+        {
+            this.classIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string defaultValue
+    {
+        get
+        {
+            return this.defaultValueField;
+        }
+        set
+        {
+            this.defaultValueField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string description
+    {
+        get
+        {
+            return this.descriptionField;
+        }
+        set
+        {
+            this.descriptionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public string id
+    {
+        get
+        {
+            return this.idField;
+        }
+        set
+        {
+            this.idField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string instanceId
+    {
+        get
+        {
+            return this.instanceIdField;
+        }
+        set
+        {
+            this.instanceIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public int key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public string label
+    {
+        get
+        {
+            return this.labelField;
+        }
+        set
+        {
+            this.labelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string typeReference
+    {
+        get
+        {
+            return this.typeReferenceField;
+        }
+        set
+        {
+            this.typeReferenceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+    public bool userConfigurable
+    {
+        get
+        {
+            return this.userConfigurableField;
+        }
+        set
+        {
+            this.userConfigurableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool userConfigurableSpecified
+    {
+        get
+        {
+            return this.userConfigurableFieldSpecified;
+        }
+        set
+        {
+            this.userConfigurableFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+    public string value
+    {
+        get
+        {
+            return this.valueField;
+        }
+        set
+        {
+            this.valueField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreIvdManagedInfo))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreVappManagedInfo))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreVmManagedInfo))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreManagedInfo
+{
+    
+    private managedEntityInfo dcInfoField;
+    
+    private string nameField;
+    
+    private bool recoveryField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo dcInfo
+    {
+        get
+        {
+            return this.dcInfoField;
+        }
+        set
+        {
+            this.dcInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public bool recovery
+    {
+        get
+        {
+            return this.recoveryField;
+        }
+        set
+        {
+            this.recoveryField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreIvdManagedInfo : restoreManagedInfo
+{
+    
+    private managedEntityInfo datastoreInfoField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo datastoreInfo
+    {
+        get
+        {
+            return this.datastoreInfoField;
+        }
+        set
+        {
+            this.datastoreInfoField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreVmManagedInfo : restoreManagedInfo
+{
+    
+    private managedEntityInfo dsInfoField;
+    
+    private managedEntityInfo folderInfoField;
+    
+    private managedEntityInfo hostInfoField;
+    
+    private managedEntityInfo[] networkMappingField;
+    
+    private managedEntityInfo resourcePoolInfoField;
+    
+    private serializableVAppConfigInfo vAppConfigField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public managedEntityInfo dsInfo
+    {
+        get
+        {
+            return this.dsInfoField;
+        }
+        set
+        {
+            this.dsInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public managedEntityInfo folderInfo
+    {
+        get
+        {
+            return this.folderInfoField;
+        }
+        set
+        {
+            this.folderInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public managedEntityInfo hostInfo
+    {
+        get
+        {
+            return this.hostInfoField;
+        }
+        set
+        {
+            this.hostInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("networkMapping", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public managedEntityInfo[] networkMapping
+    {
+        get
+        {
+            return this.networkMappingField;
+        }
+        set
+        {
+            this.networkMappingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public managedEntityInfo resourcePoolInfo
+    {
+        get
+        {
+            return this.resourcePoolInfoField;
+        }
+        set
+        {
+            this.resourcePoolInfoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public serializableVAppConfigInfo vAppConfig
+    {
+        get
+        {
+            return this.vAppConfigField;
+        }
+        set
+        {
+            this.vAppConfigField = value;
         }
     }
 }
@@ -10655,6 +7886,240 @@ public partial class resultActionVmRestore : abstractResultActionRestoreForEntit
         set
         {
             this.templateField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class guestInfoFlags
+{
+    
+    private bool changeTrackingEnabledField;
+    
+    private bool changeTrackingEnabledFieldSpecified;
+    
+    private bool configurationEncryptedField;
+    
+    private bool configurationEncryptedFieldSpecified;
+    
+    private bool diskUuidEnabledField;
+    
+    private bool diskUuidEnabledFieldSpecified;
+    
+    private string guestFullNameField;
+    
+    private int numberOfVirtualDiskField;
+    
+    private bool numberOfVirtualDiskFieldSpecified;
+    
+    private bool templateField;
+    
+    private bool vbsEnabledField;
+    
+    private bool vbsEnabledFieldSpecified;
+    
+    private string vmPathNameField;
+    
+    private bool vAppConfigAvailableField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool changeTrackingEnabled
+    {
+        get
+        {
+            return this.changeTrackingEnabledField;
+        }
+        set
+        {
+            this.changeTrackingEnabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool changeTrackingEnabledSpecified
+    {
+        get
+        {
+            return this.changeTrackingEnabledFieldSpecified;
+        }
+        set
+        {
+            this.changeTrackingEnabledFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool configurationEncrypted
+    {
+        get
+        {
+            return this.configurationEncryptedField;
+        }
+        set
+        {
+            this.configurationEncryptedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool configurationEncryptedSpecified
+    {
+        get
+        {
+            return this.configurationEncryptedFieldSpecified;
+        }
+        set
+        {
+            this.configurationEncryptedFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public bool diskUuidEnabled
+    {
+        get
+        {
+            return this.diskUuidEnabledField;
+        }
+        set
+        {
+            this.diskUuidEnabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool diskUuidEnabledSpecified
+    {
+        get
+        {
+            return this.diskUuidEnabledFieldSpecified;
+        }
+        set
+        {
+            this.diskUuidEnabledFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string guestFullName
+    {
+        get
+        {
+            return this.guestFullNameField;
+        }
+        set
+        {
+            this.guestFullNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int numberOfVirtualDisk
+    {
+        get
+        {
+            return this.numberOfVirtualDiskField;
+        }
+        set
+        {
+            this.numberOfVirtualDiskField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool numberOfVirtualDiskSpecified
+    {
+        get
+        {
+            return this.numberOfVirtualDiskFieldSpecified;
+        }
+        set
+        {
+            this.numberOfVirtualDiskFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public bool template
+    {
+        get
+        {
+            return this.templateField;
+        }
+        set
+        {
+            this.templateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public bool vbsEnabled
+    {
+        get
+        {
+            return this.vbsEnabledField;
+        }
+        set
+        {
+            this.vbsEnabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vbsEnabledSpecified
+    {
+        get
+        {
+            return this.vbsEnabledFieldSpecified;
+        }
+        set
+        {
+            this.vbsEnabledFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public string vmPathName
+    {
+        get
+        {
+            return this.vmPathNameField;
+        }
+        set
+        {
+            this.vmPathNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public bool vAppConfigAvailable
+    {
+        get
+        {
+            return this.vAppConfigAvailableField;
+        }
+        set
+        {
+            this.vAppConfigAvailableField = value;
         }
     }
 }
@@ -11531,36 +8996,2582 @@ public partial class resultActionDisconnect : resultAction
     }
 }
 
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connect", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectRequest
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionConnectSso : resultAction
 {
     
-    public connectRequest()
+    private bool connectedField;
+    
+    private string ssoEndPointUrlField;
+    
+    private string tokenField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool connected
     {
+        get
+        {
+            return this.connectedField;
+        }
+        set
+        {
+            this.connectedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string ssoEndPointUrl
+    {
+        get
+        {
+            return this.ssoEndPointUrlField;
+        }
+        set
+        {
+            this.ssoEndPointUrlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
     }
 }
 
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connectResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectResponse
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class resultActionConnect : resultAction
 {
     
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionConnect @return;
+    private bool connectedField;
     
-    public connectResponse()
+    private string ssoEndPointUrlField;
+    
+    private resultActionConnectSso subActionConnectSsoField;
+    
+    private task[] subTasksActionConnectVCentersField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool connected
     {
+        get
+        {
+            return this.connectedField;
+        }
+        set
+        {
+            this.connectedField = value;
+        }
     }
     
-    public connectResponse(resultActionConnect @return)
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string ssoEndPointUrl
     {
-        this.@return = @return;
+        get
+        {
+            return this.ssoEndPointUrlField;
+        }
+        set
+        {
+            this.ssoEndPointUrlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public resultActionConnectSso subActionConnectSso
+    {
+        get
+        {
+            return this.subActionConnectSsoField;
+        }
+        set
+        {
+            this.subActionConnectSsoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("subTasksActionConnectVCenters", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public task[] subTasksActionConnectVCenters
+    {
+        get
+        {
+            return this.subTasksActionConnectVCentersField;
+        }
+        set
+        {
+            this.subTasksActionConnectVCentersField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class tasks
+{
+    
+    private string reasonField;
+    
+    private operationState stateField;
+    
+    private bool stateFieldSpecified;
+    
+    private task[] taskListField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string reason
+    {
+        get
+        {
+            return this.reasonField;
+        }
+        set
+        {
+            this.reasonField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public operationState state
+    {
+        get
+        {
+            return this.stateField;
+        }
+        set
+        {
+            this.stateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool stateSpecified
+    {
+        get
+        {
+            return this.stateFieldSpecified;
+        }
+        set
+        {
+            this.stateFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("taskList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
+    public task[] taskList
+    {
+        get
+        {
+            return this.taskListField;
+        }
+        set
+        {
+            this.taskListField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class extensionOptions
+{
+    
+    private extensionManagerOperation extensionOperationField;
+    
+    private bool extensionOperationFieldSpecified;
+    
+    private bool forceField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public extensionManagerOperation extensionOperation
+    {
+        get
+        {
+            return this.extensionOperationField;
+        }
+        set
+        {
+            this.extensionOperationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool extensionOperationSpecified
+    {
+        get
+        {
+            return this.extensionOperationFieldSpecified;
+        }
+        set
+        {
+            this.extensionOperationFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool force
+    {
+        get
+        {
+            return this.forceField;
+        }
+        set
+        {
+            this.forceField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class blockInfo
+{
+    
+    private bool cipherField;
+    
+    private bool compressField;
+    
+    private int diskIdField;
+    
+    private bool duplicatedField;
+    
+    private long endTimeField;
+    
+    private bool failedField;
+    
+    private bool failedFieldSpecified;
+    
+    private int generationIdField;
+    
+    private int indexField;
+    
+    private string keyField;
+    
+    private string keyPathField;
+    
+    private long lastBlockField;
+    
+    private long lengthField;
+    
+    private string md5Field;
+    
+    private bool modifiedField;
+    
+    private long offsetField;
+    
+    private string reasonField;
+    
+    private string sha1Field;
+    
+    private long sizeField;
+    
+    private long startTimeField;
+    
+    private long streamSizeField;
+    
+    private int totalBlocksField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool cipher
+    {
+        get
+        {
+            return this.cipherField;
+        }
+        set
+        {
+            this.cipherField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool compress
+    {
+        get
+        {
+            return this.compressField;
+        }
+        set
+        {
+            this.compressField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int diskId
+    {
+        get
+        {
+            return this.diskIdField;
+        }
+        set
+        {
+            this.diskIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public bool duplicated
+    {
+        get
+        {
+            return this.duplicatedField;
+        }
+        set
+        {
+            this.duplicatedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public long endTime
+    {
+        get
+        {
+            return this.endTimeField;
+        }
+        set
+        {
+            this.endTimeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public bool failed
+    {
+        get
+        {
+            return this.failedField;
+        }
+        set
+        {
+            this.failedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool failedSpecified
+    {
+        get
+        {
+            return this.failedFieldSpecified;
+        }
+        set
+        {
+            this.failedFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public int generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public int index
+    {
+        get
+        {
+            return this.indexField;
+        }
+        set
+        {
+            this.indexField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+    public string keyPath
+    {
+        get
+        {
+            return this.keyPathField;
+        }
+        set
+        {
+            this.keyPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+    public long lastBlock
+    {
+        get
+        {
+            return this.lastBlockField;
+        }
+        set
+        {
+            this.lastBlockField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+    public long length
+    {
+        get
+        {
+            return this.lengthField;
+        }
+        set
+        {
+            this.lengthField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+    public string md5
+    {
+        get
+        {
+            return this.md5Field;
+        }
+        set
+        {
+            this.md5Field = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+    public bool modified
+    {
+        get
+        {
+            return this.modifiedField;
+        }
+        set
+        {
+            this.modifiedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+    public long offset
+    {
+        get
+        {
+            return this.offsetField;
+        }
+        set
+        {
+            this.offsetField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+    public string reason
+    {
+        get
+        {
+            return this.reasonField;
+        }
+        set
+        {
+            this.reasonField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+    public string sha1
+    {
+        get
+        {
+            return this.sha1Field;
+        }
+        set
+        {
+            this.sha1Field = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+    public long size
+    {
+        get
+        {
+            return this.sizeField;
+        }
+        set
+        {
+            this.sizeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+    public long startTime
+    {
+        get
+        {
+            return this.startTimeField;
+        }
+        set
+        {
+            this.startTimeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+    public long streamSize
+    {
+        get
+        {
+            return this.streamSizeField;
+        }
+        set
+        {
+            this.streamSizeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+    public int totalBlocks
+    {
+        get
+        {
+            return this.totalBlocksField;
+        }
+        set
+        {
+            this.totalBlocksField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(pscConnectOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(cspConnectOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class connectOptions
+{
+    
+    private string authServerField;
+    
+    private bool base64Field;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string authServer
+    {
+        get
+        {
+            return this.authServerField;
+        }
+        set
+        {
+            this.authServerField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool base64
+    {
+        get
+        {
+            return this.base64Field;
+        }
+        set
+        {
+            this.base64Field = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class pscConnectOptions : connectOptions
+{
+    
+    private string passwordField;
+    
+    private int portField;
+    
+    private bool portFieldSpecified;
+    
+    private string userField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string password
+    {
+        get
+        {
+            return this.passwordField;
+        }
+        set
+        {
+            this.passwordField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public int port
+    {
+        get
+        {
+            return this.portField;
+        }
+        set
+        {
+            this.portField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool portSpecified
+    {
+        get
+        {
+            return this.portFieldSpecified;
+        }
+        set
+        {
+            this.portFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string user
+    {
+        get
+        {
+            return this.userField;
+        }
+        set
+        {
+            this.userField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class cspConnectOptions : connectOptions
+{
+    
+    private string refreshTokenField;
+    
+    private string tokenExchangeServerField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string refreshToken
+    {
+        get
+        {
+            return this.refreshTokenField;
+        }
+        set
+        {
+            this.refreshTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string tokenExchangeServer
+    {
+        get
+        {
+            return this.tokenExchangeServerField;
+        }
+        set
+        {
+            this.tokenExchangeServerField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreVmdkOption
+{
+    
+    private searchManagementEntity datastoreField;
+    
+    private int diskIdField;
+    
+    private searchManagementEntity spbmProfileField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public searchManagementEntity datastore
+    {
+        get
+        {
+            return this.datastoreField;
+        }
+        set
+        {
+            this.datastoreField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public int diskId
+    {
+        get
+        {
+            return this.diskIdField;
+        }
+        set
+        {
+            this.diskIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public searchManagementEntity spbmProfile
+    {
+        get
+        {
+            return this.spbmProfileField;
+        }
+        set
+        {
+            this.spbmProfileField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class searchManagementEntity
+{
+    
+    private searchManagementEntityInfoType searchTypeField;
+    
+    private bool searchTypeFieldSpecified;
+    
+    private string searchValueField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public searchManagementEntityInfoType searchType
+    {
+        get
+        {
+            return this.searchTypeField;
+        }
+        set
+        {
+            this.searchTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool searchTypeSpecified
+    {
+        get
+        {
+            return this.searchTypeFieldSpecified;
+        }
+        set
+        {
+            this.searchTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string searchValue
+    {
+        get
+        {
+            return this.searchValueField;
+        }
+        set
+        {
+            this.searchValueField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum searchManagementEntityInfoType
+{
+    
+    /// <remarks/>
+    NAME,
+    
+    /// <remarks/>
+    MOREF,
+    
+    /// <remarks/>
+    ID,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class virtualMachineQuisceSpec
+{
+    
+    private int timeoutField;
+    
+    private bool timeoutFieldSpecified;
+    
+    private bool useWindowsVssField;
+    
+    private windowsQuiesceSpecVssBackupContext vssBackupContextField;
+    
+    private bool vssBackupContextFieldSpecified;
+    
+    private windowsQuiesceSpecVssBackupType vssBackupTypeField;
+    
+    private bool vssBackupTypeFieldSpecified;
+    
+    private bool vssBootableSystemStateField;
+    
+    private bool vssBootableSystemStateFieldSpecified;
+    
+    private bool vssPartialFileSupportField;
+    
+    private bool vssPartialFileSupportFieldSpecified;
+    
+    private bool vssRetryOnFailField;
+    
+    private bool vssRetryOnFailFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public int timeout
+    {
+        get
+        {
+            return this.timeoutField;
+        }
+        set
+        {
+            this.timeoutField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool timeoutSpecified
+    {
+        get
+        {
+            return this.timeoutFieldSpecified;
+        }
+        set
+        {
+            this.timeoutFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool useWindowsVss
+    {
+        get
+        {
+            return this.useWindowsVssField;
+        }
+        set
+        {
+            this.useWindowsVssField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public windowsQuiesceSpecVssBackupContext vssBackupContext
+    {
+        get
+        {
+            return this.vssBackupContextField;
+        }
+        set
+        {
+            this.vssBackupContextField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vssBackupContextSpecified
+    {
+        get
+        {
+            return this.vssBackupContextFieldSpecified;
+        }
+        set
+        {
+            this.vssBackupContextFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public windowsQuiesceSpecVssBackupType vssBackupType
+    {
+        get
+        {
+            return this.vssBackupTypeField;
+        }
+        set
+        {
+            this.vssBackupTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vssBackupTypeSpecified
+    {
+        get
+        {
+            return this.vssBackupTypeFieldSpecified;
+        }
+        set
+        {
+            this.vssBackupTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public bool vssBootableSystemState
+    {
+        get
+        {
+            return this.vssBootableSystemStateField;
+        }
+        set
+        {
+            this.vssBootableSystemStateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vssBootableSystemStateSpecified
+    {
+        get
+        {
+            return this.vssBootableSystemStateFieldSpecified;
+        }
+        set
+        {
+            this.vssBootableSystemStateFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public bool vssPartialFileSupport
+    {
+        get
+        {
+            return this.vssPartialFileSupportField;
+        }
+        set
+        {
+            this.vssPartialFileSupportField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vssPartialFileSupportSpecified
+    {
+        get
+        {
+            return this.vssPartialFileSupportFieldSpecified;
+        }
+        set
+        {
+            this.vssPartialFileSupportFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public bool vssRetryOnFail
+    {
+        get
+        {
+            return this.vssRetryOnFailField;
+        }
+        set
+        {
+            this.vssRetryOnFailField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool vssRetryOnFailSpecified
+    {
+        get
+        {
+            return this.vssRetryOnFailFieldSpecified;
+        }
+        set
+        {
+            this.vssRetryOnFailFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum windowsQuiesceSpecVssBackupContext
+{
+    
+    /// <remarks/>
+    CTX_AUTO,
+    
+    /// <remarks/>
+    CTX_BACKUP,
+    
+    /// <remarks/>
+    CTX_FILE_SHARE_BACKUP,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum windowsQuiesceSpecVssBackupType
+{
+    
+    /// <remarks/>
+    VSS_BT_COPY,
+    
+    /// <remarks/>
+    VSS_BT_DIFFERENTIAL,
+    
+    /// <remarks/>
+    VSS_BT_FULL,
+    
+    /// <remarks/>
+    VSS_BT_INCREMENTAL,
+    
+    /// <remarks/>
+    VSS_BT_LOG,
+    
+    /// <remarks/>
+    VSS_BT_OTHER,
+    
+    /// <remarks/>
+    VSS_BT_UNDEFINED,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class fcoTarget
+{
+    
+    private string keyField;
+    
+    private fcoTypeSearch keyTypeField;
+    
+    private bool keyTypeFieldSpecified;
+    
+    private string vcenterUuidField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string key
+    {
+        get
+        {
+            return this.keyField;
+        }
+        set
+        {
+            this.keyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public fcoTypeSearch keyType
+    {
+        get
+        {
+            return this.keyTypeField;
+        }
+        set
+        {
+            this.keyTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool keyTypeSpecified
+    {
+        get
+        {
+            return this.keyTypeFieldSpecified;
+        }
+        set
+        {
+            this.keyTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public string vcenterUuid
+    {
+        get
+        {
+            return this.vcenterUuidField;
+        }
+        set
+        {
+            this.vcenterUuidField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum fcoTypeSearch
+{
+    
+    /// <remarks/>
+    IVD_NAME,
+    
+    /// <remarks/>
+    IVD_UUID,
+    
+    /// <remarks/>
+    TAG,
+    
+    /// <remarks/>
+    VAPP_NAME,
+    
+    /// <remarks/>
+    VAPP_UUID,
+    
+    /// <remarks/>
+    VAPP_MOREF,
+    
+    /// <remarks/>
+    VM_IP,
+    
+    /// <remarks/>
+    VM_MOREF,
+    
+    /// <remarks/>
+    VM_NAME,
+    
+    /// <remarks/>
+    VM_UUID,
+    
+    /// <remarks/>
+    K8S_NAME,
+    
+    /// <remarks/>
+    K8S_UUID,
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupRestoreCommonOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(virtualBackupOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractArchiveOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveCheckGenerationsOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveStatusOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveGenerationsOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveShowOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveProfileOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveListOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public abstract partial class abstractBasicCommandOptions
+{
+    
+    private int anyFcoOfTypeField;
+    
+    private bool anyFcoOfTypeFieldSpecified;
+    
+    private bool dryRunField;
+    
+    private fcoTarget[] targetListField;
+    
+    private string vimField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public int anyFcoOfType
+    {
+        get
+        {
+            return this.anyFcoOfTypeField;
+        }
+        set
+        {
+            this.anyFcoOfTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool anyFcoOfTypeSpecified
+    {
+        get
+        {
+            return this.anyFcoOfTypeFieldSpecified;
+        }
+        set
+        {
+            this.anyFcoOfTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool dryRun
+    {
+        get
+        {
+            return this.dryRunField;
+        }
+        set
+        {
+            this.dryRunField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("targetList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
+    public fcoTarget[] targetList
+    {
+        get
+        {
+            return this.targetListField;
+        }
+        set
+        {
+            this.targetListField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public string vim
+    {
+        get
+        {
+            return this.vimField;
+        }
+        set
+        {
+            this.vimField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(restoreOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(virtualBackupOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class backupRestoreCommonOptions : abstractBasicCommandOptions
+{
+    
+    private bool forceField;
+    
+    private bool noVmdkField;
+    
+    private int numberOfThreadsField;
+    
+    private bool numberOfThreadsFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool force
+    {
+        get
+        {
+            return this.forceField;
+        }
+        set
+        {
+            this.forceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool noVmdk
+    {
+        get
+        {
+            return this.noVmdkField;
+        }
+        set
+        {
+            this.noVmdkField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int numberOfThreads
+    {
+        get
+        {
+            return this.numberOfThreadsField;
+        }
+        set
+        {
+            this.numberOfThreadsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool numberOfThreadsSpecified
+    {
+        get
+        {
+            return this.numberOfThreadsFieldSpecified;
+        }
+        set
+        {
+            this.numberOfThreadsFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class restoreOptions : backupRestoreCommonOptions
+{
+    
+    private bool allowDuplicatedVmNamesInsideVappField;
+    
+    private bool allowDuplicatedVmNamesInsideVappFieldSpecified;
+    
+    private searchManagementEntity datacenterField;
+    
+    private searchManagementEntity datastoreField;
+    
+    private restoreVmdkOption[] disksField;
+    
+    private searchManagementEntity folderField;
+    
+    private int generationIdField;
+    
+    private bool generationIdFieldSpecified;
+    
+    private searchManagementEntity hostField;
+    
+    private bool importVmxFileField;
+    
+    private string nameField;
+    
+    private searchManagementEntity[] networksField;
+    
+    private bool overwriteField;
+    
+    private string postfixField;
+    
+    private bool powerOnField;
+    
+    private string prefixField;
+    
+    private bool recoverField;
+    
+    private string requestedTransportModeField;
+    
+    private string resPoolFilterField;
+    
+    private searchManagementEntity resourcePoolField;
+    
+    private searchManagementEntity storageProfileField;
+    
+    private string vmFolderFilterField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool allowDuplicatedVmNamesInsideVapp
+    {
+        get
+        {
+            return this.allowDuplicatedVmNamesInsideVappField;
+        }
+        set
+        {
+            this.allowDuplicatedVmNamesInsideVappField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool allowDuplicatedVmNamesInsideVappSpecified
+    {
+        get
+        {
+            return this.allowDuplicatedVmNamesInsideVappFieldSpecified;
+        }
+        set
+        {
+            this.allowDuplicatedVmNamesInsideVappFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public searchManagementEntity datacenter
+    {
+        get
+        {
+            return this.datacenterField;
+        }
+        set
+        {
+            this.datacenterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public searchManagementEntity datastore
+    {
+        get
+        {
+            return this.datastoreField;
+        }
+        set
+        {
+            this.datastoreField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("disks", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+    public restoreVmdkOption[] disks
+    {
+        get
+        {
+            return this.disksField;
+        }
+        set
+        {
+            this.disksField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public searchManagementEntity folder
+    {
+        get
+        {
+            return this.folderField;
+        }
+        set
+        {
+            this.folderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public int generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool generationIdSpecified
+    {
+        get
+        {
+            return this.generationIdFieldSpecified;
+        }
+        set
+        {
+            this.generationIdFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public searchManagementEntity host
+    {
+        get
+        {
+            return this.hostField;
+        }
+        set
+        {
+            this.hostField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+    public bool importVmxFile
+    {
+        get
+        {
+            return this.importVmxFileField;
+        }
+        set
+        {
+            this.importVmxFileField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+    public string name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("networks", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=9)]
+    public searchManagementEntity[] networks
+    {
+        get
+        {
+            return this.networksField;
+        }
+        set
+        {
+            this.networksField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+    public bool overwrite
+    {
+        get
+        {
+            return this.overwriteField;
+        }
+        set
+        {
+            this.overwriteField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+    public string postfix
+    {
+        get
+        {
+            return this.postfixField;
+        }
+        set
+        {
+            this.postfixField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+    public bool powerOn
+    {
+        get
+        {
+            return this.powerOnField;
+        }
+        set
+        {
+            this.powerOnField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+    public string prefix
+    {
+        get
+        {
+            return this.prefixField;
+        }
+        set
+        {
+            this.prefixField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+    public bool recover
+    {
+        get
+        {
+            return this.recoverField;
+        }
+        set
+        {
+            this.recoverField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+    public string requestedTransportMode
+    {
+        get
+        {
+            return this.requestedTransportModeField;
+        }
+        set
+        {
+            this.requestedTransportModeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+    public string resPoolFilter
+    {
+        get
+        {
+            return this.resPoolFilterField;
+        }
+        set
+        {
+            this.resPoolFilterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+    public searchManagementEntity resourcePool
+    {
+        get
+        {
+            return this.resourcePoolField;
+        }
+        set
+        {
+            this.resourcePoolField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+    public searchManagementEntity storageProfile
+    {
+        get
+        {
+            return this.storageProfileField;
+        }
+        set
+        {
+            this.storageProfileField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+    public string vmFolderFilter
+    {
+        get
+        {
+            return this.vmFolderFilterField;
+        }
+        set
+        {
+            this.vmFolderFilterField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(backupOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class virtualBackupOptions : backupRestoreCommonOptions
+{
+    
+    private int generationIdField;
+    
+    private bool generationIdFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public int generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool generationIdSpecified
+    {
+        get
+        {
+            return this.generationIdFieldSpecified;
+        }
+        set
+        {
+            this.generationIdFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class backupOptions : virtualBackupOptions
+{
+    
+    private bool cipherField;
+    
+    private bool cipherFieldSpecified;
+    
+    private bool compressionField;
+    
+    private bool compressionFieldSpecified;
+    
+    private int maxBlockSizeField;
+    
+    private bool maxBlockSizeFieldSpecified;
+    
+    private queryBlocksOption queryBlocksOptionField;
+    
+    private bool queryBlocksOptionFieldSpecified;
+    
+    private virtualMachineQuisceSpec quisceSpecField;
+    
+    private backupMode requestedBackupModeField;
+    
+    private bool requestedBackupModeFieldSpecified;
+    
+    private string requestedTransportModeField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public bool cipher
+    {
+        get
+        {
+            return this.cipherField;
+        }
+        set
+        {
+            this.cipherField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool cipherSpecified
+    {
+        get
+        {
+            return this.cipherFieldSpecified;
+        }
+        set
+        {
+            this.cipherFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public bool compression
+    {
+        get
+        {
+            return this.compressionField;
+        }
+        set
+        {
+            this.compressionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool compressionSpecified
+    {
+        get
+        {
+            return this.compressionFieldSpecified;
+        }
+        set
+        {
+            this.compressionFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int maxBlockSize
+    {
+        get
+        {
+            return this.maxBlockSizeField;
+        }
+        set
+        {
+            this.maxBlockSizeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool maxBlockSizeSpecified
+    {
+        get
+        {
+            return this.maxBlockSizeFieldSpecified;
+        }
+        set
+        {
+            this.maxBlockSizeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public queryBlocksOption queryBlocksOption
+    {
+        get
+        {
+            return this.queryBlocksOptionField;
+        }
+        set
+        {
+            this.queryBlocksOptionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool queryBlocksOptionSpecified
+    {
+        get
+        {
+            return this.queryBlocksOptionFieldSpecified;
+        }
+        set
+        {
+            this.queryBlocksOptionFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public virtualMachineQuisceSpec quisceSpec
+    {
+        get
+        {
+            return this.quisceSpecField;
+        }
+        set
+        {
+            this.quisceSpecField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public backupMode requestedBackupMode
+    {
+        get
+        {
+            return this.requestedBackupModeField;
+        }
+        set
+        {
+            this.requestedBackupModeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool requestedBackupModeSpecified
+    {
+        get
+        {
+            return this.requestedBackupModeFieldSpecified;
+        }
+        set
+        {
+            this.requestedBackupModeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+    public string requestedTransportMode
+    {
+        get
+        {
+            return this.requestedTransportModeField;
+        }
+        set
+        {
+            this.requestedTransportModeField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveCheckGenerationsOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveStatusOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveGenerationsOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveShowOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveRemoveProfileOptions))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(archiveListOptions))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public abstract partial class abstractArchiveOptions : abstractBasicCommandOptions
+{
+    
+    private string targetNameField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string targetName
+    {
+        get
+        {
+            return this.targetNameField;
+        }
+        set
+        {
+            this.targetNameField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveCheckGenerationsOptions : abstractArchiveOptions
+{
+    
+    private generationsFilter filterField;
+    
+    private bool filterFieldSpecified;
+    
+    private System.Nullable<int>[] generationIdField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public generationsFilter filter
+    {
+        get
+        {
+            return this.filterField;
+        }
+        set
+        {
+            this.filterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool filterSpecified
+    {
+        get
+        {
+            return this.filterFieldSpecified;
+        }
+        set
+        {
+            this.filterFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+    public System.Nullable<int>[] generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public enum generationsFilter
+{
+    
+    /// <remarks/>
+    all,
+    
+    /// <remarks/>
+    last,
+    
+    /// <remarks/>
+    succeded,
+    
+    /// <remarks/>
+    failed,
+    
+    /// <remarks/>
+    list,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveStatusOptions : abstractArchiveOptions
+{
+    
+    private generationsFilter filterField;
+    
+    private bool filterFieldSpecified;
+    
+    private System.Nullable<int>[] generationIdField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public generationsFilter filter
+    {
+        get
+        {
+            return this.filterField;
+        }
+        set
+        {
+            this.filterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool filterSpecified
+    {
+        get
+        {
+            return this.filterFieldSpecified;
+        }
+        set
+        {
+            this.filterFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+    public System.Nullable<int>[] generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveRemoveGenerationsOptions : abstractArchiveOptions
+{
+    
+    private generationsFilter filterField;
+    
+    private bool filterFieldSpecified;
+    
+    private System.Nullable<int>[] generationIdField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public generationsFilter filter
+    {
+        get
+        {
+            return this.filterField;
+        }
+        set
+        {
+            this.filterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool filterSpecified
+    {
+        get
+        {
+            return this.filterFieldSpecified;
+        }
+        set
+        {
+            this.filterFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("generationId", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+    public System.Nullable<int>[] generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveShowOptions : abstractArchiveOptions
+{
+    
+    private archiveObjects archiveObjectField;
+    
+    private bool archiveObjectFieldSpecified;
+    
+    private generationsFilter filterField;
+    
+    private bool filterFieldSpecified;
+    
+    private int generationIdField;
+    
+    private bool generationIdFieldSpecified;
+    
+    private bool prettyJasonField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public archiveObjects archiveObject
+    {
+        get
+        {
+            return this.archiveObjectField;
+        }
+        set
+        {
+            this.archiveObjectField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool archiveObjectSpecified
+    {
+        get
+        {
+            return this.archiveObjectFieldSpecified;
+        }
+        set
+        {
+            this.archiveObjectFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public generationsFilter filter
+    {
+        get
+        {
+            return this.filterField;
+        }
+        set
+        {
+            this.filterField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool filterSpecified
+    {
+        get
+        {
+            return this.filterFieldSpecified;
+        }
+        set
+        {
+            this.filterFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int generationId
+    {
+        get
+        {
+            return this.generationIdField;
+        }
+        set
+        {
+            this.generationIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool generationIdSpecified
+    {
+        get
+        {
+            return this.generationIdFieldSpecified;
+        }
+        set
+        {
+            this.generationIdFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public bool prettyJason
+    {
+        get
+        {
+            return this.prettyJasonField;
+        }
+        set
+        {
+            this.prettyJasonField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveRemoveProfileOptions : abstractArchiveOptions
+{
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class archiveListOptions : abstractArchiveOptions
+{
+    
+    private string dateFilterField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public string dateFilter
+    {
+        get
+        {
+            return this.dateFilterField;
+        }
+        set
+        {
+            this.dateFilterField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cxf.safekeeping.vmware.com/")]
+public partial class vddkVersion
+{
+    
+    private int buildField;
+    
+    private string extendedVersionField;
+    
+    private int majorField;
+    
+    private int minorField;
+    
+    private int patchLevelField;
+    
+    private string versionField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+    public int build
+    {
+        get
+        {
+            return this.buildField;
+        }
+        set
+        {
+            this.buildField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+    public string extendedVersion
+    {
+        get
+        {
+            return this.extendedVersionField;
+        }
+        set
+        {
+            this.extendedVersionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+    public int major
+    {
+        get
+        {
+            return this.majorField;
+        }
+        set
+        {
+            this.majorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+    public int minor
+    {
+        get
+        {
+            return this.minorField;
+        }
+        set
+        {
+            this.minorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+    public int patchLevel
+    {
+        get
+        {
+            return this.patchLevelField;
+        }
+        set
+        {
+            this.patchLevelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+    public string version
+    {
+        get
+        {
+            return this.versionField;
+        }
+        set
+        {
+            this.versionField = value;
+        }
     }
 }
 
@@ -11592,6 +11603,39 @@ public partial class getVersionResponse
     }
     
     public getVersionResponse(resultActionVersion @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="connect", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectRequest
+{
+    
+    public connectRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="connectResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionConnect @return;
+    
+    public connectResponse()
+    {
+    }
+    
+    public connectResponse(resultActionConnect @return)
     {
         this.@return = @return;
     }
@@ -11750,6 +11794,802 @@ public partial class logoutResponse
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="keepalive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class keepaliveRequest
+{
+    
+    public keepaliveRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="keepaliveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class keepaliveResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public System.DateTime @return;
+    
+    public keepaliveResponse()
+    {
+    }
+    
+    public keepaliveResponse(System.DateTime @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="echo", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class echoRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string extra;
+    
+    public echoRequest()
+    {
+    }
+    
+    public echoRequest(string extra)
+    {
+        this.extra = extra;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="echoResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class echoResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string @return;
+    
+    public echoResponse()
+    {
+    }
+    
+    public echoResponse(string @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="listArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class listArchiveRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveListOptions options;
+    
+    public listArchiveRequest()
+    {
+    }
+    
+    public listArchiveRequest(archiveListOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="listArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class listArchiveResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task @return;
+    
+    public listArchiveResponse()
+    {
+    }
+    
+    public listArchiveResponse(task @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getRepositoryRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string name;
+    
+    public getRepositoryRequest()
+    {
+    }
+    
+    public getRepositoryRequest(string name)
+    {
+        this.name = name;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getRepositoryResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public repositoryOptions @return;
+    
+    public getRepositoryResponse()
+    {
+    }
+    
+    public getRepositoryResponse(repositoryOptions @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="backup", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class backupRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public backupOptions options;
+    
+    public backupRequest()
+    {
+    }
+    
+    public backupRequest(backupOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="backupResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class backupResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionBackup[] @return;
+    
+    public backupResponse()
+    {
+    }
+    
+    public backupResponse(resultActionBackup[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="connectAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectAsyncRequest
+{
+    
+    public connectAsyncRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="connectAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task @return;
+    
+    public connectAsyncResponse()
+    {
+    }
+    
+    public connectAsyncResponse(task @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackup", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class virtualBackupRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public virtualBackupOptions options;
+    
+    public virtualBackupRequest()
+    {
+    }
+    
+    public virtualBackupRequest(virtualBackupOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class virtualBackupResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public abstractResultActionVirtualBackup[] @return;
+    
+    public virtualBackupResponse()
+    {
+    }
+    
+    public virtualBackupResponse(abstractResultActionVirtualBackup[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnect", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectRequest
+{
+    
+    public disconnectRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionDisconnect @return;
+    
+    public disconnectResponse()
+    {
+    }
+    
+    public disconnectResponse(resultActionDisconnect @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getAllDumps", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getAllDumpsRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task id;
+    
+    public getAllDumpsRequest()
+    {
+    }
+    
+    public getAllDumpsRequest(task id)
+    {
+        this.id = id;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getAllDumpsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getAllDumpsResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public blockInfo[] @return;
+    
+    public getAllDumpsResponse()
+    {
+    }
+    
+    public getAllDumpsResponse(blockInfo[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="extension", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class extensionRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public extensionOptions options;
+    
+    public extensionRequest()
+    {
+    }
+    
+    public extensionRequest(extensionOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="extensionResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class extensionResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionExtension @return;
+    
+    public extensionResponse()
+    {
+    }
+    
+    public extensionResponse(resultActionExtension @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectAsyncRequest
+{
+    
+    public disconnectAsyncRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task @return;
+    
+    public disconnectAsyncResponse()
+    {
+    }
+    
+    public disconnectAsyncResponse(task @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getDumps", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getDumpsRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task id;
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=1)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public int arg1;
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=2)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public int arg2;
+    
+    public getDumpsRequest()
+    {
+    }
+    
+    public getDumpsRequest(task id, int arg1, int arg2)
+    {
+        this.id = id;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getDumpsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getDumpsResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public blockInfo[] @return;
+    
+    public getDumpsResponse()
+    {
+    }
+    
+    public getDumpsResponse(blockInfo[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getCurrentTime", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getCurrentTimeRequest
+{
+    
+    public getCurrentTimeRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getCurrentTimeResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getCurrentTimeResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public System.DateTime @return;
+    
+    public getCurrentTimeResponse()
+    {
+    }
+    
+    public getCurrentTimeResponse(System.DateTime @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="backupAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class backupAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public backupOptions options;
+    
+    public backupAsyncRequest()
+    {
+    }
+    
+    public backupAsyncRequest(backupOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="backupAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class backupAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public tasks @return;
+    
+    public backupAsyncResponse()
+    {
+    }
+    
+    public backupAsyncResponse(tasks @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositories", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getRepositoriesRequest
+{
+    
+    public getRepositoriesRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositoriesResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getRepositoriesResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public repositoryOptions[] @return;
+    
+    public getRepositoriesResponse()
+    {
+    }
+    
+    public getRepositoriesResponse(repositoryOptions[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getTaskInfo", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getTaskInfoRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task id;
+    
+    public getTaskInfoRequest()
+    {
+    }
+    
+    public getTaskInfoRequest(task id)
+    {
+        this.id = id;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getTaskInfoResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getTaskInfoResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public taskResult @return;
+    
+    public getTaskInfoResponse()
+    {
+    }
+    
+    public getTaskInfoResponse(taskResult @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="restoreAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class restoreAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public restoreOptions options;
+    
+    public restoreAsyncRequest()
+    {
+    }
+    
+    public restoreAsyncRequest(restoreOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="restoreAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class restoreAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public tasks @return;
+    
+    public restoreAsyncResponse()
+    {
+    }
+    
+    public restoreAsyncResponse(tasks @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class showArchiveAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveShowOptions options;
+    
+    public showArchiveAsyncRequest()
+    {
+    }
+    
+    public showArchiveAsyncRequest(archiveShowOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class showArchiveAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public tasks @return;
+    
+    public showArchiveAsyncResponse()
+    {
+    }
+    
+    public showArchiveAsyncResponse(tasks @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="showArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class showArchiveRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveShowOptions options;
+    
+    public showArchiveRequest()
+    {
+    }
+    
+    public showArchiveRequest(archiveShowOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class showArchiveResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionArchiveShow[] @return;
+    
+    public showArchiveResponse()
+    {
+    }
+    
+    public showArchiveResponse(resultActionArchiveShow[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class statusArchiveRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveStatusOptions options;
+    
+    public statusArchiveRequest()
+    {
+    }
+    
+    public statusArchiveRequest(archiveStatusOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class statusArchiveResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionArchiveStatus[] @return;
+    
+    public statusArchiveResponse()
+    {
+    }
+    
+    public statusArchiveResponse(resultActionArchiveStatus[] @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
 [System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveProfile", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
 public partial class removeArchiveProfileRequest
 {
@@ -11792,19 +12632,19 @@ public partial class removeArchiveProfileResponse
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="checkArchiveGenerations", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class checkArchiveGenerationsRequest
+[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class statusArchiveAsyncRequest
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveCheckGenerationsOptions options;
+    public archiveStatusOptions options;
     
-    public checkArchiveGenerationsRequest()
+    public statusArchiveAsyncRequest()
     {
     }
     
-    public checkArchiveGenerationsRequest(archiveCheckGenerationsOptions options)
+    public statusArchiveAsyncRequest(archiveStatusOptions options)
     {
         this.options = options;
     }
@@ -11813,19 +12653,19 @@ public partial class checkArchiveGenerationsRequest
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="checkArchiveGenerationsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class checkArchiveGenerationsResponse
+[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class statusArchiveAsyncResponse
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public tasks @return;
     
-    public checkArchiveGenerationsResponse()
+    public statusArchiveAsyncResponse()
     {
     }
     
-    public checkArchiveGenerationsResponse(tasks @return)
+    public statusArchiveAsyncResponse(tasks @return)
     {
         this.@return = @return;
     }
@@ -11834,19 +12674,19 @@ public partial class checkArchiveGenerationsResponse
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveGenerationsAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class removeArchiveGenerationsAsyncRequest
+[System.ServiceModel.MessageContractAttribute(WrapperName="connectRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectRepositoryRequest
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveRemoveGenerationsOptions options;
+    public repositoryOptions options;
     
-    public removeArchiveGenerationsAsyncRequest()
+    public connectRepositoryRequest()
     {
     }
     
-    public removeArchiveGenerationsAsyncRequest(archiveRemoveGenerationsOptions options)
+    public connectRepositoryRequest(repositoryOptions options)
     {
         this.options = options;
     }
@@ -11855,19 +12695,61 @@ public partial class removeArchiveGenerationsAsyncRequest
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveGenerationsAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class removeArchiveGenerationsAsyncResponse
+[System.ServiceModel.MessageContractAttribute(WrapperName="connectRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class connectRepositoryResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public abstractResultActionConnectRepository @return;
+    
+    public connectRepositoryResponse()
+    {
+    }
+    
+    public connectRepositoryResponse(abstractResultActionConnectRepository @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveProfileAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class removeArchiveProfileAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveRemoveProfileOptions options;
+    
+    public removeArchiveProfileAsyncRequest()
+    {
+    }
+    
+    public removeArchiveProfileAsyncRequest(archiveRemoveProfileOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveProfileAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class removeArchiveProfileAsyncResponse
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public tasks @return;
     
-    public removeArchiveGenerationsAsyncResponse()
+    public removeArchiveProfileAsyncResponse()
     {
     }
     
-    public removeArchiveGenerationsAsyncResponse(tasks @return)
+    public removeArchiveProfileAsyncResponse(tasks @return)
     {
         this.@return = @return;
     }
@@ -11918,6 +12800,39 @@ public partial class setActiveRepositoryResponse
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getActiveRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getActiveRepositoryRequest
+{
+    
+    public getActiveRepositoryRequest()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="getActiveRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class getActiveRepositoryResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public repositoryOptions @return;
+    
+    public getActiveRepositoryResponse()
+    {
+    }
+    
+    public getActiveRepositoryResponse(repositoryOptions @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
 [System.ServiceModel.MessageContractAttribute(WrapperName="connectRepositoryAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
 public partial class connectRepositoryAsyncRequest
 {
@@ -11952,6 +12867,174 @@ public partial class connectRepositoryAsyncResponse
     }
     
     public connectRepositoryAsyncResponse(task @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectRepositoryRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string name;
+    
+    public disconnectRepositoryRequest()
+    {
+    }
+    
+    public disconnectRepositoryRequest(string name)
+    {
+        this.name = name;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectRepositoryResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public resultActionDisconnectRepository @return;
+    
+    public disconnectRepositoryResponse()
+    {
+    }
+    
+    public disconnectRepositoryResponse(resultActionDisconnectRepository @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class virtualBackupAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public virtualBackupOptions options;
+    
+    public virtualBackupAsyncRequest()
+    {
+    }
+    
+    public virtualBackupAsyncRequest(virtualBackupOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class virtualBackupAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public tasks @return;
+    
+    public virtualBackupAsyncResponse()
+    {
+    }
+    
+    public virtualBackupAsyncResponse(tasks @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectRepositoryAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string name;
+    
+    public disconnectRepositoryAsyncRequest()
+    {
+    }
+    
+    public disconnectRepositoryAsyncRequest(string name)
+    {
+        this.name = name;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class disconnectRepositoryAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public task @return;
+    
+    public disconnectRepositoryAsyncResponse()
+    {
+    }
+    
+    public disconnectRepositoryAsyncResponse(task @return)
+    {
+        this.@return = @return;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveGenerationsAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class removeArchiveGenerationsAsyncRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public archiveRemoveGenerationsOptions options;
+    
+    public removeArchiveGenerationsAsyncRequest()
+    {
+    }
+    
+    public removeArchiveGenerationsAsyncRequest(archiveRemoveGenerationsOptions options)
+    {
+        this.options = options;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveGenerationsAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class removeArchiveGenerationsAsyncResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public tasks @return;
+    
+    public removeArchiveGenerationsAsyncResponse()
+    {
+    }
+    
+    public removeArchiveGenerationsAsyncResponse(tasks @return)
     {
         this.@return = @return;
     }
@@ -12035,19 +13118,19 @@ public partial class removeArchiveGenerationsResponse
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class statusArchiveAsyncRequest
+[System.ServiceModel.MessageContractAttribute(WrapperName="checkArchiveGenerations", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class checkArchiveGenerationsRequest
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveStatusOptions options;
+    public archiveCheckGenerationsOptions options;
     
-    public statusArchiveAsyncRequest()
+    public checkArchiveGenerationsRequest()
     {
     }
     
-    public statusArchiveAsyncRequest(archiveStatusOptions options)
+    public checkArchiveGenerationsRequest(archiveCheckGenerationsOptions options)
     {
         this.options = options;
     }
@@ -12056,1058 +13139,19 @@ public partial class statusArchiveAsyncRequest
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class statusArchiveAsyncResponse
+[System.ServiceModel.MessageContractAttribute(WrapperName="checkArchiveGenerationsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
+public partial class checkArchiveGenerationsResponse
 {
     
     [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public tasks @return;
     
-    public statusArchiveAsyncResponse()
+    public checkArchiveGenerationsResponse()
     {
     }
     
-    public statusArchiveAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectRepositoryAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string name;
-    
-    public disconnectRepositoryAsyncRequest()
-    {
-    }
-    
-    public disconnectRepositoryAsyncRequest(string name)
-    {
-        this.name = name;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectRepositoryAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task @return;
-    
-    public disconnectRepositoryAsyncResponse()
-    {
-    }
-    
-    public disconnectRepositoryAsyncResponse(task @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class virtualBackupAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public virtualBackupOptions options;
-    
-    public virtualBackupAsyncRequest()
-    {
-    }
-    
-    public virtualBackupAsyncRequest(virtualBackupOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class virtualBackupAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public tasks @return;
-    
-    public virtualBackupAsyncResponse()
-    {
-    }
-    
-    public virtualBackupAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectRepositoryRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string name;
-    
-    public disconnectRepositoryRequest()
-    {
-    }
-    
-    public disconnectRepositoryRequest(string name)
-    {
-        this.name = name;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectRepositoryResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionDisconnectRepository @return;
-    
-    public disconnectRepositoryResponse()
-    {
-    }
-    
-    public disconnectRepositoryResponse(resultActionDisconnectRepository @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveProfileAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class removeArchiveProfileAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveRemoveProfileOptions options;
-    
-    public removeArchiveProfileAsyncRequest()
-    {
-    }
-    
-    public removeArchiveProfileAsyncRequest(archiveRemoveProfileOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="removeArchiveProfileAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class removeArchiveProfileAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public tasks @return;
-    
-    public removeArchiveProfileAsyncResponse()
-    {
-    }
-    
-    public removeArchiveProfileAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connectRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectRepositoryRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public repositoryOptions options;
-    
-    public connectRepositoryRequest()
-    {
-    }
-    
-    public connectRepositoryRequest(repositoryOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connectRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectRepositoryResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public abstractResultActionConnectRepository @return;
-    
-    public connectRepositoryResponse()
-    {
-    }
-    
-    public connectRepositoryResponse(abstractResultActionConnectRepository @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getActiveRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getActiveRepositoryRequest
-{
-    
-    public getActiveRepositoryRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getActiveRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getActiveRepositoryResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public repositoryOptions @return;
-    
-    public getActiveRepositoryResponse()
-    {
-    }
-    
-    public getActiveRepositoryResponse(repositoryOptions @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connectAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectAsyncRequest
-{
-    
-    public connectAsyncRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="connectAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class connectAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task @return;
-    
-    public connectAsyncResponse()
-    {
-    }
-    
-    public connectAsyncResponse(task @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="backup", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class backupRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public backupOptions options;
-    
-    public backupRequest()
-    {
-    }
-    
-    public backupRequest(backupOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="backupResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class backupResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionBackup[] @return;
-    
-    public backupResponse()
-    {
-    }
-    
-    public backupResponse(resultActionBackup[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="backupAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class backupAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public backupOptions options;
-    
-    public backupAsyncRequest()
-    {
-    }
-    
-    public backupAsyncRequest(backupOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="backupAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class backupAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public tasks @return;
-    
-    public backupAsyncResponse()
-    {
-    }
-    
-    public backupAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getAllDumps", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getAllDumpsRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task id;
-    
-    public getAllDumpsRequest()
-    {
-    }
-    
-    public getAllDumpsRequest(task id)
-    {
-        this.id = id;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getAllDumpsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getAllDumpsResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public blockInfo[] @return;
-    
-    public getAllDumpsResponse()
-    {
-    }
-    
-    public getAllDumpsResponse(blockInfo[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectAsyncRequest
-{
-    
-    public disconnectAsyncRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task @return;
-    
-    public disconnectAsyncResponse()
-    {
-    }
-    
-    public disconnectAsyncResponse(task @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositories", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getRepositoriesRequest
-{
-    
-    public getRepositoriesRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositoriesResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getRepositoriesResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public repositoryOptions[] @return;
-    
-    public getRepositoriesResponse()
-    {
-    }
-    
-    public getRepositoriesResponse(repositoryOptions[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getRepository", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getRepositoryRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string name;
-    
-    public getRepositoryRequest()
-    {
-    }
-    
-    public getRepositoryRequest(string name)
-    {
-        this.name = name;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getRepositoryResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getRepositoryResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public repositoryOptions @return;
-    
-    public getRepositoryResponse()
-    {
-    }
-    
-    public getRepositoryResponse(repositoryOptions @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackup", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class virtualBackupRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public virtualBackupOptions options;
-    
-    public virtualBackupRequest()
-    {
-    }
-    
-    public virtualBackupRequest(virtualBackupOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="virtualBackupResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class virtualBackupResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public abstractResultActionVirtualBackup[] @return;
-    
-    public virtualBackupResponse()
-    {
-    }
-    
-    public virtualBackupResponse(abstractResultActionVirtualBackup[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getDumps", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getDumpsRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task id;
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=1)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public int arg1;
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=2)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public int arg2;
-    
-    public getDumpsRequest()
-    {
-    }
-    
-    public getDumpsRequest(task id, int arg1, int arg2)
-    {
-        this.id = id;
-        this.arg1 = arg1;
-        this.arg2 = arg2;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getDumpsResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getDumpsResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public blockInfo[] @return;
-    
-    public getDumpsResponse()
-    {
-    }
-    
-    public getDumpsResponse(blockInfo[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="keepalive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class keepaliveRequest
-{
-    
-    public keepaliveRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="keepaliveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class keepaliveResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public System.DateTime @return;
-    
-    public keepaliveResponse()
-    {
-    }
-    
-    public keepaliveResponse(System.DateTime @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnect", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectRequest
-{
-    
-    public disconnectRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="disconnectResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class disconnectResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionDisconnect @return;
-    
-    public disconnectResponse()
-    {
-    }
-    
-    public disconnectResponse(resultActionDisconnect @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="restoreAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class restoreAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public restoreOptions options;
-    
-    public restoreAsyncRequest()
-    {
-    }
-    
-    public restoreAsyncRequest(restoreOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="restoreAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class restoreAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public tasks @return;
-    
-    public restoreAsyncResponse()
-    {
-    }
-    
-    public restoreAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="showArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class showArchiveRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveShowOptions options;
-    
-    public showArchiveRequest()
-    {
-    }
-    
-    public showArchiveRequest(archiveShowOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class showArchiveResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionArchiveShow[] @return;
-    
-    public showArchiveResponse()
-    {
-    }
-    
-    public showArchiveResponse(resultActionArchiveShow[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="extension", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class extensionRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public extensionOptions options;
-    
-    public extensionRequest()
-    {
-    }
-    
-    public extensionRequest(extensionOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="extensionResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class extensionResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionExtension @return;
-    
-    public extensionResponse()
-    {
-    }
-    
-    public extensionResponse(resultActionExtension @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="listArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class listArchiveRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveListOptions options;
-    
-    public listArchiveRequest()
-    {
-    }
-    
-    public listArchiveRequest(archiveListOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="listArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class listArchiveResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task @return;
-    
-    public listArchiveResponse()
-    {
-    }
-    
-    public listArchiveResponse(task @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="echo", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class echoRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string extra;
-    
-    public echoRequest()
-    {
-    }
-    
-    public echoRequest(string extra)
-    {
-        this.extra = extra;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="echoResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class echoResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string @return;
-    
-    public echoResponse()
-    {
-    }
-    
-    public echoResponse(string @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveAsync", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class showArchiveAsyncRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveShowOptions options;
-    
-    public showArchiveAsyncRequest()
-    {
-    }
-    
-    public showArchiveAsyncRequest(archiveShowOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="showArchiveAsyncResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class showArchiveAsyncResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public tasks @return;
-    
-    public showArchiveAsyncResponse()
-    {
-    }
-    
-    public showArchiveAsyncResponse(tasks @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchive", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class statusArchiveRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public archiveStatusOptions options;
-    
-    public statusArchiveRequest()
-    {
-    }
-    
-    public statusArchiveRequest(archiveStatusOptions options)
-    {
-        this.options = options;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="statusArchiveResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class statusArchiveResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public resultActionArchiveStatus[] @return;
-    
-    public statusArchiveResponse()
-    {
-    }
-    
-    public statusArchiveResponse(resultActionArchiveStatus[] @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getCurrentTime", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getCurrentTimeRequest
-{
-    
-    public getCurrentTimeRequest()
-    {
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getCurrentTimeResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getCurrentTimeResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public System.DateTime @return;
-    
-    public getCurrentTimeResponse()
-    {
-    }
-    
-    public getCurrentTimeResponse(System.DateTime @return)
-    {
-        this.@return = @return;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getTaskInfo", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getTaskInfoRequest
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public task id;
-    
-    public getTaskInfoRequest()
-    {
-    }
-    
-    public getTaskInfoRequest(task id)
-    {
-        this.id = id;
-    }
-}
-
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-[System.ServiceModel.MessageContractAttribute(WrapperName="getTaskInfoResponse", WrapperNamespace="http://cxf.safekeeping.vmware.com/", IsWrapped=true)]
-public partial class getTaskInfoResponse
-{
-    
-    [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://cxf.safekeeping.vmware.com/", Order=0)]
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public taskResult @return;
-    
-    public getTaskInfoResponse()
-    {
-    }
-    
-    public getTaskInfoResponse(taskResult @return)
+    public checkArchiveGenerationsResponse(tasks @return)
     {
         this.@return = @return;
     }
@@ -13148,19 +13192,6 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    connectResponse Sapi.connect(connectRequest request)
-    {
-        return base.Channel.connect(request);
-    }
-    
-    public resultActionConnect connect()
-    {
-        connectRequest inValue = new connectRequest();
-        connectResponse retVal = ((Sapi)(this)).connect(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     getVersionResponse Sapi.getVersion(getVersionRequest request)
     {
         return base.Channel.getVersion(request);
@@ -13170,6 +13201,19 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     {
         getVersionRequest inValue = new getVersionRequest();
         getVersionResponse retVal = ((Sapi)(this)).getVersion(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    connectResponse Sapi.connect(connectRequest request)
+    {
+        return base.Channel.connect(request);
+    }
+    
+    public resultActionConnect connect()
+    {
+        connectRequest inValue = new connectRequest();
+        connectResponse retVal = ((Sapi)(this)).connect(inValue);
         return retVal.@return;
     }
     
@@ -13228,6 +13272,282 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    keepaliveResponse Sapi.keepalive(keepaliveRequest request)
+    {
+        return base.Channel.keepalive(request);
+    }
+    
+    public System.DateTime keepalive()
+    {
+        keepaliveRequest inValue = new keepaliveRequest();
+        keepaliveResponse retVal = ((Sapi)(this)).keepalive(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    echoResponse Sapi.echo(echoRequest request)
+    {
+        return base.Channel.echo(request);
+    }
+    
+    public string echo(string extra)
+    {
+        echoRequest inValue = new echoRequest();
+        inValue.extra = extra;
+        echoResponse retVal = ((Sapi)(this)).echo(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    listArchiveResponse Sapi.listArchive(listArchiveRequest request)
+    {
+        return base.Channel.listArchive(request);
+    }
+    
+    public task listArchive(archiveListOptions options)
+    {
+        listArchiveRequest inValue = new listArchiveRequest();
+        inValue.options = options;
+        listArchiveResponse retVal = ((Sapi)(this)).listArchive(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getRepositoryResponse Sapi.getRepository(getRepositoryRequest request)
+    {
+        return base.Channel.getRepository(request);
+    }
+    
+    public repositoryOptions getRepository(string name)
+    {
+        getRepositoryRequest inValue = new getRepositoryRequest();
+        inValue.name = name;
+        getRepositoryResponse retVal = ((Sapi)(this)).getRepository(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    backupResponse Sapi.backup(backupRequest request)
+    {
+        return base.Channel.backup(request);
+    }
+    
+    public resultActionBackup[] backup(backupOptions options)
+    {
+        backupRequest inValue = new backupRequest();
+        inValue.options = options;
+        backupResponse retVal = ((Sapi)(this)).backup(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    connectAsyncResponse Sapi.connectAsync(connectAsyncRequest request)
+    {
+        return base.Channel.connectAsync(request);
+    }
+    
+    public task connectAsync()
+    {
+        connectAsyncRequest inValue = new connectAsyncRequest();
+        connectAsyncResponse retVal = ((Sapi)(this)).connectAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    virtualBackupResponse Sapi.virtualBackup(virtualBackupRequest request)
+    {
+        return base.Channel.virtualBackup(request);
+    }
+    
+    public abstractResultActionVirtualBackup[] virtualBackup(virtualBackupOptions options)
+    {
+        virtualBackupRequest inValue = new virtualBackupRequest();
+        inValue.options = options;
+        virtualBackupResponse retVal = ((Sapi)(this)).virtualBackup(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    disconnectResponse Sapi.disconnect(disconnectRequest request)
+    {
+        return base.Channel.disconnect(request);
+    }
+    
+    public resultActionDisconnect disconnect()
+    {
+        disconnectRequest inValue = new disconnectRequest();
+        disconnectResponse retVal = ((Sapi)(this)).disconnect(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getAllDumpsResponse Sapi.getAllDumps(getAllDumpsRequest request)
+    {
+        return base.Channel.getAllDumps(request);
+    }
+    
+    public blockInfo[] getAllDumps(task id)
+    {
+        getAllDumpsRequest inValue = new getAllDumpsRequest();
+        inValue.id = id;
+        getAllDumpsResponse retVal = ((Sapi)(this)).getAllDumps(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    extensionResponse Sapi.extension(extensionRequest request)
+    {
+        return base.Channel.extension(request);
+    }
+    
+    public resultActionExtension extension(extensionOptions options)
+    {
+        extensionRequest inValue = new extensionRequest();
+        inValue.options = options;
+        extensionResponse retVal = ((Sapi)(this)).extension(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    disconnectAsyncResponse Sapi.disconnectAsync(disconnectAsyncRequest request)
+    {
+        return base.Channel.disconnectAsync(request);
+    }
+    
+    public task disconnectAsync()
+    {
+        disconnectAsyncRequest inValue = new disconnectAsyncRequest();
+        disconnectAsyncResponse retVal = ((Sapi)(this)).disconnectAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getDumpsResponse Sapi.getDumps(getDumpsRequest request)
+    {
+        return base.Channel.getDumps(request);
+    }
+    
+    public blockInfo[] getDumps(task id, int arg1, int arg2)
+    {
+        getDumpsRequest inValue = new getDumpsRequest();
+        inValue.id = id;
+        inValue.arg1 = arg1;
+        inValue.arg2 = arg2;
+        getDumpsResponse retVal = ((Sapi)(this)).getDumps(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getCurrentTimeResponse Sapi.getCurrentTime(getCurrentTimeRequest request)
+    {
+        return base.Channel.getCurrentTime(request);
+    }
+    
+    public System.DateTime getCurrentTime()
+    {
+        getCurrentTimeRequest inValue = new getCurrentTimeRequest();
+        getCurrentTimeResponse retVal = ((Sapi)(this)).getCurrentTime(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    backupAsyncResponse Sapi.backupAsync(backupAsyncRequest request)
+    {
+        return base.Channel.backupAsync(request);
+    }
+    
+    public tasks backupAsync(backupOptions options)
+    {
+        backupAsyncRequest inValue = new backupAsyncRequest();
+        inValue.options = options;
+        backupAsyncResponse retVal = ((Sapi)(this)).backupAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getRepositoriesResponse Sapi.getRepositories(getRepositoriesRequest request)
+    {
+        return base.Channel.getRepositories(request);
+    }
+    
+    public repositoryOptions[] getRepositories()
+    {
+        getRepositoriesRequest inValue = new getRepositoriesRequest();
+        getRepositoriesResponse retVal = ((Sapi)(this)).getRepositories(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getTaskInfoResponse Sapi.getTaskInfo(getTaskInfoRequest request)
+    {
+        return base.Channel.getTaskInfo(request);
+    }
+    
+    public taskResult getTaskInfo(task id)
+    {
+        getTaskInfoRequest inValue = new getTaskInfoRequest();
+        inValue.id = id;
+        getTaskInfoResponse retVal = ((Sapi)(this)).getTaskInfo(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    restoreAsyncResponse Sapi.restoreAsync(restoreAsyncRequest request)
+    {
+        return base.Channel.restoreAsync(request);
+    }
+    
+    public tasks restoreAsync(restoreOptions options)
+    {
+        restoreAsyncRequest inValue = new restoreAsyncRequest();
+        inValue.options = options;
+        restoreAsyncResponse retVal = ((Sapi)(this)).restoreAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    showArchiveAsyncResponse Sapi.showArchiveAsync(showArchiveAsyncRequest request)
+    {
+        return base.Channel.showArchiveAsync(request);
+    }
+    
+    public tasks showArchiveAsync(archiveShowOptions options)
+    {
+        showArchiveAsyncRequest inValue = new showArchiveAsyncRequest();
+        inValue.options = options;
+        showArchiveAsyncResponse retVal = ((Sapi)(this)).showArchiveAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    showArchiveResponse Sapi.showArchive(showArchiveRequest request)
+    {
+        return base.Channel.showArchive(request);
+    }
+    
+    public resultActionArchiveShow[] showArchive(archiveShowOptions options)
+    {
+        showArchiveRequest inValue = new showArchiveRequest();
+        inValue.options = options;
+        showArchiveResponse retVal = ((Sapi)(this)).showArchive(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    statusArchiveResponse Sapi.statusArchive(statusArchiveRequest request)
+    {
+        return base.Channel.statusArchive(request);
+    }
+    
+    public resultActionArchiveStatus[] statusArchive(archiveStatusOptions options)
+    {
+        statusArchiveRequest inValue = new statusArchiveRequest();
+        inValue.options = options;
+        statusArchiveResponse retVal = ((Sapi)(this)).statusArchive(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     removeArchiveProfileResponse Sapi.removeArchiveProfile(removeArchiveProfileRequest request)
     {
         return base.Channel.removeArchiveProfile(request);
@@ -13242,30 +13562,44 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    checkArchiveGenerationsResponse Sapi.checkArchiveGenerations(checkArchiveGenerationsRequest request)
+    statusArchiveAsyncResponse Sapi.statusArchiveAsync(statusArchiveAsyncRequest request)
     {
-        return base.Channel.checkArchiveGenerations(request);
+        return base.Channel.statusArchiveAsync(request);
     }
     
-    public tasks checkArchiveGenerations(archiveCheckGenerationsOptions options)
+    public tasks statusArchiveAsync(archiveStatusOptions options)
     {
-        checkArchiveGenerationsRequest inValue = new checkArchiveGenerationsRequest();
+        statusArchiveAsyncRequest inValue = new statusArchiveAsyncRequest();
         inValue.options = options;
-        checkArchiveGenerationsResponse retVal = ((Sapi)(this)).checkArchiveGenerations(inValue);
+        statusArchiveAsyncResponse retVal = ((Sapi)(this)).statusArchiveAsync(inValue);
         return retVal.@return;
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    removeArchiveGenerationsAsyncResponse Sapi.removeArchiveGenerationsAsync(removeArchiveGenerationsAsyncRequest request)
+    connectRepositoryResponse Sapi.connectRepository(connectRepositoryRequest request)
     {
-        return base.Channel.removeArchiveGenerationsAsync(request);
+        return base.Channel.connectRepository(request);
     }
     
-    public tasks removeArchiveGenerationsAsync(archiveRemoveGenerationsOptions options)
+    public abstractResultActionConnectRepository connectRepository(repositoryOptions options)
     {
-        removeArchiveGenerationsAsyncRequest inValue = new removeArchiveGenerationsAsyncRequest();
+        connectRepositoryRequest inValue = new connectRepositoryRequest();
         inValue.options = options;
-        removeArchiveGenerationsAsyncResponse retVal = ((Sapi)(this)).removeArchiveGenerationsAsync(inValue);
+        connectRepositoryResponse retVal = ((Sapi)(this)).connectRepository(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    removeArchiveProfileAsyncResponse Sapi.removeArchiveProfileAsync(removeArchiveProfileAsyncRequest request)
+    {
+        return base.Channel.removeArchiveProfileAsync(request);
+    }
+    
+    public tasks removeArchiveProfileAsync(archiveRemoveProfileOptions options)
+    {
+        removeArchiveProfileAsyncRequest inValue = new removeArchiveProfileAsyncRequest();
+        inValue.options = options;
+        removeArchiveProfileAsyncResponse retVal = ((Sapi)(this)).removeArchiveProfileAsync(inValue);
         return retVal.@return;
     }
     
@@ -13284,6 +13618,19 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    getActiveRepositoryResponse Sapi.getActiveRepository(getActiveRepositoryRequest request)
+    {
+        return base.Channel.getActiveRepository(request);
+    }
+    
+    public repositoryOptions getActiveRepository()
+    {
+        getActiveRepositoryRequest inValue = new getActiveRepositoryRequest();
+        getActiveRepositoryResponse retVal = ((Sapi)(this)).getActiveRepository(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     connectRepositoryAsyncResponse Sapi.connectRepositoryAsync(connectRepositoryAsyncRequest request)
     {
         return base.Channel.connectRepositoryAsync(request);
@@ -13294,6 +13641,62 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
         connectRepositoryAsyncRequest inValue = new connectRepositoryAsyncRequest();
         inValue.options = options;
         connectRepositoryAsyncResponse retVal = ((Sapi)(this)).connectRepositoryAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    disconnectRepositoryResponse Sapi.disconnectRepository(disconnectRepositoryRequest request)
+    {
+        return base.Channel.disconnectRepository(request);
+    }
+    
+    public resultActionDisconnectRepository disconnectRepository(string name)
+    {
+        disconnectRepositoryRequest inValue = new disconnectRepositoryRequest();
+        inValue.name = name;
+        disconnectRepositoryResponse retVal = ((Sapi)(this)).disconnectRepository(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    virtualBackupAsyncResponse Sapi.virtualBackupAsync(virtualBackupAsyncRequest request)
+    {
+        return base.Channel.virtualBackupAsync(request);
+    }
+    
+    public tasks virtualBackupAsync(virtualBackupOptions options)
+    {
+        virtualBackupAsyncRequest inValue = new virtualBackupAsyncRequest();
+        inValue.options = options;
+        virtualBackupAsyncResponse retVal = ((Sapi)(this)).virtualBackupAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    disconnectRepositoryAsyncResponse Sapi.disconnectRepositoryAsync(disconnectRepositoryAsyncRequest request)
+    {
+        return base.Channel.disconnectRepositoryAsync(request);
+    }
+    
+    public task disconnectRepositoryAsync(string name)
+    {
+        disconnectRepositoryAsyncRequest inValue = new disconnectRepositoryAsyncRequest();
+        inValue.name = name;
+        disconnectRepositoryAsyncResponse retVal = ((Sapi)(this)).disconnectRepositoryAsync(inValue);
+        return retVal.@return;
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    removeArchiveGenerationsAsyncResponse Sapi.removeArchiveGenerationsAsync(removeArchiveGenerationsAsyncRequest request)
+    {
+        return base.Channel.removeArchiveGenerationsAsync(request);
+    }
+    
+    public tasks removeArchiveGenerationsAsync(archiveRemoveGenerationsOptions options)
+    {
+        removeArchiveGenerationsAsyncRequest inValue = new removeArchiveGenerationsAsyncRequest();
+        inValue.options = options;
+        removeArchiveGenerationsAsyncResponse retVal = ((Sapi)(this)).removeArchiveGenerationsAsync(inValue);
         return retVal.@return;
     }
     
@@ -13325,375 +13728,16 @@ public partial class SapiClient : System.ServiceModel.ClientBase<Sapi>, Sapi
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    statusArchiveAsyncResponse Sapi.statusArchiveAsync(statusArchiveAsyncRequest request)
+    checkArchiveGenerationsResponse Sapi.checkArchiveGenerations(checkArchiveGenerationsRequest request)
     {
-        return base.Channel.statusArchiveAsync(request);
+        return base.Channel.checkArchiveGenerations(request);
     }
     
-    public tasks statusArchiveAsync(archiveStatusOptions options)
+    public tasks checkArchiveGenerations(archiveCheckGenerationsOptions options)
     {
-        statusArchiveAsyncRequest inValue = new statusArchiveAsyncRequest();
+        checkArchiveGenerationsRequest inValue = new checkArchiveGenerationsRequest();
         inValue.options = options;
-        statusArchiveAsyncResponse retVal = ((Sapi)(this)).statusArchiveAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    disconnectRepositoryAsyncResponse Sapi.disconnectRepositoryAsync(disconnectRepositoryAsyncRequest request)
-    {
-        return base.Channel.disconnectRepositoryAsync(request);
-    }
-    
-    public task disconnectRepositoryAsync(string name)
-    {
-        disconnectRepositoryAsyncRequest inValue = new disconnectRepositoryAsyncRequest();
-        inValue.name = name;
-        disconnectRepositoryAsyncResponse retVal = ((Sapi)(this)).disconnectRepositoryAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    virtualBackupAsyncResponse Sapi.virtualBackupAsync(virtualBackupAsyncRequest request)
-    {
-        return base.Channel.virtualBackupAsync(request);
-    }
-    
-    public tasks virtualBackupAsync(virtualBackupOptions options)
-    {
-        virtualBackupAsyncRequest inValue = new virtualBackupAsyncRequest();
-        inValue.options = options;
-        virtualBackupAsyncResponse retVal = ((Sapi)(this)).virtualBackupAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    disconnectRepositoryResponse Sapi.disconnectRepository(disconnectRepositoryRequest request)
-    {
-        return base.Channel.disconnectRepository(request);
-    }
-    
-    public resultActionDisconnectRepository disconnectRepository(string name)
-    {
-        disconnectRepositoryRequest inValue = new disconnectRepositoryRequest();
-        inValue.name = name;
-        disconnectRepositoryResponse retVal = ((Sapi)(this)).disconnectRepository(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    removeArchiveProfileAsyncResponse Sapi.removeArchiveProfileAsync(removeArchiveProfileAsyncRequest request)
-    {
-        return base.Channel.removeArchiveProfileAsync(request);
-    }
-    
-    public tasks removeArchiveProfileAsync(archiveRemoveProfileOptions options)
-    {
-        removeArchiveProfileAsyncRequest inValue = new removeArchiveProfileAsyncRequest();
-        inValue.options = options;
-        removeArchiveProfileAsyncResponse retVal = ((Sapi)(this)).removeArchiveProfileAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    connectRepositoryResponse Sapi.connectRepository(connectRepositoryRequest request)
-    {
-        return base.Channel.connectRepository(request);
-    }
-    
-    public abstractResultActionConnectRepository connectRepository(repositoryOptions options)
-    {
-        connectRepositoryRequest inValue = new connectRepositoryRequest();
-        inValue.options = options;
-        connectRepositoryResponse retVal = ((Sapi)(this)).connectRepository(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getActiveRepositoryResponse Sapi.getActiveRepository(getActiveRepositoryRequest request)
-    {
-        return base.Channel.getActiveRepository(request);
-    }
-    
-    public repositoryOptions getActiveRepository()
-    {
-        getActiveRepositoryRequest inValue = new getActiveRepositoryRequest();
-        getActiveRepositoryResponse retVal = ((Sapi)(this)).getActiveRepository(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    connectAsyncResponse Sapi.connectAsync(connectAsyncRequest request)
-    {
-        return base.Channel.connectAsync(request);
-    }
-    
-    public task connectAsync()
-    {
-        connectAsyncRequest inValue = new connectAsyncRequest();
-        connectAsyncResponse retVal = ((Sapi)(this)).connectAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    backupResponse Sapi.backup(backupRequest request)
-    {
-        return base.Channel.backup(request);
-    }
-    
-    public resultActionBackup[] backup(backupOptions options)
-    {
-        backupRequest inValue = new backupRequest();
-        inValue.options = options;
-        backupResponse retVal = ((Sapi)(this)).backup(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    backupAsyncResponse Sapi.backupAsync(backupAsyncRequest request)
-    {
-        return base.Channel.backupAsync(request);
-    }
-    
-    public tasks backupAsync(backupOptions options)
-    {
-        backupAsyncRequest inValue = new backupAsyncRequest();
-        inValue.options = options;
-        backupAsyncResponse retVal = ((Sapi)(this)).backupAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getAllDumpsResponse Sapi.getAllDumps(getAllDumpsRequest request)
-    {
-        return base.Channel.getAllDumps(request);
-    }
-    
-    public blockInfo[] getAllDumps(task id)
-    {
-        getAllDumpsRequest inValue = new getAllDumpsRequest();
-        inValue.id = id;
-        getAllDumpsResponse retVal = ((Sapi)(this)).getAllDumps(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    disconnectAsyncResponse Sapi.disconnectAsync(disconnectAsyncRequest request)
-    {
-        return base.Channel.disconnectAsync(request);
-    }
-    
-    public task disconnectAsync()
-    {
-        disconnectAsyncRequest inValue = new disconnectAsyncRequest();
-        disconnectAsyncResponse retVal = ((Sapi)(this)).disconnectAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getRepositoriesResponse Sapi.getRepositories(getRepositoriesRequest request)
-    {
-        return base.Channel.getRepositories(request);
-    }
-    
-    public repositoryOptions[] getRepositories()
-    {
-        getRepositoriesRequest inValue = new getRepositoriesRequest();
-        getRepositoriesResponse retVal = ((Sapi)(this)).getRepositories(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getRepositoryResponse Sapi.getRepository(getRepositoryRequest request)
-    {
-        return base.Channel.getRepository(request);
-    }
-    
-    public repositoryOptions getRepository(string name)
-    {
-        getRepositoryRequest inValue = new getRepositoryRequest();
-        inValue.name = name;
-        getRepositoryResponse retVal = ((Sapi)(this)).getRepository(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    virtualBackupResponse Sapi.virtualBackup(virtualBackupRequest request)
-    {
-        return base.Channel.virtualBackup(request);
-    }
-    
-    public abstractResultActionVirtualBackup[] virtualBackup(virtualBackupOptions options)
-    {
-        virtualBackupRequest inValue = new virtualBackupRequest();
-        inValue.options = options;
-        virtualBackupResponse retVal = ((Sapi)(this)).virtualBackup(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getDumpsResponse Sapi.getDumps(getDumpsRequest request)
-    {
-        return base.Channel.getDumps(request);
-    }
-    
-    public blockInfo[] getDumps(task id, int arg1, int arg2)
-    {
-        getDumpsRequest inValue = new getDumpsRequest();
-        inValue.id = id;
-        inValue.arg1 = arg1;
-        inValue.arg2 = arg2;
-        getDumpsResponse retVal = ((Sapi)(this)).getDumps(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    keepaliveResponse Sapi.keepalive(keepaliveRequest request)
-    {
-        return base.Channel.keepalive(request);
-    }
-    
-    public System.DateTime keepalive()
-    {
-        keepaliveRequest inValue = new keepaliveRequest();
-        keepaliveResponse retVal = ((Sapi)(this)).keepalive(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    disconnectResponse Sapi.disconnect(disconnectRequest request)
-    {
-        return base.Channel.disconnect(request);
-    }
-    
-    public resultActionDisconnect disconnect()
-    {
-        disconnectRequest inValue = new disconnectRequest();
-        disconnectResponse retVal = ((Sapi)(this)).disconnect(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    restoreAsyncResponse Sapi.restoreAsync(restoreAsyncRequest request)
-    {
-        return base.Channel.restoreAsync(request);
-    }
-    
-    public tasks restoreAsync(restoreOptions options)
-    {
-        restoreAsyncRequest inValue = new restoreAsyncRequest();
-        inValue.options = options;
-        restoreAsyncResponse retVal = ((Sapi)(this)).restoreAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    showArchiveResponse Sapi.showArchive(showArchiveRequest request)
-    {
-        return base.Channel.showArchive(request);
-    }
-    
-    public resultActionArchiveShow[] showArchive(archiveShowOptions options)
-    {
-        showArchiveRequest inValue = new showArchiveRequest();
-        inValue.options = options;
-        showArchiveResponse retVal = ((Sapi)(this)).showArchive(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    extensionResponse Sapi.extension(extensionRequest request)
-    {
-        return base.Channel.extension(request);
-    }
-    
-    public resultActionExtension extension(extensionOptions options)
-    {
-        extensionRequest inValue = new extensionRequest();
-        inValue.options = options;
-        extensionResponse retVal = ((Sapi)(this)).extension(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    listArchiveResponse Sapi.listArchive(listArchiveRequest request)
-    {
-        return base.Channel.listArchive(request);
-    }
-    
-    public task listArchive(archiveListOptions options)
-    {
-        listArchiveRequest inValue = new listArchiveRequest();
-        inValue.options = options;
-        listArchiveResponse retVal = ((Sapi)(this)).listArchive(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    echoResponse Sapi.echo(echoRequest request)
-    {
-        return base.Channel.echo(request);
-    }
-    
-    public string echo(string extra)
-    {
-        echoRequest inValue = new echoRequest();
-        inValue.extra = extra;
-        echoResponse retVal = ((Sapi)(this)).echo(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    showArchiveAsyncResponse Sapi.showArchiveAsync(showArchiveAsyncRequest request)
-    {
-        return base.Channel.showArchiveAsync(request);
-    }
-    
-    public tasks showArchiveAsync(archiveShowOptions options)
-    {
-        showArchiveAsyncRequest inValue = new showArchiveAsyncRequest();
-        inValue.options = options;
-        showArchiveAsyncResponse retVal = ((Sapi)(this)).showArchiveAsync(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    statusArchiveResponse Sapi.statusArchive(statusArchiveRequest request)
-    {
-        return base.Channel.statusArchive(request);
-    }
-    
-    public resultActionArchiveStatus[] statusArchive(archiveStatusOptions options)
-    {
-        statusArchiveRequest inValue = new statusArchiveRequest();
-        inValue.options = options;
-        statusArchiveResponse retVal = ((Sapi)(this)).statusArchive(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getCurrentTimeResponse Sapi.getCurrentTime(getCurrentTimeRequest request)
-    {
-        return base.Channel.getCurrentTime(request);
-    }
-    
-    public System.DateTime getCurrentTime()
-    {
-        getCurrentTimeRequest inValue = new getCurrentTimeRequest();
-        getCurrentTimeResponse retVal = ((Sapi)(this)).getCurrentTime(inValue);
-        return retVal.@return;
-    }
-    
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    getTaskInfoResponse Sapi.getTaskInfo(getTaskInfoRequest request)
-    {
-        return base.Channel.getTaskInfo(request);
-    }
-    
-    public taskResult getTaskInfo(task id)
-    {
-        getTaskInfoRequest inValue = new getTaskInfoRequest();
-        inValue.id = id;
-        getTaskInfoResponse retVal = ((Sapi)(this)).getTaskInfo(inValue);
+        checkArchiveGenerationsResponse retVal = ((Sapi)(this)).checkArchiveGenerations(inValue);
         return retVal.@return;
     }
 }
@@ -13705,12 +13749,12 @@ namespace cxf.safekeeping.vmware.com
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Xml.Serialization.XmlSchemaProviderAttribute("ExportSchema")]
     [System.Xml.Serialization.XmlRootAttribute(IsNullable=false)]
-    public partial class UnrecognizedToken : object, System.Xml.Serialization.IXmlSerializable
+    public partial class InternalCoreResult : object, System.Xml.Serialization.IXmlSerializable
     {
         
         private System.Xml.XmlNode[] nodesField;
         
-        private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("UnrecognizedToken", "http://cxf.safekeeping.vmware.com/");
+        private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("InternalCoreResult", "http://cxf.safekeeping.vmware.com/");
         
         public System.Xml.XmlNode[] Nodes
         {
@@ -13750,12 +13794,12 @@ namespace cxf.safekeeping.vmware.com
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Xml.Serialization.XmlSchemaProviderAttribute("ExportSchema")]
     [System.Xml.Serialization.XmlRootAttribute(IsNullable=false)]
-    public partial class InternalCoreResult : object, System.Xml.Serialization.IXmlSerializable
+    public partial class UnrecognizedToken : object, System.Xml.Serialization.IXmlSerializable
     {
         
         private System.Xml.XmlNode[] nodesField;
         
-        private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("InternalCoreResult", "http://cxf.safekeeping.vmware.com/");
+        private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("UnrecognizedToken", "http://cxf.safekeeping.vmware.com/");
         
         public System.Xml.XmlNode[] Nodes
         {

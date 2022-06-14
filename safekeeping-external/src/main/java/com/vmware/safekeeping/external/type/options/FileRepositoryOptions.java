@@ -30,24 +30,22 @@ import com.vmware.safekeeping.core.command.options.CoreFileTargetOptions;
 
 public class FileRepositoryOptions extends RepositoryOptions {
 
-    public static void convert(final CoreFileTargetOptions src, final FileRepositoryOptions dst) {
-        if ((src == null) || (dst == null)) {
-            return;
-        }
-        RepositoryOptions.convert(src, dst); 
-    }
+	public static void convert(final CoreFileTargetOptions src, final FileRepositoryOptions dst) {
+		if ((src == null) || (dst == null)) {
+			return;
+		}
+		RepositoryOptions.convert(src, dst);
+	}
 
-    public static void convert(final FileRepositoryOptions src, final CoreFileTargetOptions dst) {
-        if ((src == null) || (dst == null)) {
-            return;
-        }
-        RepositoryOptions.convert(src, dst); 
-    } 
+	public static void convert(final FileRepositoryOptions src, final CoreFileTargetOptions dst) {
+		if ((src == null) || (dst == null)) {
+			return;
+		}
+		RepositoryOptions.convert(src, dst);
+	}
 
-    public FileRepositoryOptions convert(CoreFileTargetOptions src) {
-        FileRepositoryOptions.convert(src, this);
-        return this;
-    }
- 
-
+	public FileRepositoryOptions convert(CoreFileTargetOptions src) {
+		FileRepositoryOptions.convert(src, this);
+		return this;
+	}
 }

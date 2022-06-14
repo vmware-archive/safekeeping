@@ -42,6 +42,7 @@ import java.util.logging.Logger;
 
 import com.vmware.safekeeping.common.GuestOsUtils;
 import com.vmware.safekeeping.common.Utility;
+import com.vmware.safekeeping.core.profile.CoreGlobalSettings;
 
 public class KeyStoreHelper {
     private static KeyStoreHelper keyStore;
@@ -115,14 +116,14 @@ public class KeyStoreHelper {
             result = new String[] { String.format("\"%s\\bin\\keytool.exe\"", System.getProperty("java.home")),
                     "-genkeypair", "-alias", alias, "-keyalg", "RSA", "-keysize", "2048", "-dname",
                     "\"CN=127.0.0.1, OU=VMware Inc, O=Ecosystem Services, L=Palo Alto, ST=CA, C=US\"", "-keypass",
-                    keypass, "-validity", "365", "-storetype", "PKCS12", "-keystore",
+                    keypass, "-validity", CoreGlobalSettings.getDefaultSelfSignedValidity(), "-storetype", "PKCS12", "-keystore",
                     String.format("\"%s%c%s\"", confDirectory.getAbsolutePath(), File.separatorChar, KEYSTORE_FILENAME),
                     "-storepass", storepass, "-v" };
         } else {
             result = new String[] { String.format("%s/bin/keytool", System.getProperty("java.home")), "-genkeypair",
                     "-alias", alias, "-keyalg", "RSA", "-keysize", "2048", "-dname",
                     "CN=127.0.0.1, OU=VMware Inc, O=Ecosystem Services, L=Palo Alto, ST=CA, C=US", "-keypass", keypass,
-                    "-validity", "365", "-storetype", "PKCS12", "-keystore",
+                    "-validity", CoreGlobalSettings.getDefaultSelfSignedValidity(), "-storetype", "PKCS12", "-keystore",
                     String.format("%s%c%s", confDirectory.getAbsolutePath(), File.separatorChar, KEYSTORE_FILENAME),
                     "-storepass", storepass, "-v" };
         }

@@ -223,6 +223,8 @@ public class CoreGlobalSettings {
     private static final Long DEFAULT_WAITING_TIME_AFTER_BLOCK_THREAD_FAILURE_IN_SECONDS = 3L;
 
     private static final String KEY_STORE_CA_CERTS_DEFAULT_PASSOWORD = "changeit";
+    //Default validity for a cert
+	private static final String DEFAULT_SELF_SIGNED_VALIDITY = "1491";
 
     public static boolean acceptUntrustedCertificate() {
         return configurationMap.getBooleanProperty(globalGroup, ACCEPT_UNTRUSTED_CERTIFICATE,
@@ -716,6 +718,9 @@ public class CoreGlobalSettings {
     }
 
     protected CoreGlobalSettings() {
-    }
+    }  
+	public static String getDefaultSelfSignedValidity() {
+	 	return   DEFAULT_SELF_SIGNED_VALIDITY;
+	}
 
 }

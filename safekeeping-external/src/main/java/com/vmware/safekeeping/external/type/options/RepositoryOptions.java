@@ -38,6 +38,7 @@ public abstract class RepositoryOptions {
 		}
 		dst.setActive(src.isActive());
 		dst.setName(src.getName());
+		dst.setRoot(src.getRoot());
 	}
 
 	public static void convert(final RepositoryOptions src, final AbstractCoreTargetRepository dst) {
@@ -46,11 +47,14 @@ public abstract class RepositoryOptions {
 		}
 		dst.setActive(src.active);
 		dst.setName(src.name);
+		dst.setRoot(src.root);
 	}
 
 	private String name;
 
 	private boolean active;
+
+	private String root;
 
 	/**
 	 * @param targetType
@@ -72,5 +76,13 @@ public abstract class RepositoryOptions {
 
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	public void setRoot(final String root) {
+		this.root = root;
+	}
+
+	public String getRoot() {
+		return this.root;
 	}
 }

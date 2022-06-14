@@ -63,8 +63,10 @@ function build([String] $Version ){
      $process="nmake"
      Start-Process $process   -Wait -NoNewWindow 
      copy -Path "./release/jDiskLib.dll" -Destination "./bin/"
+     cd ./bin
      #Compress-7Zip -ArchiveFileName "$Build.tar" -Format tar -Path "./bin" 
-     tar -cf "$Build.tar" "./bin"
+     tar -cf "../$Build.tar" *
+     cd ..
      echo "move -Path ""./$Build.tar"" -Destination ""$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch""" 
      if (!(Test-Path "$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch")){
         mkdir -Name "$JvixResourcesDirectory\x64\$Major\$Minor\windows\$Patch" 

@@ -75,6 +75,7 @@ import com.vmware.safekeeping.external.result.archive.ResultActionArchiveVmStatu
 import com.vmware.safekeeping.external.result.connectivity.AbstractResultActionConnectRepository;
 import com.vmware.safekeeping.external.result.connectivity.ResultActionConnect;
 import com.vmware.safekeeping.external.result.connectivity.ResultActionConnectAwsS3Repository;
+import com.vmware.safekeeping.external.result.connectivity.ResultActionConnectFileRepository;
 import com.vmware.safekeeping.external.result.connectivity.ResultActionConnectSso;
 import com.vmware.safekeeping.external.result.connectivity.ResultActionConnectVcenter;
 import com.vmware.safekeeping.external.result.connectivity.ResultActionDisconnect;
@@ -100,157 +101,157 @@ import com.vmware.safekeeping.external.type.options.archive.ArchiveShowOptions;
 import com.vmware.safekeeping.external.type.options.archive.ArchiveStatusOptions;
 
 @XmlSeeAlso({ ResultActionConnect.class, ResultActionDisconnect.class, ResultActionVmBackup.class,
-        ResultActionIvdBackup.class, ResultActionVappBackup.class, ResultActionVmVirtualBackup.class,
-        ResultActionIvdVirtualBackup.class, ResultActionVappVirtualBackup.class, ResultActionVmRestore.class,
-        ResultActionVappRestore.class, ResultActionIvdRestore.class, ResultActionDiskBackup.class,
-        ResultActionDiskRestore.class, ResultActionDiskVirtualBackup.class, ResultActionConnectVcenter.class,
-        ResultActionDisconnectVcenter.class, ResultActionArchiveItemsList.class, ResultActionArchiveItem.class,
-        ResultActionArchiveRemoveGenerationWithDependencies.class, ResultActionArchiveRemoveGeneration.class,
-        ResultActionArchiveRemovedProfile.class, ResultActionArchiveVappStatus.class, ResultActionArchiveVmStatus.class,
-        ResultActionArchiveIvdStatus.class, ResultActionArchiveCheckGenerationWithDependencies.class,
-        ResultActionArchiveCheckGeneration.class, ResultActionArchiveShow.class, RestoreIvdManagedInfo.class,
-        RestoreVappManagedInfo.class, RestoreVmManagedInfo.class, AbstractResultActionConnectRepository.class,
-        ResultActionConnectAwsS3Repository.class })
+		ResultActionIvdBackup.class, ResultActionVappBackup.class, ResultActionVmVirtualBackup.class,
+		ResultActionIvdVirtualBackup.class, ResultActionVappVirtualBackup.class, ResultActionVmRestore.class,
+		ResultActionVappRestore.class, ResultActionIvdRestore.class, ResultActionDiskBackup.class,
+		ResultActionDiskRestore.class, ResultActionDiskVirtualBackup.class, ResultActionConnectVcenter.class,
+		ResultActionDisconnectVcenter.class, ResultActionArchiveItemsList.class, ResultActionArchiveItem.class,
+		ResultActionArchiveRemoveGenerationWithDependencies.class, ResultActionArchiveRemoveGeneration.class,
+		ResultActionArchiveRemovedProfile.class, ResultActionArchiveVappStatus.class, ResultActionArchiveVmStatus.class,
+		ResultActionArchiveIvdStatus.class, ResultActionArchiveCheckGenerationWithDependencies.class,
+		ResultActionArchiveCheckGeneration.class, ResultActionArchiveShow.class, RestoreIvdManagedInfo.class,
+		RestoreVappManagedInfo.class, RestoreVmManagedInfo.class, AbstractResultActionConnectRepository.class,
+		ResultActionConnectAwsS3Repository.class, ResultActionConnectFileRepository.class })
 
 @WebService(name = "Sapi", targetNamespace = "http://cxf.safekeeping.vmware.com/")
 public interface Sapi {
 
-    @WebMethod
-    List<ResultActionBackup> backup(@WebParam(name = "options") BackupOptions options)
-            throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	List<ResultActionBackup> backup(@WebParam(name = "options") BackupOptions options)
+			throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    Tasks backupAsync(@WebParam(name = "options") BackupOptions options) throws UnrecognizedToken;
+	@WebMethod
+	Tasks backupAsync(@WebParam(name = "options") BackupOptions options) throws UnrecognizedToken;
 
-    @WebMethod
-    Tasks checkArchiveGenerations(@WebParam(name = "options") ArchiveCheckGenerationsOptions options)
-            throws UnrecognizedToken;
+	@WebMethod
+	Tasks checkArchiveGenerations(@WebParam(name = "options") ArchiveCheckGenerationsOptions options)
+			throws UnrecognizedToken;
 
-    @WebMethod
-    ResultActionConnect connect() throws UnrecognizedToken;
+	@WebMethod
+	ResultActionConnect connect() throws UnrecognizedToken;
 
-    @WebMethod
-    Task connectAsync() throws UnrecognizedToken;
+	@WebMethod
+	Task connectAsync() throws UnrecognizedToken;
 
-    @WebMethod
-    AbstractResultActionConnectRepository connectRepository(@WebParam(name = "options") RepositoryOptions options)
-            throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	AbstractResultActionConnectRepository connectRepository(@WebParam(name = "options") RepositoryOptions options)
+			throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    Task connectRepositoryAsync(@WebParam(name = "options") RepositoryOptions options)
-            throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	Task connectRepositoryAsync(@WebParam(name = "options") RepositoryOptions options)
+			throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    ResultActionDisconnect disconnect() throws UnrecognizedToken;
+	@WebMethod
+	ResultActionDisconnect disconnect() throws UnrecognizedToken;
 
-    @WebMethod
-    Task disconnectAsync() throws UnrecognizedToken;
+	@WebMethod
+	Task disconnectAsync() throws UnrecognizedToken;
 
-    @WebMethod
-    ResultActionDisconnectRepository disconnectRepository(@WebParam(name = "name") String name)
-            throws UnrecognizedToken;
+	@WebMethod
+	ResultActionDisconnectRepository disconnectRepository(@WebParam(name = "name") String name)
+			throws UnrecognizedToken;
 
-    @WebMethod
-    Task disconnectRepositoryAsync(@WebParam(name = "name") String name) throws UnrecognizedToken;
+	@WebMethod
+	Task disconnectRepositoryAsync(@WebParam(name = "name") String name) throws UnrecognizedToken;
 
-    @WebMethod
-    String echo(@WebParam(name = "extra") String extra);
+	@WebMethod
+	String echo(@WebParam(name = "extra") String extra);
 
-    @WebMethod
-    ResultActionExtension extension(@WebParam(name = "options") ExtensionOptions options)
-            throws UnrecognizedToken, InternalServer;
+	@WebMethod
+	ResultActionExtension extension(@WebParam(name = "options") ExtensionOptions options)
+			throws UnrecognizedToken, InternalServer;
 
-    @WebMethod
-    RepositoryOptions getActiveRepository() throws UnrecognizedToken;
+	@WebMethod
+	RepositoryOptions getActiveRepository() throws UnrecognizedToken;
 
-    @WebMethod
-    List<BlockInfo> getAllDumps(@WebParam(name = "id") Task id) throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	List<BlockInfo> getAllDumps(@WebParam(name = "id") Task id) throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    Calendar getCurrentTime() throws UnrecognizedToken;
+	@WebMethod
+	Calendar getCurrentTime() throws UnrecognizedToken;
 
-    @WebMethod
-    List<BlockInfo> getDumps(@WebParam(name = "id") Task id, @WebParam(name = "arg1") int start,
-            @WebParam(name = "arg2") int end) throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	List<BlockInfo> getDumps(@WebParam(name = "id") Task id, @WebParam(name = "arg1") int start,
+			@WebParam(name = "arg2") int end) throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    Set<RepositoryOptions> getRepositories() throws UnrecognizedToken;
+	@WebMethod
+	Set<RepositoryOptions> getRepositories() throws UnrecognizedToken;
 
-    @WebMethod
-    Set<String> getRepositoriesNames() throws UnrecognizedToken;
+	@WebMethod
+	Set<String> getRepositoriesNames() throws UnrecognizedToken;
 
-    @WebMethod
-    RepositoryOptions getRepository(@WebParam(name = "name") String name) throws UnrecognizedToken;
+	@WebMethod
+	RepositoryOptions getRepository(@WebParam(name = "name") String name) throws UnrecognizedToken;
 
-    @WebMethod
-    TaskResult getTaskInfo(@WebParam(name = "id") Task id) throws UnrecognizedToken, InvalidTask, InternalServer;
+	@WebMethod
+	TaskResult getTaskInfo(@WebParam(name = "id") Task id) throws UnrecognizedToken, InvalidTask, InternalServer;
 
-    @WebMethod
-    ResultActionVersion getVersion() throws InternalCoreResult;
+	@WebMethod
+	ResultActionVersion getVersion() throws InternalCoreResult;
 
-    @WebMethod
-    boolean isConnected() throws UnrecognizedToken;
+	@WebMethod
+	boolean isConnected() throws UnrecognizedToken;
 
-    @WebMethod
-    GregorianCalendar keepalive() throws UnrecognizedToken;
+	@WebMethod
+	GregorianCalendar keepalive() throws UnrecognizedToken;
 
-    @WebMethod
-    Task listArchive(@WebParam(name = "options") ArchiveListOptions options)
-            throws UnrecognizedToken, InvalidOptions, InternalCoreResult;
+	@WebMethod
+	Task listArchive(@WebParam(name = "options") ArchiveListOptions options)
+			throws UnrecognizedToken, InvalidOptions, InternalCoreResult;
 
-    @WebMethod
-    ResultActionConnectSso login(@WebParam(name = "options") ConnectOptions options) throws InternalCoreResult;
+	@WebMethod
+	ResultActionConnectSso login(@WebParam(name = "options") ConnectOptions options) throws InternalCoreResult;
 
-    @WebMethod
-    ResultActionDisconnectSso logout() throws UnrecognizedToken, InternalCoreResult;
+	@WebMethod
+	ResultActionDisconnectSso logout() throws UnrecognizedToken, InternalCoreResult;
 
-    @WebMethod
-    List<ResultActionArchiveRemoveGenerationWithDependencies> removeArchiveGenerations(
-            @WebParam(name = "options") ArchiveRemoveGenerationsOptions options)
-            throws UnrecognizedToken, InternalServer, InvalidTask;
+	@WebMethod
+	List<ResultActionArchiveRemoveGenerationWithDependencies> removeArchiveGenerations(
+			@WebParam(name = "options") ArchiveRemoveGenerationsOptions options)
+			throws UnrecognizedToken, InternalServer, InvalidTask;
 
-    @WebMethod
-    Tasks removeArchiveGenerationsAsync(@WebParam(name = "options") ArchiveRemoveGenerationsOptions options)
-            throws UnrecognizedToken;
+	@WebMethod
+	Tasks removeArchiveGenerationsAsync(@WebParam(name = "options") ArchiveRemoveGenerationsOptions options)
+			throws UnrecognizedToken;
 
-    @WebMethod
-    List<ResultActionArchiveRemovedProfile> removeArchiveProfile(
-            @WebParam(name = "options") ArchiveRemoveProfileOptions options)
-            throws UnrecognizedToken, InternalServer, InvalidTask;
+	@WebMethod
+	List<ResultActionArchiveRemovedProfile> removeArchiveProfile(
+			@WebParam(name = "options") ArchiveRemoveProfileOptions options)
+			throws UnrecognizedToken, InternalServer, InvalidTask;
 
-    @WebMethod
-    Tasks removeArchiveProfileAsync(@WebParam(name = "options") ArchiveRemoveProfileOptions options)
-            throws UnrecognizedToken;
+	@WebMethod
+	Tasks removeArchiveProfileAsync(@WebParam(name = "options") ArchiveRemoveProfileOptions options)
+			throws UnrecognizedToken;
 
-    @WebMethod
-    List<ResultActionRestore> restore(@WebParam(name = "options") RestoreOptions options)
-            throws UnrecognizedToken, InvalidTask, InternalServer;
+	@WebMethod
+	List<ResultActionRestore> restore(@WebParam(name = "options") RestoreOptions options)
+			throws UnrecognizedToken, InvalidTask, InternalServer;
 
-    @WebMethod
-    Tasks restoreAsync(@WebParam(name = "options") RestoreOptions options) throws UnrecognizedToken;
+	@WebMethod
+	Tasks restoreAsync(@WebParam(name = "options") RestoreOptions options) throws UnrecognizedToken;
 
-    @WebMethod
-    Task setActiveRepository(@WebParam(name = "name") String name) throws UnrecognizedToken;
+	@WebMethod
+	Task setActiveRepository(@WebParam(name = "name") String name) throws UnrecognizedToken;
 
-    @WebMethod
-    List<ResultActionArchiveShow> showArchive(@WebParam(name = "options") ArchiveShowOptions options)
-            throws UnrecognizedToken, InternalServer, InvalidTask;
+	@WebMethod
+	List<ResultActionArchiveShow> showArchive(@WebParam(name = "options") ArchiveShowOptions options)
+			throws UnrecognizedToken, InternalServer, InvalidTask;
 
-    @WebMethod
-    Tasks showArchiveAsync(@WebParam(name = "options") ArchiveShowOptions options) throws UnrecognizedToken;
+	@WebMethod
+	Tasks showArchiveAsync(@WebParam(name = "options") ArchiveShowOptions options) throws UnrecognizedToken;
 
-    @WebMethod
-    List<ResultActionArchiveStatus> statusArchive(@WebParam(name = "options") ArchiveStatusOptions options)
-            throws UnrecognizedToken, InternalServer, InvalidTask;
+	@WebMethod
+	List<ResultActionArchiveStatus> statusArchive(@WebParam(name = "options") ArchiveStatusOptions options)
+			throws UnrecognizedToken, InternalServer, InvalidTask;
 
-    @WebMethod
-    Tasks statusArchiveAsync(@WebParam(name = "options") ArchiveStatusOptions options) throws UnrecognizedToken;
+	@WebMethod
+	Tasks statusArchiveAsync(@WebParam(name = "options") ArchiveStatusOptions options) throws UnrecognizedToken;
 
-    @WebMethod
-    List<AbstractResultActionVirtualBackup> virtualBackup(@WebParam(name = "options") VirtualBackupOptions options)
-            throws UnrecognizedToken, InvalidTask;
+	@WebMethod
+	List<AbstractResultActionVirtualBackup> virtualBackup(@WebParam(name = "options") VirtualBackupOptions options)
+			throws UnrecognizedToken, InvalidTask;
 
-    @WebMethod
-    Tasks virtualBackupAsync(@WebParam(name = "options") VirtualBackupOptions options) throws UnrecognizedToken;
+	@WebMethod
+	Tasks virtualBackupAsync(@WebParam(name = "options") VirtualBackupOptions options) throws UnrecognizedToken;
 
 }
