@@ -53,9 +53,11 @@ CentOS 7.x with the following packages:
 - [ ] gcc 
 - [ ] zip 
 - [ ] gcc-c++ 
-- [ ] fuse-libs
 - [ ] make 
-
+- [ ] unzip 
+```
+sudo yum install open-vm-tools wget java-1.8.0-openjdk  gcc zip gcc-c++ make unzip
+```
 Note: Other distributions should work fine 
 
 Windows (any) with the following packages: 
