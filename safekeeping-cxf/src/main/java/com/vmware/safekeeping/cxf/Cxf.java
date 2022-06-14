@@ -318,7 +318,8 @@ public class Cxf {
 				.availableUnless(OPTION_PORT);
 		optionHttps.withRequiredArg().ofType(PrettyBooleanValues.class).describedAs("on|off");
 		parser.accepts(OPTION_DEBUG, "Debug mode");
-		parser.accepts(OPTION_NO_STATUS, "Disable status page");
+		parser.accepts(OPTION_STATUS_PAGE, "Enable/disable status page").withRequiredArg()
+				.ofType(PrettyBooleanValues.class).describedAs("on|off");
 		parser.accepts(OPTION_JETTY_LOG, "Jetty Http logs");
 		parser.accepts(OPTION_INTERACTIVE, "Interactive mode");
 		final OptionSpecBuilder optionGuestMonitor = parser.accepts(OPTION_GUEST_MONITOR,
