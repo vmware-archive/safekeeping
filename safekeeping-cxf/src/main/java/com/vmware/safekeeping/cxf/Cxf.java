@@ -206,6 +206,8 @@ public class Cxf {
 	private static final String OPTION_INTERACTIVE = "interactive";
 
 	private static final String OPTION_GUEST_MONITOR = "guestMonitor";
+
+	private static final String OPTION_STATUS_PAGE = "statusPage";
 	private static final String OPTION_CONFIG = "config";
 
 	private static final String OPTION_VDDK_LIST = "vddkList";
@@ -223,6 +225,7 @@ public class Cxf {
 	private static final int APPLICATION_MONITOR_SCHEDULER_PERIOD = 25;
 
 	private static final String OPTION_JETTY_LOG = "jettyLog";
+	private static final String OPTION_NO_STATUS = "noStatus";
 
 	private Server serverlet;
 
@@ -254,6 +257,8 @@ public class Cxf {
 	private VmGuestAppMonitor guestTools;
 	private ScheduledExecutorService appMonitorScheduler;
 
+	private boolean enableStatusPage;
+
 	public Cxf(File configFile) throws IOException {
 		CoreGlobalSettings.loadConfig(configFile);
 		this.httpsConnector = false;
@@ -270,6 +275,7 @@ public class Cxf {
 		this.interactive = false;
 		this.debug = false;
 		jettyLog = false;
+		this.enableStatusPage = CxfGlobalSettings.isStatusPageEnabled();
 		this.enableHttps = CxfGlobalSettings.isHttpsEnabled();
 		this.enableHttp = CxfGlobalSettings.isHttpEnabled();
 		this.guestMonitorEnabled = CxfGlobalSettings.isGuestMonitorEnabled();
@@ -312,6 +318,7 @@ public class Cxf {
 				.availableUnless(OPTION_PORT);
 		optionHttps.withRequiredArg().ofType(PrettyBooleanValues.class).describedAs("on|off");
 		parser.accepts(OPTION_DEBUG, "Debug mode");
+		parser.accepts(OPTION_NO_STATUS, "Disable status page");
 		parser.accepts(OPTION_JETTY_LOG, "Jetty Http logs");
 		parser.accepts(OPTION_INTERACTIVE, "Interactive mode");
 		final OptionSpecBuilder optionGuestMonitor = parser.accepts(OPTION_GUEST_MONITOR,
@@ -343,13 +350,13 @@ public class Cxf {
 		this.jettyServer = new JettyHttpServer(this.serverlet, true);
 		this.sapi = new SapiImpl(vmbk, debug, generateExtensionOptionsClass());
 		this.ep = Endpoint.create(this.sapi);
-
-		final ContextHandlerCollection collection1 = new ContextHandlerCollection();
-		ServletContextHandler handler = new ServletContextHandler(serverlet, "/");
-		handler.addServlet(BlockingServletAsync.class, "/status");
-		collection1.addHandler(handler);
-		this.serverlet.setHandler(collection1);
-
+		if (this.enableStatusPage) {
+			final ContextHandlerCollection collection1 = new ContextHandlerCollection();
+			ServletContextHandler handler = new ServletContextHandler(serverlet, "/");
+			handler.addServlet(BlockingServletAsync.class, "/status");
+			collection1.addHandler(handler);
+			this.serverlet.setHandler(collection1);
+		}
 		this.ep.publish(this.jettyServer.createContext(this.context));
 	}
 
@@ -484,7 +491,9 @@ public class Cxf {
 				CoreGlobalSettings.getKeyStorePassword(), CoreGlobalSettings.getKeyStoreSslAlias());
 		final BiosUuid bios = BiosUuid.getInstance();
 		final String fqdn = bios.getiIpAddress();
-		extOpt.setHealthInfoUrl(String.format("https://%s:%d/status", fqdn, this.securePort));
+		if (this.enableStatusPage) {
+			extOpt.setHealthInfoUrl(String.format("https://%s:%d/status", fqdn, this.securePort));
+		}
 		extOpt.setServerInfoUrl(String.format("https://%s:%d%s", fqdn, this.securePort, this.context));
 
 		final MessageDigest sha1 = MessageDigest.getInstance("SHA1");
@@ -581,15 +590,19 @@ public class Cxf {
 			endpoint.append("Disabled");
 		}
 		String ipAddress = isBindingAnyNetworks() ? bios.getiIpAddress() : binding;
-		endpoint.append("%nHealth Info:%n");
-		if (this.httpConnector) {
 
-			endpoint.append(String.format("\t\thttp://%s:%d/status%n", bios.getHostname(), this.unsecurePort));
-			endpoint.append(String.format("\t\thttp://%s:%d/status%n", ipAddress, this.unsecurePort));
-		}
-		if (this.httpsConnector) {
-			endpoint.append(String.format("\t\thttps://%s:%d/status%n", ipAddress, this.securePort));
-			endpoint.append(String.format("\t\thttps://%s:%d/status%n", bios.getHostname(), this.securePort));
+		if (enableStatusPage) {
+			endpoint.append("%nHealth Info:%n");
+			if (this.httpConnector) {
+				endpoint.append(String.format("\t\thttp://%s:%d/status%n", bios.getHostname(), this.unsecurePort));
+				endpoint.append(String.format("\t\thttp://%s:%d/status%n", ipAddress, this.unsecurePort));
+			}
+			if (this.httpsConnector) {
+				endpoint.append(String.format("\t\thttps://%s:%d/status%n", ipAddress, this.securePort));
+				endpoint.append(String.format("\t\thttps://%s:%d/status%n", bios.getHostname(), this.securePort));
+			}
+		} else {
+			endpoint.append("%nHealth Info: Disabled%n");
 		}
 		endpoint.append("%nEndpoint(s): ");
 
@@ -694,6 +707,9 @@ public class Cxf {
 		}
 		if (options.has(OPTION_GUEST_MONITOR)) {
 			this.guestMonitorEnabled = PrettyBoolean.parseBoolean(options.valueOf(OPTION_GUEST_MONITOR));
+		}
+		if (options.has(OPTION_STATUS_PAGE)) {
+			this.enableStatusPage = PrettyBoolean.parseBoolean(options.valueOf(OPTION_STATUS_PAGE));
 		}
 
 		this.debug = options.has(OPTION_DEBUG);

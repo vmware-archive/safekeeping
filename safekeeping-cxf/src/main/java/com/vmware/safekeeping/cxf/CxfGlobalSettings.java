@@ -30,56 +30,62 @@ import com.vmware.safekeeping.core.profile.CoreGlobalSettings;
 import com.vmware.vapi.internal.util.StringUtils;
 
 public class CxfGlobalSettings extends CoreGlobalSettings {
-    private static final String WEB_SERVICE = "webService";
-    private static final String HTTP_PORT = "httpPort";
-    private static final String HTTPS_PORT = "httpsPort";
-    private static final String CONTEXT = "context";
-    private static final String HTTP_ENABLE = "enableHttp";
-    private static final String HTTPS_ENABLE = "enableHttps";
-    private static final String BIND = "bind";
-    private static final String DEFAULT_CONTEXT = "/sdk";
-    private static final Integer DEFAULT_HTTPS_PORT = 7243;
-    private static final Integer DEFAULT_HTTP_PORT = 8080;
-    private static final Boolean DEFAULT_HTTP_ENABLE = false;
-    private static final Boolean DEFAULT_HTTPS_ENABLE = true;
-    public static final String DEFAULT_BINDING = "0.0.0.0";
-    private static final String GUEST_MONITOR_ENABLE = "enableGuestMonitor";
-    private static final Boolean DEFAULT_GUEST_MONITOR_ENABLE = false;
-    private static String webService;
+	private static final String WEB_SERVICE = "webService";
+	private static final String HTTP_PORT = "httpPort";
+	private static final String HTTPS_PORT = "httpsPort";
+	private static final String CONTEXT = "context";
+	private static final String HTTP_ENABLE = "enableHttp";
+	private static final String HTTPS_ENABLE = "enableHttps";
+	private static final String BIND = "bind";
+	private static final String DEFAULT_CONTEXT = "/sdk";
+	private static final Integer DEFAULT_HTTPS_PORT = 7243;
+	private static final Integer DEFAULT_HTTP_PORT = 8080;
+	private static final Boolean DEFAULT_HTTP_ENABLE = false;
+	private static final Boolean DEFAULT_HTTPS_ENABLE = true;
+	public static final String DEFAULT_BINDING = "0.0.0.0";
+	private static final String GUEST_MONITOR_ENABLE = "enableGuestMonitor";
+	private static final Boolean DEFAULT_GUEST_MONITOR_ENABLE = false;
+	private static final String STATUS_PAGE_ENABLE = "enableStatusPage";
+	private static final Boolean DEFAULT_STATUS_PAGE_ENABLE = true;
+	private static String webService;
 
-    static {
-        webService = WEB_SERVICE;
-    }
+	static {
+		webService = WEB_SERVICE;
+	}
 
-    public static String getBind() {
-        String st = configurationMap.getStringProperty(webService, BIND, DEFAULT_BINDING);
-        if (StringUtils.isEmpty(st)) {
-            return DEFAULT_BINDING;
-        }
-        return st;
-    }
+	public static String getBind() {
+		String st = configurationMap.getStringProperty(webService, BIND, DEFAULT_BINDING);
+		if (StringUtils.isEmpty(st)) {
+			return DEFAULT_BINDING;
+		}
+		return st;
+	}
 
-    public static String getContext() {
-        return configurationMap.getStringProperty(webService, CONTEXT, DEFAULT_CONTEXT);
-    }
+	public static String getContext() {
+		return configurationMap.getStringProperty(webService, CONTEXT, DEFAULT_CONTEXT);
+	}
 
-    public static Integer getHttpPort() {
-        return configurationMap.getIntegerProperty(webService, HTTP_PORT, DEFAULT_HTTP_PORT);
-    }
+	public static Integer getHttpPort() {
+		return configurationMap.getIntegerProperty(webService, HTTP_PORT, DEFAULT_HTTP_PORT);
+	}
 
-    public static Integer getHttpsPort() {
-        return configurationMap.getIntegerProperty(webService, HTTPS_PORT, DEFAULT_HTTPS_PORT);
-    }
+	public static Integer getHttpsPort() {
+		return configurationMap.getIntegerProperty(webService, HTTPS_PORT, DEFAULT_HTTPS_PORT);
+	}
 
-    public static boolean isHttpEnabled() {
-        return configurationMap.getBooleanProperty(webService, HTTP_ENABLE, DEFAULT_HTTP_ENABLE);
-    }
+	public static boolean isHttpEnabled() {
+		return configurationMap.getBooleanProperty(webService, HTTP_ENABLE, DEFAULT_HTTP_ENABLE);
+	}
 
-    public static boolean isHttpsEnabled() {
-        return configurationMap.getBooleanProperty(webService, HTTPS_ENABLE, DEFAULT_HTTPS_ENABLE);
-    }
+	public static boolean isHttpsEnabled() {
+		return configurationMap.getBooleanProperty(webService, HTTPS_ENABLE, DEFAULT_HTTPS_ENABLE);
+	}
 
-    public static boolean isGuestMonitorEnabled() {
-        return configurationMap.getBooleanProperty(webService, GUEST_MONITOR_ENABLE, DEFAULT_GUEST_MONITOR_ENABLE);
-    }
+	public static boolean isGuestMonitorEnabled() {
+		return configurationMap.getBooleanProperty(webService, GUEST_MONITOR_ENABLE, DEFAULT_GUEST_MONITOR_ENABLE);
+	}
+
+	public static boolean isStatusPageEnabled() {
+		return configurationMap.getBooleanProperty(webService, STATUS_PAGE_ENABLE, DEFAULT_STATUS_PAGE_ENABLE);
+	}
 }
