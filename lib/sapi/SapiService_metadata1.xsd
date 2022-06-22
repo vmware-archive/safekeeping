@@ -54,8 +54,10 @@
   <xs:element name="keepaliveResponse" type="tns:keepaliveResponse"></xs:element>
   <xs:element name="listArchive" type="tns:listArchive"></xs:element>
   <xs:element name="listArchiveResponse" type="tns:listArchiveResponse"></xs:element>
-  <xs:element name="login" type="tns:login"></xs:element>
-  <xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
+  <xs:element name="loginCsp" type="tns:loginCsp"></xs:element>
+  <xs:element name="loginCspResponse" type="tns:loginCspResponse"></xs:element>
+  <xs:element name="loginPsc" type="tns:loginPsc"></xs:element>
+  <xs:element name="loginPscResponse" type="tns:loginPscResponse"></xs:element>
   <xs:element name="logout" type="tns:logout"></xs:element>
   <xs:element name="logoutResponse" type="tns:logoutResponse"></xs:element>
   <xs:element name="removeArchiveGenerations" type="tns:removeArchiveGenerations"></xs:element>
@@ -972,12 +974,71 @@
       <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="keepalive">
-    <xs:sequence></xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="keepaliveResponse">
+  <xs:complexType name="loginPsc">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
+      <xs:element minOccurs="0" name="options" type="tns:pscConnectOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pscConnectOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:connectOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="port" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="connectOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authServer" type="xs:string"></xs:element>
+      <xs:element name="base64" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cspConnectOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:connectOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="refreshToken" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="tokenExchangeServer" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="loginPscResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionConnectSso"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InternalCoreResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginCsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:cspConnectOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginCspResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionConnectSso"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepositoryAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:repositoryOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connectRepositoryAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listArchive">
@@ -1028,24 +1089,12 @@
       <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="InternalCoreResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
-    </xs:sequence>
+  <xs:complexType name="keepalive">
+    <xs:sequence></xs:sequence>
   </xs:complexType>
-  <xs:complexType name="connectRepositoryAsync">
+  <xs:complexType name="keepaliveResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="options" type="tns:repositoryOptions"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="connectRepositoryAsyncResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InvalidTask">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="removeArchiveProfile">
@@ -1069,6 +1118,52 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepository">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepositoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionDisconnectRepository"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionDisconnectRepository">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="extension">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:extensionOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="extensionOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extensionOperation" type="tns:extensionManagerOperation"></xs:element>
+      <xs:element name="force" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="extensionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultActionExtension"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultActionExtension">
+    <xs:complexContent>
+      <xs:extension base="tns:resultAction">
+        <xs:sequence>
+          <xs:element name="healthInfo" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="operation" type="tns:extensionManagerOperation"></xs:element>
+          <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="backup">
     <xs:sequence>
@@ -1126,52 +1221,6 @@
       <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionBackup"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="extension">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="options" type="tns:extensionOptions"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="extensionOptions">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="extensionOperation" type="tns:extensionManagerOperation"></xs:element>
-      <xs:element name="force" type="xs:boolean"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="extensionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:resultActionExtension"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="resultActionExtension">
-    <xs:complexContent>
-      <xs:extension base="tns:resultAction">
-        <xs:sequence>
-          <xs:element name="healthInfo" type="xs:boolean"></xs:element>
-          <xs:element minOccurs="0" name="operation" type="tns:extensionManagerOperation"></xs:element>
-          <xs:element minOccurs="0" name="version" type="xs:string"></xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="disconnectRepository">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="disconnectRepositoryResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:resultActionDisconnectRepository"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="resultActionDisconnectRepository">
-    <xs:complexContent>
-      <xs:extension base="tns:resultAction">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="disconnect">
     <xs:sequence></xs:sequence>
   </xs:complexType>
@@ -1197,6 +1246,16 @@
       <xs:element maxOccurs="unbounded" minOccurs="0" name="taskList" nillable="true" type="tns:task"></xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="disconnectRepositoryAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="disconnectRepositoryAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="showArchive">
     <xs:sequence>
       <xs:element minOccurs="0" name="options" type="tns:archiveShowOptions"></xs:element>
@@ -1219,16 +1278,6 @@
       <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:resultActionArchiveShow"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="disconnectRepositoryAsync">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="disconnectRepositoryAsyncResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="removeArchiveGenerationsAsync">
     <xs:sequence>
       <xs:element minOccurs="0" name="options" type="tns:archiveRemoveGenerationsOptions"></xs:element>
@@ -1249,41 +1298,12 @@
       <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="login">
+  <xs:complexType name="getActiveRepository">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActiveRepositoryResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="options" type="tns:connectOptions"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="connectOptions">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="authServer" type="xs:string"></xs:element>
-      <xs:element name="base64" type="xs:boolean"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="cspConnectOptions">
-    <xs:complexContent>
-      <xs:extension base="tns:connectOptions">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="refreshToken" type="xs:string"></xs:element>
-          <xs:element minOccurs="0" name="tokenExchangeServer" type="xs:string"></xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="pscConnectOptions">
-    <xs:complexContent>
-      <xs:extension base="tns:connectOptions">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="password" type="xs:string"></xs:element>
-          <xs:element minOccurs="0" name="port" type="xs:int"></xs:element>
-          <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="loginResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:resultActionConnectSso"></xs:element>
+      <xs:element minOccurs="0" name="return" type="tns:repositoryOptions"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="backupAsync">
@@ -1294,14 +1314,6 @@
   <xs:complexType name="backupAsyncResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="getActiveRepository">
-    <xs:sequence></xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="getActiveRepositoryResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:repositoryOptions"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="echo">
@@ -1360,16 +1372,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="virtualBackup">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="options" type="tns:virtualBackupOptions"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="virtualBackupResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:abstractResultActionVirtualBackup"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="removeArchiveProfileAsync">
     <xs:sequence>
       <xs:element minOccurs="0" name="options" type="tns:archiveRemoveProfileOptions"></xs:element>
@@ -1380,6 +1382,16 @@
       <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="virtualBackup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:virtualBackupOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="virtualBackupResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:abstractResultActionVirtualBackup"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="connect">
     <xs:sequence></xs:sequence>
   </xs:complexType>
@@ -1388,12 +1400,32 @@
       <xs:element minOccurs="0" name="return" type="tns:resultActionConnect"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="connectAsync">
+  <xs:complexType name="statusArchiveAsync">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="options" type="tns:archiveStatusOptions"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archiveStatusOptions">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractArchiveOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationId" nillable="true" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="statusArchiveAsyncResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCurrentTime">
     <xs:sequence></xs:sequence>
   </xs:complexType>
-  <xs:complexType name="connectAsyncResponse">
+  <xs:complexType name="getCurrentTimeResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
+      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="getDumps">
@@ -1433,32 +1465,12 @@
       <xs:element name="totalBlocks" type="xs:int"></xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getCurrentTime">
+  <xs:complexType name="connectAsync">
     <xs:sequence></xs:sequence>
   </xs:complexType>
-  <xs:complexType name="getCurrentTimeResponse">
+  <xs:complexType name="connectAsyncResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:dateTime"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="statusArchiveAsync">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="options" type="tns:archiveStatusOptions"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="archiveStatusOptions">
-    <xs:complexContent>
-      <xs:extension base="tns:abstractArchiveOptions">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="filter" type="tns:generationsFilter"></xs:element>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="generationId" nillable="true" type="xs:int"></xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="statusArchiveAsyncResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:tasks"></xs:element>
+      <xs:element minOccurs="0" name="return" type="tns:task"></xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="getAllDumps">
@@ -2049,6 +2061,16 @@
       <xs:enumeration value="K8S_UUID"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="extensionManagerOperation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REGISTER"></xs:enumeration>
+      <xs:enumeration value="REMOVE"></xs:enumeration>
+      <xs:enumeration value="UPDATE"></xs:enumeration>
+      <xs:enumeration value="FORCE_UPDATE"></xs:enumeration>
+      <xs:enumeration value="CHECK"></xs:enumeration>
+      <xs:enumeration value="NONE"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="windowsQuiesceSpecVssBackupContext">
     <xs:restriction base="xs:string">
       <xs:enumeration value="CTX_AUTO"></xs:enumeration>
@@ -2065,16 +2087,6 @@
       <xs:enumeration value="VSS_BT_LOG"></xs:enumeration>
       <xs:enumeration value="VSS_BT_OTHER"></xs:enumeration>
       <xs:enumeration value="VSS_BT_UNDEFINED"></xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="extensionManagerOperation">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="REGISTER"></xs:enumeration>
-      <xs:enumeration value="REMOVE"></xs:enumeration>
-      <xs:enumeration value="UPDATE"></xs:enumeration>
-      <xs:enumeration value="FORCE_UPDATE"></xs:enumeration>
-      <xs:enumeration value="CHECK"></xs:enumeration>
-      <xs:enumeration value="NONE"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="generationsFilter">

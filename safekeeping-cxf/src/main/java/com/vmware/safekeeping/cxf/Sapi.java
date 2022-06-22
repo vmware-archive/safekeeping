@@ -88,8 +88,9 @@ import com.vmware.safekeeping.external.type.RestoreIvdManagedInfo;
 import com.vmware.safekeeping.external.type.RestoreVappManagedInfo;
 import com.vmware.safekeeping.external.type.RestoreVmManagedInfo;
 import com.vmware.safekeeping.external.type.options.BackupOptions;
-import com.vmware.safekeeping.external.type.options.ConnectOptions;
+import com.vmware.safekeeping.external.type.options.CspConnectOptions;
 import com.vmware.safekeeping.external.type.options.ExtensionOptions;
+import com.vmware.safekeeping.external.type.options.PscConnectOptions;
 import com.vmware.safekeeping.external.type.options.RepositoryOptions;
 import com.vmware.safekeeping.external.type.options.RestoreOptions;
 import com.vmware.safekeeping.external.type.options.VirtualBackupOptions;
@@ -200,7 +201,10 @@ public interface Sapi {
 			throws UnrecognizedToken, InvalidOptions, InternalCoreResult;
 
 	@WebMethod
-	ResultActionConnectSso login(@WebParam(name = "options") ConnectOptions options) throws InternalCoreResult;
+	ResultActionConnectSso loginCsp(@WebParam(name = "options") CspConnectOptions options) throws InternalCoreResult;
+
+	@WebMethod
+	ResultActionConnectSso loginPsc(@WebParam(name = "options") PscConnectOptions options) throws InternalCoreResult;
 
 	@WebMethod
 	ResultActionDisconnectSso logout() throws UnrecognizedToken, InternalCoreResult;

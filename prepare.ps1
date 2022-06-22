@@ -4,21 +4,21 @@
 Configure Safekeeping Dev enviroment
 .PARAMETER Jdk
 Specify the JAVA version to use to build and distribuite Safekeeping
-.PARAMETER Reset
+.PARAMETER Clean
 Cleans and remove any Java JDK library file
 .EXAMPLE
 PS> .\Prepare.ps1 -Jdk 11
 Configure Safekeeping to be built with JDK version 11
 .EXAMPLE
-PS> .\Prepare.ps1 -Reset 
+PS> .\Prepare.ps1 -Clean 
 Clean from any JDK file
 .SYNOPSIS
 Used to configure Safekeeping development enviroment
 #>
 param ( 
     [Int] [ValidateRange(8,11)] [Parameter  (Mandatory=$True,Position=0, HelpMessage="Java version to use ",ParameterSetName="Java")]  # Specify the JAVA version to use to build and distribuite Safekeeping 
-    $Jdk ,
-    [Parameter(Mandatory=$True,ParameterSetName="Clean")] [switch]$Reset 
+    $Jdk , 
+    [Parameter(Mandatory=$True,ParameterSetName="Clean")] [switch]$Clean 
     ) 
 
 Function DeGZip-File{
@@ -124,7 +124,7 @@ Function CleanUp() {
 
 
 
-    if ($Reset){ 
+    if ($Clean){ 
         Define-Variable
         cleanUp 
         Write-Host  Done
@@ -133,47 +133,23 @@ Function CleanUp() {
 switch($Jdk){
     8 { 
         $JdkVersion="VERSION_1_8"
-        $ver="8u282"
-        $rev="08"
+        $ver="8u332"
+        $rev="09"
         $VR=$ver+"b"+$rev
-        $jdkFolder="jdk$ver-b$rev"
-        $openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk$ver-b$rev"
+        $jdkFolder="jdk$ver-b$rev" 
+        $openJdkUrlPath="https://github.com/adoptium/temurin8-binaries/releases/download/jdk$ver-b$rev"
         $jreWinFileName="OpenJDK8U-jre_x64_windows_hotspot_"+$VR+".zip"
         $jreLinuxFileName="OpenJDK8U-jre_x64_linux_hotspot_"+$VR+".tar.gz"
         $jdkWinFileName="OpenJDK8U-jdk_x64_windows_hotspot_"+$VR+".zip"
         $jdkLinuxFileName="OpenJDK8U-jdk_x64_linux_hotspot_"+$VR+".tar.gz"
     }
-   9 {  
-        $JdkVersion="VERSION_1_9"
-        $ver="9.0.4"
-        $rev="11"
-        $VR=$ver+"_"+$rev
-        $jdkFolder="jdk-$ver+$rev"
-        $openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk9-binaries/releases/download/jdk-$ver%2B$rev"
-        $jreWinFileName="OpenJDK9U-jre_x64_windows_hotspot_"+$VR+".zip"
-        $jreLinuxFileName="OpenJDK9U-jre_x64_linux_hotspot_"+$VR+".tar.gz"
-        $jdkWinFileName="OpenJDK9U-jdk_x64_windows_hotspot_"+$VR+".zip"
-        $jdkLinuxFileName="OpenJDK9U-jdk_x64_linux_hotspot_"+$VR+".tar.gz" 
-    }
-    10 { 
-        $JdkVersion="VERSION_1_10" 
-        $ver="10.0.2"
-        $rev="13"
-        $VR=$ver+"_"+$rev
-        $jdkFolder="jdk-$ver+$rev"
-        $openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk10-binaries/releases/download/jdk-$ver%2B$rev"
-        $jreWinFileName="OpenJDK10U-jre_x64_windows_hotspot_"+$VR+".zip"
-        $jreLinuxFileName="OpenJDK10U-jre_x64_linux_hotspot_"+$VR+".tar.gz"
-        $jdkWinFileName="OpenJDK10U-jdk_x64_windows_hotspot_"+$VR+".zip"
-        $jdkLinuxFileName="OpenJDK10U-jdk_x64_linux_hotspot_"+$VR+".tar.gz" 
-    } 
    11 {
         $JdkVersion="VERSION_11" 
-        $ver="11.0.10"
-        $rev="9"
+        $ver="11.0.15"
+        $rev="10"
         $VR=$ver+"_"+$rev
         $jdkFolder="jdk-$ver+$rev"
-        $openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-$ver%2B$rev"
+        $openJdkUrlPath="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-$ver%2B$rev"
         $jreWinFileName="OpenJDK11U-jre_x64_windows_hotspot_"+$VR+".zip"
         $jreLinuxFileName="OpenJDK11U-jre_x64_linux_hotspot_"+$VR+".tar.gz"
         $jdkWinFileName="OpenJDK11U-jdk_x64_windows_hotspot_"+$VR+".zip"

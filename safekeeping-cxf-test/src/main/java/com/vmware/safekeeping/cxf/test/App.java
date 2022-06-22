@@ -294,14 +294,14 @@ public final class App {
 			cspOptions.setRefreshToken("Yk0957HMA3deUWHCKCXLP7PuQ1xE7F7liaC8H4ykZulsEguLlrKNEqadquYTfheK");
 			cspOptions.setTokenExchangeServer("https://vcenter.sddc-44-233-221-247.vmwarevmc.com/");
 
-			loginResult = this.sapi.login(cspOptions);
+			loginResult = this.sapi.loginCsp(cspOptions);
 		} else {
 			final PscConnectOptions pscOptions = new PscConnectOptions();
 			pscOptions.setBase64(false);
 			pscOptions.setAuthServer(this.server);
 			pscOptions.setUser(this.user);
 			pscOptions.setPassword(new String(this.password));
-			loginResult = this.sapi.login(pscOptions);
+			loginResult = this.sapi.loginPsc(pscOptions);
 		}
 		return loginResult;
 	}

@@ -38,7 +38,7 @@ if "%OS%"=="Windows_NT" setlocal
 set PWSH7="%ProgramFiles%\PowerShell\7\pwsh.exe"
 set PWSH6="%ProgramFiles%\PowerShell\6\pwsh.exe"
 set PWSH="%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe"
-set HELPMESSAGE=prepare.cmd -jdk ^<version^> ^| -Reset
+set HELPMESSAGE=prepare.cmd -jdk ^<version^> ^| -Clean
 if exist %PWSH6%.   set PWSH=%PWSH6%
 if exist %PWSH7%.   set PWSH=%PWSH7% 
 

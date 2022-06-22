@@ -80,39 +80,11 @@ case "$1" in
         VR=$ver"b"$rev
         jdkFolder="jdk$ver-b$rev"
         jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk$ver-b$rev"
+        openJdkUrlPath="https://github.com/adoptium/temurin8-binaries/releases/download/jdk$ver-b$rev"
         jreWinFileName="OpenJDK8U-jre_x64_windows_hotspot_$VR.zip"
         jreLinuxFileName="OpenJDK8U-jre_x64_linux_hotspot_$VR.tar.gz"
         jdkWinFileName="OpenJDK8U-jdk_x64_windows_hotspot_$VR.zip"
         jdkLinuxFileName="OpenJDK8U-jdk_x64_linux_hotspot_$VR.tar.gz"
-    ;;
-    -jdk9)  
-        JdkVersion="VERSION_1_9"
-        ver="9.0.4"
-        rev="11"
-        VR=$ver"_"$rev
-        jdkFolder="jdk$ver-b$rev"
-        jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk9-binaries/releases/download/jdk-$ver%2B$rev"
-        jreWinFileName="OpenJDK9U-jre_x64_windows_hotspot_$VR.zip"
-        jreLinuxFileName="OpenJDK9U-jre_x64_linux_hotspot_$VR.tar.gz"
-        jdkWinFileName="OpenJDK9U-jdk_x64_windows_hotspot_$VR.zip"
-        jdkLinuxFileName="OpenJDK9U-jdk_x64_linux_hotspot_$VR.tar.gz" 
-        
-    ;;
-    -jdk10) 
-        JdkVersion="VERSION_1_10" 
-        ver="10.0.2"
-        rev="13"
-        subRev="1"
-        VR=$ver"_"$rev
-        jdkFolder="jdk$ver-b$rev"
-        jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk10-binaries/releases/download/jdk-$ver%2B$rev$subRev"
-        jreWinFileName="OpenJDK10U-jre_x64_windows_hotspot_$VR.zip"
-        jreLinuxFileName="OpenJDK10U-jre_x64_linux_hotspot_$VR.tar.gz"
-        jdkWinFileName="OpenJDK10U-jdk_x64_windows_hotspot_$VR.zip"
-        jdkLinuxFileName="OpenJDK10U-jdk_x64_linux_hotspot_$VR.tar.gz" 
     ;;
     -jdk11)
         JdkVersion="VERSION_11" 
@@ -121,13 +93,13 @@ case "$1" in
         VR=$ver"_"$rev
         jdkFolder="jdk$ver-b$rev"
         jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-$ver%2B$rev"
+        openJdkUrlPath="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-$ver%2B$rev
         jreWinFileName="OpenJDK11U-jre_x64_windows_hotspot_$VR.zip"
         jreLinuxFileName="OpenJDK11U-jre_x64_linux_hotspot_$VR.tar.gz"
         jdkWinFileName="OpenJDK11U-jdk_x64_windows_hotspot_$VR.zip"
         jdkLinuxFileName="OpenJDK11U-jdk_x64_linux_hotspot_$VR.tar.gz" 
    ;;
-    -reset)
+    -clean)
         defineVariable
         cleanUp 
         echo Done
@@ -135,11 +107,9 @@ case "$1" in
     ;;
     *) 
         echo  Configure Safekeeping to use a specific OpenJava version:
-        echo  -jdk8        Use Java 1.8
-        echo  -jdk9        Use Java 1.9
-        echo  -jdk10       Use Java 1.10
+        echo  -jdk8        Use Java 1.8 
         echo  -jdk11       Use Java 11 
-        echo  -reset       Reverse any change made by the script
+        echo  -clean       Reverse any change made by the script
        exit
     ;;
 esac

@@ -12,7 +12,7 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.vmware.safekeeping.cxf.App"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="safekeeping-cxf"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--interactive --securePort 8443 --port 8080 --debug"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--interactive --securePort 8443 --port 8080 --debug -statusPage off"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="safekeeping-cxf"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xms7G -Xmx20G -server"/>
 </launchConfiguration>
