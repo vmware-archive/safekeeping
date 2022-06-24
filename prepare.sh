@@ -88,12 +88,12 @@ case "$1" in
     ;;
     -jdk11)
         JdkVersion="VERSION_11" 
-        ver="11.0.10"
-        rev="9"
+        ver="11.0.15"
+        rev="10"
         VR=$ver"_"$rev
         jdkFolder="jdk$ver-b$rev"
         jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-$ver%2B$rev
+        openJdkUrlPath="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-$ver%2B$rev"
         jreWinFileName="OpenJDK11U-jre_x64_windows_hotspot_$VR.zip"
         jreLinuxFileName="OpenJDK11U-jre_x64_linux_hotspot_$VR.tar.gz"
         jdkWinFileName="OpenJDK11U-jdk_x64_windows_hotspot_$VR.zip"
