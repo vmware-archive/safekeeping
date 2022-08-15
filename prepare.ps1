@@ -133,8 +133,8 @@ Function CleanUp() {
 switch($Jdk){
     8 { 
         $JdkVersion="VERSION_1_8"
-        $ver="8u332"
-        $rev="09"
+        $ver="8u345"
+        $rev="01"
         $VR=$ver+"b"+$rev
         $jdkFolder="jdk$ver-b$rev" 
         $openJdkUrlPath="https://github.com/adoptium/temurin8-binaries/releases/download/jdk$ver-b$rev"
@@ -145,8 +145,8 @@ switch($Jdk){
     }
    11 {
         $JdkVersion="VERSION_11" 
-        $ver="11.0.15"
-        $rev="10"
+        $ver="11.0.16"
+        $rev="8"
         $VR=$ver+"_"+$rev
         $jdkFolder="jdk-$ver+$rev"
         $openJdkUrlPath="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-$ver%2B$rev"

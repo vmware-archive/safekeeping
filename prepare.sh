@@ -75,12 +75,12 @@ defineVariable() {
 case "$1" in
     -jdk8)
         JdkVersion="VERSION_1_8"
-        ver="8u282"
-        rev="08"
+        ver="8u345"
+        rev="01"
         VR=$ver"b"$rev
         jdkFolder="jdk$ver-b$rev"
         jreFolder="$jdkFolder-jre"
-        openJdkUrlPath="https://github.com/adoptium/temurin8-binaries/releases/download/jdk$ver-b$rev"
+        openJdkUrlPath="https://github.com/adoptium/temurin8-binaries/releases/download/jdk$ver-b$rev" 
         jreWinFileName="OpenJDK8U-jre_x64_windows_hotspot_$VR.zip"
         jreLinuxFileName="OpenJDK8U-jre_x64_linux_hotspot_$VR.tar.gz"
         jdkWinFileName="OpenJDK8U-jdk_x64_windows_hotspot_$VR.zip"
@@ -88,8 +88,8 @@ case "$1" in
     ;;
     -jdk11)
         JdkVersion="VERSION_11" 
-        ver="11.0.15"
-        rev="10"
+        ver="11.0.16"
+        rev="8"
         VR=$ver"_"$rev
         jdkFolder="jdk$ver-b$rev"
         jreFolder="$jdkFolder-jre"
