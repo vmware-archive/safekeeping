@@ -64,8 +64,7 @@ Function Install-ModuleIfNotInstalled(
                 Write-Warning ('Module {0} min.vers {1}: Install nuget!' -f $moduleName, $minimalVersion)
                 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force
             }        
-            $optionalArgs = New-Object -TypeName Hashta
-            ble
+            $optionalArgs = New-Object -TypeName Hashtable
             if ($minimalVersion) {
                 $optionalArgs['RequiredVersion'] = $minimalVersion
             }  
