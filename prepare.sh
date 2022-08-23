@@ -70,6 +70,8 @@ defineVariable() {
 
     JreWindows="$jdkDistribDir/jre/win"
     jreLinux="$jdkDistribDir/jre/linux"
+
+    ProjVersion=$(< $BaseDirectory/VERSION)
 }
   
 case "$1" in
@@ -186,6 +188,7 @@ jdkWinFileName=$jdkWinFileName
 jdkLinuxFileName=$jdkLinuxFileName
 jreFolder=$jreFolder
 javaDistribution=$javaDistribution
+projVersion=$ProjVersion
 EOM
 
 

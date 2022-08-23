@@ -76,7 +76,7 @@ Function Install-ModuleIfNotInstalled(
 
     
 
-Function Define-Variable() {
+Function Set-Variable() {
 
    $Global:CurrentDirectory=(Get-Location).path
     $Global:jdkDir="$CurrentDirectory\jdk" 
@@ -94,6 +94,7 @@ Function Define-Variable() {
 
     $Global:JreWindows="$jdkDistribDir\jre\win"
     $Global:jreLinux="$jdkDistribDir\jre\linux"
+    $ProjVersion = Get-Content -path $CurrentDirectory\VERSION
 }
 
 Function CleanUp() {
@@ -124,7 +125,7 @@ Function CleanUp() {
 
 
     if ($Clean){ 
-        Define-Variable
+        Set-Variable
         cleanUp 
         Write-Host  Done
         exit
@@ -165,7 +166,7 @@ Install-ModuleIfNotInstalled -moduleName "7Zip4Powershell"
 
 
 
-Define-Variable
+Set-Variable
 CleanUp
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -235,7 +236,8 @@ $GradlePorperties=
 "jreLinuxFileName=$jreLinuxFileName`n"+ 
 "jdkWinFileName=$jdkWinFileName`n"+ 
 "jdkLinuxFileName=$jdkLinuxFileName`n"+  
-"javaDistribution=$javaDistribution`n"
+"javaDistribution=$javaDistribution`n"+
+"projVersion=$ProjVersion`n"
 
 
 set-content -Path "$CurrentDirectory\gradle.properties" -Value $GradlePorperties
