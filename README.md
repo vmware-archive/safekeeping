@@ -96,19 +96,26 @@ To build the VDDK wrapper use:	```./buildVddkLibraries.sh```
 
 
 ## Build Java code
-***Important JAVA supported versions are jre1.8.0_251, jre1.8.0_261, or greater anything over Java 11 doesn't work.***
+***Important JAVA supported versions are   8.0.345,11.0.16  or greater. Java 12 and  doesn't work.***
+
+## Import the project on Eclipse
+```
+cd safekeeping
+configure.cmd <java_version>  
+gradlew eclipse 
+``` 
 
 #### on Windows 
 ```
 cd safekeeping
 configure.cmd <java_version>  
-gradle installDist 
+gradlew installDist 
 ``` 
 #### on Linux 
 ```
 cd safekeeping
 configure.sh <java_version>  
-gradle installDist 
+gradlew installDist 
 ``` 
 <java_version> 
 8 jdk1.8
