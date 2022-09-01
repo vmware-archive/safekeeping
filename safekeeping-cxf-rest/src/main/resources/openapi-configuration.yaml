@@ -1,0 +1,21 @@
+servers: 
+  - description: SwaggerHub API Auto Mocking
+    url: http://localhost:8080/sapi/1.0
+info:
+  description: Safekeeping OpenAPI
+  version: "1.0.0"
+  title: Sapi API
+  contact:
+    email: support@vmware.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admin
+    description: Operations available to admin
+  - name: backup
+    description: Backup operations
+  - name: archive
+    description: Archive operations
+  - name: connectivity
+    description: Connectivity operations 
