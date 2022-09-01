@@ -101,21 +101,21 @@ To build the VDDK wrapper use:	```./buildVddkLibraries.sh```
 ## Import the project on Eclipse
 ```
 cd safekeeping
-configure.cmd <java_version>  
+prepare.cmd <java_version>  
 gradlew eclipse 
 ``` 
 
 #### on Windows 
 ```
 cd safekeeping
-configure.cmd <java_version>  
+prepare.cmd <java_version>  
 gradlew installDist 
 ``` 
 #### on Linux 
 ```
 cd safekeeping
-configure.sh <java_version>  
-gradlew installDist 
+./prepare.sh <java_version>  
+./gradlew installDist 
 ``` 
 <java_version> 
 8 jdk1.8
