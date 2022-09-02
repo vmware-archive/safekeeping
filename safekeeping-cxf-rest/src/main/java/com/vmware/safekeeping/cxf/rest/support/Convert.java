@@ -5,6 +5,9 @@ import com.vmware.safekeeping.core.command.options.CoreCspConnectOptions;
 import com.vmware.safekeeping.core.command.options.CorePscConnectOptions;
 import com.vmware.safekeeping.core.command.results.ICoreResultAction;
 import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionConnectSso;
+import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionDisconnect;
+import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionDisconnectSso;
+import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionDisconnectVcenter;
 import com.vmware.safekeeping.cxf.rest.model.ConnectOptions;
 import com.vmware.safekeeping.cxf.rest.model.CspConnectOptions;
 import com.vmware.safekeeping.cxf.rest.model.EntityType;
@@ -12,7 +15,7 @@ import com.vmware.safekeeping.cxf.rest.model.ManagedFcoEntityInfo;
 import com.vmware.safekeeping.cxf.rest.model.OperationState;
 import com.vmware.safekeeping.cxf.rest.model.PscConnectOptions;
 import com.vmware.safekeeping.cxf.rest.model.ResultActionConnectSso;
-import com.vmware.safekeeping.cxf.rest.model.SapiTask;
+import com.vmware.safekeeping.cxf.rest.model.SapiTask; 
 
 public class Convert {
     
@@ -111,4 +114,37 @@ public class Convert {
             dst.setParent(newSapiTask(src.getParent()));
         }
     }
+    
+    public static void ResultActionDisconnectSso(final CoreResultActionDisconnectSso src, final com.vmware.safekeeping.cxf.rest.model.ResultActionDisconnectSso dst) {
+        if ((src == null) || (dst == null)) {
+            return;
+        }
+        Convert.resultAction(src, dst);
+        
+        dst.setConnected(src.isConnected());
+        if (src.getSsoEndPointUrl() != null) {
+            dst.setSsoEndPointUrl(src.getSsoEndPointUrl().toString());
+        }
+
+    }
+    public static void ResultActionDisconnect(final CoreResultActionDisconnect src, final com.vmware.safekeeping.cxf.rest.model.ResultActionDisconnect dst) {
+        if ((src == null) || (dst == null)) {
+            return;
+        }
+        Convert.resultAction(src, dst);
+      //  dst.setSubActionDisconnectSso();
+    //    Convert.ResultActionDisconnectSso(src.getSubActionDisconnectSso(), dst.getSubActionDisconnectSso());
+         
+           try {
+            dst.setConnected(src.isConnected());
+            for (final CoreResultActionDisconnectVcenter _racvc : src.getSubActionDisconnectVCenters()) {
+                dst.getSubTasksActionConnectVCenters().add(newSapiTask(_racvc));
+            }
+        } catch (final Exception e) {
+            src.failure(e);
+          
+        }
+    }
+    
+    
 }

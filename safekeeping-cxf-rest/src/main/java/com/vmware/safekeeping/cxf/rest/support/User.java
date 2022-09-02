@@ -40,12 +40,16 @@ public class User {
 	private long lastOperation;
 	private final Map<String, ITarget> targets;
 
+	private String token;
+
 	/**
+	 * @param token 
 	 * @param connectionManager
 	 */
-	public User(final ConnectionManager connection) {
+	public User(final ConnectionManager connection, String token) {
 		this.targets = new ConcurrentHashMap<>();
 		this.connection = connection;
+		this.setToken(token);
 	}
 
 	/**
@@ -94,5 +98,13 @@ public class User {
 	 */
 	public void setLastOperation(final long lastOperation) {
 		this.lastOperation = lastOperation;
+	}
+
+	public String getToken() {
+	    return token;
+	}
+
+	public void setToken(String token) {
+	    this.token = token;
 	}
 }

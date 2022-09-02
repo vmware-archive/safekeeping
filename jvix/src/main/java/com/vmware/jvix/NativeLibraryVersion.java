@@ -27,5 +27,5 @@
 package com.vmware.jvix;
 
 public enum NativeLibraryVersion {
-	UNSUPPORTED, VDDK65, VDDK67, VDDK70
+	UNSUPPORTED, VDDK65, VDDK67, VDDK70, VDDK80
 }

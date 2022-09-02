@@ -63,6 +63,7 @@ public final class JDiskLibFactory {
 
 	private static boolean debug;
 
+	private static final int MAJOR_VERSION_8 = 8;
 	private static final int MAJOR_VERSION_7 = 7;
 	private static final int MAJOR_VERSION_6 = 6;
 	private static final int MINOR_VERSION_7 = 7;
@@ -97,6 +98,8 @@ public final class JDiskLibFactory {
 			throw new JVixException(e);
 		}
 		NativeLibraryVersion nativeVersion;
+		if (JDiskLibFactory.vddkVersion.getMajor() == MAJOR_VERSION_8) {
+			nativeVersion = NativeLibraryVersion.VDDK80;}else 
 		if (JDiskLibFactory.vddkVersion.getMajor() == MAJOR_VERSION_7) {
 			nativeVersion = NativeLibraryVersion.VDDK70;
 		} else if (JDiskLibFactory.vddkVersion.getMajor() == MAJOR_VERSION_6) {

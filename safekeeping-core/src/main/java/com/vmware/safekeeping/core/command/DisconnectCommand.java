@@ -38,9 +38,9 @@ public abstract class DisconnectCommand extends AbstractCommandWithOptions {
 
     }
 
-    protected void actionDisconnect(final ConnectionManager connetionManager, final CoreResultActionDisconnect result)
+    protected void actionDisconnect(final ConnectionManager connectionManager, final CoreResultActionDisconnect result)
             throws CoreResultActionException {
-        connetionManager.disconnectVimConnections(result);
+    	connectionManager.disconnectVimConnections(result);
 
     }
 

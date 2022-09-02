@@ -29,14 +29,16 @@ package com.vmware.safekeeping.core.command.results.connectivity;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.vmware.safekeeping.core.command.results.ICoreResultAction;
+
 public class CoreResultActionDisconnect extends AbstractCoreResultActionConnectDisconnect {
 
 	/**
-     * 
-     */
-    private static final long serialVersionUID = 703199940834135783L;
+	 * 
+	 */
+	private static final long serialVersionUID = 703199940834135783L;
 
-    private final List<CoreResultActionDisconnectVcenter> subActionDisconnectVCenters;
+	private final List<CoreResultActionDisconnectVcenter> subActionDisconnectVCenters;
 
 	private CoreResultActionDisconnectSso subActionDisconnectSso;
 
@@ -46,6 +48,11 @@ public class CoreResultActionDisconnect extends AbstractCoreResultActionConnectD
 	public CoreResultActionDisconnect() {
 		this.subActionDisconnectVCenters = new LinkedList<>();
 		setConnected(true);
+	}
+
+	public CoreResultActionDisconnect(CoreResultActionDisconnectSso subActionDisconnectSso) {
+		this();
+		this.subActionDisconnectSso=subActionDisconnectSso;
 	}
 
 	/**

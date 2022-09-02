@@ -40,7 +40,7 @@ public abstract class AbstractCoreResultActionConnectDisconnectSso extends Abstr
     private URL ssoEndPointUrl;
     private boolean connected;
     private String token;
-
+private CoreResultActionDisconnectVcenter child;
     protected AbstractCoreResultActionConnectDisconnectSso(final boolean connected) {
         this.connected = connected;
         this.token = null;
@@ -81,5 +81,13 @@ public abstract class AbstractCoreResultActionConnectDisconnectSso extends Abstr
     public void setToken(final String element) {
         this.token = element;
     }
+
+	public CoreResultActionDisconnectVcenter getChild() {
+		return child;
+	}
+
+	public void setChild(CoreResultActionDisconnectVcenter child) {
+		this.child = child;
+	}
 
 }

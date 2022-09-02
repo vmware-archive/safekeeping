@@ -14,6 +14,7 @@ import com.vmware.safekeeping.cxf.rest.support.Convert;
 import com.vmware.safekeeping.cxf.rest.support.User;
 
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.List;
 import com.vmware.safekeeping.cxf.rest.api.NotFoundException;
 import com.vmware.safekeeping.cxf.rest.command.entry.ExternalConnectCommand;
@@ -25,25 +26,34 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class LoginPscApiServiceImpl extends LoginPscApiService {
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")
+public class LoginPscApiServiceImpl extends LoginPscApiService {
+
+    private Logger logger;
+    public LoginPscApiServiceImpl() { 
+	this.logger = Logger.getLogger(this.getClass().getName());
+    }
+
+    
     @Override
     public Response loginPsc(PscConnectOptions body, SecurityContext securityContext) throws NotFoundException {
 	final CoreResultActionConnectSso racs = new CoreResultActionConnectSso();
 	try {
-		final ExternalConnectCommand connect = new ExternalConnectCommand(body);
-		if (connect.connectSso(racs, body.getPassword())) {
-			final User user = new User(connect.getConnectionManager());
-			GlobalState.getUsersList().put(racs.getToken(), user);
-		}
+	    final ExternalConnectCommand connect = new ExternalConnectCommand(body);
+	    if (connect.connectSso(racs, body.getPassword())) {
+		final User user = new User(connect.getConnectionManager(),racs.getToken());
+		GlobalState.getUsersList().put(racs.getToken(), user);
+	    }
 	} catch (final CoreResultActionException | SafekeepingException e) {
-	//	Utility.logWarning(this.logger, e);
-	//	throw new InternalCoreResult();
+	      Utility.logWarning(this.logger, e);
+	     throw new NotFoundException(500,"Internal error");
 	} finally {
-		racs.done();
+	    racs.done();
 	}
 	final ResultActionConnectSso result = new ResultActionConnectSso();
-	  Convert.resultActionConnectSso(racs,result);
-	 
-        return Response.ok().entity(result ).build();
+	Convert.resultActionConnectSso(racs, result);
+
+	return Response.ok().entity(result).build();
     }
 }

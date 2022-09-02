@@ -25,10 +25,12 @@ import java.io.InputStream;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletConfig;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import javax.xml.ws.WebServiceContext;
 import javax.ws.rs.*;
 import javax.validation.constraints.*;
 
@@ -58,11 +60,10 @@ import javax.validation.constraints.*;
       }
 
       this.delegate = delegate;
-   }
+   } 
 
     @PUT
-    
-    
+     
     @Produces({ "application/json" })
     @Operation(summary = "Connect", description = "Connect  ", security = {
         @SecurityRequirement(name = "api_key")    }, tags={ "connectivity" })

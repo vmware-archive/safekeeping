@@ -47,48 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
      
  
-     
-    
-    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jmx
-    //compile group: 'org.eclipse.jetty:jetty-jmx:9.4.29.v20200521'
-    
-    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet
-     
-    
-    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http-spi
-  //  implementation   'org.eclipse.jetty:jetty-http-spi:9.4.+'
-    
-    // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-jaxrs2
-//	implementation 'io.swagger.core.v3:swagger-jaxrs2:2.2.2'
-	// https://mvnrepository.com/artifact/org.glassfish.jersey.bundles/jaxrs-ri
-//implementation 'org.glassfish.jersey.bundles:jaxrs-ri:2.31'
-	
-	// https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxrs
- //implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.5.3'
- // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-wsdl
-//implementation 'org.apache.cxf:cxf-rt-wsdl:3.5.3'
- // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-policy
-//implementation 'org.apache.cxf:cxf-rt-ws-policy:3.5.3'
- // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-openapi-v3
-//implementation 'org.apache.cxf:cxf-rt-rs-service-description-openapi-v3:3.5.3'
- // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description
-//implementation 'org.apache.cxf:cxf-rt-rs-service-description:3.5.3'
- 
-	// https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description
-//implementation 'org.apache.cxf:cxf-rt-rs-service-description:3.5.3'
-	// https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-jetty-http
-//implementation 'org.glassfish.jersey.containers:jersey-container-jetty-http:2.25.1'
-	// https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server
-//implementation 'org.glassfish.jersey.core:jersey-server:2.25.1'
-	// https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core
-//implementation 'org.glassfish.jersey.containers:jersey-container-servlet-core:2.25.1'
-// https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util
-
- 
-
-// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-   // api'com.fasterxml.jackson.core:jackson-databind:2.11.+' 
- 
+      
 // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
 
