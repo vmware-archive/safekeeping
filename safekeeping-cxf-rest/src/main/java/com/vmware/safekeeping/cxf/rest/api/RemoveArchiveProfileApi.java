@@ -37,7 +37,7 @@ import javax.validation.constraints.*;
 @Path("/removeArchiveProfile")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class RemoveArchiveProfileApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T22:00:47.492Z[GMT]")public class RemoveArchiveProfileApi  {
    private final RemoveArchiveProfileApiService delegate;
 
    public RemoveArchiveProfileApi(@Context ServletConfig servletContext) {

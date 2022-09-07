@@ -25,14 +25,12 @@
 * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
 ******************************************************************************/
-package com.vmware.safekeeping.external.result;
+package com.vmware.safekeeping.external.type;
 
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.location.AbstractCoreFcoLocation;
-import com.vmware.safekeeping.external.type.VappLocation;
-import com.vmware.safekeeping.external.type.VmLocation;
 
 @XmlSeeAlso({ IvdLocation.class, VappLocation.class, VmLocation.class })
 public abstract class FcoLocation {

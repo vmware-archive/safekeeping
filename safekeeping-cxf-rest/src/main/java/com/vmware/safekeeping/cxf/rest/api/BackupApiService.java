@@ -5,7 +5,7 @@ import com.vmware.safekeeping.cxf.rest.model.*;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
-import com.vmware.safekeeping.cxf.rest.model.BackupBody;
+import com.vmware.safekeeping.cxf.rest.model.BackupOptions;
 import com.vmware.safekeeping.cxf.rest.model.SapiTasks;
 
 import java.util.Map;
@@ -17,6 +17,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public abstract class BackupApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T22:00:47.492Z[GMT]")public abstract class BackupApiService {
     public abstract Response backup(BackupOptions body,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response backupFco(String fco,SecurityContext securityContext) throws NotFoundException;
 }

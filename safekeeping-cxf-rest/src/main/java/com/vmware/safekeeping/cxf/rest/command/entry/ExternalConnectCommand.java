@@ -30,19 +30,13 @@ import java.util.logging.Level;
 
 import com.vmware.safekeeping.common.Utility;
 import com.vmware.safekeeping.core.command.AbstractConnectCommand;
-import com.vmware.safekeeping.core.command.options.AbstractCoreBasicConnectOptions;
 import com.vmware.safekeeping.core.command.options.CoreBasicCommandOptions;
-import com.vmware.safekeeping.core.command.options.CoreCspConnectOptions;
 import com.vmware.safekeeping.core.command.options.CorePscConnectOptions;
 import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionConnect;
 import com.vmware.safekeeping.core.command.results.connectivity.CoreResultActionConnectSso;
 import com.vmware.safekeeping.core.exception.CoreResultActionException;
 import com.vmware.safekeeping.core.exception.SafekeepingException;
 import com.vmware.safekeeping.core.soap.ConnectionManager;
-import com.vmware.safekeeping.cxf.rest.model.ConnectOptions;
-import com.vmware.safekeeping.cxf.rest.model.CspConnectOptions;
-import com.vmware.safekeeping.cxf.rest.model.PscConnectOptions; 
-import com.vmware.safekeeping.cxf.rest.support.Convert;
 import com.vmware.safekeeping.cxf.rest.support.ResultThread;
 public class ExternalConnectCommand extends AbstractConnectCommand implements Runnable {
 
@@ -53,22 +47,16 @@ public class ExternalConnectCommand extends AbstractConnectCommand implements Ru
         setOptions(new CoreBasicCommandOptions());
     }
 
-    public ExternalConnectCommand(final  ConnectOptions body) throws SafekeepingException {
-        AbstractCoreBasicConnectOptions basicOptions = null;
-        if (body instanceof PscConnectOptions) {
-            basicOptions = new CorePscConnectOptions();
-            Convert.pscConnectOptions((PscConnectOptions) body, (CorePscConnectOptions) basicOptions);
-        } else if (body instanceof CspConnectOptions) {
-            basicOptions = new CoreCspConnectOptions();
-            Convert.cspConnectOptions((CspConnectOptions) body, (CoreCspConnectOptions) basicOptions);
-        } else {
-            throw new SafekeepingException("Unsupported authentication type:" + body.getClass().toString());
-        }
+    public ExternalConnectCommand(String server, String user,   Boolean base64) throws SafekeepingException {
+	CorePscConnectOptions basicOptions = new CorePscConnectOptions();
+	basicOptions.setAuthServer(server);
+	basicOptions.setBase64(base64);
+	basicOptions.setUser(user); 
 
         setOptions(basicOptions);
     }
 
-     
+
 
     public ResultThread connect(final ConnectionManager connectionManager) {
         if (this.logger.isLoggable(Level.CONFIG)) {

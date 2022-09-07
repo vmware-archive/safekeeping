@@ -24,7 +24,7 @@
 * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
 ******************************************************************************/
-package com.vmware.safekeeping.external.result;
+package com.vmware.safekeeping.external.type;
 
 import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.location.CoreIvdLocation;

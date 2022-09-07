@@ -16,7 +16,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.vmware.safekeeping.cxf.rest.model.AbstractResultActionBackupRestore;
-import com.vmware.safekeeping.cxf.rest.model.FcoLocation;
 import com.vmware.safekeeping.cxf.rest.model.GenerationInfo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.*;
@@ -25,7 +24,7 @@ import javax.validation.Valid;
 /**
  * ResultActionRestore
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class ResultActionRestore extends AbstractResultActionBackupRestore  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")public class ResultActionRestore extends AbstractResultActionBackupRestore  {
   @JsonProperty("RestoreFcoIndex")
   private Integer restoreFcoIndex = null;
 

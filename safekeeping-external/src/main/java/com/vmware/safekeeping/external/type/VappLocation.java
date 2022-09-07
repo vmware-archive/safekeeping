@@ -31,7 +31,6 @@ import java.util.List;
 
 import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.location.CoreVappLocation;
-import com.vmware.safekeeping.external.result.FcoLocation;
 
 public class VappLocation extends FcoLocation {
 	static public void convertFrom(final CoreVappLocation src, final VappLocation dst) {

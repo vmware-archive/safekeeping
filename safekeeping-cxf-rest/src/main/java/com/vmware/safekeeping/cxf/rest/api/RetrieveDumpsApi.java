@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/retrieveDumps")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class RetrieveDumpsApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T22:00:47.492Z[GMT]")public class RetrieveDumpsApi  {
    private final RetrieveDumpsApiService delegate;
 
    public RetrieveDumpsApi(@Context ServletConfig servletContext) {

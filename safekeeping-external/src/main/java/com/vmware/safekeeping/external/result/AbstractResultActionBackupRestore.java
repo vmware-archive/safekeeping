@@ -32,6 +32,8 @@ import com.vmware.safekeeping.core.type.enums.phase.PhaseInterface;
 import com.vmware.safekeeping.core.type.location.CoreIvdLocation;
 import com.vmware.safekeeping.core.type.location.CoreVappLocation;
 import com.vmware.safekeeping.core.type.location.CoreVmLocation;
+import com.vmware.safekeeping.external.type.FcoLocation;
+import com.vmware.safekeeping.external.type.IvdLocation;
 import com.vmware.safekeeping.external.type.VappLocation;
 import com.vmware.safekeeping.external.type.VmLocation;
 

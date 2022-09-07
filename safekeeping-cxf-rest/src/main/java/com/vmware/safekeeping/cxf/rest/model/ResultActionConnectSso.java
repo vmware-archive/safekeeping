@@ -27,7 +27,7 @@ import javax.validation.Valid;
 /**
  * ResultActionConnectSso
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class ResultActionConnectSso extends ResultAction implements OneOfTaskResultResult  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")public class ResultActionConnectSso extends ResultAction implements OneOfTaskResultResult  {
   @JsonProperty("SsoEndPointUrl")
   private String ssoEndPointUrl = null;
 

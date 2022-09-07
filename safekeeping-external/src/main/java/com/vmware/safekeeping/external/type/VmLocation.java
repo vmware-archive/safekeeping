@@ -31,7 +31,6 @@ import java.util.List;
 
 import com.vmware.safekeeping.core.type.ManagedEntityInfo;
 import com.vmware.safekeeping.core.type.location.CoreVmLocation;
-import com.vmware.safekeeping.external.result.FcoLocation;
 
 public class VmLocation extends FcoLocation {
 

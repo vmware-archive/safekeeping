@@ -16,8 +16,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.vmware.safekeeping.cxf.rest.model.BackupMode;
+import com.vmware.safekeeping.cxf.rest.model.BackupRestoreCommonOptions;
 import com.vmware.safekeeping.cxf.rest.model.QueryBlocksOption;
-import com.vmware.safekeeping.cxf.rest.model.VirtualBackupOptions;
 import com.vmware.safekeeping.cxf.rest.model.VirtualMachineQuisceSpec;
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.*;
@@ -26,7 +26,8 @@ import javax.validation.Valid;
 /**
  * BackupOptions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class BackupOptions extends VirtualBackupOptions implements OneOfbackupBody  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")
+public class BackupOptions extends BackupRestoreCommonOptions  {
   @JsonProperty("MaxBlockSize")
   private Integer maxBlockSize = null;
 
@@ -47,6 +48,12 @@ import javax.validation.Valid;
 
   @JsonProperty("Compression")
   private Boolean compression = null;
+
+  @JsonProperty("Synthetic")
+  private Boolean synthetic = false;
+
+  @JsonProperty("GenerationId")
+  private Integer generationId = null;
 
   public BackupOptions maxBlockSize(Integer maxBlockSize) {
     this.maxBlockSize = maxBlockSize;
@@ -184,6 +191,44 @@ import javax.validation.Valid;
     this.compression = compression;
   }
 
+  public BackupOptions synthetic(Boolean synthetic) {
+    this.synthetic = synthetic;
+    return this;
+  }
+
+  /**
+   * Backup is a synthectic or a standard backup
+   * @return synthetic
+   **/
+  @JsonProperty("Synthetic")
+  @Schema(description = "Backup is a synthectic or a standard backup")
+  public Boolean isSynthetic() {
+    return synthetic;
+  }
+
+  public void setSynthetic(Boolean synthetic) {
+    this.synthetic = synthetic;
+  }
+
+  public BackupOptions generationId(Integer generationId) {
+    this.generationId = generationId;
+    return this;
+  }
+
+  /**
+   * Generation used to create a synthectic backup
+   * @return generationId
+   **/
+  @JsonProperty("GenerationId")
+  @Schema(description = "Generation used to create a synthectic backup")
+  public Integer getGenerationId() {
+    return generationId;
+  }
+
+  public void setGenerationId(Integer generationId) {
+    this.generationId = generationId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -201,12 +246,14 @@ import javax.validation.Valid;
         Objects.equals(this.requestedTransportMode, backupOptions.requestedTransportMode) &&
         Objects.equals(this.cipher, backupOptions.cipher) &&
         Objects.equals(this.compression, backupOptions.compression) &&
+        Objects.equals(this.synthetic, backupOptions.synthetic) &&
+        Objects.equals(this.generationId, backupOptions.generationId) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxBlockSize, queryBlocksOption, quisceSpec, requestedBackupMode, requestedTransportMode, cipher, compression, super.hashCode());
+    return Objects.hash(maxBlockSize, queryBlocksOption, quisceSpec, requestedBackupMode, requestedTransportMode, cipher, compression, synthetic, generationId, super.hashCode());
   }
 
 
@@ -222,6 +269,8 @@ import javax.validation.Valid;
     sb.append("    requestedTransportMode: ").append(toIndentedString(requestedTransportMode)).append("\n");
     sb.append("    cipher: ").append(toIndentedString(cipher)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
+    sb.append("    synthetic: ").append(toIndentedString(synthetic)).append("\n");
+    sb.append("    generationId: ").append(toIndentedString(generationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

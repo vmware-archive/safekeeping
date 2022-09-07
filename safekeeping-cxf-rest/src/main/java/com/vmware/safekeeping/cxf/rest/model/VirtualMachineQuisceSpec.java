@@ -24,7 +24,8 @@ import javax.validation.Valid;
 /**
  * VirtualMachineQuisceSpec
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class VirtualMachineQuisceSpec   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")
+public class VirtualMachineQuisceSpec   {
   @JsonProperty("Timeout")
   private Integer timeout = null;
 

@@ -37,14 +37,14 @@ import javax.validation.constraints.*;
 @Path("/extension")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class ExtensionApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T22:00:47.492Z[GMT]")public class ExtensionApi  {
    private final ExtensionApiService delegate;
 
    public ExtensionApi(@Context ServletConfig servletContext) {
       ExtensionApiService delegate = null;
 
       if (servletContext != null) {
-         String implClass =  servletContext.getInitParameter("ExtensionApi.implementation");
+         String implClass = servletContext.getInitParameter("ExtensionApi.implementation");
          if (implClass != null && !"".equals(implClass.trim())) {
             try {
                delegate = (ExtensionApiService) Class.forName(implClass).newInstance();

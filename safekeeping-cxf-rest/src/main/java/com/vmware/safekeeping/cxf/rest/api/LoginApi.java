@@ -1,8 +1,8 @@
 package com.vmware.safekeeping.cxf.rest.api;
 
 import com.vmware.safekeeping.cxf.rest.model.*;
-import com.vmware.safekeeping.cxf.rest.api.LoginCspApiService;
-import com.vmware.safekeeping.cxf.rest.api.factories.LoginCspApiServiceFactory;
+import com.vmware.safekeeping.cxf.rest.api.LoginApiService;
+import com.vmware.safekeeping.cxf.rest.api.factories.LoginApiServiceFactory;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-import com.vmware.safekeeping.cxf.rest.model.CspConnectOptions;
 import com.vmware.safekeeping.cxf.rest.model.ResultActionConnectSso;
 
 import java.util.Map;
@@ -34,20 +33,20 @@ import javax.ws.rs.*;
 import javax.validation.constraints.*;
 
 
-@Path("/loginCsp")
+@Path("/login")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class LoginCspApi  {
-   private final LoginCspApiService delegate;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T22:00:47.492Z[GMT]")public class LoginApi  {
+   private final LoginApiService delegate;
 
-   public LoginCspApi(@Context ServletConfig servletContext) {
-      LoginCspApiService delegate = null;
+   public LoginApi(@Context ServletConfig servletContext) {
+      LoginApiService delegate = null;
 
       if (servletContext != null) {
-         String implClass = servletContext.getInitParameter("LoginCspApi.implementation");
+         String implClass = servletContext.getInitParameter("LoginApi.implementation");
          if (implClass != null && !"".equals(implClass.trim())) {
             try {
-               delegate = (LoginCspApiService) Class.forName(implClass).newInstance();
+               delegate = (LoginApiService) Class.forName(implClass).newInstance();
             } catch (Exception e) {
                throw new RuntimeException(e);
             }
@@ -55,7 +54,7 @@ import javax.validation.constraints.*;
       }
 
       if (delegate == null) {
-         delegate = LoginCspApiServiceFactory.getLoginCspApi();
+         delegate = LoginApiServiceFactory.getLoginApi();
       }
 
       this.delegate = delegate;
@@ -63,7 +62,7 @@ import javax.validation.constraints.*;
 
     @POST
     
-    @Consumes({ "application/json" })
+    
     @Produces({ "application/json" })
     @Operation(summary = "define the login to the SSO", description = "define the login to the SSO   ", security = {
         @SecurityRequirement(name = "api_key")    }, tags={ "connectivity" })
@@ -81,10 +80,20 @@ import javax.validation.constraints.*;
         @ApiResponse(responseCode = "429", description = "The user has sent too many requests."),
         
         @ApiResponse(responseCode = "500", description = "An unexpected error has occurred while processing the request.") })
-    public Response loginCsp(@Parameter(in = ParameterIn.DEFAULT, description = "Connection options" ,required=true) CspConnectOptions body
+    public Response login(
+@Parameter(in = ParameterIn.HEADER, description = "PSC Server usually the vCenter you want to connect" ,required=true)@HeaderParam("server") String server
+
+,
+@Parameter(in = ParameterIn.HEADER, description = "User" ,required=true)@HeaderParam("user") String user
+
+,
+@Parameter(in = ParameterIn.HEADER, description = "User" ,required=true)@HeaderParam("password") String password
+
+,
+@Parameter(in = ParameterIn.HEADER, description = "True if the password is encoded  base64" )@HeaderParam("base64") Boolean base64
 
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.loginCsp(body,securityContext);
+        return delegate.login(server,user,password,base64,securityContext);
     }
 }

@@ -25,7 +25,8 @@ import javax.validation.Valid;
 /**
  * BackupRestoreCommonOptions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class BackupRestoreCommonOptions extends AbstractBasicCommandOptions  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")
+public class BackupRestoreCommonOptions extends AbstractBasicCommandOptions  {
   @JsonProperty("NumberOfThreads")
   private Integer numberOfThreads = null;
 

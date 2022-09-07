@@ -8,12 +8,12 @@ import com.vmware.safekeeping.core.command.results.support.OperationState;
 
 public class ResultThread {
 
-	private final ICoreResultAction resultAction;
+	 private final ICoreResultAction resultAction;
 	private final long threadId;
 	private final String taskId;
 
 	public ResultThread(final ICoreResultAction ra, final long threadId) {
-		this.resultAction = ra;
+		 this.resultAction = ra;
 		this.threadId = threadId;
 		if (ra != null) {
 			this.taskId = ra.getResultActionId();
@@ -29,8 +29,8 @@ public class ResultThread {
 		return this.resultAction;
 	}
 
-	public OperationState getState() {
-		return this.resultAction.getState();
+	public OperationState getState() {   
+ 		return this.resultAction.getState();
 	}
 
 	/**

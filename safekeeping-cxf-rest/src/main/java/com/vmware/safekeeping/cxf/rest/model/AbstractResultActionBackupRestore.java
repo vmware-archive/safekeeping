@@ -16,7 +16,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.vmware.safekeeping.cxf.rest.model.AbstractResultActionWithSubOperations;
-import com.vmware.safekeeping.cxf.rest.model.FcoLocation;
 import com.vmware.safekeeping.cxf.rest.model.GenerationInfo;
 import com.vmware.safekeeping.cxf.rest.model.SapiTask;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,7 +26,7 @@ import javax.validation.Valid;
 /**
  * AbstractResultActionBackupRestore
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-08-31T19:06:45.540Z[GMT]")public class AbstractResultActionBackupRestore extends AbstractResultActionWithSubOperations  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2022-09-06T23:20:18.330Z[GMT]")public class AbstractResultActionBackupRestore extends AbstractResultActionWithSubOperations  {
   @JsonProperty("GenerationId")
   private Integer generationId = null;
 
@@ -38,7 +37,7 @@ import javax.validation.Valid;
   private Integer index = null;
 
   @JsonProperty("Locations")
-  private FcoLocation locations = null;
+  private Object locations = null;
 
   @JsonProperty("Phase")
   private String phase = null;
@@ -107,7 +106,7 @@ import javax.validation.Valid;
     this.index = index;
   }
 
-  public AbstractResultActionBackupRestore locations(FcoLocation locations) {
+  public AbstractResultActionBackupRestore locations(Object locations) {
     this.locations = locations;
     return this;
   }
@@ -118,12 +117,11 @@ import javax.validation.Valid;
    **/
   @JsonProperty("Locations")
   @Schema(description = "")
-  @Valid
-  public FcoLocation getLocations() {
+  public Object getLocations() {
     return locations;
   }
 
-  public void setLocations(FcoLocation locations) {
+  public void setLocations(Object locations) {
     this.locations = locations;
   }
 
